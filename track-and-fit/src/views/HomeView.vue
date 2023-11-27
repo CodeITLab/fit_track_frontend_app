@@ -1,18 +1,26 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <GoogleLogin :callback="callback">
+      <button>Login Using Google</button>
+    </GoogleLogin>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { defineComponent, onMounted } from 'vue';
+import { GoogleLogin} from 'vue3-google-login';
 
+ 
 export default defineComponent({
   name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+  components: {GoogleLogin},
+  setup (){
+    const callback = (response :any) => {
+  console.log("Handle the response", response)
+  
+  return {callback}
+}
+
+}});
 </script>
