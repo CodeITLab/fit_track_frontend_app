@@ -14,10 +14,10 @@ const routes: Array<RouteRecordRaw> = [
     meta: { roles: ['admin'] },
     beforeEnter: (to, from, next) => {
       const userData = useUserDataStore();
-      if(userData.isAuth) {
+      userData.initData(false);
+      if(userData.user.isAuth) {
         next();
       } else {
-        console.log("You are not authenticated")
         alert("You are not authenticated");
         next('/');
       } 
