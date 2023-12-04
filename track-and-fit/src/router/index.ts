@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useUserDataStore } from '@/store/UserData';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,8 +11,16 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    meta: {
-      requiresAuth: true
+    meta: { roles: ['admin'] },
+    beforeEnter: (to, from, next) => {
+      const userData = useUserDataStore();
+      if(userData.isAuth) {
+        next();
+      } else {
+        console.log("You are not authenticated")
+        alert("You are not authenticated");
+        next('/');
+      } 
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -23,19 +32,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
-
-router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
-
-    const userData = localStorage.getItem('user');
-    const parsedUserData: string = JSON.parse(userData !== null ? userData : "");
-
-    if(!parsedUserData) {
-      next('/');
-    }
-  }
-  next();
 })
 
 export default router

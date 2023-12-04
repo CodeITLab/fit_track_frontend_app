@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    
+    <button @click="$router.push('/dashboard')" >
+      Dashboard
+    </button>
   </div>
 </template>
 
