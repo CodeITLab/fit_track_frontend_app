@@ -8,9 +8,7 @@ export const useUserDataStore = defineStore('user', {
         }
     },
     getters: {
-        init() {
-            
-        } 
+        
     },
     actions: {
         initData(isAuthenthicated: boolean) {

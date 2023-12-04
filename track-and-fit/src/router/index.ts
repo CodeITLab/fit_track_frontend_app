@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { useUserDataStore } from '@/store/UserData';
+import { UserAuthController } from '@/controllers/auth/UserAuthController';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,9 +14,9 @@ const routes: Array<RouteRecordRaw> = [
     name: 'dashboard',
     meta: { roles: ['admin'] },
     beforeEnter: (to, from, next) => {
-      const userData = useUserDataStore();
-      userData.initData(false);
-      if(userData.user.isAuth) {
+    UserAuthController();
+    const userData = useUserDataStore();
+      if(from.path === '/' && userData.user.isAuth) {
         next();
       } else {
         alert("You are not authenticated");
