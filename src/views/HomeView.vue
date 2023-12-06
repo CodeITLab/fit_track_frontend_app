@@ -51,13 +51,3 @@ export default defineComponent({
     </div>
   </div>
 </template>
-
-<style>
-.info-card {
-  width: 500px;
-}
-.btn:hover{
-  color: black !important;
-  background: white;
-}
-</style>
