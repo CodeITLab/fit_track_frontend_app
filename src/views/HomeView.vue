@@ -1,3 +1,19 @@
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+
+export default defineComponent({
+  name: "HomeView",
+  components: {},
+  setup() {
+    const callback = (response: any) => {
+      console.log("Handle the response", response);
+
+      return { callback };
+    };
+  },
+});
+</script>
+
 <template>
   <div class="home d-flex flex-row justify-content-evenly">
     <div
@@ -28,7 +44,7 @@
     </div>
     <div class="logo mt-5">
       <img
-        src="../assets/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
+        src="../assets/logos/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
         height="400"
         alt="logo"
       />
@@ -36,21 +52,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from "vue";
-
-export default defineComponent({
-  name: "HomeView",
-  components: {},
-  setup() {
-    const callback = (response: any) => {
-      console.log("Handle the response", response);
-
-      return { callback };
-    };
-  },
-});
-</script>
 <style>
 .info-card {
   width: 500px;

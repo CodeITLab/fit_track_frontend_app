@@ -1,7 +1,7 @@
 <template>
   <nav class="d-flex flex-row justify-content-between mt-2" >
     <div class="ms-3">
-      <img src="./assets/logo-proto.png" height="35" alt="">
+      <img src="./assets/img/logos/logo-proto.png" height="35" alt="">
     </div>
     <div class=" d-flex justify-content-center rounded-3 border border-dark ">
       <router-link class="links first p-1 text-decoration-none"  to="/">Home</router-link> |
@@ -22,7 +22,7 @@
 
 <style>
 body{
-  background-image: url(./assets/Background3.png);
+  background-image: url(./assets/img/backgrounds/Background3.png);
 }
 .links{
   color: white;
