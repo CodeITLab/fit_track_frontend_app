@@ -44,7 +44,7 @@ export default defineComponent({
     </div>
     <div class="logo mt-5">
       <img
-        src="../assets/logos/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
+        src="../assets/img/logos/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
         height="400"
         alt="logo"
       />
