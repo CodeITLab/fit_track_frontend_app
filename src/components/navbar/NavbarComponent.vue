@@ -21,3 +21,6 @@
     
   </nav>
 </template>
+<style lang="scss" scoped>
+@import "../../assets/css/components/navbar.css";
+</style>
