@@ -2,6 +2,7 @@
 </script>
 
 <template>
+  <div class="container-fluid">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Collapsed content</h5>
@@ -16,7 +17,7 @@
         alt=""
       />
     </div>
-    <div class="d-flex justify-content-center rounded-3 border border-dark-3">
+    <div class=" d-none d-lg-flex d-flex justify-content-center rounded-3 border border-dark-3">
       <router-link class="links first p-1 text-decoration-none" to="/"
         >Home</router-link
       >
@@ -51,6 +52,7 @@
       </button>
     </div>
   </nav>
+</div>
 </template>
 
 <style lang="scss" scoped>
