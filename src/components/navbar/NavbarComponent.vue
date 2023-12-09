@@ -10,10 +10,9 @@
     </div>
   </div>
   <nav class="navbar navbar-dark d-flex flex-row justify-content-between mt-2">
-    <div class="ms-3">
+    <div class="logo ms-3">
       <img
         v-bind:src="require('../../assets/img/logos/logo-proto.png')"
-        height="35"
         alt=""
       />
     </div>

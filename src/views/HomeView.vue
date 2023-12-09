@@ -15,7 +15,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="home d-flex flex-row justify-content-left">
+  <div class="home d-flex flex-row justify-content-left m-3">
     <div
       class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5"
     >
