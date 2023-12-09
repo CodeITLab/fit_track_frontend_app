@@ -1,0 +1,21 @@
+
+  body{
+    background-image: url(../../img/backgrounds/background7.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  .links{
+    color: white;
+  }
+  .links:hover{
+    background: white;
+    color: black;
+  }
+  .last{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius:8px
+  }
+  .first{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius:10px
+  }

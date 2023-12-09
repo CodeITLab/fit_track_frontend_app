@@ -15,7 +15,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="home d-flex flex-row justify-content-evenly">
+  <div class="home d-flex flex-row justify-content-left m-3">
     <div
       class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5"
     >
@@ -41,13 +41,6 @@ export default defineComponent({
       >
         Start Now!
       </button>
-    </div>
-    <div class="logo mt-5">
-      <img
-        src="../assets/img/logos/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
-        height="400"
-        alt="logo"
-      />
     </div>
   </div>
 </template>
