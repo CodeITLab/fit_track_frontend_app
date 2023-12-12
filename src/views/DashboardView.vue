@@ -81,8 +81,17 @@
               <hr />
             </div>
           </div>
-          <div class="content-card bg-transparent d-flex flex-column">
-            <div class="d-flex flex-row justify-content-center">
+          <div class="content-card bg-transparent d-flex flex-column  align-items-center mt-1">
+            <div class="heading-dashboard d-flex flex-row justify-content-between w-100 mt-2">
+              <h5 class="text-white">Dashboard</h5>
+              <h6 class="text-white">John Doe <img class="ms-1" src="../assets/img/logos/avatar.png" height="40" alt=""></h6>
+            </div>
+            <div class="add-day d-flex flex-row justify-content-center border border-dark-3 align-items-center text-center mb-3">
+              <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
+              <button type="button" class="plus-btn hover-none p-1"><img src="../assets/img/logos/add-icon.png" height="40px" alt=""></button>
+            </div>
+            
+            <!-- <div class="d-flex flex-row justify-content-center">
               <div class="day-card d-flex m-2 justify-content-center">Mon</div>
               <div class="day-card d-flex m-2 justify-content-center">Tue</div>
               <div class="day-card d-flex m-2 justify-content-center">Wed</div>
@@ -90,12 +99,12 @@
               <div class="day-card d-flex m-2 justify-content-center">Fri</div>
               <div class="day-card d-flex m-2 justify-content-center">Sat</div>
               <div class="day-card d-flex m-2 justify-content-center">Sun</div>
-            </div>
+            </div> -->
             <div
               class="dashboard-content d-flex flex-row justify-content-center"
             >
-              <div class="analitics opacity-25 border-2 border-dark me-1 mb-2 text-center">Analitics</div>
-              <div class="analitics opacity-25 border-2 border-dark ms-1 mb-2 text-center">Progress</div>
+              <div class="analitics opacity-25 border-2 border-dark me-1 mb-2 text-center">Analytics </div>
+              <div class="progress opacity-25 border-2 border-dark ms-3 mb-2 text-center">Progress</div>
             </div>
             <!-- <div
               class="tables d-flex justify-content-center align-items-center"
