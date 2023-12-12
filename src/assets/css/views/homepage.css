@@ -1,8 +1,11 @@
 
-  body{
+  .home{
     background-image: url(../../img/backgrounds/background7.png);
     background-repeat: no-repeat;
     background-size: auto;
+    display: flex;
+    min-height: 580px;
+    min-width: 100%;
   }
   .links{
     color: white;

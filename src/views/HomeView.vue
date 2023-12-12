@@ -1,9 +1,10 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
+import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: {},
+  components: {NavbarComponent},
   setup() {
     const callback = (response: any) => {
       console.log("Handle the response", response);
@@ -15,7 +16,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="home d-flex flex-row justify-content-left m-3">
+  <div class="home d-flex flex-column  justify-content-left">
+   <NavbarComponent/>
     <div
       class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5"
     >
@@ -44,3 +46,6 @@ export default defineComponent({
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+@import "../assets/css/views/homepage.css";
+</style>
