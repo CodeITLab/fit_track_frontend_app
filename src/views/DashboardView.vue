@@ -89,8 +89,7 @@
             <div class="add-day d-flex flex-row justify-content-center border border-dark-3 align-items-center text-center mb-3">
               <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
               <button type="button" class="plus-btn hover-none p-1"><img src="../assets/img/logos/add-icon.png" height="40px" alt=""></button>
-            </div>
-            
+            </div>          
             <!-- <div class="d-flex flex-row justify-content-center">
               <div class="day-card d-flex m-2 justify-content-center">Mon</div>
               <div class="day-card d-flex m-2 justify-content-center">Tue</div>
@@ -167,6 +166,15 @@
     </div>
   </nav>
 </template>
+<script lang="ts" >
+import { defineComponent} from "vue";
+export default defineComponent({
+  name:"DashboardView",
+  components: {}
+})
+
+
+</script>
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>

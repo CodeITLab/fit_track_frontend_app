@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent} from "vue";
 import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 
 export default defineComponent({
