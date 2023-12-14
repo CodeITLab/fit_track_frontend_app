@@ -6,6 +6,7 @@ export default defineComponent({
   name: "HomeView",
   components: {NavbarComponent},
   setup() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const callback = (response: any) => {
       console.log("Handle the response", response);
 
