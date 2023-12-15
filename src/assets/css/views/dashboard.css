@@ -4,12 +4,10 @@
     justify-content: center;
 }
 
-.dash-nav{
-    background-image: url(../../img/backgrounds/Background3.png);
-    background-repeat: no-repeat;
-    background-size: auto;
+.navbar-items{
+    width: 60px;
 }
-.day-card{
+/* .day-card{
     background-color: rgb(57, 3, 71);
     height: 80px;
     width: 150px;
@@ -33,7 +31,7 @@
     height: 430px !important;
     border-radius: 10px;
     color:rgb(250, 249, 249);
-}
+} */
 .table{
     width: 1020px !important;
     align-content:center;
@@ -43,9 +41,22 @@
 }
 .add-day{
     border-radius: 20px;
+    width: 250px;
 }
 .plus-btn{
 background: none;
 border: none;
 box-shadow: none;
+}
+
+.dashboard-wrapper{
+    background-image: url(../../img/backgrounds/Background3.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    
+    height: 100%;
+    width: 100%;
+}
+.content-card{
+    width: 100%;
 }
