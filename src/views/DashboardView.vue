@@ -109,8 +109,8 @@
               >
                 <img
                   src="../assets/img/logos/add-icon.png"
-                  height="40px"
-                  alt=""
+                  height="40"
+                  alt="add-button"
                 />
               </button>
               <DayCard
