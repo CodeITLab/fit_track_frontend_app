@@ -81,99 +81,88 @@
               <hr />
             </div>
           </div>
-          <div class="content-card bg-transparent d-flex flex-column  align-items-center mt-1">
-            <div class="heading-dashboard d-flex flex-row justify-content-between w-100 mt-2">
+          <div
+            class="content-card bg-transparent d-flex flex-column align-items-center mt-1"
+          >
+            <div
+              class="heading-dashboard d-flex flex-row justify-content-between w-100 mt-2"
+            >
               <h5 class="text-white">Dashboard</h5>
-              <h6 class="text-white">John Doe <img class="ms-1" src="../assets/img/logos/avatar.png" height="40" alt=""></h6>
+              <h6 class="text-white">
+                John Doe
+                <img
+                  class="ms-1"
+                  src="../assets/img/logos/avatar.png"
+                  height="40"
+                  alt=""
+                />
+              </h6>
             </div>
-            <div class="add-day d-flex flex-row justify-content-center border border-dark-3 align-items-center text-center mb-3">
+            <div
+              class="add-day d-flex flex-row justify-content-center border border-dark-3 align-items-center text-center mb-3"
+            >
               <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
-              <button type="button" class="plus-btn hover-none p-1"><img src="../assets/img/logos/add-icon.png" height="40px" alt=""></button>
-            </div>          
-            <!-- <div class="d-flex flex-row justify-content-center">
-              <div class="day-card d-flex m-2 justify-content-center">Mon</div>
-              <div class="day-card d-flex m-2 justify-content-center">Tue</div>
-              <div class="day-card d-flex m-2 justify-content-center">Wed</div>
-              <div class="day-card d-flex m-2 justify-content-center">Thu</div>
-              <div class="day-card d-flex m-2 justify-content-center">Fri</div>
-              <div class="day-card d-flex m-2 justify-content-center">Sat</div>
-              <div class="day-card d-flex m-2 justify-content-center">Sun</div>
-            </div> -->
+              <button
+                type="button"
+                class="plus-btn hover-none p-1"
+                @click="openModal"
+              >
+                <img
+                  src="../assets/img/logos/add-icon.png"
+                  height="40px"
+                  alt=""
+                />
+              </button>
+              <DayCard
+                :isOpen="isModalOpened"
+                @modal-close="closeModal"
+                @submit="submitHandler"
+                name="first-modal"
+              />
+            </div>
             <div
               class="dashboard-content d-flex flex-row justify-content-center"
             >
-              <div class="analitics opacity-25 border-2 border-dark me-1 mb-2 text-center">Analytics </div>
-              <div class="progress opacity-25 border-2 border-dark ms-3 mb-2 text-center">Progress</div>
+              <div
+                class="analitics opacity-25 border-2 border-dark me-1 mb-2 text-center"
+              >
+                Analytics
+              </div>
+              <div
+                class="progress opacity-25 border-2 border-dark ms-3 mb-2 text-center"
+              >
+                Progress
+              </div>
             </div>
-            <!-- <div
-              class="tables d-flex justify-content-center align-items-center"
-            >
-              <table class="table table-dark table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Exercises</th>
-                    <th scope="col">Repetitions</th>
-                    <th scope="col">Remove Exercise</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Push-ups</td>
-                    <td>4</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="text-black rounded-pill border border-dark-3 mb-3 btn-block"
-                      >
-                        Delite
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Planks</td>
-                    <td>5</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="text-black rounded-pill border border-dark-3 mb-3 btn-block"
-                      >
-                        Delite
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Pull-ups</td>
-                    <td>6</td>
-                    <td>
-                      <button
-                        type="button"
-                        class="text-black rounded-pill border border-dark-3 mb-3 btn-block"
-                      >
-                        Delite
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
   </nav>
 </template>
-<script lang="ts" >
-import { defineComponent} from "vue";
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import DayCard from "../components/day-card-component/DayCard.vue";
 export default defineComponent({
-  name:"DashboardView",
-  components: {}
-})
+  name: "DashboardView",
+  components: { DayCard },
+  setup() {
+    const isModalOpened = ref(false);
 
+    const openModal = () => {
+      isModalOpened.value = true;
+    };
+    const closeModal = () => {
+      isModalOpened.value = false;
+    };
 
+    const submitHandler = () => {
+      //here you do whatever
+    };
+    return { openModal, closeModal, submitHandler, isModalOpened };
+  },
+});
 </script>
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
