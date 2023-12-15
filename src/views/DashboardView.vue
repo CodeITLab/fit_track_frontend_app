@@ -105,7 +105,6 @@
               <button
                 type="button"
                 class="plus-btn hover-none p-1"
-                @click="openModal"
               >
                 <img
                   src="../assets/img/logos/add-icon.png"
@@ -113,26 +112,13 @@
                   alt="add-button"
                 />
               </button>
-              <DayCard
-                :isOpen="isModalOpened"
-                @modal-close="closeModal"
-                @submit="submitHandler"
-                name="first-modal"
-              />
+              
             </div>
             <div
               class="dashboard-content d-flex flex-row justify-content-center"
             >
-              <div
-                class="analitics opacity-25 border-2 border-dark me-1 mb-2 text-center"
-              >
-                Analytics
-              </div>
-              <div
-                class="progress opacity-25 border-2 border-dark ms-3 mb-2 text-center"
-              >
-                Progress
-              </div>
+             <AnalyticsCard/>
+             <ProgressCard/>
             </div>
           </div>
         </div>
@@ -142,26 +128,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import DayCard from "../components/day-card-component/DayCard.vue";
+import AnalyticsCard from "../components/analytics-component/AnalyticsCard.vue"
+import ProgressCard from "../components/progress-component/ProgressCard.vue"
+import { defineComponent} from "vue";
+
+
 export default defineComponent({
   name: "DashboardView",
-  components: { DayCard },
-  setup() {
-    const isModalOpened = ref(false);
-
-    const openModal = () => {
-      isModalOpened.value = true;
-    };
-    const closeModal = () => {
-      isModalOpened.value = false;
-    };
-
-    const submitHandler = () => {
-      //here you do whatever
-    };
-    return { openModal, closeModal, submitHandler, isModalOpened };
-  },
+  components: {AnalyticsCard, ProgressCard},
+  
 });
 </script>
 <style lang="scss" scoped>
