@@ -1,20 +1,11 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent,} from "vue";
 export default defineComponent({
   name: "DayCard",
 });
 </script>
+
 <template>
-  <!-- <div class="d-flex justity-content-centar align-items-center ms-2">
-    <b-button v-b-modal.modal-1><img
-            src="../../assets/img/logos/add-icon.png"
-            height="40"
-            alt="add-button"
-          /></b-button>
-    <b-modal id="modal-1" title="StartExercise">
-      <p class="my-4"></p>
-    </b-modal>
-  </div> -->
   <button
     type="button"
     class="plus-btn"
@@ -39,7 +30,7 @@ export default defineComponent({
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Start Your Planing</h5>
           <button
             type="button"
             class="close"
