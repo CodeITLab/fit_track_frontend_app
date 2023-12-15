@@ -32,17 +32,20 @@
     border-radius: 10px;
     color:rgb(250, 249, 249);
 } */
-.table{
+/* .table{
     width: 1020px !important;
     align-content:center;
 }
 .tables{
     border-radius: 10px;
 }
+*/
+
 .add-day{
     border-radius: 20px;
     width: 250px;
-}
+    height: 100px;
+} 
 .plus-btn{
 background: none;
 border: none;

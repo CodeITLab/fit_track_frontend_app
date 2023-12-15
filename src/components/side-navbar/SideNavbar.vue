@@ -1,3 +1,9 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "SideNavbar",
+});
+</script>
 <template>
   <nav class="dash-nav">
     <div class="dashboard">
@@ -86,14 +92,3 @@
     </div>
   </nav>
 </template>
-
-<script lang="ts">
-import { defineComponent} from "vue";
-export default defineComponent ({
-name:"SideNavbar",
-})
-</script>
-
-<style>
-
-</style>
