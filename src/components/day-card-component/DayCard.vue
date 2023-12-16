@@ -2,10 +2,6 @@
 import { defineComponent,} from "vue";
 export default defineComponent({
   name: "DayCard",
-  // props: {
-  //   visible: Boolean,
-  //   variant:String,
-  // },
   data() {
         return {
             modalShow: false
