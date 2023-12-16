@@ -5,13 +5,9 @@ import { defineComponent } from "vue";
 import SideNavbar from "@/components/side-navbar/SideNavbar.vue";
 import DayCard from "../components/day-card-component/DayCard.vue";
 
-
 export default defineComponent({
   name: "DashboardView",
-  components: { SideNavbar,DayCard },
-  props: {
-    visible: Boolean,
-  },
+  components: { SideNavbar, DayCard },
 });
 </script>
 <template>
