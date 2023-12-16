@@ -20,7 +20,7 @@ export default defineComponent({
   <div class="home d-flex flex-column  justify-content-left">
    <NavbarComponent/>
     <div
-      class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5"
+      class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5 ms-5"
     >
       <h1 class="text-white display-5">
         Get fit,<br />

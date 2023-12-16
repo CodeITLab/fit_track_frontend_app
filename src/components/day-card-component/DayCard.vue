@@ -1,12 +1,47 @@
 <script lang="ts">
+import { BButton, BModal, VBModal } from "bootstrap-vue";
 import { defineComponent,} from "vue";
 export default defineComponent({
   name: "DayCard",
+  // props: {
+  //   visible: Boolean,
+  //   variant:String,
+  // },
+  data() {
+        return {
+            modalShow: false
+        }
+    },
+    methods: {
+        open(){
+             this.modalShow = true;
+        },
+        close(){
+             this.modalShow = false;
+        }
+    }
+  // data(){
+  //   return{
+  //      OpenClose: this.visible
+  //   }
+  // },
+  // methods:{
+  //       OpenCloseFun(){
+  //          this.OpenClose=false;
+  //       },
+  // },
+  // watch: { 
+  //     visible: function(newVal, oldVal) { // watch it
+  //       this.OpenClose =newVal;
+  //       console.log('new' +newVal+ '==' +oldVal)
+  //     }
+  //   }
 });
 </script>
 
 <template>
   <button
+  @click="open()"
     type="button"
     class="plus-btn"
     data-toggle="modal"
@@ -19,8 +54,8 @@ export default defineComponent({
     />
   </button>
 
-  <div
-    class="modal fade"
+  <div v-if="modalShow"
+    class="modal fade show d-flex justify-content-center align-items-center"
     id="exampleModal"
     tabindex="-1"
     role="dialog"
@@ -29,20 +64,19 @@ export default defineComponent({
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header d-flex justify-content-center">
           <h5 class="modal-title" id="exampleModalLabel">Start Your Planing</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
-        <div class="modal-body">...</div>
+        <div class="modal-body d-flex flex-column">
+          <form action="">
+            <input class="m-1" type="text" placeholder="">
+            <input class="m-1" type="text" placeholder="">
+            <input class="m-1" type="text" placeholder="">
+            <input class="m-1" type="text" placeholder="">
+          </form>
+        </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <button @click="close()" type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
           <button type="button" class="btn btn-primary">Save changes</button>

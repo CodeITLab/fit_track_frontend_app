@@ -9,6 +9,9 @@ import DayCard from "../components/day-card-component/DayCard.vue";
 export default defineComponent({
   name: "DashboardView",
   components: { SideNavbar,DayCard },
+  props: {
+    visible: Boolean,
+  },
 });
 </script>
 <template>

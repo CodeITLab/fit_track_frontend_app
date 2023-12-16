@@ -63,3 +63,8 @@ box-shadow: none;
 .content-card{
     width: 100%;
 }
+
+.modal-body{
+    width: 350px;
+
+}
