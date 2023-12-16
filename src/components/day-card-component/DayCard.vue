@@ -1,5 +1,4 @@
 <script lang="ts">
-import { BButton, BModal, VBModal } from "bootstrap-vue";
 import { defineComponent,} from "vue";
 export default defineComponent({
   name: "DayCard",
@@ -20,22 +19,6 @@ export default defineComponent({
              this.modalShow = false;
         }
     }
-  // data(){
-  //   return{
-  //      OpenClose: this.visible
-  //   }
-  // },
-  // methods:{
-  //       OpenCloseFun(){
-  //          this.OpenClose=false;
-  //       },
-  // },
-  // watch: { 
-  //     visible: function(newVal, oldVal) { // watch it
-  //       this.OpenClose =newVal;
-  //       console.log('new' +newVal+ '==' +oldVal)
-  //     }
-  //   }
 });
 </script>
 
