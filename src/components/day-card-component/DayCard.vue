@@ -74,14 +74,15 @@ export default defineComponent({
               <div
                 class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
               >
-                <div
-                  class="d-flex justify-content-center align-items-center text-center me-2"
+               
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
+                  <div
+                  class="d-flex justify-content-center align-items-center text-center m-2"
                 >
                   <p class="m-0 text-center">0</p>
                 </div>
-                <div class="d-flex flex-column">
-                  <p class="border-0 btn m-0 p-0">+</p>
-                  <p class="border-0 btn mb-1 p-0">-</p>
+                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                 </div>
               </div>
             </div>
@@ -90,14 +91,15 @@ export default defineComponent({
               <div
                 class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
               >
-                <div
-                  class="d-flex justify-content-center align-items-center text-center me-2"
+               
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
+                  <div
+                  class="d-flex justify-content-center align-items-center text-center m-2"
                 >
                   <p class="m-0 text-center">0</p>
                 </div>
-                <div class="d-flex flex-column">
-                  <p class="border-0 btn m-0 p-0">+</p>
-                  <p class="border-0 btn mb-1 p-0">-</p>
+                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                 </div>
               </div>
             </div>
@@ -106,14 +108,15 @@ export default defineComponent({
               <div
                 class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
               >
-                <div
-                  class="d-flex justify-content-center align-items-center text-center me-2"
+               
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
+                  <div
+                  class="d-flex justify-content-center align-items-center text-center m-2"
                 >
                   <p class="m-0 text-center">0</p>
                 </div>
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <button class="border-0  m-0 p-0">+</button>
-                  <button class="border-0  mb-1 p-0">-</button>
+                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                 </div>
               </div>
             </div>
