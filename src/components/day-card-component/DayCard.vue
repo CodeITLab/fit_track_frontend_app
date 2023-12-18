@@ -49,6 +49,7 @@ export default defineComponent({
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
   >
+  <!-- //---modal------------------------------------------------------------------------------------------ -->
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-center">
@@ -65,63 +66,92 @@ export default defineComponent({
           >
             Add
           </button>
+<!-- //--------------------------input fields------------------------------------------------------------ -->
           <div
             v-if="showInputField"
             class="d-flex flex-column justify-content-center align-items-center"
           >
-          <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
               <input class="m-1" type="text" />
               <div
-                class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
+                class="counter d-flex flex-row justify-content-center align-items-center bg-primary rounded"
               >
-               
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
-                  <div
-                  class="d-flex justify-content-center align-items-center text-center m-2"
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center"
                 >
-                  <p class="m-0 text-center">0</p>
-                </div>
-                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                  <button
+                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                  >
+                    +
+                  </button>
+                  <div
+                    class="d-flex justify-content-center align-items-center text-center m-2"
+                  >
+                    <p class="m-0 text-center">0</p>
+                  </div>
+                  <button
+                    class="counter-button border-0 bg-transparent me-1 p-0"
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             </div>
             <div class="d-flex justify-content-center align-items-center">
               <input class="m-1" type="text" />
               <div
-                class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
+                class="counter d-flex flex-row justify-content-center align-items-center bg-primary rounded"
               >
-               
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
-                  <div
-                  class="d-flex justify-content-center align-items-center text-center m-2"
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center "
                 >
-                  <p class="m-0 text-center">0</p>
-                </div>
-                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                  <button
+                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                  >
+                    +
+                  </button>
+                  <div
+                    class="d-flex justify-content-center align-items-center text-center m-2"
+                  >
+                    <p class="m-0 text-center">0</p>
+                  </div>
+                  <button
+                    class="counter-button border-0 bg-transparent me-1 p-0"
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             </div>
             <div class="d-flex justify-content-center align-items-center">
               <input class="m-1" type="text" />
               <div
-                class="counter d-flex flex-row justify-content-center align-items-center bg-primary"
+                class="counter d-flex flex-row justify-content-center align-items-center bg-primary rounded"
               >
-               
-                <div class="d-flex flex-row justify-content-center align-items-center">
-                  <button class="counter-button border-0 bg-transparent ms-1  p-0">+</button>
-                  <div
-                  class="d-flex justify-content-center align-items-center text-center m-2"
+                <div
+                  class="d-flex flex-row justify-content-center align-items-center"
                 >
-                  <p class="m-0 text-center">0</p>
-                </div>
-                  <button class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                  <button
+                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                  >
+                    +
+                  </button>
+                  <div
+                    class="d-flex  justify-content-center align-items-center text-center m-2"
+                  >
+                    <p class="m-0 text-center">0</p>
+                  </div>
+                  <button
+                    class="counter-button border-0 bg-transparent me-1 p-0"
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
-          </div>
+            <button class="btn btn-primary w-40 align-self-center mt-2">Add Exercise</button>
+          </div>        
+        </div>
         <div
           class="modal-footer d-flex justify-content-center align-items-center"
         >

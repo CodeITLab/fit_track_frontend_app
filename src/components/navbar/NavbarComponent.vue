@@ -37,7 +37,7 @@
         >Our Work</router-link
       >
     </div>
-    <div class="me-3">
+    <div class="me-3 d-lg-none">
       <button
         class="navbar-toggler navbar-light"
         type="button"
