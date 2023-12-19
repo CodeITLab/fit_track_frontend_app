@@ -1,7 +1,3 @@
-.info-card {
-  width: 500px;
-}
-
 .btn:hover {
   color: black !important;
   background: white !important;
@@ -15,7 +11,16 @@
   color: white !important;
 }
 
-@media only screen and (max-width: 320px) {
+/* Navbar Toggler */
+
+
+
+@media only screen and (max-width: 768px) {
+
+  #main-menu {
+    margin-top: 5%;
+  }
+
   .logo img {
     height: 27px;
   }

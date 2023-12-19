@@ -1,10 +1,10 @@
 <script lang="ts">
-import { defineComponent} from "vue";
+import { defineComponent } from "vue";
 import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: {NavbarComponent},
+  components: { NavbarComponent },
   setup() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const callback = (response: any) => {
@@ -18,11 +18,9 @@ export default defineComponent({
 
 <template>
   <div class="home d-flex flex-column  justify-content-left">
-   <NavbarComponent/>
-    <div
-      class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5 ms-5"
-    >
-      <h1 class="text-white display-5">
+    <NavbarComponent />
+    <div class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5">
+      <h1 class="text-white display-5 ">
         Get fit,<br />
         Get strong,<br />
         Get healthy!
@@ -32,16 +30,10 @@ export default defineComponent({
         well-defined 6-pack abs – our fitness app offers full body workout plans
         with many 3D exercises for free to help you achieve your body goals.
       </p>
-      <button
-        class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
-        type="button"
-      >
+      <button class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4" type="button">
         Join Us!
       </button>
-      <button
-        class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
-        type="button"
-      >
+      <button class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4" type="button">
         Start Now!
       </button>
     </div>
