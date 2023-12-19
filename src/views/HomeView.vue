@@ -4,17 +4,7 @@ import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: { NavbarComponent },
-  setup()
-  {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const callback = (response: any) =>
-    {
-      console.log("Handle the response", response);
-
-      return { callback };
-    };
-  },
+  components: { NavbarComponent }
 });
 </script>
 
