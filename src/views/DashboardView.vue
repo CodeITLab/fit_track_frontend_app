@@ -16,8 +16,8 @@ export default defineComponent({
 <template>
   <div class="dashboard-wrapper">
     <DashboardTopNavbarComponent />
-    <SideNavbarComponent />
-    <CreateWorkoutComponent />
+    <SideNavbarComponent/>
+    <CreateWorkoutComponent/>
   </div>
 </template>
 <style lang="scss" scoped>

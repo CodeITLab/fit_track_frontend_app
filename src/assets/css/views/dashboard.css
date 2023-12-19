@@ -2,11 +2,14 @@
     background: transparent;
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .navbar-items{
     width: 60px;
 }
+
+
 /* .day-card{
     background-color: rgb(57, 3, 71);
     height: 80px;
@@ -51,14 +54,16 @@ background: none;
 border: none;
 box-shadow: none;
 }
-
-.dashboard-wrapper{
+.dashboard{
     background-image: url(../../img/backgrounds/Background3.png);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     
     height: 100%;
     width: 100%;
+}
+.dashboard-wrapper{
+   
 }
 
 .content-card{

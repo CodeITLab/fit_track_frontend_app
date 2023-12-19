@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex justify-content-center align-items-center bg-none">
     <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     <button @click="open()" type="button" class="plus-btn" data-toggle="modal" data-target="#exampleModal">
       <img src="../../assets/img/logos/add-icon.png" height="40" alt="add-button" />
