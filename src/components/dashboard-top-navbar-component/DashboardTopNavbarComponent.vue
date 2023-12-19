@@ -5,7 +5,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="content-card bg-transparent d-flex flex-column justify-content-between">
+    <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
         <div class="heading-dashboard d-flex flex-row justify-content-between me-5 ms-5 mt-3">
             <h5 class="text-white">Dashboard</h5>
             <h6 class="text-white">
