@@ -32,4 +32,20 @@
   .logo img {
     height: 27px;
   }
+<<<<<<< HEAD
 }
+=======
+  .logo img{
+    height: 35px;
+  }
+  
+  @media only screen and (max-width: 320px) {
+    .logo img {
+      height:27px;
+    }
+    .info-card{
+      width: 100%;
+    }
+  }
+  
+>>>>>>> origin/modal_popup_design
