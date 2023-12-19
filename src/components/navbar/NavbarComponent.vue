@@ -10,7 +10,11 @@
         aria-controls="main-menu" 
         aria-expanded="false" 
         aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <div class="main-menu-toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
       </button>
       <div class="collapse navbar-collapse" id="main-menu">
         <div class="logo ms-3">

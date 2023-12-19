@@ -13,6 +13,14 @@
 
 /* Navbar Toggler */
 
+.main-menu-toggler span {
+  display: block;
+  background-color: whitesmoke;
+  width: 25px;
+  height: 2px;
+  margin: 3px;
+}
+
 
 
 @media only screen and (max-width: 768px) {
