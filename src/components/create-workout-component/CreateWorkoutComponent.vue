@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="d-flex justify-content-center align-items-center bg-none">
+  <div class="d-flex justify-content-center align-items-center workout-modal">
     <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     <button @click="open()" type="button" class="plus-btn" data-toggle="modal" data-target="#exampleModal">
       <img src="../../assets/img/logos/add-icon.png" height="40" alt="add-button" />
@@ -117,3 +117,7 @@ export default defineComponent({
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import "../../assets/css/components/create-workout-component.css";
+</style>

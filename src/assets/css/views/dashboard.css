@@ -9,6 +9,23 @@
     width: 60px;
 }
 
+<<<<<<< HEAD
+=======
+.dash-nav {
+    width: fit-content;
+    height: 100%;
+}
+
+.workout-modal {
+    width: fit-content;
+}
+
+.dashboard-wrapper>.workout-modal {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+>>>>>>> origin/dashboard-redesign
 
 /* .day-card{
     background-color: rgb(57, 3, 71);

@@ -8,7 +8,7 @@ export default defineComponent({
   <nav class="dash-nav">
     <div class="dashboard">
       <div class="container-fluid">
-        <div class="navbar-items d-flex flex-row">
+        <div class="navbar-items d-flex flex-row justify-content-center">
           <div class="d-flex bg-transparent px-sm-2 px-0">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
               <img src="../../assets/img/logos/fitness-logo-and-gym-icon-design-illustrationicon-free-vector.png"
@@ -54,3 +54,7 @@ export default defineComponent({
     </div>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+@import "../../assets/css/components/side-dash-nav.css";
+</style>
