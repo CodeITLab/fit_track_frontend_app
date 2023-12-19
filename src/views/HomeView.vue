@@ -5,9 +5,11 @@ import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 export default defineComponent({
   name: "HomeView",
   components: { NavbarComponent },
-  setup() {
+  setup()
+  {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const callback = (response: any) => {
+    const callback = (response: any) =>
+    {
       console.log("Handle the response", response);
 
       return { callback };
@@ -18,17 +20,9 @@ export default defineComponent({
 
 <template>
   <div class="home d-flex flex-column  justify-content-left">
-<<<<<<< HEAD
     <NavbarComponent />
     <div class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5">
       <h1 class="text-white display-5 ">
-=======
-   <NavbarComponent/>
-    <div
-      class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5"
-    >
-      <h1 class="text-white display-5">
->>>>>>> origin/modal_popup_design
         Get fit,<br />
         Get strong,<br />
         Get healthy!
