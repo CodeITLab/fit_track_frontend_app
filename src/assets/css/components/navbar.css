@@ -1,16 +1,22 @@
 .info-card {
-    width: 500px;
+  width: 500px;
+}
+
+.btn:hover {
+  color: black !important;
+  background: white !important;
+}
+
+.logo img {
+  height: 35px;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+@media only screen and (max-width: 320px) {
+  .logo img {
+    height: 27px;
   }
-  .btn:hover{
-    color: black !important;
-    background: white !important;
-  }
-  .logo img{
-    height: 35px;
-  }
-  
-  @media only screen and (max-width: 320px) {
-    .logo img {
-      height:27px;
-    }
-  }
+}
