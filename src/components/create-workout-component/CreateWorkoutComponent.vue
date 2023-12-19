@@ -6,7 +6,7 @@ export default defineComponent({
   {
     return {
       modalShow: false,
-      showInputField: false,
+      showInputField: false
     };
   },
   methods: {
@@ -25,8 +25,8 @@ export default defineComponent({
     closeInputField()
     {
       this.showInputField = false;
-    },
-  },
+    }
+  }
 });
 </script>
 

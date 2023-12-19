@@ -1,11 +1,14 @@
 <script lang="ts">
+
 import { defineComponent } from "vue";
 
 import MainMenuComponent from "@/components/main-menu-component/MainMenuComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: { MainMenuComponent }
+  components: {
+    MainMenuComponent
+  }
 });
 </script>
 

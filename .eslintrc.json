@@ -1,5 +1,8 @@
 {
-  "parser": "@typescript-eslint/parser",
+  "parser": "vue-eslint-parser",
+  "parserOptions": { 
+      "parser": "@typescript-eslint/parser" 
+  },
   "plugins": [
     "@typescript-eslint"
   ],
@@ -17,15 +20,15 @@
     "no-unused-vars":"error",
     "keyword-spacing":"error",
     "space-before-blocks":"error",
-    "comma-dangle":"error",
+    "comma-dangle":"warn",
     "arrow-parens": [
       "error",
       "always"
     ],
     "linebreak-style": 0,
     "indent": [
-      "error",
-      2
+      "warn",
+      4  
     ],
     "object-curly-newline": [
       "error", {
