@@ -34,5 +34,5 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/css/components/navbar.css";
+@import "../../assets/css/components/main-menu.css";
 </style>

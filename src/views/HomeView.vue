@@ -1,16 +1,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
+
+import MainMenuComponent from "@/components/main-menu-component/MainMenuComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: { NavbarComponent }
+  components: { MainMenuComponent }
 });
 </script>
 
 <template>
   <div class="home d-flex flex-column  justify-content-left">
-    <NavbarComponent />
+    <MainMenuComponent />
     <div class="info-card d-flex flex-column justify-content-center align-items-center text-center mt-5">
       <h1 class="text-white display-5 ">
         Get fit,<br />
