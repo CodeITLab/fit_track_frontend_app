@@ -1,16 +1,45 @@
-.info-card {
-    width: 500px;
+.btn:hover {
+  color: black !important;
+  background: white !important;
+}
+
+.logo img {
+  height: 35px;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+/* Navbar Toggler */
+
+.main-menu-toggler span {
+  display: block;
+  background-color: whitesmoke;
+  width: 25px;
+  height: 2px;
+  margin: 3px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  #main-menu {
+    margin-top: 5%;
   }
-  .btn:hover{
-    color: black !important;
-    background: white !important;
-  }
+
   .logo img{
     height: 35px;
   }
+
+}
   
   @media only screen and (max-width: 320px) {
     .logo img {
       height:27px;
+    }
+    .info-card{
+      width: 100%;
     }
   }

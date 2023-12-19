@@ -1,0 +1,38 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "unused-imports",
+    "@typescript-eslint"
+  ],
+  "globals": {
+    "document": true
+  },
+  "ignorePatterns":[
+
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error"
+    ],
+    "no-unused-vars":"error",
+    "keyword-spacing":"error",
+    "space-before-blocks":"error",
+    "comma-dangle":"error",
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "linebreak-style": 0,
+    "indent": [
+      "error",
+      2
+    ],
+    "object-curly-newline": [
+      "error", {
+        "ObjectExpression": "always",
+        "ObjectPattern": { "multiline": true }
+      }
+    ]
+  }
+}

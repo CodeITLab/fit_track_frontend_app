@@ -60,6 +60,7 @@ box-shadow: none;
     height: 100%;
     width: 100%;
 }
+
 .content-card{
     width: 100%;
 }
@@ -68,3 +69,8 @@ box-shadow: none;
     width: 350px;
 
 }
+
+.counter{
+    height: 28px;
+}
+
