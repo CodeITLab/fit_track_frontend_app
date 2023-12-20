@@ -1,30 +1,34 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import {useWorkoutDataStore} from  "../store/WorkoutData"
+import { useWorkoutDataStore } from "../store/WorkoutData"
 import SideNavbarComponent from "@/components/side-navbar-component/SideNavbarComponent.vue";
-import CreateWorkoutComponent from "../components/create-workout-component/CreateWorkoutComponent.vue";
+import CreateWorkoutModal from "@/components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue"
 import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
 import DayCardComponent from "@/components/day-card-component/DayCardComponent.vue";
+import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue"
+
 export default defineComponent({
   name: "DashboardView",
   components: {
     SideNavbarComponent,
-    CreateWorkoutComponent,
+    CreateWorkoutButton,
+    CreateWorkoutModal,
     DashboardTopNavbarComponent,
     DayCardComponent
   },
   methods: {
-    displayWorkoutCardComponent():boolean{
+    displayWorkoutCardComponent(): boolean {
       const store = useWorkoutDataStore()
-      if(store.workouts.workoutName){
+      if (store.workouts.workoutName) {
         return true
-      }else{
+      } else {
         return false
       }
     }
   }
 });
 </script>
+
 <template>
   <div class="dashboard-wrapper">
     <aside>
@@ -32,11 +36,13 @@ export default defineComponent({
     </aside>
     <main>
       <DashboardTopNavbarComponent />
-      <CreateWorkoutComponent />
-      <DayCardComponent v-if="displayWorkoutCardComponent()"/>
+      <CreateWorkoutButton />
+      <CreateWorkoutModal />
+      <DayCardComponent v-if="displayWorkoutCardComponent()" />
     </main>
   </div>
 </template>
+
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>
