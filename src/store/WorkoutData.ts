@@ -1,18 +1,18 @@
-import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { defineStore } from "pinia";
 
-export const useUserDataStore = defineStore('workout', {
+export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
         return {
-            user: {
-                
-            } as IWorkoutModel
+            isSaved: false
         }
     },
     getters: {
         
     },
     actions: {
-       
+        createWorkout(isWorkoutSaved:boolean) {
+            this.isSaved = isWorkoutSaved
+            console.log(this.isSaved)
+        }
     }
 })
