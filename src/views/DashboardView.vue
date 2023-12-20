@@ -15,10 +15,13 @@ export default defineComponent({
 </script>
 <template>
   <div class="dashboard-wrapper">
-    <DashboardTopNavbarComponent />
-    <SideNavbarComponent />
-
-    <CreateWorkoutComponent />
+    <aside>
+      <SideNavbarComponent />
+    </aside>
+    <main>
+      <DashboardTopNavbarComponent />
+      <CreateWorkoutComponent />
+    </main>
   </div>
 </template>
 <style lang="scss" scoped>
