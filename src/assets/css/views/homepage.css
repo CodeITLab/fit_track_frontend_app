@@ -1,43 +1,48 @@
-body, html{
+html,
+body {
   height: 100%;
 }
-#app{
+
+#app {
   height: 100%;
 }
-  .home{
-    background-image: url(../../img/backgrounds/Background4.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    height: 100%;
-    /* min-height: 100%;
-    min-width: 100%; */
-  }
-  .links{
-    color: white;
-  }
-  .links:hover{
-    background: white;
-    color: black;
-  }
-  .last{
+
+.home {
+  background-image: url(../../img/backgrounds/Background4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+}
+
+.links {
+  color: white;
+}
+
+.links:hover {
+  background: white;
+  color: black;
+}
+
+.last {
   border-top-right-radius: 8px;
-  border-bottom-right-radius:8px
-  }
-  .first{
+  border-bottom-right-radius: 8px
+}
+
+.first {
   border-top-left-radius: 10px;
-  border-bottom-left-radius:10px
-  }
+  border-bottom-left-radius: 10px
+}
 
 @media screen and (max-width: 768px) {
   .info-card {
-    padding: 0 5% 0 5%;   
+    padding: 0 5% 0 5%;
   }
 }
-  
+
 @media screen and (min-width: 768px) {
   .info-card {
-    margin-left: 3rem!important;
+    margin-left: 3rem !important;
     width: 500px;
   }
 }
