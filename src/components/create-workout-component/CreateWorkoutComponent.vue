@@ -1,11 +1,6 @@
 <script lang="ts">
-
-import { useWorkoutDataStore } from "@/store/WorkoutData";
 import { defineComponent } from "vue";
-const userData = useWorkoutDataStore();
-const setWorkoutValue=():void =>{
-  userData.createWorkout(true);
-}
+import {useWorkoutDataStore} from  "../../store/WorkoutData"
 export default defineComponent({
   name: "CreateWorkoutComponent",
   components: {
@@ -31,6 +26,9 @@ export default defineComponent({
     closeInputField() {
       this.showInputField = false;
     },
+    setWorkout() {
+      
+    }
   },
 });
 </script>
@@ -178,7 +176,7 @@ export default defineComponent({
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary" @click="setWorkoutValue()">
+          <button type="button" class="btn btn-primary" @click="setWorkout()">
             Save changes
           </button>
         </div>
