@@ -24,3 +24,7 @@
     align-items: center;
     width: 100%;
 }
+
+.counter-value {
+    margin: 0 10px 0 10px;
+}
