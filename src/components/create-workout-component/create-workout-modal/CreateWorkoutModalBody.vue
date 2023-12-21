@@ -19,7 +19,11 @@ export default defineComponent({
             this.numberOfExercises += 1;
         },
         decreaseNumberOfExercises(): void {
-            this.numberOfExercises -= 1;
+            console.log(this.numberOfExercises);
+            if (this.numberOfExercises > 0) {
+                this.numberOfExercises -= 1;
+                console.log(this.numberOfExercises);
+            }
         },
         increaseNumberOfReps(): void {
             this.workoutData.reps += 1;
@@ -38,11 +42,6 @@ export default defineComponent({
             <input v-model="workoutData.workoutName" class="m-1" type="text" placeholder="Pull day" />
         </div>
         <div v-if="numberOfExercises > 0" class="d-flex flex-column justify-content-center align-items-center">
-            <div class="row">
-                <div class="col">Exercise name</div>
-                <div class="col">Reps</div>
-                <div class="col">Sets</div>
-            </div>
             <div v-for="n in numberOfExercises" class="d-flex justify-content-center align-items-center">
                 <input v-model="workoutData.exerciseName" class="m-1" type="text" />
                 <div class="counter d-flex flex-row justify-content-center align-items-center bg-primary rounded">
@@ -61,15 +60,18 @@ export default defineComponent({
             </div>
         </div>
 
-        <button @click="increaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
-            Add Exercise
-        </button>
-        <button @click="decreaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
-            Remove Exercise
-        </button>
+        <div class="footer-button-wrapper">
+            <button @click="increaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
+                Add Exercise
+            </button>
+            <button @click="decreaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
+                Remove Exercise
+            </button>
+        </div>
+
     </div>
 </template>
 
-<style lang="scss">
-@import "../../../assets/css/components/create-workout-component.css";
+<style lang="css">
+@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
 </style>

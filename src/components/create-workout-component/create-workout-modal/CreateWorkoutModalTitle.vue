@@ -3,13 +3,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    name: "CreateWorkoutModalTitle",
-    data() {
-
-    },
-    methods: {
-
-    },
+    name: "CreateWorkoutModalTitle"
 });
 </script>
 
