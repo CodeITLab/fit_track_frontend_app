@@ -1,43 +1,52 @@
 <script lang="ts">
+import { IWorkoutModel } from '@/models/IWorkoutModel';
+import { useModalManager } from '@/store/ModalManager';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: "CreateWorkoutModalBody",
     data() {
         return {
-            numberOfExercises: 0,
             workoutData: {
                 workoutName: "",
-                exerciseName: "",
-                sets: 0,
-                reps: 0
+                exerciseData: [{
+                    exerciseName: "",
+                    sets: 0,
+                    reps: 0
+                }]
             }
         };
     },
     methods: {
         increaseNumberOfExercises(): void {
-            this.numberOfExercises += 1;
+            this.workoutData.exerciseData.push({
+                exerciseName: "",
+                sets: 0,
+                reps: 0
+            })
         },
-        decreaseNumberOfExercises(): void {
-            if (this.numberOfExercises > 0) {
-                this.numberOfExercises -= 1;
+        increaseNumberOfReps(index: number): void {
+            this.workoutData.exerciseData[index].reps += 1;
+        },
+        decreaseNumberOfReps(index: number): void {
+            if (this.workoutData.exerciseData[index].reps > 0) {
+                this.workoutData.exerciseData[index].reps -= 1;
             }
         },
-        increaseNumberOfReps(): void {
-            this.workoutData.reps += 1;
+        increaseNumberOfSets(index: number): void {
+            this.workoutData.exerciseData[index].sets += 1;
         },
-        decreaseNumberOfReps(): void {
-            if (this.workoutData.reps > 0) {
-                this.workoutData.reps -= 1;
+        decreaseNumberOfSets(index: number): void {
+            if (this.workoutData.exerciseData[index].sets > 0) {
+                this.workoutData.exerciseData[index].sets -= 1;
             }
         },
-        increaseNumberOfSets(): void {
-            this.workoutData.sets += 1;
+        setModalValue(modalData: boolean): void {
+            const store = useModalManager()
+            store.isOpened = modalData
         },
-        decreaseNumberOfSets(): void {
-            if (this.workoutData.sets > 0) {
-                this.workoutData.sets -= 1;
-            }
+        saveWorkoutData(): void {
+            console.log(this.workoutData)
         }
     },
 });
@@ -50,47 +59,73 @@ export default defineComponent({
             <input v-model="workoutData.workoutName" class="m-1" type="text" placeholder="Push day..." />
         </div>
         <hr />
-        <div v-if="numberOfExercises > 0" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
 
-            <div class="exercise-header">
-                <p>Exercise Name</p>
-                <p>Reps</p>
-                <p>Sets</p>
-            </div>
+            <form action="submit" @submit.prevent="saveWorkoutData">
+                <table class="table-responsive">
+                    <thead>
+                        <th scope="col">Exercise Name</th>
+                        <th scope="col">Reps</th>
+                        <th scope="col">Sets</th>
+                    </thead>
+                    <tbody>
+                        <tr v-if="workoutData.exerciseData.length > 0" v-for="(value, index) in workoutData.exerciseData">
+                            <td>
+                                <input v-model="value.exerciseName" :key="index" class="exercise-name-input" type="text"
+                                    placeholder="Push ups..." />
+                            </td>
+                            <td>
+                                <div class="modal-button-group">
+                                    <button @click="increaseNumberOfReps(index)"
+                                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
+                                    <div class="d-flex justify-content-center align-items-center text-center m-2">
+                                        <p class="m-0 text-center" :key="index">{{ value.reps }}</p>
+                                    </div>
+                                    <button @click="decreaseNumberOfReps(index)"
+                                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="modal-button-group">
+                                    <button @click="increaseNumberOfSets(index)"
+                                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
+                                    <div class="d-flex justify-content-center align-items-center text-center m-2">
+                                        <p class="m-0 text-center" :key="index">{{ value.sets }}</p>
+                                    </div>
+                                    <button @click="decreaseNumberOfSets(index)"
+                                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                                </div>
+                            </td>
+                            <td>
 
-            <div v-for="n in numberOfExercises" class="exercise-wrapper">
-
-                <input v-model="workoutData.exerciseName" class="exercise-name-input" type="text"
-                    placeholder="Push ups..." />
-
-                <div class="modal-button-group">
-                    <button @click="increaseNumberOfReps()"
-                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
-                    <div class="d-flex justify-content-center align-items-center text-center m-2">
-                        <p class="m-0 text-center">{{ workoutData.reps }}</p>
-                    </div>
-                    <button @click="decreaseNumberOfReps()"
-                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
-                </div>
-                <div class="modal-button-group">
-                    <button @click="increaseNumberOfSets()"
-                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
-                    <div class="d-flex justify-content-center align-items-center text-center m-2">
-                        <p class="m-0 text-center">{{ workoutData.sets }}</p>
-                    </div>
-                    <button @click="decreaseNumberOfSets()"
-                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-button-wrapper">
-            <button @click="increaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
-                Add Exercise
-            </button>
-            <button @click="decreaseNumberOfExercises()" class="btn btn-primary w-40 align-self-center mt-2">
-                Remove Exercise
-            </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="footer-button-wrapper">
+                                    <button @click="increaseNumberOfExercises()"
+                                        class="btn btn-primary align-self-center mt-2">
+                                        Add Exercise
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="modal-footer d-flex justify-content-center align-items-center">
+                                    <button @click="setModalValue(false)" type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary" @click="saveWorkoutData()">
+                                        Save changes
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
 
     </div>

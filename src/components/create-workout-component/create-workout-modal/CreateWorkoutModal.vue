@@ -39,14 +39,6 @@ export default defineComponent({
             <div class="modal-content">
                 <CreateWorkoutModalTitle />
                 <CreateWorkoutModalBody />
-                <div class="modal-footer d-flex justify-content-center align-items-center">
-                    <button @click="setModalValue(false)" type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary" @click="saveWorkoutData()">
-                        Save changes
-                    </button>
-                </div>
             </div>
         </div>
     </div>
