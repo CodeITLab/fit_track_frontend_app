@@ -1,5 +1,4 @@
 <script lang="ts">
-import { IWorkoutModel } from '@/models/IWorkoutModel';
 import { useModalManager } from '@/store/ModalManager';
 import { defineComponent } from 'vue';
 
@@ -61,32 +60,40 @@ export default defineComponent({
     <div class="modal-body d-flex flex-column">
         <div class="d-flex flex-column">
             <label for="Name your Exercise">Name your Workout</label>
-            <input v-model="workoutData.workoutName" class="m-1" type="text"
+            <input v-model="workoutData.workoutName"
+                   class="m-1"
+                   type="text"
                    placeholder="Push day..." />
         </div>
         <hr />
         <div class="d-flex flex-column justify-content-center align-items-center">
 
-            <form action="submit" @submit.prevent="saveWorkoutData">
+            <form action="submit"
+                  @submit.prevent="saveWorkoutData">
                 <table class="table-responsive">
                     <thead>
                         <th scope="col">Exercise Name</th>
-                        <th class="align-center" scope="col">Reps</th>
-                        <th class="align-center" scope="col">Sets</th>
+                        <th class="align-center"
+                            scope="col">Reps</th>
+                        <th class="align-center"
+                            scope="col">Sets</th>
                     </thead>
                     <tbody>
                         <tr v-if="workoutData.exerciseData.length > 0"
                             v-for="(value, index) in workoutData.exerciseData">
                             <td>
-                                <input v-model="value.exerciseName" :key="index"
-                                       class="exercise-name-input" type="text"
+                                <input v-model="value.exerciseName"
+                                       :key="index"
+                                       class="exercise-name-input"
+                                       type="text"
                                        placeholder="Push ups..." />
                             </td>
                             <td>
                                 <div class="modal-button-group">
                                     <button @click="increaseNumberOfReps(index)"
                                             class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
-                                    <p class="counter-value" :key="index">{{ value.reps }}</p>
+                                    <p class="counter-value"
+                                       :key="index">{{ value.reps }}</p>
                                     <button @click="decreaseNumberOfReps(index)"
                                             class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                                 </div>
@@ -95,14 +102,18 @@ export default defineComponent({
                                 <div class="modal-button-group">
                                     <button @click="increaseNumberOfSets(index)"
                                             class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
-                                    <p class="counter-value" :key="index">{{ value.sets }}</p>
+                                    <p class="counter-value"
+                                       :key="index">{{ value.sets }}</p>
                                     <button @click="decreaseNumberOfSets(index)"
                                             class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                                 </div>
                             </td>
                             <td>
-                                <button @click="removeExercise(index)" type="button" class="delete-btn">
-                                    <img height="16" src="../../../assets/img/icons/delete.png"
+                                <button @click="removeExercise(index)"
+                                        type="button"
+                                        class="delete-btn">
+                                    <img height="16"
+                                         src="../../../assets/img/icons/delete.png"
                                          alt="delete button">
                                 </button>
                             </td>
@@ -121,11 +132,14 @@ export default defineComponent({
                             <td colspan="4">
                                 <div
                                      class="modal-footer d-flex justify-content-center align-items-center">
-                                    <button @click="setModalValue(false)" type="button"
-                                            class="btn btn-secondary" data-dismiss="modal">
+                                    <button @click="setModalValue(false)"
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn btn-primary"
+                                    <button type="button"
+                                            class="btn btn-primary"
                                             @click="saveWorkoutData()">
                                         Save changes
                                     </button>
