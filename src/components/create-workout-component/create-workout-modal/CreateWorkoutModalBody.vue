@@ -60,7 +60,7 @@ export default defineComponent({
   mounted() {
     console.log(this.workoutData);
     const store = useWorkoutDataStore();
-    console.log(store.workouts);
+    console.log(store.workouts, "g");
   },
 });
 </script>
