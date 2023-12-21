@@ -73,9 +73,9 @@ export default defineComponent({
                 <table class="table-responsive">
                     <thead>
                         <th scope="col">Exercise Name</th>
-                        <th class="align-center"
+                        <th class="text-center"
                             scope="col">Reps</th>
-                        <th class="align-center"
+                        <th class="text-center"
                             scope="col">Sets</th>
                     </thead>
                     <tbody>
