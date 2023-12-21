@@ -2,3 +2,29 @@
     display: flex;
     justify-content: space-around;
 }
+
+.modal-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    width: 100%;
+}
+
+.exercise-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.exercise-name-input {
+    width: 120px;
+}

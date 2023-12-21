@@ -19,17 +19,25 @@ export default defineComponent({
             this.numberOfExercises += 1;
         },
         decreaseNumberOfExercises(): void {
-            console.log(this.numberOfExercises);
             if (this.numberOfExercises > 0) {
                 this.numberOfExercises -= 1;
-                console.log(this.numberOfExercises);
             }
         },
         increaseNumberOfReps(): void {
             this.workoutData.reps += 1;
         },
         decreaseNumberOfReps(): void {
-            this.workoutData.reps -= 1;
+            if (this.workoutData.reps > 0) {
+                this.workoutData.reps -= 1;
+            }
+        },
+        increaseNumberOfSets(): void {
+            this.workoutData.sets += 1;
+        },
+        decreaseNumberOfSets(): void {
+            if (this.workoutData.sets > 0) {
+                this.workoutData.sets -= 1;
+            }
         }
     },
 });
@@ -39,23 +47,39 @@ export default defineComponent({
     <div class="modal-body d-flex flex-column">
         <div class="d-flex flex-column">
             <label for="Name your Exercise">Name your Workout</label>
-            <input v-model="workoutData.workoutName" class="m-1" type="text" placeholder="Pull day" />
+            <input v-model="workoutData.workoutName" class="m-1" type="text" placeholder="Push day..." />
         </div>
+        <hr />
         <div v-if="numberOfExercises > 0" class="d-flex flex-column justify-content-center align-items-center">
-            <div v-for="n in numberOfExercises" class="d-flex justify-content-center align-items-center">
-                <input v-model="workoutData.exerciseName" class="m-1" type="text" />
-                <div class="counter d-flex flex-row justify-content-center align-items-center bg-primary rounded">
-                    <div class="d-flex flex-row justify-content-center align-items-center">
-                        <button @click="increaseNumberOfReps()" class="counter-button border-0 bg-transparent ms-1 p-0">
-                            +
-                        </button>
-                        <div class="d-flex justify-content-center align-items-center text-center m-2">
-                            <p class="m-0 text-center">{{ workoutData.reps }}</p>
-                        </div>
-                        <button @click="decreaseNumberOfReps()" class="counter-button border-0 bg-transparent me-1 p-0">
-                            -
-                        </button>
+
+            <div class="exercise-header">
+                <p>Exercise Name</p>
+                <p>Reps</p>
+                <p>Sets</p>
+            </div>
+
+            <div v-for="n in numberOfExercises" class="exercise-wrapper">
+
+                <input v-model="workoutData.exerciseName" class="exercise-name-input" type="text"
+                    placeholder="Push ups..." />
+
+                <div class="modal-button-group">
+                    <button @click="increaseNumberOfReps()"
+                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
+                    <div class="d-flex justify-content-center align-items-center text-center m-2">
+                        <p class="m-0 text-center">{{ workoutData.reps }}</p>
                     </div>
+                    <button @click="decreaseNumberOfReps()"
+                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
+                </div>
+                <div class="modal-button-group">
+                    <button @click="increaseNumberOfSets()"
+                        class="counter-button border-0 bg-transparent ms-1 p-0">+</button>
+                    <div class="d-flex justify-content-center align-items-center text-center m-2">
+                        <p class="m-0 text-center">{{ workoutData.sets }}</p>
+                    </div>
+                    <button @click="decreaseNumberOfSets()"
+                        class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                 </div>
             </div>
         </div>
