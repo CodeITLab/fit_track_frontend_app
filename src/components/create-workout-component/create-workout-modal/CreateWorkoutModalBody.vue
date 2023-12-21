@@ -41,8 +41,10 @@ export default defineComponent({
                 this.workoutData.exerciseData[index].sets -= 1;
             }
         },
-        removeExercise(): void {
-
+        removeExercise(index: number): void {
+            if (this.workoutData.exerciseData.length > 0) {
+                this.workoutData.exerciseData.splice(index, 1);
+            }
         },
         setModalValue(modalData: boolean): void {
             const store = useModalManager()
@@ -99,7 +101,7 @@ export default defineComponent({
                                 </div>
                             </td>
                             <td>
-                                <button @click="removeExercise()" type="button" class="delete-btn">
+                                <button @click="removeExercise(index)" type="button" class="delete-btn">
                                     <img height="16" src="../../../assets/img/icons/delete.png"
                                          alt="delete button">
                                 </button>
