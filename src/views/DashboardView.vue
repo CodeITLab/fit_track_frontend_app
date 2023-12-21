@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useWorkoutDataStore } from "../store/WorkoutData"
+import { useWorkoutDataStore } from "../store/WorkoutData";
 import SideNavbarComponent from "@/components/side-navbar-component/SideNavbarComponent.vue";
-import CreateWorkoutModal from "@/components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue"
+import CreateWorkoutModal from "@/components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue";
 import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
 import DayCardComponent from "@/components/day-card-component/DayCardComponent.vue";
-import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue"
+import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
 
 export default defineComponent({
   name: "DashboardView",
@@ -14,18 +14,18 @@ export default defineComponent({
     CreateWorkoutButton,
     CreateWorkoutModal,
     DashboardTopNavbarComponent,
-    DayCardComponent
+    DayCardComponent,
   },
   methods: {
     displayWorkoutCardComponent(): boolean {
-      const store = useWorkoutDataStore()
-      if (store.workouts.workoutName) {
-        return true
+      const store = useWorkoutDataStore();
+      if (store.workouts.length > 0) {
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
