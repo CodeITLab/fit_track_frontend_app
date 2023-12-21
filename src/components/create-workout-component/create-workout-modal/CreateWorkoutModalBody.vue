@@ -41,6 +41,9 @@ export default defineComponent({
                 this.workoutData.exerciseData[index].sets -= 1;
             }
         },
+        removeExercise(): void {
+
+        },
         setModalValue(modalData: boolean): void {
             const store = useModalManager()
             store.isOpened = modalData
@@ -95,9 +98,15 @@ export default defineComponent({
                                             class="counter-button border-0 bg-transparent me-1 p-0">-</button>
                                 </div>
                             </td>
+                            <td>
+                                <button @click="removeExercise()" type="button" class="delete-btn">
+                                    <img height="16" src="../../../assets/img/icons/delete.png"
+                                         alt="delete button">
+                                </button>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="4">
                                 <div class="footer-button-wrapper">
                                     <button @click="increaseNumberOfExercises()"
                                             class="btn btn-primary align-self-center mt-2">
@@ -107,7 +116,7 @@ export default defineComponent({
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="4">
                                 <div
                                      class="modal-footer d-flex justify-content-center align-items-center">
                                     <button @click="setModalValue(false)" type="button"
@@ -129,4 +138,6 @@ export default defineComponent({
     </div>
 </template>
 
-<style lang="css">@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";</style>
+<style lang="css">
+@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
+</style>

@@ -28,3 +28,8 @@
 .counter-value {
     margin: 0 10px 0 10px;
 }
+
+.delete-btn {
+    border: 0px;
+    background: none;
+}
