@@ -4,7 +4,7 @@ import { useWorkoutDataStore } from "../store/WorkoutData";
 import SideNavbarComponent from "@/components/side-navbar-component/SideNavbarComponent.vue";
 import CreateWorkoutModal from "@/components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue";
 import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
-import DayCardComponent from "@/components/day-card-component/DayCardComponent.vue";
+import ExerciseCardComponent from "@/components/exercise-card-component/ExerciseCardComponent.vue";
 import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
 
 export default defineComponent({
@@ -14,7 +14,7 @@ export default defineComponent({
     CreateWorkoutButton,
     CreateWorkoutModal,
     DashboardTopNavbarComponent,
-    DayCardComponent,
+    ExerciseCardComponent,
   },
   methods: {
     displayWorkoutCardComponent(): boolean {
@@ -38,7 +38,7 @@ export default defineComponent({
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton />
       <CreateWorkoutModal />
-      <DayCardComponent v-if="displayWorkoutCardComponent()" />
+      <ExerciseCardComponent v-if="displayWorkoutCardComponent()" />
     </main>
   </div>
 </template>
