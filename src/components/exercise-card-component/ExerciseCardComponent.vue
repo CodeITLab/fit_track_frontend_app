@@ -16,7 +16,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="card w-25">
+    <div class="card" style="width: 18rem">
       <h4>{{ cardTitle }}</h4>
       <p>{{ workoutName }}</p>
       <p>{{ workoutSets }}</p>

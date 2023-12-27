@@ -25,7 +25,7 @@ const workoutData = ref(store.workouts);
       <div
         v-for="(value, index) in workoutData"
         :key="index"
-        class="card-wrapper"
+        class="card-wrapper d-flex flex-row"
       >
         <ExerciseCardComponent
           :title="value.workoutName"
@@ -33,6 +33,7 @@ const workoutData = ref(store.workouts);
           :sets="value.exerciseData[0].sets"
           :reps="value.exerciseData[0].reps"
         />
+        <CreateWorkoutButton />
       </div>
     </main>
   </div>
