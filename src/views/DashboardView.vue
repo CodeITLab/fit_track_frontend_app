@@ -11,7 +11,6 @@ import { ref } from "vue";
 const store = useWorkoutDataStore();
 
 const workoutData = ref(store.workouts);
-
 </script>
 
 <template>
@@ -23,10 +22,17 @@ const workoutData = ref(store.workouts);
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
-      <div v-for="(value, index) in workoutData"
-           :key="index"
-           class="card-wrapper">
-        <ExerciseCardComponent :title="value.workoutName" />
+      <div
+        v-for="(value, index) in workoutData"
+        :key="index"
+        class="card-wrapper"
+      >
+        <ExerciseCardComponent
+          :title="value.workoutName"
+          :name="value.exerciseData[0].exerciseName"
+          :sets="value.exerciseData[0].sets"
+          :reps="value.exerciseData[0].reps"
+        />
       </div>
     </main>
   </div>

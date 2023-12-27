@@ -2,12 +2,15 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "DayCardComponent",
-  props: ["title"],
+  props: ["title", "name", "sets", "reps"],
   data() {
     return {
-      cardTitle: this.title
-    }
-  }
+      cardTitle: this.title,
+      workoutName: this.name,
+      workoutSets: this.sets,
+      workoutReps: this.sets,
+    };
+  },
 });
 </script>
 
@@ -15,6 +18,9 @@ export default defineComponent({
   <div>
     <div class="card w-25">
       <h4>{{ cardTitle }}</h4>
+      <p>{{ workoutName }}</p>
+      <p>{{ workoutSets }}</p>
+      <p>{{ workoutReps }}</p>
     </div>
   </div>
 </template>
