@@ -2,17 +2,16 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "DayCardComponent",
-  components: {},
+  props: ["title"]
 });
 </script>
 
 <template>
   <div>
     <div class="card w-25">
-      <h4>Day 1</h4>
+      <h4>{{ title }}</h4>
     </div>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>

@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
         return {
-            workouts:[{} as IWorkoutModel]
+            workouts: [] as IWorkoutModel[]
         }
     },
     getters: {
@@ -13,6 +13,7 @@ export const useWorkoutDataStore = defineStore('workout', {
     actions: {
         createWorkout(workoutData:IWorkoutModel) {
             this.workouts.push(workoutData);
+            console.log(this.workouts)
         }
         
     }
