@@ -22,18 +22,22 @@ const workoutData = ref(store.workouts);
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
-      <div
-        v-for="(value, index) in workoutData"
-        :key="index"
-        class="card-wrapper d-flex flex-row"
-      >
-        <ExerciseCardComponent
-          :title="value.workoutName"
-          :name="value.exerciseData[0].exerciseName"
-          :sets="value.exerciseData[0].sets"
-          :reps="value.exerciseData[0].reps"
-        />
-        <CreateWorkoutButton />
+      <div class="card-conteiner">
+        <div
+          v-for="(value, index) in workoutData"
+          :key="index"
+          class="card-wrapper d-flex flex-row"
+        >
+          <ExerciseCardComponent
+            :title="value.workoutName"
+            :name="value.exerciseData[index].exerciseName"
+            :sets="value.exerciseData[index].sets"
+            :reps="value.exerciseData[index].reps"
+          />
+        </div>
+        <div class="card-wrapper">
+          <CreateWorkoutButton />
+        </div>
       </div>
     </main>
   </div>

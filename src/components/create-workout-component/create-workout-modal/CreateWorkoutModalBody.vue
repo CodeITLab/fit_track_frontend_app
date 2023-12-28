@@ -17,7 +17,7 @@ export default defineComponent({
           },
         ],
       },
-      errors: [] as string[]
+      errors: [] as string[],
     };
   },
   methods: {
@@ -58,9 +58,15 @@ export default defineComponent({
       store.createWorkout(this.workoutData);
       this.setModalValue(false);
     },
-    onSubmit(): void {
-
-    }
+    onSubmit() {
+      if (this.workoutData.exerciseData[0].exerciseName) return true;
+      this.errors = [];
+      if (!this.workoutData.exerciseData[0].exerciseName)
+        this.errors.push("Name required.");
+    },
+  },
+  mounted() {
+    console.log(this.workoutData.exerciseData[0].exerciseName);
   },
 });
 </script>
@@ -77,7 +83,14 @@ export default defineComponent({
     <hr />
     <div class="d-flex flex-column justify-content-center align-items-center">
       <form action="submit"
-            @submit.prevent="onSubmit">
+            @submit.prevent ="onSubmit"
+            method="post">
+            <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" :key="error">{{ error }}</li>
+    </ul>
+  </p>
         <table class="table-responsive">
           <thead>
             <th scope="col">Exercise Name</th>
@@ -96,7 +109,8 @@ export default defineComponent({
                        :key="index"
                        class="exercise-name-input"
                        type="text"
-                       placeholder="Push ups..." />
+                       placeholder="Push ups..." 
+                        method="post"/>
               </td>
               <td>
                 <div class="modal-button-group">

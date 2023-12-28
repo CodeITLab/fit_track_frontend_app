@@ -8,7 +8,7 @@ export default defineComponent({
       cardTitle: this.title,
       workoutName: this.name,
       workoutSets: this.sets,
-      workoutReps: this.sets,
+      workoutReps: this.reps,
     };
   },
 });
@@ -16,11 +16,13 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="card" style="width: 18rem">
-      <h4>{{ cardTitle }}</h4>
-      <p>{{ workoutName }}</p>
-      <p>{{ workoutSets }}</p>
-      <p>{{ workoutReps }}</p>
+    <div class="card mt-5 ms-3 bg-info shadow" style="width: 18rem">
+      <div class="card ps-2">
+        <h4>{{ cardTitle }}</h4>
+        <p>Workout Name: {{ workoutName }}</p>
+        <p>Sets: {{ workoutSets }}</p>
+        <p>Reps: {{ workoutReps }}</p>
+      </div>
     </div>
   </div>
 </template>
