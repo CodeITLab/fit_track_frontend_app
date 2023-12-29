@@ -8,12 +8,13 @@ export const useWorkoutDataStore = defineStore('workout', {
         }
     },
     getters: {
-        
+        getWorkouts(state){
+            return state.workouts
+        }
     },
     actions: {
         createWorkout(workoutData:IWorkoutModel) {
             this.workouts.push(workoutData);
-            console.log(this.workouts)
         }
         
     }

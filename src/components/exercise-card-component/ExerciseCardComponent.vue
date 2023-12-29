@@ -17,7 +17,7 @@ export default defineComponent({
 <template>
   <div>
     <div class="card mt-5 ms-3 bg-info shadow" style="width: 18rem">
-      <div class="card ps-2">
+      <div class="ps-2">
         <h4>{{ cardTitle }}</h4>
         <p>Workout Name: {{ workoutName }}</p>
         <p>Sets: {{ workoutSets }}</p>

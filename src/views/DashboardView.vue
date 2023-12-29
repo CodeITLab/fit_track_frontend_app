@@ -6,11 +6,20 @@ import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-compo
 import ExerciseCardComponent from "@/components/exercise-card-component/ExerciseCardComponent.vue";
 import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 const store = useWorkoutDataStore();
-
-const workoutData = ref(store.workouts);
+let workoutData: any[] = [];
+// workoutData.push(store.workouts);
+watch(
+  () => store.getWorkouts,
+  () => {
+    workoutData = store.workouts;
+    workoutData.push(computed(() => store.workouts));
+    console.log("store workout", workoutData);
+  }
+);
+console.log("workout data", store.workouts);
 </script>
 
 <template>
@@ -24,7 +33,7 @@ const workoutData = ref(store.workouts);
       <CreateWorkoutModal />
       <div class="card-conteiner">
         <div
-          v-for="(value, index) in workoutData"
+          v-for="(value, index) in store.workouts"
           :key="index"
           class="card-wrapper d-flex flex-row"
         >
@@ -36,7 +45,7 @@ const workoutData = ref(store.workouts);
           />
         </div>
         <div class="card-wrapper">
-          <CreateWorkoutButton />
+          <CreateWorkoutButton v-if="workoutData.length !== 0" />
         </div>
       </div>
     </main>

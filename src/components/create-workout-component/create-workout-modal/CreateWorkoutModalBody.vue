@@ -7,9 +7,6 @@ import { required } from "@vuelidate/validators";
 
 export default defineComponent({
   name: "CreateWorkoutModalBody",
-  setup() {
-    return { v$: useVuelidate() };
-  },
   data() {
     return {
       v$: useVuelidate(),
@@ -80,25 +77,15 @@ export default defineComponent({
         store.createWorkout(this.workoutData);
         this.setModalValue(false);
       } else {
-        alert("not submited");
+        alert("Name your workout and Exercise Name fields are required");
       }
+
+      console.log("submit");
     },
 
     onSubmit() {
-      // this.v$.$validate();
-      // if (!this.v$.$error) {
-      //   alert("submitted");
-      // } else {
-      //   alert("not submited");
-      // }
-      // if (this.workoutData.exerciseData[0].exerciseName) return true;
-      // this.errors = [];
-      // if (!this.workoutData.exerciseData[0].exerciseName)
-      //   this.errors.push("Name required.");
+      console.log("submit");
     },
-  },
-  mounted() {
-    console.log(this.workoutData.exerciseData[0].exerciseName);
   },
 });
 </script>
