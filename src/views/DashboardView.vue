@@ -9,17 +9,8 @@ import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { computed, ref, watch } from "vue";
 
 const store = useWorkoutDataStore();
-let workoutData: any[] = [];
-// workoutData.push(store.workouts);
-watch(
-  () => store.getWorkouts,
-  () => {
-    workoutData = store.workouts;
-    workoutData.push(computed(() => store.workouts));
-    console.log("store workout", workoutData);
-  }
-);
-console.log("workout data", store.workouts);
+let workoutData = store.getWorkouts;
+console.log(workoutData)
 </script>
 
 <template>
@@ -33,15 +24,13 @@ console.log("workout data", store.workouts);
       <CreateWorkoutModal />
       <div class="card-conteiner">
         <div
-          v-for="(value, index) in store.workouts"
+          v-for="(value, index) in workoutData"
           :key="index"
           class="card-wrapper d-flex flex-row"
         >
           <ExerciseCardComponent
             :title="value.workoutName"
-            :name="value.exerciseData[index].exerciseName"
-            :sets="value.exerciseData[index].sets"
-            :reps="value.exerciseData[index].reps"
+            :workouts="value.exerciseData"
           />
         </div>
         <div class="card-wrapper">

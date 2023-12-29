@@ -2,14 +2,15 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "DayCardComponent",
-  props: ["title", "name", "sets", "reps"],
+  props: ["title", "workouts"],
   data() {
     return {
       cardTitle: this.title,
-      workoutName: this.name,
-      workoutSets: this.sets,
-      workoutReps: this.reps,
+      workoutData: this.workouts
     };
+  },
+  mounted() {
+      console.log(this.workoutData);
   },
 });
 </script>
@@ -19,9 +20,10 @@ export default defineComponent({
     <div class="card mt-5 ms-3 bg-info shadow" style="width: 18rem">
       <div class="ps-2">
         <h4>{{ cardTitle }}</h4>
-        <p>Workout Name: {{ workoutName }}</p>
-        <p>Sets: {{ workoutSets }}</p>
-        <p>Reps: {{ workoutReps }}</p>
+        <p>Workout Name: {{ cardTitle }}</p>
+        <ul>
+          <li v-for="(value, index) in workoutData" :key="index">{{ value.exerciseName }}</li>
+        </ul>
       </div>
     </div>
   </div>
