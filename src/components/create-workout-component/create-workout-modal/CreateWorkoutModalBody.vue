@@ -2,11 +2,17 @@
 import { useModalManager } from "@/store/ModalManager";
 import { useWorkoutDataStore } from "@/store/WorkoutData";
 import { defineComponent } from "vue";
+import { useVuelidate } from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 
 export default defineComponent({
   name: "CreateWorkoutModalBody",
+  setup() {
+    return { v$: useVuelidate() };
+  },
   data() {
     return {
+      v$: useVuelidate(),
       workoutData: {
         workoutName: "",
         exerciseData: [
@@ -17,7 +23,21 @@ export default defineComponent({
           },
         ],
       },
-      errors: [] as string[],
+      // errors: [] as string[],
+    };
+  },
+  validations() {
+    return {
+      workoutData: {
+        workoutName: { required },
+        exerciseData: [
+          {
+            exerciseName: { required },
+            sets: 0,
+            reps: 0,
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -54,15 +74,27 @@ export default defineComponent({
       store.isOpened = modalData;
     },
     saveWorkoutData(): void {
-      const store = useWorkoutDataStore();
-      store.createWorkout(this.workoutData);
-      this.setModalValue(false);
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const store = useWorkoutDataStore();
+        store.createWorkout(this.workoutData);
+        this.setModalValue(false);
+      } else {
+        alert("not submited");
+      }
     },
+
     onSubmit() {
-      if (this.workoutData.exerciseData[0].exerciseName) return true;
-      this.errors = [];
-      if (!this.workoutData.exerciseData[0].exerciseName)
-        this.errors.push("Name required.");
+      // this.v$.$validate();
+      // if (!this.v$.$error) {
+      //   alert("submitted");
+      // } else {
+      //   alert("not submited");
+      // }
+      // if (this.workoutData.exerciseData[0].exerciseName) return true;
+      // this.errors = [];
+      // if (!this.workoutData.exerciseData[0].exerciseName)
+      //   this.errors.push("Name required.");
     },
   },
   mounted() {
@@ -75,86 +107,100 @@ export default defineComponent({
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Name your Workout</label>
-      <input v-model="workoutData.workoutName"
-             class="m-1"
-             type="text"
-             placeholder="Push day..." />
+      <input
+        v-model="workoutData.workoutName"
+        class="m-1"
+        type="text"
+        placeholder="Push day..."
+      />
     </div>
     <hr />
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <form action="submit"
-            @submit.prevent ="onSubmit"
-            method="post">
-            <p v-if="errors.length">
-    <b>Please correct the following error(s):</b>
-    <ul>
-      <li v-for="error in errors" :key="error">{{ error }}</li>
-    </ul>
-  </p>
+      <form action="submit" @submit.prevent="onSubmit" method="post">
+        <!-- <p v-if="errors.length">
+              <b>Please correct the following error(s):</b>
+                <ul>
+                  <li v-for="(error, index) in errors" :key="index">{{error}}</li>
+                </ul>
+            </p> -->
         <table class="table-responsive">
           <thead>
             <th scope="col">Exercise Name</th>
-            <th class="text-center"
-                scope="col">Reps</th>
-            <th class="text-center"
-                scope="col">Sets</th>
+            <th class="text-center" scope="col">Reps</th>
+            <th class="text-center" scope="col">Sets</th>
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr v-if="workoutData.exerciseData.length > 0"
-                v-for="(value, index) in workoutData.exerciseData"
-                :key="index">
+            <tr
+              v-if="workoutData.exerciseData.length > 0"
+              v-for="(value, index) in workoutData.exerciseData"
+              :key="index"
+            >
               <td>
-                <input v-model="value.exerciseName"
-                       :key="index"
-                       class="exercise-name-input"
-                       type="text"
-                       placeholder="Push ups..." 
-                        method="post"/>
+                <input
+                  v-model="value.exerciseName"
+                  :key="index"
+                  class="exercise-name-input"
+                  type="text"
+                  placeholder="Push ups..."
+                  method="post"
+                />
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="increaseNumberOfReps(index)"
-                          class="counter-button border-0 bg-transparent ms-1 p-0">
+                  <button
+                    @click="increaseNumberOfReps(index)"
+                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                  >
                     +
                   </button>
-                  <p class="counter-value"
-                     :key="index">{{ value.reps }}</p>
-                  <button @click="decreaseNumberOfReps(index)"
-                          class="counter-button border-0 bg-transparent me-1 p-0">
+                  <p class="counter-value" :key="index">{{ value.reps }}</p>
+                  <button
+                    @click="decreaseNumberOfReps(index)"
+                    class="counter-button border-0 bg-transparent me-1 p-0"
+                  >
                     -
                   </button>
                 </div>
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="increaseNumberOfSets(index)"
-                          class="counter-button border-0 bg-transparent ms-1 p-0">
+                  <button
+                    @click="increaseNumberOfSets(index)"
+                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                  >
                     +
                   </button>
-                  <p class="counter-value"
-                     :key="index">{{ value.sets }}</p>
-                  <button @click="decreaseNumberOfSets(index)"
-                          class="counter-button border-0 bg-transparent me-1 p-0">
+                  <p class="counter-value" :key="index">{{ value.sets }}</p>
+                  <button
+                    @click="decreaseNumberOfSets(index)"
+                    class="counter-button border-0 bg-transparent me-1 p-0"
+                  >
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button @click="removeExercise(index)"
-                        type="button"
-                        class="delete-btn">
-                  <img height="16"
-                       src="../../../assets/img/icons/delete.png"
-                       alt="delete button" />
+                <button
+                  @click="removeExercise(index)"
+                  type="button"
+                  class="delete-btn"
+                >
+                  <img
+                    height="16"
+                    src="../../../assets/img/icons/delete.png"
+                    alt="delete button"
+                  />
                 </button>
               </td>
             </tr>
             <tr>
               <td colspan="4">
                 <div class="footer-button-wrapper">
-                  <button @click="increaseNumberOfExercises()"
-                          class="btn btn-primary align-self-center mt-2">
+                  <button
+                    @click="increaseNumberOfExercises()"
+                    class="btn btn-primary align-self-center mt-2"
+                  >
                     Add Exercise
                   </button>
                 </div>
@@ -162,16 +208,22 @@ export default defineComponent({
             </tr>
             <tr>
               <td colspan="4">
-                <div class="modal-footer d-flex justify-content-center align-items-center">
-                  <button @click="setModalValue(false)"
-                          type="button"
-                          class="btn btn-secondary"
-                          data-dismiss="modal">
+                <div
+                  class="modal-footer d-flex justify-content-center align-items-center"
+                >
+                  <button
+                    @click="setModalValue(false)"
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
                     Close
                   </button>
-                  <button type="button"
-                          class="btn btn-primary"
-                          @click="saveWorkoutData()">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="saveWorkoutData()"
+                  >
                     Save changes
                   </button>
                 </div>
