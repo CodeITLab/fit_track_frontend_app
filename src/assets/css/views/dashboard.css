@@ -3,15 +3,17 @@
     flex-direction: row;
     background-image: url(../../img/backgrounds/Background3.png);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
+
 
 .dashboard {
     background: transparent;
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .navbar-items {
@@ -20,7 +22,7 @@
 
 .dash-nav {
     width: fit-content;
-    height: 100%;
+    height: 25%;
 }
 
 main {
