@@ -4,7 +4,9 @@ import { defineStore } from "pinia";
 export const useUserDataStore = defineStore('user', {
     state: () => {
         return {
-            user: {} as IUser
+            user: {
+                
+            } as IUser
         }
     },
     getters: {
