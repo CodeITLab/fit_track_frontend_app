@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useWorkoutDataStore } from "../../store/WorkoutData";
 export default defineComponent({
   name: "DayCardComponent",
   props: ["title", "workouts", "sets", "reps"],
@@ -20,17 +21,17 @@ export default defineComponent({
 <template>
   <div class="d-flex flex-row justify-content-center align-items-center me-3">
     <div
-      class="card bg-info shadow d-flex flex-row"
-      style="--bs-bg-opacity: 0.2"
+      class="card bg-light shadow d-flex flex-row"
+      style="--bs-bg-opacity: 0.3"
     >
       <div class="m-3" style="width: 18rem">
-        <h4 class="text-center text-black">{{ cardTitle }}</h4>
+        <h4 class="font text-center text-black">{{ cardTitle }}</h4>
         <!-- redudantno  -->
         <ul>
           <li
             v-for="(value, index) in workoutData"
             :key="index"
-            class="list-unstyled text-black"
+            class="list-unstyled text-black font"
           >
             Exercise name: {{ value.exerciseName }}
           </li>
@@ -39,14 +40,14 @@ export default defineComponent({
             :key="index"
             class="list-unstyled text-black"
           >
-            <p class="mb-0">Sets: {{ value.sets }}</p>
+            <p class="mb-0 font">Sets: {{ value.sets }}</p>
           </li>
           <li
             v-for="(value, index) in workoutData"
             :key="index"
             class="list-unstyled text-black"
           >
-            <p>Reps: {{ value.reps }}</p>
+            <p class="font">Reps: {{ value.reps }}</p>
           </li>
         </ul>
       </div>
@@ -54,4 +55,6 @@ export default defineComponent({
   </div>
 </template>
 
-<style></style>
+<style lang="css" scoped>
+@import "../../assets/css/components/exercise-card-component.css";
+</style>

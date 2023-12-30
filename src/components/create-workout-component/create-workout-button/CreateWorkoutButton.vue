@@ -1,9 +1,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useModalManager } from "../../../store/ModalManager";
+import { useWorkoutDataStore } from "../../../store/WorkoutData";
 
 export default defineComponent({
   name: "CreateWorkoutButton",
+
+  setup() {
+    const store = useWorkoutDataStore();
+    let workoutData = store.getWorkouts;
+    return { workoutData, store };
+  },
+
   methods: {
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
@@ -15,7 +23,9 @@ export default defineComponent({
 
 <template>
   <div class="d-flex justify-content-center align-items-center workout-modal">
-    <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
+    <div v-if="workoutData.length === 0">
+      <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
+    </div>
     <button
       @click="setModalValue(true)"
       type="button"
