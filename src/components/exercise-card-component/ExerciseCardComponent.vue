@@ -18,12 +18,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="d-flex flex-row">
+  <div class="d-flex flex-row justify-content-center align-items-center me-3">
     <div
-      class="card mt-5 ms-3 bg-info shadow d-flex flex-row"
+      class="card bg-info shadow d-flex flex-row"
       style="--bs-bg-opacity: 0.2"
     >
-      <div class="ps-2" style="width: 18rem">
+      <div class="m-3" style="width: 18rem">
         <h4 class="text-center text-black">{{ cardTitle }}</h4>
         <!-- redudantno  -->
         <ul>

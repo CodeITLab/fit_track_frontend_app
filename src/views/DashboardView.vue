@@ -22,11 +22,13 @@ console.log(workoutData);
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
-      <div class="d-flex flex-row mt-5 justify-content-left align-items-center">
+      <div
+        class="cards d-flex flex-row ms-3 justify-content-left align-items-center"
+      >
         <div
           v-for="(value, index) in workoutData"
           :key="index"
-          class="card-wrapper justify-content-center align-items-center"
+          class="card-wrapper d-flex justify-content-center align-items-center"
         >
           <ExerciseCardComponent
             :title="value.workoutName"
