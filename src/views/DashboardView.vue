@@ -10,7 +10,7 @@ import { computed, ref, watch } from "vue";
 
 const store = useWorkoutDataStore();
 let workoutData = store.getWorkouts;
-console.log(workoutData)
+console.log(workoutData);
 </script>
 
 <template>
@@ -22,11 +22,11 @@ console.log(workoutData)
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
-      <div class="card-conteiner">
+      <div class="d-flex flex-row">
         <div
           v-for="(value, index) in workoutData"
           :key="index"
-          class="card-wrapper d-flex flex-row"
+          class="card-wrapper"
         >
           <ExerciseCardComponent
             :title="value.workoutName"
