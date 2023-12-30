@@ -8,13 +8,11 @@ export default defineComponent({
     return {
       cardTitle: this.title,
       workoutData: this.workouts,
-      workoutSets: this.sets,
-      workoutReps: this.reps,
+      // workoutSets: this.sets,
+      // workoutReps: this.reps,
     };
   },
-  mounted() {
-    console.log(this.workoutData);
-  },
+  mounted() {},
 });
 </script>
 
@@ -24,18 +22,18 @@ export default defineComponent({
       class="card bg-light shadow d-flex flex-row"
       style="--bs-bg-opacity: 0.3"
     >
-      <div class="m-3" style="width: 18rem">
-        <h4 class="font text-center text-black">{{ cardTitle }}</h4>
+      <div class="m-3" style="width: 10rem">
+        <h4 class="font text-center text-white">{{ cardTitle }}</h4>
         <!-- redudantno  -->
-        <ul>
+        <!-- <ul>
           <li
             v-for="(value, index) in workoutData"
             :key="index"
             class="list-unstyled text-black font"
           >
             Exercise name: {{ value.exerciseName }}
-          </li>
-          <li
+          </li> -->
+        <!-- <li
             v-for="(value, index) in workoutData"
             :key="index"
             class="list-unstyled text-black"
@@ -49,7 +47,7 @@ export default defineComponent({
           >
             <p class="font">Reps: {{ value.reps }}</p>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
