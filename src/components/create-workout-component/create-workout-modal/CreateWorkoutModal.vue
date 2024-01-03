@@ -15,7 +15,7 @@ export default defineComponent({
   methods: {
     isModalOpened(): boolean {
       const store = useModalManager();
-      if (store.isOpened) {
+      if (store.createWorkoutModal) {
         return true;
       } else {
         return false;
@@ -23,7 +23,7 @@ export default defineComponent({
     },
     setModalValue(modalData: boolean): void {
       const store = useModalManager();
-      store.isOpened = modalData;
+      store.createWorkoutModal = modalData;
     },
   },
 });

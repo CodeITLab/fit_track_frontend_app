@@ -15,7 +15,7 @@ export default defineComponent({
   methods: {
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
-      store.openCloseModal(modalValue);
+      store.openCloseCreateWorkoutModal(modalValue);
     },
   },
 });

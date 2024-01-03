@@ -68,7 +68,7 @@ export default defineComponent({
     },
     setModalValue(modalData: boolean): void {
       const store = useModalManager();
-      store.isOpened = modalData;
+      store.createWorkoutModal = modalData;
     },
     saveWorkoutData(): void {
       this.v$.$validate();
