@@ -43,5 +43,5 @@ export default defineComponent({
   </template>
 
 <style lang="scss" scoped>
-@import "../../../assets/css/components/create-workout-component.css";
+@import "../../assets/css/components/create-workout-component.css";
 </style>
