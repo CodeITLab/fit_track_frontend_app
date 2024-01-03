@@ -8,11 +8,6 @@ export default defineComponent({
 
   data() {
     return {
-      cardTitle: this.title,
-      workoutDatas: this.workouts,
-      workoutSets: this.sets,
-      workoutReps: this.reps,
-
       workoutData: {
         workoutName: "",
         exerciseData: [
@@ -23,6 +18,11 @@ export default defineComponent({
           },
         ],
       },
+
+      cardTitle: this.title,
+      workoutDatas: this.workouts,
+      workoutSets: this.sets,
+      workoutReps: this.reps,
     };
   },
 
@@ -61,7 +61,7 @@ export default defineComponent({
     },
     saveWorkoutData(): void {
       const store = useWorkoutDataStore();
-      store.createWorkout(this.workoutData);
+      // store.createWorkout(this.workoutData);
       this.setModalValue(false);
 
       console.log("submit");
@@ -82,7 +82,7 @@ export default defineComponent({
         v-model="workoutData.workoutName"
         class="m-1"
         type="text"
-        placeholder="Push Day"
+        :placeholder="workoutName"
       />
     </div>
     <hr />
@@ -107,7 +107,7 @@ export default defineComponent({
                   :key="index"
                   class="exercise-name-input"
                   type="text"
-                  placeholder="Push Ups"
+                  placeholder="wo"
                   method="post"
                 />
               </td>
@@ -184,13 +184,7 @@ export default defineComponent({
                   >
                     Close
                   </button>
-                  <button
-                    @click="saveWorkoutData()"
-                    type="button"
-                    class="btn btn-primary"
-                  >
-                    Update
-                  </button>
+                  <button type="button" class="btn btn-primary">Update</button>
                   <button type="button" class="btn btn-primary">Delite</button>
                 </div>
               </td>
