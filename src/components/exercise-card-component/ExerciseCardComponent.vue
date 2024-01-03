@@ -28,8 +28,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <div @click="setModalValue(true)"
+  <button 
+      @click="setModalValue(true)"
       type="button"
+      class="plus-btn"
       data-toggle="modal"
       data-target="#exampleModal">
       <div class="d-flex flex-row justify-content-center align-items-center me-3">
@@ -67,7 +69,7 @@ export default defineComponent({
     </div>
   </div>
 
-  </div>
+  </button>
   
 </template>
 

@@ -5,11 +5,11 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CreateWorkoutModalBody",
   props: ["title", "workouts", "sets", "reps"],
-  setup() {
-    const store = useWorkoutDataStore();
-    let workoutData = store.getWorkouts;
-    return { workoutData, store };
-  },
+  // setup() {
+  //   const store = useWorkoutDataStore();
+  //   let workoutData = store.getWorkouts;
+  //   return { workoutData, store };
+  // },
   data() {
 
     return {
@@ -65,20 +65,20 @@ export default defineComponent({
     },
     setModalValue(modalData: boolean): void {
       const store = useModalManager();
-      store.createWorkoutModal = modalData;
+      store.workoutDetails = modalData;
     },
-    saveWorkoutData(): void {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        const store = useWorkoutDataStore();
-        store.createWorkout(this.workoutData);
-        this.setModalValue(false);
-      } else {
-        alert("Name your workout and Exercise Name fields are required");
-      }
+    // saveWorkoutData(): void {
+    //   this.v$.$validate();
+    //   if (!this.v$.$error) {
+    //     const store = useWorkoutDataStore();
+    //     store.createWorkout(this.workoutData);
+    //     this.setModalValue(false);
+    //   } else {
+    //     alert("Name your workout and Exercise Name fields are required");
+    //   }
 
-      console.log("submit");
-    },
+    //   console.log("submit");
+    // },
 
     onSubmit() {
       console.log("submit");
@@ -90,7 +90,7 @@ export default defineComponent({
 <template>
     <div class="modal-body d-flex flex-column">
       <div class="d-flex flex-column">
-        <label for="Name your Exercise">Name your Workout</label>
+        <label for="Name your Exercise">Workout Name</label>
         <input
           v-model="workoutData.workoutName"
           class="m-1"
@@ -206,7 +206,7 @@ export default defineComponent({
                     <button
                       type="button"
                       class="btn btn-primary"
-                      @click="saveWorkoutData()"
+                      
                     >
                      Update
                     </button>
@@ -228,5 +228,5 @@ export default defineComponent({
   </template>
   
   <style lang="css">
-  @import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
+  @import "../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
   </style>

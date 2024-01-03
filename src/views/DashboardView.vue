@@ -5,6 +5,7 @@ import CreateWorkoutModal from "@/components/create-workout-component/create-wor
 import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
 import ExerciseCardComponent from "@/components/exercise-card-component/ExerciseCardComponent.vue";
 import CreateWorkoutButton from "@/components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
+import WorkoutDetailsModal from "@/components/workout-details-component/WorkoutDetailsModal.vue";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { computed, ref, watch } from "vue";
 
@@ -22,6 +23,7 @@ console.log(workoutData);
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
+      <WorkoutDetailsModal/>
       <div
         class="cards d-flex flex-row ms-3 justify-content-left align-items-center"
       >
@@ -31,7 +33,6 @@ console.log(workoutData);
           class="card-wrapper d-flex justify-content-center align-items-center"
         >
           <ExerciseCardComponent
-            
             :title="value.workoutName"
             :workouts="value.exerciseData"
           />

@@ -36,8 +36,7 @@ export default defineComponent({
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <CreateWorkoutModalTitle />
-          <CreateWorkoutModalBody />
+          <WorkoutDetailsModalBody/>
         </div>
       </div>
     </div>
