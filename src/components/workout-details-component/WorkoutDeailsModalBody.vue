@@ -5,33 +5,30 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CreateWorkoutModalBody",
   props: ["title", "workouts", "sets", "reps"],
-  // setup() {
-  //   const store = useWorkoutDataStore();
-  //   let workoutData = store.getWorkouts;
-  //   return { workoutData, store };
-  // },
+  setup() {
+    const store = useWorkoutDataStore();
+    let workoutData = store.getWorkouts;
+    return { workoutData, store };
+   },
   data() {
 
     return {
       cardTitle: this.title,
-      workoutData: this.workouts,
+      workoutDatas: this.workouts,
       workoutSets: this.sets,
       workoutReps: this.reps,
+      workoutData: {
+        workoutName: "",
+        exerciseData: [
+          {
+            exerciseName: "",
+            sets: 0,
+            reps: 0,
+          },
+        ],
+      },
     };
-    // return {
-    //   v$: useVuelidate(),
-    //   workoutData: {
-    //     workoutName: "",
-    //     exerciseData: [
-    //       {
-    //         exerciseName: "",
-    //         sets: 0,
-    //         reps: 0,
-    //       },
-    //     ],
-    //   },
-    //   // errors: [] as string[],
-    // };
+    
   },
 
   methods: {
@@ -67,18 +64,18 @@ export default defineComponent({
       const store = useModalManager();
       store.workoutDetails = modalData;
     },
-    // saveWorkoutData(): void {
-    //   this.v$.$validate();
-    //   if (!this.v$.$error) {
-    //     const store = useWorkoutDataStore();
-    //     store.createWorkout(this.workoutData);
-    //     this.setModalValue(false);
-    //   } else {
-    //     alert("Name your workout and Exercise Name fields are required");
-    //   }
+    saveWorkoutData(): void {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        const store = useWorkoutDataStore();
+        store.createWorkout(this.workoutData);
+        this.setModalValue(false);
+      } else {
+        alert("Name your workout and Exercise Name fields are required");
+      }
 
-    //   console.log("submit");
-    // },
+      console.log("submit");
+    },
 
     onSubmit() {
       console.log("submit");
@@ -101,12 +98,6 @@ export default defineComponent({
       <hr />
       <div class="d-flex flex-column justify-content-center align-items-center">
         <form action="submit" @submit.prevent="onSubmit" method="post">
-          <!-- <p v-if="errors.length">
-                <b>Please correct the following error(s):</b>
-                  <ul>
-                    <li v-for="(error, index) in errors" :key="index">{{error}}</li>
-                  </ul>
-              </p> -->
           <table class="table-responsive">
             <thead>
               <th scope="col">Exercise Name</th>
@@ -172,7 +163,7 @@ export default defineComponent({
                   >
                     <img
                       height="16"
-                      src="../../../assets/img/icons/delete.png"
+                      src="../../assets/img/icons/delete.png"
                       alt="delete button"
                     />
                   </button>

@@ -34,7 +34,6 @@ console.log(workoutData);
         >
           <ExerciseCardComponent
             :title="value.workoutName"
-            :workouts="value.exerciseData"
           />
         </div>
         <div

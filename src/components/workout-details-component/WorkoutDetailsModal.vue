@@ -1,9 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useModalManager } from "../../store/ModalManager";
-
-
-import WorkoutDetailsModalBody from "../../components/create-workout-component/create-workout-modal/CreateWorkoutModalBody.vue"
+import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";
 
 export default defineComponent({
   name: "WorkoutDetailsModal",
