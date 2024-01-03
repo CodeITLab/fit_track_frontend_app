@@ -1,9 +1,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
+import { useModalManager } from "../../store/ModalManager";
 export default defineComponent({
   name: "DayCardComponent",
   props: ["title", "workouts", "sets", "reps"],
+  setup() {
+    const store = useWorkoutDataStore();
+    let workoutData = store.getWorkouts;
+    return { workoutData, store };
+  },
   data() {
     return {
       cardTitle: this.title,
@@ -12,12 +18,21 @@ export default defineComponent({
       // workoutReps: this.reps,
     };
   },
-  mounted() {},
+ methods: {
+    setModalValue(modalValue: boolean) {
+      const store = useModalManager();
+      store.openCloseWorkoutDetail(modalValue);
+    },
+  },
 });
 </script>
 
 <template>
-  <div class="d-flex flex-row justify-content-center align-items-center me-3">
+  <div @click="setModalValue(true)"
+      type="button"
+      data-toggle="modal"
+      data-target="#exampleModal">
+      <div class="d-flex flex-row justify-content-center align-items-center me-3">
     <div
       class="card bg-light shadow d-flex flex-row"
       style="--bs-bg-opacity: 0.3"
@@ -51,6 +66,9 @@ export default defineComponent({
       </div>
     </div>
   </div>
+
+  </div>
+  
 </template>
 
 <style lang="css" scoped>

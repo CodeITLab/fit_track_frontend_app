@@ -31,6 +31,7 @@ console.log(workoutData);
           class="card-wrapper d-flex justify-content-center align-items-center"
         >
           <ExerciseCardComponent
+            
             :title="value.workoutName"
             :workouts="value.exerciseData"
           />
