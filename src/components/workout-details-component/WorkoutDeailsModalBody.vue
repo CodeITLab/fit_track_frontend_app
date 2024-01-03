@@ -65,14 +65,12 @@ export default defineComponent({
       store.workoutDetails = modalData;
     },
     saveWorkoutData(): void {
-      this.v$.$validate();
-      if (!this.v$.$error) {
+     
+       
         const store = useWorkoutDataStore();
         store.createWorkout(this.workoutData);
         this.setModalValue(false);
-      } else {
-        alert("Name your workout and Exercise Name fields are required");
-      }
+     
 
       console.log("submit");
     },
