@@ -32,7 +32,11 @@ console.log(workoutData);
           :key="index"
           class="card-wrapper d-flex justify-content-center align-items-center"
         >
-          <ExerciseCardComponent :title="value.workoutName" />
+          <!-- onclick sprema odabranu vrijednost u store -->
+          <ExerciseCardComponent
+            @click="store.createSelectedWorkout(value)"
+            :title="value.workoutName"
+          />
         </div>
         <div
           class="card-wrapper d-flex justify-content-center align-items-center"

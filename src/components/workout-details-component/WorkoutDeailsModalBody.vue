@@ -69,6 +69,10 @@ export default defineComponent({
 
     onSubmit() {
       console.log("submit");
+      console.log(this.workoutData);
+    },
+    mounted() {
+      console.log(this.workoutData);
     },
   },
 });
@@ -82,7 +86,7 @@ export default defineComponent({
         v-model="workoutData.workoutName"
         class="m-1"
         type="text"
-        :placeholder="workoutName"
+        :placeholder="workoutData.workoutName"
       />
     </div>
     <hr />
@@ -184,7 +188,13 @@ export default defineComponent({
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-primary">Update</button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="onSubmit"
+                  >
+                    Update
+                  </button>
                   <button type="button" class="btn btn-primary">Delite</button>
                 </div>
               </td>

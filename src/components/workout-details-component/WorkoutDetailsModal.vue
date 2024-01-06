@@ -2,12 +2,17 @@
 import { defineComponent } from "vue";
 import { useModalManager } from "../../store/ModalManager";
 import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";
-
+import { useWorkoutDataStore } from "../../store/WorkoutData";
 export default defineComponent({
   name: "WorkoutDetailsModal",
   components: {
- 
     WorkoutDetailsModalBody,
+  },
+
+  data() {
+    return {
+      workoutDetails: {},
+    };
   },
 
   methods: {
@@ -23,22 +28,26 @@ export default defineComponent({
       const store = useModalManager();
       store.workoutDetails = modalData;
     },
+    setWorkoutDetails(): void {
+      const store = useWorkoutDataStore();
+      this.workoutDetails = store.createSelectedWorkout;
+    },
   },
 });
 </script>
 
 <template>
-    <div
-      v-if="isModalOpened()"
-      class="modal fade show d-flex justify-content-center align-items-center"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <WorkoutDetailsModalBody/>
-        </div>
+  <div
+    v-if="isModalOpened()"
+    class="modal fade show d-flex justify-content-center align-items-center"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <WorkoutDetailsModalBody />
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 @import "../../assets/css/components/create-workout-component.css";
