@@ -8,10 +8,16 @@ export default defineComponent({
   components: {
     WorkoutDetailsModalBody,
   },
+  props: ["title"],
   setup() {
     const workoutDetails = ref({});
 
     return { workoutDetails };
+  },
+  data() {
+    return {
+      cardTitle: this.title,
+    };
   },
 
   methods: {

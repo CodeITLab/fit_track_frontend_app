@@ -111,7 +111,7 @@ export default defineComponent({
                   :key="index"
                   class="exercise-name-input"
                   type="text"
-                  placeholder="wo"
+                  placeholder=""
                   method="post"
                 />
               </td>
