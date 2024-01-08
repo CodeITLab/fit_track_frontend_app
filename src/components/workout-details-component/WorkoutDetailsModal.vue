@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useModalManager } from "../../store/ModalManager";
 import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
@@ -8,11 +8,10 @@ export default defineComponent({
   components: {
     WorkoutDetailsModalBody,
   },
+  setup() {
+    const workoutDetails = ref({});
 
-  data() {
-    return {
-      workoutDetails: {},
-    };
+    return { workoutDetails };
   },
 
   methods: {
