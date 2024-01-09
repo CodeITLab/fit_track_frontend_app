@@ -4,9 +4,14 @@ export const useModalManager = defineStore('modal-manager', {
     state: () => {
         return {
             createWorkoutModal: false,
-            workoutDetails: false
+            workoutDetailsModal: false
             //isOpened state preimenovati u create workout modal
             //dodadti drugi state za workout details modal FALSE    
+        }
+    },
+    getters:{
+        getWorkoutDetailsModalState(state){
+            return state.workoutDetailsModal
         }
     },
     actions: {
@@ -16,7 +21,7 @@ export const useModalManager = defineStore('modal-manager', {
             //onda će ona postaviti state po imenu modala na strate koji smo mi proslijedili
         },
         openCloseWorkoutDetail(value:boolean){
-            this.workoutDetails= value
+            this.workoutDetailsModal= value
         }
     }
 })

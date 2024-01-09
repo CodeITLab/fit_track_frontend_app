@@ -1,81 +1,61 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { useModalManager } from "../../store/ModalManager";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "CreateWorkoutModalBody",
-  props: ["title", "workouts", "sets", "reps"],
+import { defineComponent, inject } from "vue";
+const workoutData = {
+  workoutName: "",
+  exerciseData: [
+    {
+      exerciseName: "",
+      sets: 0,
+      reps: 0,
+    },
+  ],
+};
+const increaseNumberOfExercises = (): void => {
+  workoutData.exerciseData.push({
+    exerciseName: "",
+    sets: 0,
+    reps: 0,
+  });
+};
+const increaseNumberOfReps = (index: number): void => {
+  workoutData.exerciseData[index].reps += 1;
+};
+const decreaseNumberOfReps = (index: number): void => {
+  if (workoutData.exerciseData[index].reps > 0) {
+    workoutData.exerciseData[index].reps -= 1;
+  }
+};
+const increaseNumberOfSets = (index: number): void => {
+  workoutData.exerciseData[index].sets += 1;
+};
+const decreaseNumberOfSets = (index: number): void => {
+  if (workoutData.exerciseData[index].sets > 0) {
+    workoutData.exerciseData[index].sets -= 1;
+  }
+};
+const removeExercise = (index: number): void => {
+  if (workoutData.exerciseData.length > 0) {
+    workoutData.exerciseData.splice(index, 1);
+  }
+};
+const setModalValue = (modalData: boolean): void => {
+  const store = useModalManager();
+  store.workoutDetailsModal = modalData;
+};
+const saveWorkoutData = (): void => {
+  const store = useWorkoutDataStore();
+  // store.createWorkout(this.workoutData);
+  setModalValue(false);
 
-  data() {
-    return {
-      workoutData: {
-        workoutName: "",
-        exerciseData: [
-          {
-            exerciseName: "",
-            sets: 0,
-            reps: 0,
-          },
-        ],
-      },
+  console.log("submit");
+};
 
-      cardTitle: this.title,
-      workoutDatas: this.workouts,
-      workoutSets: this.sets,
-      workoutReps: this.reps,
-    };
-  },
-
-  methods: {
-    increaseNumberOfExercises(): void {
-      this.workoutData.exerciseData.push({
-        exerciseName: "",
-        sets: 0,
-        reps: 0,
-      });
-    },
-    increaseNumberOfReps(index: number): void {
-      this.workoutData.exerciseData[index].reps += 1;
-    },
-    decreaseNumberOfReps(index: number): void {
-      if (this.workoutData.exerciseData[index].reps > 0) {
-        this.workoutData.exerciseData[index].reps -= 1;
-      }
-    },
-    increaseNumberOfSets(index: number): void {
-      this.workoutData.exerciseData[index].sets += 1;
-    },
-    decreaseNumberOfSets(index: number): void {
-      if (this.workoutData.exerciseData[index].sets > 0) {
-        this.workoutData.exerciseData[index].sets -= 1;
-      }
-    },
-    removeExercise(index: number): void {
-      if (this.workoutData.exerciseData.length > 0) {
-        this.workoutData.exerciseData.splice(index, 1);
-      }
-    },
-    setModalValue(modalData: boolean): void {
-      const store = useModalManager();
-      store.workoutDetails = modalData;
-    },
-    saveWorkoutData(): void {
-      const store = useWorkoutDataStore();
-      // store.createWorkout(this.workoutData);
-      this.setModalValue(false);
-
-      console.log("submit");
-    },
-
-    onSubmit() {
-      console.log("submit");
-      console.log(this.workoutData);
-    },
-    mounted() {
-      console.log(this.workoutData);
-    },
-  },
-});
+const onSubmit = () => {
+  console.log("submit");
+  console.log(workoutData);
+};
 </script>
 
 <template>

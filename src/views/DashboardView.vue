@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useWorkoutDataStore } from "../store/WorkoutData";
+import { useModalManager } from "../store/ModalManager";
 import SideNavbarComponent from "@/components/side-navbar-component/SideNavbarComponent.vue";
 import CreateWorkoutModal from "@/components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue";
 import DashboardTopNavbarComponent from "@/components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
@@ -9,8 +10,13 @@ import WorkoutDetailsModal from "@/components/workout-details-component/WorkoutD
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { computed, ref, watch } from "vue";
 
-const store = useWorkoutDataStore();
-let workoutData = store.getWorkouts;
+const workoutStore = useWorkoutDataStore();
+const modalStore = useModalManager();
+let workoutData = workoutStore.getWorkouts;
+const openCloseWorkoutDetails = (selectedWorkout: IWorkoutModel) => {
+  workoutStore.createSelectedWorkout(selectedWorkout);
+  modalStore.openCloseWorkoutDetail(true);
+};
 console.log(workoutData);
 </script>
 
@@ -23,7 +29,7 @@ console.log(workoutData);
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutData.length === 0" />
       <CreateWorkoutModal />
-      <WorkoutDetailsModal />
+      <WorkoutDetailsModal v-if="modalStore.getWorkoutDetailsModalState" />
       <div
         class="cards d-flex flex-row ms-3 justify-content-left align-items-center"
       >
@@ -34,7 +40,7 @@ console.log(workoutData);
         >
           <!-- onclick sprema odabranu vrijednost u store -->
           <ExerciseCardComponent
-            @click="store.createSelectedWorkout(value)"
+            @click="openCloseWorkoutDetails(value)"
             :title="value.workoutName"
           />
         </div>

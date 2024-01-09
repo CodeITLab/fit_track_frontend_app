@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, provide } from "vue";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
 import { useModalManager } from "../../store/ModalManager";
 export default defineComponent({
@@ -8,6 +8,7 @@ export default defineComponent({
   setup() {
     const store = useWorkoutDataStore();
     let workoutData = store.getWorkouts;
+    provide("info", store);
     return { workoutData, store };
   },
   data() {
@@ -18,7 +19,7 @@ export default defineComponent({
       // workoutReps: this.reps,
     };
   },
- methods: {
+  methods: {
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
       store.openCloseWorkoutDetail(modalValue);
@@ -28,21 +29,22 @@ export default defineComponent({
 </script>
 
 <template>
-  <button 
-      @click="setModalValue(true)"
-      type="button"
-      class="plus-btn"
-      data-toggle="modal"
-      data-target="#exampleModal">
-      <div class="d-flex flex-row justify-content-center align-items-center me-3">
-    <div
-      class="card bg-light shadow d-flex flex-row"
-      style="--bs-bg-opacity: 0.3"
-    >
-      <div class="m-3" style="width: 10rem">
-        <h4 class="font text-center text-white">{{ cardTitle }}</h4>
-        <!-- redudantno  -->
-        <!-- <ul>
+  <button
+    @click="setModalValue(true)"
+    type="button"
+    class="plus-btn"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    <div class="d-flex flex-row justify-content-center align-items-center me-3">
+      <div
+        class="card bg-light shadow d-flex flex-row"
+        style="--bs-bg-opacity: 0.3"
+      >
+        <div class="m-3" style="width: 10rem">
+          <h4 class="font text-center text-white">{{ cardTitle }}</h4>
+          <!-- redudantno  -->
+          <!-- <ul>
           <li
             v-for="(value, index) in workoutData"
             :key="index"
@@ -50,7 +52,7 @@ export default defineComponent({
           >
             Exercise name: {{ value.exerciseName }}
           </li> -->
-        <!-- <li
+          <!-- <li
             v-for="(value, index) in workoutData"
             :key="index"
             class="list-unstyled text-black"
@@ -65,12 +67,10 @@ export default defineComponent({
             <p class="font">Reps: {{ value.reps }}</p>
           </li>
         </ul> -->
+        </div>
       </div>
     </div>
-  </div>
-
   </button>
-  
 </template>
 
 <style lang="css" scoped>

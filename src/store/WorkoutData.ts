@@ -13,15 +13,16 @@ export const useWorkoutDataStore = defineStore('workout', {
             return state.workouts
         },
         getSelectedWorkout(state){
-            return state.workouts
+            return state.selectedWorkouts
         }
     },
     actions: {
         createWorkout(workoutData:IWorkoutModel) {
             this.workouts.push(workoutData);
         },
-        createSelectedWorkout(workoutData:IWorkoutModel){
-            this.selectedWorkouts = workoutData 
+        createSelectedWorkout(selectedWorkoutData:IWorkoutModel){
+            this.selectedWorkouts = selectedWorkoutData
+            console.log("uspjeh", this.selectedWorkouts)
         }
     }
 })

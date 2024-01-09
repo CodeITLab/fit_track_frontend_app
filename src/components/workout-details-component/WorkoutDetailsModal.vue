@@ -1,51 +1,14 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref } from "vue";
 import { useModalManager } from "../../store/ModalManager";
 import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
-export default defineComponent({
-  name: "WorkoutDetailsModal",
-  components: {
-    WorkoutDetailsModalBody,
-  },
-  props: ["title"],
-  setup() {
-    const workoutDetails = ref({});
-
-    return { workoutDetails };
-  },
-  data() {
-    return {
-      cardTitle: this.title,
-    };
-  },
-
-  methods: {
-    isModalOpened(): boolean {
-      const store = useModalManager();
-      if (store.workoutDetails) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    setModalValue(modalData: boolean): void {
-      const store = useModalManager();
-      store.workoutDetails = modalData;
-    },
-    setWorkoutDetails(): void {
-      const store = useWorkoutDataStore();
-      this.workoutDetails = store.createSelectedWorkout;
-    },
-  },
-});
+const store = useWorkoutDataStore();
+console.log(store.getSelectedWorkout);
 </script>
 
 <template>
-  <div
-    v-if="isModalOpened()"
-    class="modal fade show d-flex justify-content-center align-items-center"
-  >
+  <div class="modal fade show d-flex justify-content-center align-items-center">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <WorkoutDetailsModalBody />
