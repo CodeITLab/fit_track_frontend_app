@@ -13,8 +13,12 @@ import { computed, ref, watch } from "vue";
 const workoutStore = useWorkoutDataStore();
 const modalStore = useModalManager();
 let workoutData = workoutStore.getWorkouts;
-const openCloseWorkoutDetails = (selectedWorkout: IWorkoutModel) => {
+const openCloseWorkoutDetails = (
+  selectedWorkout: IWorkoutModel,
+  index: number
+) => {
   workoutStore.createSelectedWorkout(selectedWorkout);
+  workoutStore.createEorkoutIndex(index);
   modalStore.openCloseWorkoutDetail;
 };
 console.log(workoutData);
@@ -40,7 +44,7 @@ console.log(workoutData);
         >
           <!-- onclick sprema odabranu vrijednost u store -->
           <ExerciseCardComponent
-            @click="openCloseWorkoutDetails(value)"
+            @click="openCloseWorkoutDetails(value, index)"
             :title="value.workoutName"
           />
         </div>

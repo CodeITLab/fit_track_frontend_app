@@ -2,6 +2,7 @@
 import { defineComponent, provide } from "vue";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
 import { useModalManager } from "../../store/ModalManager";
+import { useTitle } from "@vueuse/core";
 export default defineComponent({
   name: "DayCardComponent",
   props: ["title", "workouts", "sets", "reps"],
@@ -23,7 +24,12 @@ export default defineComponent({
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
       store.openCloseWorkoutDetail(modalValue);
+      console.log(this.title);
     },
+  },
+  mounted() {
+    console.log("card title", this.cardTitle);
+    console.log("title", this.title);
   },
 });
 </script>
@@ -42,7 +48,7 @@ export default defineComponent({
         style="--bs-bg-opacity: 0.3"
       >
         <div class="m-3" style="width: 10rem">
-          <h4 class="font text-center text-white">{{ cardTitle }}</h4>
+          <h4 class="font text-center text-white">{{ title }}</h4>
           <!-- redudantno  -->
           <!-- <ul>
           <li

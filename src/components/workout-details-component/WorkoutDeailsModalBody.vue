@@ -46,7 +46,7 @@ const setModalValue = (modalData: boolean): void => {
 };
 const saveWorkoutData = (): void => {
   const store = useWorkoutDataStore();
-  // store.createWorkout(this.workoutData);
+  store.updateSelectedWorkout(workoutData);
   setModalValue(false);
 
   console.log("submit");
@@ -171,7 +171,7 @@ const onSubmit = () => {
                   <button
                     type="button"
                     class="btn btn-primary"
-                    @click="onSubmit"
+                    @click="saveWorkoutData"
                   >
                     Update
                   </button>
