@@ -2,42 +2,44 @@
 import { useModalManager } from "../../store/ModalManager";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
 import { defineComponent, inject } from "vue";
-const workoutData = {
-  workoutName: "",
-  exerciseData: [
-    {
-      exerciseName: "",
-      sets: 0,
-      reps: 0,
-    },
-  ],
-};
+const store = useWorkoutDataStore();
+const getWorkoutData = store.getSelectedWorkout;
+// const workoutData = {
+//   workoutName: "",
+//   exerciseData: [
+//     {
+//       exerciseName: "",
+//       sets: 0,
+//       reps: 0,
+//     },
+//   ],
+// };
 const increaseNumberOfExercises = (): void => {
-  workoutData.exerciseData.push({
+  getWorkoutData.exerciseData.push({
     exerciseName: "",
     sets: 0,
     reps: 0,
   });
 };
 const increaseNumberOfReps = (index: number): void => {
-  workoutData.exerciseData[index].reps += 1;
+  getWorkoutData.exerciseData[index].reps += 1;
 };
 const decreaseNumberOfReps = (index: number): void => {
-  if (workoutData.exerciseData[index].reps > 0) {
-    workoutData.exerciseData[index].reps -= 1;
+  if (getWorkoutData.exerciseData[index].reps > 0) {
+    getWorkoutData.exerciseData[index].reps -= 1;
   }
 };
 const increaseNumberOfSets = (index: number): void => {
-  workoutData.exerciseData[index].sets += 1;
+  getWorkoutData.exerciseData[index].sets += 1;
 };
 const decreaseNumberOfSets = (index: number): void => {
-  if (workoutData.exerciseData[index].sets > 0) {
-    workoutData.exerciseData[index].sets -= 1;
+  if (getWorkoutData.exerciseData[index].sets > 0) {
+    getWorkoutData.exerciseData[index].sets -= 1;
   }
 };
 const removeExercise = (index: number): void => {
-  if (workoutData.exerciseData.length > 0) {
-    workoutData.exerciseData.splice(index, 1);
+  if (getWorkoutData.exerciseData.length > 0) {
+    getWorkoutData.exerciseData.splice(index, 1);
   }
 };
 const setModalValue = (modalData: boolean): void => {
@@ -46,7 +48,7 @@ const setModalValue = (modalData: boolean): void => {
 };
 const saveWorkoutData = (): void => {
   const store = useWorkoutDataStore();
-  store.updateSelectedWorkout(workoutData);
+  store.updateSelectedWorkout(getWorkoutData);
   setModalValue(false);
 
   console.log("submit");
@@ -54,7 +56,7 @@ const saveWorkoutData = (): void => {
 
 const onSubmit = () => {
   console.log("submit");
-  console.log(workoutData);
+  console.log(getWorkoutData);
 };
 </script>
 
@@ -63,10 +65,10 @@ const onSubmit = () => {
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Workout Name</label>
       <input
-        v-model="workoutData.workoutName"
+        v-model="getWorkoutData.workoutName"
         class="m-1"
         type="text"
-        :placeholder="workoutData.workoutName"
+        :placeholder="getWorkoutData.workoutName"
       />
     </div>
     <hr />
@@ -81,8 +83,8 @@ const onSubmit = () => {
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
             <tr
-              v-if="workoutData.exerciseData.length > 0"
-              v-for="(value, index) in workoutData.exerciseData"
+              v-if="getWorkoutData.exerciseData.length > 0"
+              v-for="(value, index) in getWorkoutData.exerciseData"
               :key="index"
             >
               <td>
@@ -91,7 +93,7 @@ const onSubmit = () => {
                   :key="index"
                   class="exercise-name-input"
                   type="text"
-                  placeholder=""
+                  :placeholder="getWorkoutData.exerciseData[index].exerciseName"
                   method="post"
                 />
               </td>
@@ -103,7 +105,9 @@ const onSubmit = () => {
                   >
                     +
                   </button>
-                  <p class="counter-value" :key="index">{{ value.reps }}</p>
+                  <p class="counter-value" :key="index">
+                    {{ getWorkoutData.exerciseData[index].reps }}
+                  </p>
                   <button
                     @click="decreaseNumberOfReps(index)"
                     class="counter-button border-0 bg-transparent me-1 p-0"
@@ -120,7 +124,9 @@ const onSubmit = () => {
                   >
                     +
                   </button>
-                  <p class="counter-value" :key="index">{{ value.sets }}</p>
+                  <p class="counter-value" :key="index">
+                    {{ getWorkoutData.exerciseData[index].sets }}
+                  </p>
                   <button
                     @click="decreaseNumberOfSets(index)"
                     class="counter-button border-0 bg-transparent me-1 p-0"
