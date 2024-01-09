@@ -15,7 +15,7 @@ const modalStore = useModalManager();
 let workoutData = workoutStore.getWorkouts;
 const openCloseWorkoutDetails = (selectedWorkout: IWorkoutModel) => {
   workoutStore.createSelectedWorkout(selectedWorkout);
-  modalStore.openCloseWorkoutDetail(true);
+  modalStore.openCloseWorkoutDetail;
 };
 console.log(workoutData);
 </script>

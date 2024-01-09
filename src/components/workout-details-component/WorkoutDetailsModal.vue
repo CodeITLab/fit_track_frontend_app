@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup >
 import { defineComponent, ref } from "vue";
 import { useModalManager } from "../../store/ModalManager";
 import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";

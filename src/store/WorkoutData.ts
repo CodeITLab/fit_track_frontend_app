@@ -3,9 +3,11 @@ import { defineStore } from "pinia";
 
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
+        
         return {
             workouts: [] as IWorkoutModel[],
             selectedWorkouts: {}as IWorkoutModel
+         
         }
     },
     getters: {
@@ -14,6 +16,9 @@ export const useWorkoutDataStore = defineStore('workout', {
         },
         getSelectedWorkout(state){
             return state.selectedWorkouts
+        },
+        getSelectedWorkoutIndex(){
+            
         }
     },
     actions: {
