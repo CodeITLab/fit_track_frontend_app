@@ -1,19 +1,8 @@
 <script lang="ts" setup>
 import { useModalManager } from "../../store/ModalManager";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
-import { defineComponent, inject } from "vue";
 const store = useWorkoutDataStore();
 const getWorkoutData = store.getSelectedWorkout;
-// const workoutData = {
-//   workoutName: "",
-//   exerciseData: [
-//     {
-//       exerciseName: "",
-//       sets: 0,
-//       reps: 0,
-//     },
-//   ],
-// };
 const increaseNumberOfExercises = (): void => {
   getWorkoutData.exerciseData.push({
     exerciseName: "",
