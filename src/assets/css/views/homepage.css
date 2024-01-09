@@ -23,7 +23,6 @@ body {
 
 @media screen and (min-width: 768px) {
   .info-card {
-    margin-left: 3rem !important;
     width: 500px;
   }
 }
