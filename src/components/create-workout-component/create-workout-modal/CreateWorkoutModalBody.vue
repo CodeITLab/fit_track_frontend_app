@@ -79,13 +79,9 @@ export default defineComponent({
       } else {
         alert("Name your workout and Exercise Name fields are required");
       }
-
-      console.log("submit");
     },
 
-    onSubmit() {
-      console.log("submit");
-    },
+    onSubmit() {},
   },
 });
 </script>
@@ -104,12 +100,6 @@ export default defineComponent({
     <hr />
     <div class="d-flex flex-column justify-content-center align-items-center">
       <form action="submit" @submit.prevent="onSubmit" method="post">
-        <!-- <p v-if="errors.length">
-              <b>Please correct the following error(s):</b>
-                <ul>
-                  <li v-for="(error, index) in errors" :key="index">{{error}}</li>
-                </ul>
-            </p> -->
         <table class="table-responsive">
           <thead>
             <th scope="col">Exercise Name</th>

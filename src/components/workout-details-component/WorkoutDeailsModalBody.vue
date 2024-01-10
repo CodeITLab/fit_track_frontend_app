@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { useModalManager } from "../../store/ModalManager";
 import { useWorkoutDataStore } from "../../store/WorkoutData";
+import Vue from "vue";
+import { IWorkoutModel } from "@/models/IWorkoutModel";
 const store = useWorkoutDataStore();
 const getWorkoutData = store.getSelectedWorkout;
+const delite = {} as IWorkoutModel;
 const increaseNumberOfExercises = (): void => {
   getWorkoutData.exerciseData.push({
     exerciseName: "",
@@ -31,6 +34,7 @@ const removeExercise = (index: number): void => {
     getWorkoutData.exerciseData.splice(index, 1);
   }
 };
+
 const setModalValue = (modalData: boolean): void => {
   const store = useModalManager();
   store.workoutDetailsModal = modalData;
@@ -39,14 +43,14 @@ const saveWorkoutData = (): void => {
   const store = useWorkoutDataStore();
   store.updateSelectedWorkout(getWorkoutData);
   setModalValue(false);
-
-  console.log("submit");
+};
+const deliteWorkoutData = (): void => {
+  const store = useWorkoutDataStore();
+  store.getWorkouts.splice(store.getWorkoutIndex, 1);
+  setModalValue(false);
 };
 
-const onSubmit = () => {
-  console.log("submit");
-  console.log(getWorkoutData);
-};
+const onSubmit = () => {};
 </script>
 
 <template>
@@ -170,7 +174,14 @@ const onSubmit = () => {
                   >
                     Update
                   </button>
-                  <button type="button" class="btn btn-primary">Delite</button>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="deliteWorkoutData"
+                  >
+                    Delite
+                  </button>
                 </div>
               </td>
             </tr>

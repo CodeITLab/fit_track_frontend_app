@@ -24,12 +24,7 @@ export default defineComponent({
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
       store.openCloseWorkoutDetail(modalValue);
-      console.log(this.title);
     },
-  },
-  mounted() {
-    console.log("card title", this.cardTitle);
-    console.log("title", this.title);
   },
 });
 </script>
@@ -49,30 +44,6 @@ export default defineComponent({
       >
         <div class="m-3" style="width: 10rem">
           <h4 class="font text-center text-white">{{ title }}</h4>
-          <!-- redudantno  -->
-          <!-- <ul>
-          <li
-            v-for="(value, index) in workoutData"
-            :key="index"
-            class="list-unstyled text-black font"
-          >
-            Exercise name: {{ value.exerciseName }}
-          </li> -->
-          <!-- <li
-            v-for="(value, index) in workoutData"
-            :key="index"
-            class="list-unstyled text-black"
-          >
-            <p class="mb-0 font">Sets: {{ value.sets }}</p>
-          </li>
-          <li
-            v-for="(value, index) in workoutData"
-            :key="index"
-            class="list-unstyled text-black"
-          >
-            <p class="font">Reps: {{ value.reps }}</p>
-          </li>
-        </ul> -->
         </div>
       </div>
     </div>
