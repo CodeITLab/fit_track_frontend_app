@@ -46,7 +46,8 @@ const saveWorkoutData = (): void => {
 };
 const deliteWorkoutData = (): void => {
   const store = useWorkoutDataStore();
-  store.getWorkouts.splice(store.getWorkoutIndex, 1);
+  store.deleteSelectedWorkout();
+  // store.getWorkouts.splice(store.getWorkoutIndex, 1);
   setModalValue(false);
 };
 

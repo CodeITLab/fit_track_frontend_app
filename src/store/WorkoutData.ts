@@ -37,6 +37,9 @@ export const useWorkoutDataStore = defineStore('workout', {
         },
         updateSelectedWorkout(updatedWorkoutData: IWorkoutModel){
             this.workouts[this.workoutIndex] = updatedWorkoutData
+        },
+        deleteSelectedWorkout(){
+            this.workouts.splice(this.getWorkoutIndex, 1);
         }
     
 
