@@ -1,6 +1,6 @@
 export interface IWorkoutModel {
     workoutName: string,
-    exerciseData: IExerciseModel[]
+    exerciseData: IExerciseModel[],
 }
 
 export interface IExerciseModel {

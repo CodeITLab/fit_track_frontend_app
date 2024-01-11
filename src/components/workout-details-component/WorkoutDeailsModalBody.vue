@@ -1,100 +1,68 @@
-<script lang="ts">
-import { useModalManager } from "@/store/ModalManager";
-import { useWorkoutDataStore } from "@/store/WorkoutData";
-import { defineComponent } from "vue";
-import { useVuelidate } from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
+<script lang="ts" setup>
+import { useModalManager } from "../../store/ModalManager";
+import { useWorkoutDataStore } from "../../store/WorkoutData";
+import Vue from "vue";
+import { IWorkoutModel } from "@/models/IWorkoutModel";
+const store = useWorkoutDataStore();
+const getWorkoutData = store.getSelectedWorkout;
+const delite = {} as IWorkoutModel;
+const increaseNumberOfExercises = (): void => {
+  getWorkoutData.exerciseData.push({
+    exerciseName: "",
+    sets: 0,
+    reps: 0,
+  });
+};
+const increaseNumberOfReps = (index: number): void => {
+  getWorkoutData.exerciseData[index].reps += 1;
+};
+const decreaseNumberOfReps = (index: number): void => {
+  if (getWorkoutData.exerciseData[index].reps > 0) {
+    getWorkoutData.exerciseData[index].reps -= 1;
+  }
+};
+const increaseNumberOfSets = (index: number): void => {
+  getWorkoutData.exerciseData[index].sets += 1;
+};
+const decreaseNumberOfSets = (index: number): void => {
+  if (getWorkoutData.exerciseData[index].sets > 0) {
+    getWorkoutData.exerciseData[index].sets -= 1;
+  }
+};
+const removeExercise = (index: number): void => {
+  if (getWorkoutData.exerciseData.length > 0) {
+    getWorkoutData.exerciseData.splice(index, 1);
+  }
+};
 
-export default defineComponent({
-  name: "CreateWorkoutModalBody",
-  data() {
-    return {
-      v$: useVuelidate(),
-      workoutData: {
-        workoutName: "",
-        exerciseData: [
-          {
-            exerciseName: "",
-            sets: 0,
-            reps: 0,
-          },
-        ],
-      },
-      // errors: [] as string[],
-    };
-  },
-  validations() {
-    return {
-      workoutData: {
-        workoutName: { required },
-        exerciseData: [
-          {
-            exerciseName: { required },
-            sets: 0,
-            reps: 0,
-          },
-        ],
-      },
-    };
-  },
-  methods: {
-    increaseNumberOfExercises(): void {
-      this.workoutData.exerciseData.push({
-        exerciseName: "",
-        sets: 0,
-        reps: 0,
-      });
-    },
-    increaseNumberOfReps(index: number): void {
-      this.workoutData.exerciseData[index].reps += 1;
-    },
-    decreaseNumberOfReps(index: number): void {
-      if (this.workoutData.exerciseData[index].reps > 0) {
-        this.workoutData.exerciseData[index].reps -= 1;
-      }
-    },
-    increaseNumberOfSets(index: number): void {
-      this.workoutData.exerciseData[index].sets += 1;
-    },
-    decreaseNumberOfSets(index: number): void {
-      if (this.workoutData.exerciseData[index].sets > 0) {
-        this.workoutData.exerciseData[index].sets -= 1;
-      }
-    },
-    removeExercise(index: number): void {
-      if (this.workoutData.exerciseData.length > 0) {
-        this.workoutData.exerciseData.splice(index, 1);
-      }
-    },
-    setModalValue(modalData: boolean): void {
-      const store = useModalManager();
-      store.createWorkoutModal = modalData;
-    },
-    saveWorkoutData(): void {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        const store = useWorkoutDataStore();
-        store.createWorkout(this.workoutData);
-        this.setModalValue(false);
-      } else {
-        alert("Name your workout and Exercise Name fields are required");
-      }
-    },
+const setModalValue = (modalData: boolean): void => {
+  const store = useModalManager();
+  store.workoutDetailsModal = modalData;
+};
+const saveWorkoutData = (): void => {
+  const store = useWorkoutDataStore();
+  store.updateSelectedWorkout(getWorkoutData);
+  setModalValue(false);
+};
+const deliteWorkoutData = (): void => {
+  const store = useWorkoutDataStore();
+  store.deleteSelectedWorkout();
+  // store.getWorkouts.splice(store.getWorkoutIndex, 1);
+  setModalValue(false);
+};
 
-    onSubmit() {},
-  },
-});
+const onSubmit = () => {};
 </script>
 
 <template>
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
-      <label for="Name your Exercise">Name your Workout</label>
+      <label for="Name your Exercise">Workout Name</label>
       <input
-        v-model="workoutData.workoutName"
+        v-model="getWorkoutData.workoutName"
         class="m-1"
         type="text"
-        placeholder="Push day..."
+        :placeholder="getWorkoutData.workoutName"
       />
     </div>
     <hr />
@@ -109,8 +77,8 @@ export default defineComponent({
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
             <tr
-              v-if="workoutData.exerciseData.length > 0"
-              v-for="(value, index) in workoutData.exerciseData"
+              v-if="getWorkoutData.exerciseData.length > 0"
+              v-for="(value, index) in getWorkoutData.exerciseData"
               :key="index"
             >
               <td>
@@ -119,7 +87,7 @@ export default defineComponent({
                   :key="index"
                   class="exercise-name-input"
                   type="text"
-                  placeholder="Push ups..."
+                  :placeholder="getWorkoutData.exerciseData[index].exerciseName"
                   method="post"
                 />
               </td>
@@ -131,7 +99,9 @@ export default defineComponent({
                   >
                     +
                   </button>
-                  <p class="counter-value" :key="index">{{ value.reps }}</p>
+                  <p class="counter-value" :key="index">
+                    {{ getWorkoutData.exerciseData[index].reps }}
+                  </p>
                   <button
                     @click="decreaseNumberOfReps(index)"
                     class="counter-button border-0 bg-transparent me-1 p-0"
@@ -148,7 +118,9 @@ export default defineComponent({
                   >
                     +
                   </button>
-                  <p class="counter-value" :key="index">{{ value.sets }}</p>
+                  <p class="counter-value" :key="index">
+                    {{ getWorkoutData.exerciseData[index].sets }}
+                  </p>
                   <button
                     @click="decreaseNumberOfSets(index)"
                     class="counter-button border-0 bg-transparent me-1 p-0"
@@ -165,7 +137,7 @@ export default defineComponent({
                 >
                   <img
                     height="16"
-                    src="../../../assets/img/icons/delete.png"
+                    src="../../assets/img/icons/delete.png"
                     alt="delete button"
                   />
                 </button>
@@ -199,9 +171,17 @@ export default defineComponent({
                   <button
                     type="button"
                     class="btn btn-primary"
-                    @click="saveWorkoutData()"
+                    @click="saveWorkoutData"
                   >
-                    Save changes
+                    Update
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="deliteWorkoutData"
+                  >
+                    Delite
                   </button>
                 </div>
               </td>
@@ -212,7 +192,7 @@ export default defineComponent({
     </div>
   </div>
 </template>
-
-<style lang="css">
-@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
+  
+  <style lang="css">
+@import "../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
 </style>

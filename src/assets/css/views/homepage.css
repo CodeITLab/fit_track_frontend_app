@@ -15,25 +15,6 @@ body {
   height: 100%;
 }
 
-.links {
-  color: white;
-}
-
-.links:hover {
-  background: white;
-  color: black;
-}
-
-.last {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px
-}
-
-.first {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px
-}
-
 @media screen and (max-width: 768px) {
   .info-card {
     padding: 0 5% 0 5%;
@@ -42,7 +23,6 @@ body {
 
 @media screen and (min-width: 768px) {
   .info-card {
-    margin-left: 3rem !important;
     width: 500px;
   }
 }

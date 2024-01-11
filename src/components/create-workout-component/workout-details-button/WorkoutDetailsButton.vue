@@ -4,7 +4,7 @@ import { useModalManager } from "../../../store/ModalManager";
 import { useWorkoutDataStore } from "../../../store/WorkoutData";
 
 export default defineComponent({
-  name: "CreateWorkoutButton",
+  name: "WorkoutDetailsButton",
 
   setup() {
     const store = useWorkoutDataStore();
@@ -15,7 +15,7 @@ export default defineComponent({
   methods: {
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
-      store.openCloseCreateWorkoutModal(modalValue);
+      store.openCloseWorkoutDetail(modalValue);
     },
   },
 });
