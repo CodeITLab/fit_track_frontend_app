@@ -31,7 +31,7 @@ export default defineComponent({
             class="plus-btn"
             data-toggle="modal"
             data-target="#exampleModal">
-      <img src="../../../assets/img/logos/add-icon.png"
+      <img src="../../../../assets/img/logos/add-icon.png"
            height="40"
            alt="add-button" />
     </button>
@@ -39,5 +39,5 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-@import "../../../assets/css/components/create-workout-button.css";
+@import "../../../../assets/css/components/create-workout-button.css";
 </style>

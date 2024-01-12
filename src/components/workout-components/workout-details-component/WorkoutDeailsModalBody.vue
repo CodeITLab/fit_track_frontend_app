@@ -44,7 +44,7 @@ const saveWorkoutData = (): void => {
   store.updateSelectedWorkout(getWorkoutData);
   setModalValue(false);
 };
-const deliteWorkoutData = (): void => {
+const deleteWorkoutData = (): void => {
   const store = useWorkoutDataStore();
   store.deleteSelectedWorkout();
   // store.getWorkouts.splice(store.getWorkoutIndex, 1);
@@ -126,7 +126,7 @@ const onSubmit = () => { };
                         type="button"
                         class="delete-btn">
                   <img height="16"
-                       src="../../assets/img/icons/delete.png"
+                       src="../../../assets/img/icons/delete.png"
                        alt="delete button" />
                 </button>
               </td>
@@ -158,7 +158,7 @@ const onSubmit = () => { };
 
                   <button type="button"
                           class="btn btn-primary"
-                          @click="deliteWorkoutData">
+                          @click="deleteWorkoutData">
                     Delite
                   </button>
                 </div>
@@ -172,5 +172,5 @@ const onSubmit = () => { };
 </template>
   
 <style lang="css">
-@import "../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
+@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
 </style>

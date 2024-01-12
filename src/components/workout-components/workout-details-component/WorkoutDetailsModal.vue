@@ -1,5 +1,5 @@
 <script lang="ts" setup >
-import WorkoutDetailsModalBody from "../../components/workout-details-component/WorkoutDeailsModalBody.vue";
+import WorkoutDetailsModalBody from "../workout-details-component/WorkoutDeailsModalBody.vue";
 </script>
 
 <template>
@@ -14,5 +14,5 @@ import WorkoutDetailsModalBody from "../../components/workout-details-component/
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/css/components/create-workout-component.css";
+@import "../../../assets/css/components/create-workout-component.css";
 </style>

@@ -2,7 +2,7 @@
 import { useWorkoutDataStore } from '@/store/WorkoutData';
 import { OpenCloseWorkoutDetails } from "@/controllers/dashboard-controllers/OpenCloseWorkoutDetails";
 import ExerciseCardComponent from './ExerciseCardComponent.vue';
-import CreateWorkoutButton from '../create-workout-component/create-workout-button/CreateWorkoutButton.vue';
+import CreateWorkoutButton from '../workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue';
 
 const workoutStore = useWorkoutDataStore();
 

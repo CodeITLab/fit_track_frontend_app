@@ -153,7 +153,7 @@ export default defineComponent({
                         type="button"
                         class="delete-btn">
                   <img height="16"
-                       src="../../../assets/img/icons/delete.png"
+                       src="../../../../assets/img/icons/delete.png"
                        alt="delete button" />
                 </button>
               </td>
@@ -193,5 +193,5 @@ export default defineComponent({
 </template>
 
 <style lang="css">
-@import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
+@import "../../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
 </style>
