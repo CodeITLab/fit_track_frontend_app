@@ -1,32 +1,18 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import { useModalManager } from "../../../../store/ModalManager";
+<script lang="ts" setup>
+
+import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
 import CreateWorkoutModalTitle from "../create-workout-modal/CreateWorkoutModalTitle.vue";
 import CreateWorkoutModalBody from "../create-workout-modal/CreateWorkoutModalBody.vue";
 
-export default defineComponent({
-  name: "CreateWorkoutModal",
-  components: {
-    CreateWorkoutModalTitle,
-    CreateWorkoutModalBody,
-  },
+const isModalOpened = (): boolean => {
+  if (StoreAccessController().modalStore.createWorkoutModal) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-  methods: {
-    isModalOpened(): boolean {
-      const store = useModalManager();
-      if (store.createWorkoutModal) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    setModalValue(modalData: boolean): void {
-      const store = useModalManager();
-      store.createWorkoutModal = modalData;
-    },
-  },
-});
 </script>
 
 <template>
