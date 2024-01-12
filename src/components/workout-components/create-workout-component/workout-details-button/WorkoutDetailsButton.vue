@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useModalManager } from "../../../store/ModalManager";
-import { useWorkoutDataStore } from "../../../store/WorkoutData";
+import { useModalManager } from "../../../../store/ModalManager";
+import { useWorkoutDataStore } from "../../../../store/WorkoutData";
 
 export default defineComponent({
-  name: "CreateWorkoutButton",
+  name: "WorkoutDetailsButton",
 
   setup() {
     const store = useWorkoutDataStore();
@@ -15,7 +15,7 @@ export default defineComponent({
   methods: {
     setModalValue(modalValue: boolean) {
       const store = useModalManager();
-      store.openCloseCreateWorkoutModal(modalValue);
+      store.openCloseWorkoutDetail(modalValue);
     },
   },
 });
@@ -26,18 +26,14 @@ export default defineComponent({
     <div v-if="workoutData.length === 0">
       <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     </div>
-    <button
-      @click="setModalValue(true)"
-      type="button"
-      class="plus-btn"
-      data-toggle="modal"
-      data-target="#exampleModal"
-    >
-      <img
-        src="../../../assets/img/logos/add-icon.png"
-        height="40"
-        alt="add-button"
-      />
+    <button @click="setModalValue(true)"
+            type="button"
+            class="plus-btn"
+            data-toggle="modal"
+            data-target="#exampleModal">
+      <img src="../../../assets/img/logos/add-icon.png"
+           height="40"
+           alt="add-button" />
     </button>
   </div>
 </template>

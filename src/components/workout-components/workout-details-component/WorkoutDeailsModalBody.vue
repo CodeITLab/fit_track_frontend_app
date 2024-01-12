@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { useModalManager } from "../../store/ModalManager";
-import { useWorkoutDataStore } from "../../store/WorkoutData";
-import Vue from "vue";
-import { IWorkoutModel } from "@/models/IWorkoutModel";
+
+import { useModalManager } from "../../../store/ModalManager";
+import { useWorkoutDataStore } from "../../../store/WorkoutData";
+
 const store = useWorkoutDataStore();
 const getWorkoutData = store.getSelectedWorkout;
-const delite = {} as IWorkoutModel;
+
 const increaseNumberOfExercises = (): void => {
   getWorkoutData.exerciseData.push({
     exerciseName: "",
@@ -51,105 +51,91 @@ const deliteWorkoutData = (): void => {
   setModalValue(false);
 };
 
-const onSubmit = () => {};
+const onSubmit = () => { };
 </script>
 
 <template>
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Workout Name</label>
-      <input
-        v-model="getWorkoutData.workoutName"
-        class="m-1"
-        type="text"
-        :placeholder="getWorkoutData.workoutName"
-      />
+      <input v-model="getWorkoutData.workoutName"
+             class="m-1"
+             type="text"
+             :placeholder="getWorkoutData.workoutName" />
     </div>
     <hr />
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <form action="submit" @submit.prevent="onSubmit" method="post">
+      <form action="submit"
+            @submit.prevent="onSubmit"
+            method="post">
         <table class="table-responsive">
           <thead>
             <th scope="col">Exercise Name</th>
-            <th class="text-center" scope="col">Reps</th>
-            <th class="text-center" scope="col">Sets</th>
+            <th class="text-center"
+                scope="col">Reps</th>
+            <th class="text-center"
+                scope="col">Sets</th>
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr
-              v-if="getWorkoutData.exerciseData.length > 0"
-              v-for="(value, index) in getWorkoutData.exerciseData"
-              :key="index"
-            >
+            <tr v-if="getWorkoutData.exerciseData.length > 0"
+                v-for="(value, index) in getWorkoutData.exerciseData"
+                :key="index">
               <td>
-                <input
-                  v-model="value.exerciseName"
-                  :key="index"
-                  class="exercise-name-input"
-                  type="text"
-                  :placeholder="getWorkoutData.exerciseData[index].exerciseName"
-                  method="post"
-                />
+                <input v-model="value.exerciseName"
+                       :key="index"
+                       class="exercise-name-input"
+                       type="text"
+                       :placeholder="getWorkoutData.exerciseData[index].exerciseName"
+                       method="post" />
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button
-                    @click="increaseNumberOfReps(index)"
-                    class="counter-button border-0 bg-transparent ms-1 p-0"
-                  >
+                  <button @click="increaseNumberOfReps(index)"
+                          class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
-                  <p class="counter-value" :key="index">
+                  <p class="counter-value"
+                     :key="index">
                     {{ getWorkoutData.exerciseData[index].reps }}
                   </p>
-                  <button
-                    @click="decreaseNumberOfReps(index)"
-                    class="counter-button border-0 bg-transparent me-1 p-0"
-                  >
+                  <button @click="decreaseNumberOfReps(index)"
+                          class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button
-                    @click="increaseNumberOfSets(index)"
-                    class="counter-button border-0 bg-transparent ms-1 p-0"
-                  >
+                  <button @click="increaseNumberOfSets(index)"
+                          class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
-                  <p class="counter-value" :key="index">
+                  <p class="counter-value"
+                     :key="index">
                     {{ getWorkoutData.exerciseData[index].sets }}
                   </p>
-                  <button
-                    @click="decreaseNumberOfSets(index)"
-                    class="counter-button border-0 bg-transparent me-1 p-0"
-                  >
+                  <button @click="decreaseNumberOfSets(index)"
+                          class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button
-                  @click="removeExercise(index)"
-                  type="button"
-                  class="delete-btn"
-                >
-                  <img
-                    height="16"
-                    src="../../assets/img/icons/delete.png"
-                    alt="delete button"
-                  />
+                <button @click="removeExercise(index)"
+                        type="button"
+                        class="delete-btn">
+                  <img height="16"
+                       src="../../assets/img/icons/delete.png"
+                       alt="delete button" />
                 </button>
               </td>
             </tr>
             <tr>
               <td colspan="4">
                 <div class="footer-button-wrapper">
-                  <button
-                    @click="increaseNumberOfExercises()"
-                    class="btn btn-primary align-self-center mt-2"
-                  >
+                  <button @click="increaseNumberOfExercises()"
+                          class="btn btn-primary align-self-center mt-2">
                     Add Exercise
                   </button>
                 </div>
@@ -157,30 +143,22 @@ const onSubmit = () => {};
             </tr>
             <tr>
               <td colspan="4">
-                <div
-                  class="modal-footer d-flex justify-content-center align-items-center"
-                >
-                  <button
-                    @click="setModalValue(false)"
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
+                <div class="modal-footer d-flex justify-content-center align-items-center">
+                  <button @click="setModalValue(false)"
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal">
                     Close
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="saveWorkoutData"
-                  >
+                  <button type="button"
+                          class="btn btn-primary"
+                          @click="saveWorkoutData">
                     Update
                   </button>
 
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    @click="deliteWorkoutData"
-                  >
+                  <button type="button"
+                          class="btn btn-primary"
+                          @click="deliteWorkoutData">
                     Delite
                   </button>
                 </div>
@@ -193,6 +171,6 @@ const onSubmit = () => {};
   </div>
 </template>
   
-  <style lang="css">
+<style lang="css">
 @import "../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
 </style>
