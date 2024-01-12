@@ -31,9 +31,8 @@ export const useWorkoutDataStore = defineStore('workout', {
             this.selectedWorkouts = selectedWorkoutData
            
         },
-        createEorkoutIndex(index:number){
-            this.workoutIndex=index
-            
+        setWorkoutIndex(index:number){
+            this.workoutIndex=index 
         },
         updateSelectedWorkout(updatedWorkoutData: IWorkoutModel){
             this.workouts[this.workoutIndex] = updatedWorkoutData

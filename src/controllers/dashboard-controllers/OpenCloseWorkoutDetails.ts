@@ -6,6 +6,6 @@ export const OpenCloseWorkoutDetails = (
     index: number
   ) => {
     StoreAccessController().workoutStore.createSelectedWorkout(selectedWorkout);
-    StoreAccessController().workoutStore.createEorkoutIndex(index);
+    StoreAccessController().workoutStore.setWorkoutIndex(index);
     StoreAccessController().modalStore.openCloseWorkoutDetail;
   };

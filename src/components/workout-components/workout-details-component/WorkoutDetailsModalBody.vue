@@ -155,7 +155,7 @@ const onSubmit = () => { };
                   <button type="button"
                           class="btn btn-primary"
                           @click="deleteWorkoutData">
-                    Delite
+                    Delete
                   </button>
                 </div>
               </td>

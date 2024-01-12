@@ -3,13 +3,12 @@ import { useWorkoutDataStore } from '@/store/WorkoutData';
 import { OpenCloseWorkoutDetails } from "@/controllers/dashboard-controllers/OpenCloseWorkoutDetails";
 import ExerciseCardComponent from './ExerciseCardComponent.vue';
 import CreateWorkoutButton from '../workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue';
-
-const workoutStore = useWorkoutDataStore();
+import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
 
 </script>
 
 <template>
-    <div v-for="(value, index) in workoutStore.getWorkouts"
+    <div v-for="(value, index) in StoreAccessController().workoutStore.getWorkouts"
          :key="index"
          class="card-wrapper d-flex justify-content-center align-items-center">
         <!-- onclick sprema odabranu vrijednost u store -->
@@ -17,7 +16,7 @@ const workoutStore = useWorkoutDataStore();
                                :title="value.workoutName" />
     </div>
     <div class="card-wrapper d-flex justify-content-center align-items-center">
-        <CreateWorkoutButton v-if="workoutStore.getWorkouts.length !== 0" />
+        <CreateWorkoutButton v-if="StoreAccessController().workoutStore.getWorkouts.length !== 0" />
     </div>
 </template>
 
