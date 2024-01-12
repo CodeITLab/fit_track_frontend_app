@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 
-import { useModalManager } from "../../../store/ModalManager";
-import { useWorkoutDataStore } from "../../../store/WorkoutData";
+import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
-const store = useWorkoutDataStore();
-const getWorkoutData = store.getSelectedWorkout;
+const getWorkoutData = StoreAccessController().workoutStore.getSelectedWorkout;
 
 const increaseNumberOfExercises = (): void => {
   getWorkoutData.exerciseData.push({
@@ -36,18 +34,16 @@ const removeExercise = (index: number): void => {
 };
 
 const setModalValue = (modalData: boolean): void => {
-  const store = useModalManager();
-  store.workoutDetailsModal = modalData;
+  StoreAccessController().modalStore.workoutDetailsModal = modalData;
 };
+
 const saveWorkoutData = (): void => {
-  const store = useWorkoutDataStore();
-  store.updateSelectedWorkout(getWorkoutData);
+  StoreAccessController().workoutStore.updateSelectedWorkout(getWorkoutData);
   setModalValue(false);
 };
+
 const deleteWorkoutData = (): void => {
-  const store = useWorkoutDataStore();
-  store.deleteSelectedWorkout();
-  // store.getWorkouts.splice(store.getWorkoutIndex, 1);
+  StoreAccessController().workoutStore.deleteSelectedWorkout();
   setModalValue(false);
 };
 
