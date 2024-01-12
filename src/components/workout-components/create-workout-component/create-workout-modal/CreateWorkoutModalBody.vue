@@ -5,6 +5,8 @@ import { defineComponent } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 
+import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+
 export default defineComponent({
   name: "CreateWorkoutModalBody",
   data() {
@@ -66,14 +68,12 @@ export default defineComponent({
       }
     },
     setModalValue(modalData: boolean): void {
-      const store = useModalManager();
-      store.createWorkoutModal = modalData;
+      StoreAccessController().modalStore.createWorkoutModal = modalData;
     },
     saveWorkoutData(): void {
       this.v$.$validate();
       if (!this.v$.$error) {
-        const store = useWorkoutDataStore();
-        store.createWorkout(this.workoutData);
+        StoreAccessController().workoutStore.createWorkout(this.workoutData);
         this.setModalValue(false);
       } else {
         alert("Name your workout and Exercise Name fields are required");
