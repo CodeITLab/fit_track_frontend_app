@@ -1,5 +1,5 @@
 <script lang="ts" setup >
-import WorkoutDetailsModalBody from "../workout-details-component/WorkoutDeailsModalBody.vue";
+import WorkoutDetailsModalBody from "../workout-details-component/WorkoutDetailsModalBody.vue";
 </script>
 
 <template>
