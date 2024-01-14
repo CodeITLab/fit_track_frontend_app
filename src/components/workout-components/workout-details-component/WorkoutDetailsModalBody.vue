@@ -1,47 +1,13 @@
 <script lang="ts" setup>
 
-import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import { CreateWorkoutController } from "@/controllers/create-workout-controller/CreateWorkoutController";
+import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
 
 const getWorkoutData = StoreAccessController().workoutStore.getSelectedWorkout;
 
-const decreaseNumberOfReps = (index: number): void => {
-  if (getWorkoutData.exerciseData[index].reps > 0) {
-    getWorkoutData.exerciseData[index].reps -= 1;
-  }
-};
-
-const increaseNumberOfSets = (index: number): void => {
-  getWorkoutData.exerciseData[index].sets += 1;
-};
-
-const decreaseNumberOfSets = (index: number): void => {
-  if (getWorkoutData.exerciseData[index].sets > 0) {
-    getWorkoutData.exerciseData[index].sets -= 1;
-  }
-};
-
-const removeExercise = (index: number): void => {
-  if (getWorkoutData.exerciseData.length > 0) {
-    getWorkoutData.exerciseData.splice(index, 1);
-  }
-};
-
-const setModalValue = (modalData: boolean): void => {
-  StoreAccessController().modalStore.workoutDetailsModal = modalData;
-};
-
-const saveWorkoutData = (): void => {
-  StoreAccessController().workoutStore.updateSelectedWorkout(getWorkoutData);
-  setModalValue(false);
-};
-
-const deleteWorkoutData = (): void => {
-  StoreAccessController().workoutStore.deleteSelectedWorkout();
-  setModalValue(false);
-};
-
 const onSubmit = () => { };
+
 </script>
 
 <template>
@@ -89,7 +55,7 @@ const onSubmit = () => { };
                      :key="index">
                     {{ getWorkoutData.exerciseData[index].reps }}
                   </p>
-                  <button @click="decreaseNumberOfReps(index)"
+                  <button @click="CreateWorkoutController().decreaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
@@ -97,7 +63,7 @@ const onSubmit = () => { };
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="increaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController().increaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
@@ -105,14 +71,14 @@ const onSubmit = () => { };
                      :key="index">
                     {{ getWorkoutData.exerciseData[index].sets }}
                   </p>
-                  <button @click="decreaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController().decreaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button @click="removeExercise(index)"
+                <button @click="CreateWorkoutController().removeExercise(index)"
                         type="button"
                         class="delete-btn">
                   <img height="16"
@@ -134,7 +100,7 @@ const onSubmit = () => { };
             <tr>
               <td colspan="4">
                 <div class="modal-footer d-flex justify-content-center align-items-center">
-                  <button @click="setModalValue(false)"
+                  <button @click="ModalController().setModalValue(false)"
                           type="button"
                           class="btn btn-secondary"
                           data-dismiss="modal">
@@ -142,13 +108,13 @@ const onSubmit = () => { };
                   </button>
                   <button type="button"
                           class="btn btn-primary"
-                          @click="saveWorkoutData">
+                          @click="CreateWorkoutController().saveWorkoutData">
                     Update
                   </button>
 
                   <button type="button"
                           class="btn btn-primary"
-                          @click="deleteWorkoutData">
+                          @click="CreateWorkoutController().deleteWorkoutData">
                     Delete
                   </button>
                 </div>
