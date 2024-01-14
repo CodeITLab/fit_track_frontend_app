@@ -1,18 +1,19 @@
 <script lang="ts" setup>
-import { useVuelidate } from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
 
 import { CreateWorkoutController } from "@/controllers/create-workout-controller/CreateWorkoutController";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
 
+
+
 const onSubmit = () => { }
+
 </script>
 
 <template>
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Name your Workout</label>
-      <input v-model="CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.workoutName"
+      <input v-model="CreateWorkoutController({ isUserNew: true }).workoutData.workoutName"
              class="m1"
              type="text"
              placeholder="Push day..." />
@@ -32,8 +33,8 @@ const onSubmit = () => { }
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr v-if="CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.exerciseData.length > 0"
-                v-for="(value, index) in CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.exerciseData"
+            <tr v-if="CreateWorkoutController({ isUserNew: true }).workoutData.exerciseData.length > 0"
+                v-for="(value, index) in CreateWorkoutController({ isUserNew: true }).workoutData.exerciseData"
                 :key="index">
               <td>
                 <input v-model="value.exerciseName"
