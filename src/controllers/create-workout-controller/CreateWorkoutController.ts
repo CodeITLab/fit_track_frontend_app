@@ -55,13 +55,13 @@ export const CreateWorkoutController = (props: { isUserNew: boolean }) => {
   };
 
   const saveWorkoutData = (): void => {
-    StoreAccessController().workoutStore.createSelectedWorkout(workoutData);
-    ModalController().setModalValue(false);
+    StoreAccessController().workoutStore.createWorkout(workoutData);
+    ModalController().setCreateWorkoutModalValue(false);
   };
 
   const updateWorkoutData = (): void => {
     StoreAccessController().workoutStore.updateSelectedWorkout(workoutData);
-    ModalController().setModalValue(false);
+    ModalController().setWorkoutDetailsModalValue(false);
   };
 
   const deleteWorkoutData = (): void => {

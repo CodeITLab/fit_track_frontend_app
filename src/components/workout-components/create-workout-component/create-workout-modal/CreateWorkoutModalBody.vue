@@ -94,7 +94,7 @@ const onSubmit = () => { }
             <tr>
               <td colspan="4">
                 <div class="modal-footer d-flex justify-content-center align-items-center">
-                  <button @click="ModalController().setModalValue(false)"
+                  <button @click="ModalController().setCreateWorkoutModalValue(false)"
                           type="button"
                           class="btn btn-secondary"
                           data-dismiss="modal">
