@@ -1,96 +1,19 @@
-<script lang="ts">
-import { useModalManager } from "../../../../store/ModalManager";
-import { useWorkoutDataStore } from "../../../../store/WorkoutData";
-import { defineComponent } from "vue";
+<script lang="ts" setup>
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 
-import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+import { CreateWorkoutController } from "@/controllers/create-workout-controller/CreateWorkoutController";
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
 
-export default defineComponent({
-  name: "CreateWorkoutModalBody",
-  data() {
-    return {
-      v$: useVuelidate(),
-      workoutData: {
-        workoutName: "",
-        exerciseData: [
-          {
-            exerciseName: "",
-            sets: 0,
-            reps: 0,
-          },
-        ],
-      },
-    };
-  },
-  validations() {
-    return {
-      workoutData: {
-        workoutName: { required },
-        exerciseData: [
-          {
-            exerciseName: { required },
-            sets: 0,
-            reps: 0,
-          },
-        ],
-      },
-    };
-  },
-  methods: {
-    increaseNumberOfExercises(): void {
-      this.workoutData.exerciseData.push({
-        exerciseName: "",
-        sets: 0,
-        reps: 0,
-      });
-    },
-    increaseNumberOfReps(index: number): void {
-      this.workoutData.exerciseData[index].reps += 1;
-    },
-    decreaseNumberOfReps(index: number): void {
-      if (this.workoutData.exerciseData[index].reps > 0) {
-        this.workoutData.exerciseData[index].reps -= 1;
-      }
-    },
-    increaseNumberOfSets(index: number): void {
-      this.workoutData.exerciseData[index].sets += 1;
-    },
-    decreaseNumberOfSets(index: number): void {
-      if (this.workoutData.exerciseData[index].sets > 0) {
-        this.workoutData.exerciseData[index].sets -= 1;
-      }
-    },
-    removeExercise(index: number): void {
-      if (this.workoutData.exerciseData.length > 0) {
-        this.workoutData.exerciseData.splice(index, 1);
-      }
-    },
-    setModalValue(modalData: boolean): void {
-      StoreAccessController().modalStore.createWorkoutModal = modalData;
-    },
-    saveWorkoutData(): void {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        StoreAccessController().workoutStore.createWorkout(this.workoutData);
-        this.setModalValue(false);
-      } else {
-        alert("Name your workout and Exercise Name fields are required");
-      }
-    },
-
-    onSubmit() { },
-  },
-});
+const onSubmit = () => { }
 </script>
 
 <template>
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Name your Workout</label>
-      <input v-model="workoutData.workoutName"
-             class="m-1"
+      <input v-model="CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.workoutName"
+             class="m1"
              type="text"
              placeholder="Push day..." />
     </div>
@@ -109,8 +32,8 @@ export default defineComponent({
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr v-if="workoutData.exerciseData.length > 0"
-                v-for="(value, index) in workoutData.exerciseData"
+            <tr v-if="CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.exerciseData.length > 0"
+                v-for="(value, index) in CreateWorkoutController({ isUserNew: true }).defaultWorkoutData.exerciseData"
                 :key="index">
               <td>
                 <input v-model="value.exerciseName"
@@ -122,13 +45,13 @@ export default defineComponent({
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="increaseNumberOfReps(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
                   <p class="counter-value"
                      :key="index">{{ value.reps }}</p>
-                  <button @click="decreaseNumberOfReps(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: true }).decreaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
@@ -136,20 +59,20 @@ export default defineComponent({
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="increaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
                   <p class="counter-value"
                      :key="index">{{ value.sets }}</p>
-                  <button @click="decreaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: true }).decreaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button @click="removeExercise(index)"
+                <button @click="CreateWorkoutController({ isUserNew: true }).removeExercise(index)"
                         type="button"
                         class="delete-btn">
                   <img height="16"
@@ -161,7 +84,7 @@ export default defineComponent({
             <tr>
               <td colspan="4">
                 <div class="footer-button-wrapper">
-                  <button @click="increaseNumberOfExercises()"
+                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfExercises()"
                           class="btn btn-primary align-self-center mt-2">
                     Add Exercise
                   </button>
@@ -171,7 +94,7 @@ export default defineComponent({
             <tr>
               <td colspan="4">
                 <div class="modal-footer d-flex justify-content-center align-items-center">
-                  <button @click="setModalValue(false)"
+                  <button @click="ModalController().setModalValue(false)"
                           type="button"
                           class="btn btn-secondary"
                           data-dismiss="modal">
@@ -179,7 +102,7 @@ export default defineComponent({
                   </button>
                   <button type="button"
                           class="btn btn-primary"
-                          @click="saveWorkoutData()">
+                          @click="CreateWorkoutController({ isUserNew: true }).saveWorkoutData">
                     Save changes
                   </button>
                 </div>

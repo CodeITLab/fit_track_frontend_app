@@ -47,7 +47,7 @@ const onSubmit = () => { };
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="CreateWorkoutController().increaseNumberOfReps(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: false }).increaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
@@ -55,7 +55,7 @@ const onSubmit = () => { };
                      :key="index">
                     {{ getWorkoutData.exerciseData[index].reps }}
                   </p>
-                  <button @click="CreateWorkoutController().decreaseNumberOfReps(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: false }).decreaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
@@ -63,7 +63,7 @@ const onSubmit = () => { };
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="CreateWorkoutController().increaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: false }).increaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
@@ -71,14 +71,14 @@ const onSubmit = () => { };
                      :key="index">
                     {{ getWorkoutData.exerciseData[index].sets }}
                   </p>
-                  <button @click="CreateWorkoutController().decreaseNumberOfSets(index)"
+                  <button @click="CreateWorkoutController({ isUserNew: false }).decreaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button @click="CreateWorkoutController().removeExercise(index)"
+                <button @click="CreateWorkoutController({ isUserNew: false }).removeExercise(index)"
                         type="button"
                         class="delete-btn">
                   <img height="16"
@@ -90,7 +90,7 @@ const onSubmit = () => { };
             <tr>
               <td colspan="4">
                 <div class="footer-button-wrapper">
-                  <button @click="CreateWorkoutController().increaseNumberOfExercises()"
+                  <button @click="CreateWorkoutController({ isUserNew: false }).increaseNumberOfExercises()"
                           class="btn btn-primary align-self-center mt-2">
                     Add Exercise
                   </button>
@@ -108,13 +108,13 @@ const onSubmit = () => { };
                   </button>
                   <button type="button"
                           class="btn btn-primary"
-                          @click="CreateWorkoutController().saveWorkoutData">
+                          @click="CreateWorkoutController({ isUserNew: false }).updateWorkoutData">
                     Update
                   </button>
 
                   <button type="button"
                           class="btn btn-primary"
-                          @click="CreateWorkoutController().deleteWorkoutData">
+                          @click="CreateWorkoutController({ isUserNew: false }).deleteWorkoutData">
                     Delete
                   </button>
                 </div>
