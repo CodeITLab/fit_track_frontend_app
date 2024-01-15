@@ -5,6 +5,16 @@ export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
 
         return {
+            defaultWorkoutData: {
+                workoutName: "",
+                exerciseData: [
+                    {
+                        exerciseName: "",
+                        sets: 0,
+                        reps: 0,
+                    },
+                ],
+            },
             workouts: [] as IWorkoutModel[],
             selectedWorkouts: {} as IWorkoutModel,
             workoutIndex: 0
@@ -12,13 +22,16 @@ export const useWorkoutDataStore = defineStore('workout', {
     },
     getters: {
         getWorkouts(state) {
-            return state.workouts
+            return state.workouts;
+        },
+        getDefaultWorkoutData(state) {
+            return state.defaultWorkoutData;
         },
         getSelectedWorkout(state) {
-            return state.selectedWorkouts
+            return state.selectedWorkouts;
         },
         getWorkoutIndex(state) {
-            return state.workoutIndex
+            return state.workoutIndex;
         }
     },
     actions: {

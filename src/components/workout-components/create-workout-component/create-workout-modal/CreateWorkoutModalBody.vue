@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 
-import { CreateWorkoutController } from "@/controllers/create-workout-controller/CreateWorkoutController";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
+import { WorkoutsController } from "@/controllers/create-workout-controller/WorkoutsController";
+import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
-
+const workoutData = StoreAccessController().workoutStore.getDefaultWorkoutData;
 
 const onSubmit = () => { }
 
@@ -13,7 +14,7 @@ const onSubmit = () => { }
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Name your Workout</label>
-      <input v-model="CreateWorkoutController({ isUserNew: true }).workoutData.workoutName"
+      <input v-model="workoutData.workoutName"
              class="m1"
              type="text"
              placeholder="Push day..." />
@@ -33,8 +34,8 @@ const onSubmit = () => { }
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr v-if="CreateWorkoutController({ isUserNew: true }).workoutData.exerciseData.length > 0"
-                v-for="(value, index) in CreateWorkoutController({ isUserNew: true }).workoutData.exerciseData"
+            <tr v-if="workoutData.exerciseData.length > 0"
+                v-for="(value, index) in workoutData.exerciseData"
                 :key="index">
               <td>
                 <input v-model="value.exerciseName"
@@ -46,13 +47,13 @@ const onSubmit = () => { }
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfReps(index)"
+                  <button @click="WorkoutsController().increaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
                   <p class="counter-value"
                      :key="index">{{ value.reps }}</p>
-                  <button @click="CreateWorkoutController({ isUserNew: true }).decreaseNumberOfReps(index)"
+                  <button @click="WorkoutsController().decreaseNumberOfReps(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
@@ -60,20 +61,20 @@ const onSubmit = () => { }
               </td>
               <td>
                 <div class="modal-button-group">
-                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfSets(index)"
+                  <button @click="WorkoutsController().increaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent ms-1 p-0">
                     +
                   </button>
                   <p class="counter-value"
                      :key="index">{{ value.sets }}</p>
-                  <button @click="CreateWorkoutController({ isUserNew: true }).decreaseNumberOfSets(index)"
+                  <button @click="WorkoutsController().decreaseNumberOfSets(index)"
                           class="counter-button border-0 bg-transparent me-1 p-0">
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <button @click="CreateWorkoutController({ isUserNew: true }).removeExercise(index)"
+                <button @click="WorkoutsController().removeExercise(index)"
                         type="button"
                         class="delete-btn">
                   <img height="16"
@@ -85,7 +86,7 @@ const onSubmit = () => { }
             <tr>
               <td colspan="4">
                 <div class="footer-button-wrapper">
-                  <button @click="CreateWorkoutController({ isUserNew: true }).increaseNumberOfExercises()"
+                  <button @click="WorkoutsController().increaseNumberOfExercises()"
                           class="btn btn-primary align-self-center mt-2">
                     Add Exercise
                   </button>
@@ -103,7 +104,7 @@ const onSubmit = () => { }
                   </button>
                   <button type="button"
                           class="btn btn-primary"
-                          @click="CreateWorkoutController({ isUserNew: true }).saveWorkoutData">
+                          @click="WorkoutsController().saveWorkoutData">
                     Save changes
                   </button>
                 </div>
