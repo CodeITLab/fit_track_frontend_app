@@ -5,7 +5,7 @@ import { WorkoutsController } from "@/controllers/create-workout-controller/Work
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
 import { useVuelidate } from '@vuelidate/core'
-import { required, minLength } from '@vuelidate/validators'
+import { required } from '@vuelidate/validators'
 import { reactive } from "vue";
 
 const workoutData = reactive(StoreAccessController().workoutStore.getDefaultWorkoutData);

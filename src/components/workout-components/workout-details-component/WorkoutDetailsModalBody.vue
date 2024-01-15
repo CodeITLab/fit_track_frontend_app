@@ -4,9 +4,34 @@ import { WorkoutsController } from "@/controllers/create-workout-controller/Work
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
-const getWorkoutData = StoreAccessController().workoutStore.getSelectedWorkout;
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+import { reactive } from "vue";
 
-const onSubmit = () => { };
+const getWorkoutData = reactive(StoreAccessController().workoutStore.getSelectedWorkout);
+
+const validationRules = {
+  workoutName: { required },
+  exerciseData: [
+    {
+      exerciseName: { required },
+      sets: { required },
+      reps: { required },
+      isWorkoutFinished: false
+    },
+  ],
+}
+
+const v$ = useVuelidate(validationRules, getWorkoutData);
+
+const onSubmit = async () => {
+  const result = await v$.value.$validate();
+  if(!result) {
+    console.log(result);
+  } else {
+    WorkoutsController().updateWorkoutData();
+  }
+ }
 
 </script>
 
@@ -15,6 +40,7 @@ const onSubmit = () => { };
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Workout Name</label>
       <input v-model="getWorkoutData.workoutName"
+      :class="{ error: v$.$errors.length }"
              class="m-1"
              type="text"
              :placeholder="getWorkoutData.workoutName" />
@@ -44,6 +70,7 @@ const onSubmit = () => { };
               <td>
                 <input v-model="value.exerciseName"
                        :key="index"
+                       :class="{ error: v$.$errors.length }"
                        class="exercise-name-input"
                        type="text"
                        :placeholder="getWorkoutData.exerciseData[index].exerciseName"
@@ -117,13 +144,13 @@ const onSubmit = () => { };
                 <div class="modal-footer d-flex justify-content-center align-items-center">
                   <button @click="ModalController().setWorkoutDetailsModalValue(false)"
                           type="button"
-                          class="btn btn-secondary"
+                          :class="{ disabled : v$.$errors.length }"
+                          class="btn btn-secondary" 
                           data-dismiss="modal">
                     Close
                   </button>
-                  <button type="button"
-                          class="btn btn-primary"
-                          @click="WorkoutsController().updateWorkoutData">
+                  <button type="submit"
+                          class="btn btn-primary">
                     Update
                   </button>
 
