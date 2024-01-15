@@ -14,6 +14,7 @@ export const WorkoutsController = () => {
       exerciseName: "",
       sets: 0,
       reps: 0,
+      isWorkoutFinished: false
     });
   };
 

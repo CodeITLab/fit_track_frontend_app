@@ -12,6 +12,7 @@ export const useWorkoutDataStore = defineStore('workout', {
                         exerciseName: "",
                         sets: 0,
                         reps: 0,
+                        isWorkoutFinished: false
                     },
                 ],
             },
@@ -49,8 +50,18 @@ export const useWorkoutDataStore = defineStore('workout', {
         },
         deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
+            this.defaultWorkoutData = {
+                workoutName: "",
+                exerciseData: [
+                    {
+                        exerciseName: "",
+                        sets: 0,
+                        reps: 0,
+                        isWorkoutFinished: false
+                    },
+                ],
+            };
+            this.workoutIndex = 0;
         }
-
-
     }
 })

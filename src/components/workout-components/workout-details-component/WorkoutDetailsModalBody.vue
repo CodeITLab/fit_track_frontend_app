@@ -31,6 +31,10 @@ const onSubmit = () => { };
                 scope="col">Reps</th>
             <th class="text-center"
                 scope="col">Sets</th>
+            <th class="text-center"
+                scope="col">Delete</th>
+            <th class="text-center"
+                scope="col">Done</th>
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
@@ -91,14 +95,15 @@ const onSubmit = () => { };
                   <input type="checkbox"
                          class="form-check-input"
                          value=""
+                         v-model="value.isWorkoutFinished"
                          id="flex-check-default">
                   <label for="flex-check-default"
-                         class="form-check-label">Done</label>
+                         class="form-check-label"></label>
                 </div>
               </td>
             </tr>
             <tr>
-              <td colspan="4">
+              <td colspan="5">
                 <div class="footer-button-wrapper">
                   <button @click="WorkoutsController().increaseNumberOfExercises()"
                           class="btn btn-primary align-self-center mt-2">
@@ -108,7 +113,7 @@ const onSubmit = () => { };
               </td>
             </tr>
             <tr>
-              <td colspan="4">
+              <td colspan="5">
                 <div class="modal-footer d-flex justify-content-center align-items-center">
                   <button @click="ModalController().setWorkoutDetailsModalValue(false)"
                           type="button"
@@ -139,4 +144,4 @@ const onSubmit = () => { };
   
 <style lang="css">
 @import "../../../assets/css/components/create-workout-modal/create-workout-modal-body.css";
-</style>@/controllers/create-workout-controller/WorkoutsController
+</style>

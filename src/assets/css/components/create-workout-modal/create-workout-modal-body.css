@@ -2,6 +2,10 @@
     border: 1px solid red;
 }
 
+th {
+    padding-right: 15px;
+}
+
 .footer-button-wrapper {
     display: flex;
     justify-content: space-around;
