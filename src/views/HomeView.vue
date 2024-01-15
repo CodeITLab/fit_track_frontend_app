@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import MainMenuComponent from "@/components/main-menu-component/MainMenuComponent.vue";
+import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
 
 export default defineComponent({
   name: "HomeView",
@@ -15,8 +15,7 @@ export default defineComponent({
   <div class="home d-flex flex-column">
     <MainMenuComponent />
     <div
-      class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5"
-    >
+         class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5">
       <h1 class="text-white display-5">
         Get fit,<br />
         Get strong,<br />
@@ -28,16 +27,12 @@ export default defineComponent({
         with many 3D exercises for free to help you achieve your body goals.
       </p>
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <button
-          class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
-          type="button"
-        >
+        <button class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
+                type="button">
           Join Us!
         </button>
-        <button
-          class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
-          type="button"
-        >
+        <button class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
+                type="button">
           Start Now!
         </button>
       </div>

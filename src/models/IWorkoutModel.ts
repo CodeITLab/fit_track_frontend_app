@@ -6,5 +6,6 @@ export interface IWorkoutModel {
 export interface IExerciseModel {
     exerciseName: string,
     sets: number,
-    reps: number
+    reps: number,
+    isWorkoutFinished: boolean
 }

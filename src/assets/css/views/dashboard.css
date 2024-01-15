@@ -43,8 +43,7 @@ main {
 }
 
 .modal-body {
-    width: 350px;
-
+    width: fit-content;
 }
 
 .counter {

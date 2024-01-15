@@ -3,45 +3,65 @@ import { defineStore } from "pinia";
 
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
-        
-        return {
-            workouts: [] as IWorkoutModel[],
-            selectedWorkouts: {}as IWorkoutModel,
-            workoutIndex: 0
 
-         
+        return {
+            defaultWorkoutData: {
+                workoutName: "",
+                exerciseData: [
+                    {
+                        exerciseName: "",
+                        sets: 0,
+                        reps: 0,
+                        isWorkoutFinished: false
+                    },
+                ],
+            },
+            workouts: [] as IWorkoutModel[],
+            selectedWorkouts: {} as IWorkoutModel,
+            workoutIndex: 0
         }
     },
     getters: {
-        getWorkouts(state){
-            return state.workouts
+        getWorkouts(state) {
+            return state.workouts;
         },
-        getSelectedWorkout(state){
-            return state.selectedWorkouts
+        getDefaultWorkoutData(state) {
+            return state.defaultWorkoutData;
         },
-        getWorkoutIndex(state){
-            return state.workoutIndex
+        getSelectedWorkout(state) {
+            return state.selectedWorkouts;
+        },
+        getWorkoutIndex(state) {
+            return state.workoutIndex;
         }
     },
     actions: {
-        createWorkout(workoutData:IWorkoutModel) {
+        createWorkout(workoutData: IWorkoutModel) {
             this.workouts.push(workoutData);
         },
-        createSelectedWorkout(selectedWorkoutData:IWorkoutModel){
+        createSelectedWorkout(selectedWorkoutData: IWorkoutModel) {
             this.selectedWorkouts = selectedWorkoutData
-           
         },
-        createEorkoutIndex(index:number){
-            this.workoutIndex=index
-            
+        setWorkoutIndex(index: number) {
+            this.workoutIndex = index
         },
-        updateSelectedWorkout(updatedWorkoutData: IWorkoutModel){
+        updateSelectedWorkout(updatedWorkoutData: IWorkoutModel) {
             this.workouts[this.workoutIndex] = updatedWorkoutData
         },
-        deleteSelectedWorkout(){
+        deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
+            this.defaultWorkoutData = {
+                workoutName: "",
+                exerciseData: [
+                    {
+                        exerciseName: "",
+                        sets: 0,
+                        reps: 0,
+                        isWorkoutFinished: false
+                    },
+                ],
+            };
+            this.workoutIndex = 0;
         }
-    
-
     }
 })
