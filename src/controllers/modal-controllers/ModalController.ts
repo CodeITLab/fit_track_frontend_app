@@ -10,8 +10,13 @@ export const ModalController = () => {
         StoreAccessController().modalStore.openCloseWorkoutDetail(modalData);
     };
 
+    const setWorkoutStatusCheckValue = (modalData:boolean): void =>{
+        StoreAccessController().modalStore.openCloseWorkoutStatusCheckBanner(modalData)
+    }
+
     return {
         setCreateWorkoutModalValue,
-        setWorkoutDetailsModalValue
+        setWorkoutDetailsModalValue,
+        setWorkoutStatusCheckValue
     }
 }

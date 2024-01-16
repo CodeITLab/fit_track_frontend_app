@@ -148,6 +148,7 @@ const onSubmit = async () => {
               <td colspan="5">
                 <div class="footer-button-wrapper">
                   <button
+                    type="button"
                     @click="WorkoutsController().increaseNumberOfExercises()"
                     class="btn btn-primary align-self-center mt-2"
                   >
