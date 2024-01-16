@@ -5,11 +5,15 @@ export const useModalManager = defineStore('modal-manager', {
         return {
             createWorkoutModal: false,
             workoutDetailsModal: false,
+            workoutStatusCheck: false,
         }
     },
     getters: {
         getWorkoutDetailsModalState(state) {
             return state.workoutDetailsModal
+        },
+        getWrkourStatusCheck(state){
+            return state.workoutStatusCheck
         }
     },
     actions: {
@@ -18,6 +22,9 @@ export const useModalManager = defineStore('modal-manager', {
         },
         openCloseWorkoutDetail(value: boolean) {
             this.workoutDetailsModal = value
+        },
+        openCloseWorkoutStatusCheckBanner(value: boolean) {
+            this.workoutStatusCheck = value
         }
     }
 })
