@@ -5,7 +5,7 @@ const probica = StoreAccessController().modalStore.workoutStatusCheck;
 </script>
 
 <template>
-  <div v-if="probica === true" class="alert alert-primary" role="alert">
+  <div v-if="probica === false" class="alert alert-primary" role="alert">
     <p>
       We suggest that you tick the checkbox when the exercise is finished so we
       can track your progress on your fitness journey more correctly
