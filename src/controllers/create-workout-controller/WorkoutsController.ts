@@ -1,5 +1,6 @@
 import { StoreAccessController } from "../store-access/StoreAccessController";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
+import { WorkoutStatusHelper } from "@/helpers/WorkoutStatusHelper";
 
 export const WorkoutsController = () => {
 
@@ -52,6 +53,7 @@ export const WorkoutsController = () => {
   const updateWorkoutData = (): void => {
     StoreAccessController().workoutStore.updateSelectedWorkout(workoutData);
     ModalController().setWorkoutDetailsModalValue(false);
+  
   };
 
   const deleteWorkoutData = (): void => {
