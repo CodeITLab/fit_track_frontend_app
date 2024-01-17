@@ -51,9 +51,17 @@ export const WorkoutsController = () => {
   };
 
   const updateWorkoutData = (): void => {
-    StoreAccessController().workoutStore.updateSelectedWorkout(workoutData);
-    ModalController().setWorkoutDetailsModalValue(false);
-    WorkoutStatusHelper();
+   
+    if(!StoreAccessController().modalStore.getWrkourStatusCheck){
+      WorkoutStatusHelper();
+    }else{
+      StoreAccessController().workoutStore.updateSelectedWorkout(workoutData);
+      ModalController().setWorkoutDetailsModalValue(false);
+      ModalController().setWorkoutStatusCheckValue(false)
+      console.log(StoreAccessController().modalStore.getWrkourStatusCheck);
+    }
+    
+ 
   
   };
 
