@@ -14,7 +14,7 @@ const setValueToFalse = (): void => {
           class="modal-body d-flex flex-column justify-content-center align-items-center"
         >
         <div>
-          <label for="Chose dashboard type">Dashboard Type</label>
+          <label class="m-2" for="Chose dashboard type">Dashboard Type</label>
         </div>
         <div>
           <button type="button" class="btn btn-secondary m-2" @click="setValueToFalse"> <router-link class="nav-link links p-1 text-decoration-none"
