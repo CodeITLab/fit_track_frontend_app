@@ -1,15 +1,13 @@
 <script lang="ts" setup>
-import { defineComponent } from "vue";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
 import { StoreAccessController } from "../controllers/store-access/StoreAccessController";
+
 import LoginFormModal from "../components/login-component/LoginFormModal.vue";
-
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
-
-const setModalValue = (modalValue: boolean) => {
-  StoreAccessController().modalStore.openCloseChoseLoginForm(modalValue);
+const setValueToTrue = (): void => {
+ ModalController().setLoginFormModalValue(true)
 };
-let proba = StoreAccessController().modalStore.choseLoginForm;
+
 </script>
 
 <template>
@@ -32,11 +30,11 @@ let proba = StoreAccessController().modalStore.choseLoginForm;
         <button
           class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
           type="button"
-          @click="setModalValue(true)"
+          @click="setValueToTrue()"
         >
           Log in
         </button>
-        <LoginFormModal v-if="proba === true" />
+        <LoginFormModal v-if="StoreAccessController().modalStore.choseLoginForm=== true" />
         <button
           class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
           type="button"

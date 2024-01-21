@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import { StoreAccessController } from "../../controllers/store-access/StoreAccessController";
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
+
+const setValueToFalse = (): void => {
+ ModalController().setLoginFormModalValue(false)
+};
 </script>
 <template>
   <tbody>
@@ -8,8 +13,10 @@ import { StoreAccessController } from "../../controllers/store-access/StoreAcces
         <div
           class="modal-body d-flex justify-content-center align-items-center"
         >
-          <button type="button" class="btn btn-secondary">Trainer</button>
-          <button type="button" class="btn btn-primary">Personal</button>
+          <button type="button" class="btn btn-secondary m-2" @click="setValueToFalse"> <router-link class="nav-link links p-1 text-decoration-none"
+                           to="/dashboard">Trainer</router-link></button>
+          <button type="button" class="btn btn-primary m-2" @click="setValueToFalse"> <router-link class="nav-link links p-1 text-decoration-none"
+                           to="/dashboard">Personal</router-link></button>
         </div>
       </td>
     </tr>
