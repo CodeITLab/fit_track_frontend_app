@@ -15,7 +15,8 @@ export const login = (): void => {
         redirect_uri: "http://localhost:8080/oauth2/callback/google",
         callback: (response) => {
           if (response.code) {
-            sendCodeToBackend(response.code);
+            // sendCodeToBackend(response.code);
+            console.log(response.code)
           }
         },
       })
@@ -23,41 +24,41 @@ export const login = (): void => {
   });
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sendCodeToBackend = async (code: any) => {
-  try {
-    const response = await axios.post("https://oauth2.googleapis.com/token", {
-      code,
-      client_id: GoogleCredantials().google_client_id,
-      client_secret: GoogleCredantials().google_client_secret,
-      redirect_uri: "postmessage",
-      grant_type: "authorization_code",
-    });
-    let userDetails = UserDataControler().dataStore;
-    const accessToken = response.data.access_token;
-    console.log(accessToken);
+// const sendCodeToBackend = async (code: any) => {
+//   try {
+//     const response = await axios.post("https://oauth2.googleapis.com/token", {
+//       code,
+//       client_id: GoogleCredantials().google_client_id,
+//       client_secret: GoogleCredantials().google_client_secret,
+//       redirect_uri: "postmessage",
+//       grant_type: "authorization_code",
+//     });
+//     let userDetails = UserDataControler().dataStore;
+//     const accessToken = response.data.access_token;
+//     console.log(accessToken);
 
-    // Fetch user details using the access token
-    const userResponse = await axios.get(
-      "https://www.googleapis.com/oauth2/v3/userinfo",
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+//     // Fetch user details using the access token
+//     const userResponse = await axios.get(
+//       "https://www.googleapis.com/oauth2/v3/userinfo",
+//       {
+//         headers: {
+//           Authorization: `Bearer ${accessToken}`,
+//         },
+//       }
+//     );
 
-    if (userResponse && userResponse.data) {
-      // Set the userDetails data property to the userResponse object
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      userDetails = userResponse.data;
-    } else {
-      // Handle the case where userResponse or userResponse.data is undefined
-      console.error("Failed to fetch user details.");
-    }
-  } catch (error) {
-   console.log("Failed to fetch")
-  }
-};
+//     if (userResponse && userResponse.data) {
+//       // Set the userDetails data property to the userResponse object
+//       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//       userDetails = userResponse.data;
+//     } else {
+//       // Handle the case where userResponse or userResponse.data is undefined
+//       console.error("Failed to fetch user details.");
+//     }
+//   } catch (error) {
+//    console.log("Failed to fetch")
+//   }
+// };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 
