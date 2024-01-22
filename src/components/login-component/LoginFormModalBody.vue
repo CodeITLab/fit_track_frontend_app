@@ -15,7 +15,7 @@ const setValueToFalse = (): void => {
           class="modal-body d-flex flex-column justify-content-center align-items-center"
         >
           <div>
-            <label class="m-2" for="Chose dashboard type">Dashboard Type</label>
+            <label class="m-2" for="Chose dashboard type">Login as</label>
           </div>
           <div>
             <button
@@ -25,6 +25,7 @@ const setValueToFalse = (): void => {
             >
               Trainer
             </button>
+            Or
             <button
               type="button"
               class="btn btn-primary m-2"
