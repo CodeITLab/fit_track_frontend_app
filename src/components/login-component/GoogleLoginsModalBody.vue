@@ -9,7 +9,7 @@ import { UserDataControler } from "../../controllers/user-controllers/UserContro
     <tr>
       <td colspan="5">
         <div>
-          <button @click="login">Login Using Google</button>
+          <button class="btn" @click="login">Login Using Google</button>
           <!-- <div v-if="UserDataControler().dataStore">
             <h2>User Details</h2>
             <p>Name: {{ UserDataControler().dataStore.name }}</p>

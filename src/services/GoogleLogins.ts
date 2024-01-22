@@ -1,7 +1,7 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
 import {UserDataControler} from "../controllers/user-controllers/UserControler";
-
+import {GoogleCredantials} from "../env"
 import axios from "axios";
 
  // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -10,9 +10,9 @@ export const login = (): void => {
   googleSdkLoaded((google) => {
     google.accounts.oauth2
       .initCodeClient({
-        client_id: "924606578425-3p2rc573dhehar22akphi1gscgctikkg.apps.googleusercontent.com",
+        client_id: GoogleCredantials().google_client_id ,
         scope: "email profile openid",
-        redirect_uri: "http://localhost:4000/auth/callback",
+        redirect_uri: "http://localhost:8080/oauth2/callback/google",
         callback: (response) => {
           if (response.code) {
             sendCodeToBackend(response.code);
@@ -27,8 +27,8 @@ const sendCodeToBackend = async (code: any) => {
   try {
     const response = await axios.post("https://oauth2.googleapis.com/token", {
       code,
-      client_id: "924606578425-3p2rc573dhehar22akphi1gscgctikkg.apps.googleusercontent.com",
-      client_secret: "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",
+      client_id: GoogleCredantials().google_client_id,
+      client_secret: GoogleCredantials().google_client_secret,
       redirect_uri: "postmessage",
       grant_type: "authorization_code",
     });
