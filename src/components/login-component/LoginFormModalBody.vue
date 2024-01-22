@@ -5,7 +5,6 @@ import { ModalController } from "@/controllers/modal-controllers/ModalController
 const setValueToFalse = (): void => {
   ModalController().setChoseTrainerValue(true);
   ModalController().setLoginFormModalValue(false);
-  console.log("login");
 };
 </script>
 <template>
