@@ -1,5 +1,10 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const login=(response: any)=>{
+    console.log("Handle the response", response)
+}
+
 // 2. također, ovdje importaj kontrolere koji će spremati user data - ime, prezime, fotku profila itd. u UserData.ts store.
 
 // 3. ako nisi (a nisi), moraš kreirati te kontrolere u zasebnom folderu koji možeš nazvati user-controllers pod controllers folderom.

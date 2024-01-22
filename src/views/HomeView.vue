@@ -2,12 +2,12 @@
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
 import { StoreAccessController } from "../controllers/store-access/StoreAccessController";
 
+import GoogleLogins from "../components/login-component/GoogleLogins.vue";
 import LoginFormModal from "../components/login-component/LoginFormModal.vue";
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
 const setValueToTrue = (): void => {
- ModalController().setLoginFormModalValue(true)
+  ModalController().setLoginFormModalValue(true);
 };
-
 </script>
 
 <template>
@@ -27,6 +27,9 @@ const setValueToTrue = (): void => {
         with many 3D exercises for free to help you achieve your body goals.
       </p>
       <div class="d-flex flex-column justify-content-center align-items-center">
+        <div v-if="StoreAccessController().modalStore.choseTrainer === true">
+          <GoogleLogins />
+        </div>
         <button
           class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
           type="button"
@@ -34,7 +37,9 @@ const setValueToTrue = (): void => {
         >
           Log in
         </button>
-        <LoginFormModal v-if="StoreAccessController().modalStore.choseLoginForm=== true" />
+        <div v-if="StoreAccessController().modalStore.choseLoginForm === true">
+          <LoginFormModal />
+        </div>
         <button
           class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
           type="button"
