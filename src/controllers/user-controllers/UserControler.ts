@@ -4,7 +4,7 @@ export const UserDataControler =()=>{
     const dataStore = useUserDataStore().user;
 
     return{
-    dataStore
+    dataStore,
     }
 }
 

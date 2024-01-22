@@ -10,15 +10,11 @@ import { UserDataControler } from "../../controllers/user-controllers/UserContro
       <td colspan="5">
         <div>
           <button @click="login">Login Using Google</button>
-          <div v-if="login().">
+          <!-- <div v-if="UserDataControler().dataStore">
             <h2>User Details</h2>
-            <p>Name: {{ UserDataControler().dataStore.user.name }}</p>
-            <p>Email: {{ userDetails.email }}</p>
-            <p>
-              Profile Picture:
-              <img :src="userDetails.picture" alt="Profile Picture" />
-            </p>
-          </div>
+            <p>Name: {{ UserDataControler().dataStore.name }}</p>
+            <p>Email: {{ UserDataControler().dataStore.email }}</p>
+          </div> -->
         </div>
         <!-- <div
           class="modal-body d-flex flex-column justify-content-center align-items-center"

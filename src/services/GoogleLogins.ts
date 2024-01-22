@@ -1,18 +1,16 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
 import {UserDataControler} from "../controllers/user-controllers/UserControler";
+
 import axios from "axios";
 
  // eslint-disable-next-line @typescript-eslint/no-unused-vars
- 
- let userDetails = UserDataControler().dataStore;
 
 export const login = (): void => {
-  
   googleSdkLoaded((google) => {
     google.accounts.oauth2
       .initCodeClient({
-        client_id: "586701-d2i0.apps.googleusercontent.com",
+        client_id: "924606578425-3p2rc573dhehar22akphi1gscgctikkg.apps.googleusercontent.com",
         scope: "email profile openid",
         redirect_uri: "http://localhost:4000/auth/callback",
         callback: (response) => {
@@ -29,12 +27,12 @@ const sendCodeToBackend = async (code: any) => {
   try {
     const response = await axios.post("https://oauth2.googleapis.com/token", {
       code,
-      client_id: "58730101-di0.apps.googleusercontent.com",
-      client_secret: "GOCSPX-u02eNidw0DqWutQVi",
+      client_id: "924606578425-3p2rc573dhehar22akphi1gscgctikkg.apps.googleusercontent.com",
+      client_secret: "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",
       redirect_uri: "postmessage",
       grant_type: "authorization_code",
     });
-
+    let userDetails = UserDataControler().dataStore;
     const accessToken = response.data.access_token;
     console.log(accessToken);
 
@@ -50,6 +48,7 @@ const sendCodeToBackend = async (code: any) => {
 
     if (userResponse && userResponse.data) {
       // Set the userDetails data property to the userResponse object
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       userDetails = userResponse.data;
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
