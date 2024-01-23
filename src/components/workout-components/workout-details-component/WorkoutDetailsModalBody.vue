@@ -80,8 +80,9 @@ const onSubmit = async () => {
               <td>
                 <div class="modal-button-group">
                   <button
+                    type="button"
                     @click="WorkoutsController().increaseNumberOfReps(index)"
-                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                    class="btn counter-button border-0 bg-transparent ms-1 p-0"
                   >
                     +
                   </button>
@@ -89,8 +90,9 @@ const onSubmit = async () => {
                     {{ getWorkoutData.exerciseData[index].reps }}
                   </p>
                   <button
+                    type="button"
                     @click="WorkoutsController().decreaseNumberOfReps(index)"
-                    class="counter-button border-0 bg-transparent me-1 p-0"
+                    class="btn counter-button border-0 bg-transparent me-1 p-0"
                   >
                     -
                   </button>
@@ -99,8 +101,9 @@ const onSubmit = async () => {
               <td>
                 <div class="modal-button-group">
                   <button
+                    type="button"
                     @click="WorkoutsController().increaseNumberOfSets(index)"
-                    class="counter-button border-0 bg-transparent ms-1 p-0"
+                    class="btn counter-button border-0 bg-transparent ms-1 p-0"
                   >
                     +
                   </button>
@@ -108,8 +111,9 @@ const onSubmit = async () => {
                     {{ getWorkoutData.exerciseData[index].sets }}
                   </p>
                   <button
+                    type="button"
                     @click="WorkoutsController().decreaseNumberOfSets(index)"
-                    class="counter-button border-0 bg-transparent me-1 p-0"
+                    class="btn counter-button border-0 bg-transparent me-1 p-0"
                   >
                     -
                   </button>

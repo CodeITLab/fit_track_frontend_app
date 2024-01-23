@@ -8,7 +8,9 @@ import GoogleLoginsModalBody from "./GoogleLoginsModalBody.vue";
     <tr>
       <td colspan="5">
         <div class="login-lable">
-          <label class="m-2 text-muted" for="Chose dashboard type">Login</label>
+          <label class="login-title m-2 text-muted" for="Chose dashboard type"
+            >Login</label
+          >
         </div>
         <div
           class="modal-body d-flex flex-column justify-content-center align-items-center"

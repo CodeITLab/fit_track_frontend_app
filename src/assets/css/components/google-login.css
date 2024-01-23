@@ -2,14 +2,15 @@
     width: 350px;
 }
 
-label {
+.login-title {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
 
 }
 
-input {
+.email,
+.password {
     height: 40px;
     border-top: none;
     border-left: none;
