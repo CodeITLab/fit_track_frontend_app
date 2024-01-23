@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { StoreAccessController } from "../../controllers/store-access/StoreAccessController";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
+import GoogleLoginsModalBody from "./GoogleLoginsModalBody.vue";
 
 const setValueToFalse = (): void => {
   ModalController().setChoseTrainerValue(true);
@@ -11,16 +12,17 @@ const setValueToFalse = (): void => {
   <tbody>
     <tr>
       <td colspan="5">
+        <div class="login-lable">
+          <label class="m-2 text-muted" for="Chose dashboard type">Login</label>
+        </div>
         <div
           class="modal-body d-flex flex-column justify-content-center align-items-center"
         >
           <div>
-            <label class="m-2" for="Chose dashboard type">Login as</label>
-          </div>
-          <div>
-            <button
+            <GoogleLoginsModalBody />
+            <!-- <button
               type="button"
-              class="btn btn-secondary m-2"
+              class="btn btn-primary m-2"
               @click="setValueToFalse"
             >
               Trainer
@@ -36,7 +38,7 @@ const setValueToFalse = (): void => {
                 to="/dashboard"
                 >Personal</router-link
               >
-            </button>
+            </button> -->
           </div>
         </div>
       </td>
@@ -45,4 +47,5 @@ const setValueToFalse = (): void => {
 </template>
 
 <style>
+@import "../../assets/css/components/google-login.css";
 </style>
