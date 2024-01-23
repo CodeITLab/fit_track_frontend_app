@@ -163,9 +163,12 @@ const onSubmit = async () => {
             </tr>
             <tr>
               <td colspan="5">
-                <WarningBannerComponentVue
+                <div
                   v-if="StoreAccessController().modalStore.getWrkourStatusCheck"
-                />
+                >
+                  <WarningBannerComponentVue />
+                </div>
+
                 <div
                   class="modal-footer d-flex justify-content-center align-items-center"
                 >
