@@ -6,6 +6,7 @@ export const useModalManager = defineStore('modal-manager', {
             createWorkoutModal: false,
             workoutDetailsModal: false,
             workoutStatusCheck: false,
+            choseDashboardType:false,
             choseLoginForm:false,
             choseTrainer:false,
             chosePrivate:false
@@ -26,6 +27,9 @@ export const useModalManager = defineStore('modal-manager', {
         },
         getChosePrivate(state){
             return state.chosePrivate
+        },
+        getChoseDashboardType(state){
+            return state.choseDashboardType
         }
     },
     actions: {
@@ -40,6 +44,9 @@ export const useModalManager = defineStore('modal-manager', {
         },
         openCloseChoseLoginForm(value:boolean){
             this.choseLoginForm = value
+        },
+        openCloseDashboardType(value:boolean){
+            this.choseDashboardType = value
         },
         choseTrainerDashboard(value:boolean){
             this.choseTrainer=value

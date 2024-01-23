@@ -2,11 +2,6 @@
 import { StoreAccessController } from "../../controllers/store-access/StoreAccessController";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
 import GoogleLoginsModalBody from "./GoogleLoginsModalBody.vue";
-
-const setValueToFalse = (): void => {
-  ModalController().setChoseTrainerValue(true);
-  ModalController().setLoginFormModalValue(false);
-};
 </script>
 <template>
   <tbody>
@@ -20,25 +15,6 @@ const setValueToFalse = (): void => {
         >
           <div>
             <GoogleLoginsModalBody />
-            <!-- <button
-              type="button"
-              class="btn btn-primary m-2"
-              @click="setValueToFalse"
-            >
-              Trainer
-            </button>
-            Or
-            <button
-              type="button"
-              class="btn btn-primary m-2"
-              @click="setValueToFalse"
-            >
-              <router-link
-                class="nav-link links p-1 text-decoration-none"
-                to="/dashboard"
-                >Personal</router-link
-              >
-            </button> -->
           </div>
         </div>
       </td>

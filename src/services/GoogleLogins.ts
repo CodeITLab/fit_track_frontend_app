@@ -1,5 +1,6 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
 import {UserDataControler} from "../controllers/user-controllers/UserControler";
 import {GoogleCredantials} from "../env"
 import axios from "axios";
@@ -16,6 +17,8 @@ export const login = (): void => {
         callback: (response) => {
           if (response.code) {
             // sendCodeToBackend(response.code);
+            ModalController().setLoginFormModalValue(false)
+            ModalController().setChoseDashboardValue(true)
             console.log(response.code)
           }
         },

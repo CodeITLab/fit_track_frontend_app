@@ -4,6 +4,7 @@ import { StoreAccessController } from "../controllers/store-access/StoreAccessCo
 
 import GoogleLoginsModal from "../components/login-component/GoogleLoginsModal.vue";
 import LoginFormModal from "../components/login-component/LoginFormModal.vue";
+import DashboardTypeModal from "../components/chose-dashboard-type-component/DashboardTypeModal.vue";
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
 const setValueToTrue = (): void => {
   ModalController().setLoginFormModalValue(true);
@@ -29,6 +30,11 @@ const setValueToTrue = (): void => {
       <div class="d-flex flex-column justify-content-center align-items-center">
         <div v-if="StoreAccessController().modalStore.choseTrainer === true">
           <GoogleLoginsModal />
+        </div>
+        <div
+          v-if="StoreAccessController().modalStore.choseDashboardType === true"
+        >
+          <DashboardTypeModal />
         </div>
         <button
           class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
