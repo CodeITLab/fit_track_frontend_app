@@ -38,6 +38,17 @@ export const useWorkoutDataStore = defineStore('workout', {
     actions: {
         createWorkout(workoutData: IWorkoutModel) {
             this.workouts.push(workoutData);
+            this.defaultWorkoutData = {
+                workoutName: "",
+                exerciseData: [
+                    {
+                        exerciseName: "",
+                        sets: 0,
+                        reps: 0,
+                        isWorkoutFinished: false
+                    },
+                ],
+            };
         },
         createSelectedWorkout(selectedWorkoutData: IWorkoutModel) {
             this.selectedWorkouts = selectedWorkoutData

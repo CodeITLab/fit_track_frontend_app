@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { useWorkoutDataStore } from '@/store/WorkoutData';
 import { OpenCloseWorkoutDetails } from "@/controllers/dashboard-controllers/OpenCloseWorkoutDetails";
 import ExerciseCardComponent from './ExerciseCardComponent.vue';
 import CreateWorkoutButton from '../workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue';
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
+
+console.log(StoreAccessController().workoutStore.getWorkouts)
 
 </script>
 
@@ -16,7 +17,7 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
                                :title="value.workoutName" />
     </div>
     <div class="card-wrapper d-flex justify-content-center align-items-center">
-        <CreateWorkoutButton v-if="StoreAccessController().workoutStore.getWorkouts.length !== 0" />
+        <CreateWorkoutButton v-if="StoreAccessController().workoutStore.getWorkouts.length > 0" />
     </div>
 </template>
 
