@@ -16,63 +16,51 @@ export const login = (): void => {
         redirect_uri: "http://localhost:8080/oauth2/callback/google",
         callback: (response) => {
           if (response.code) {
-            // sendCodeToBackend(response.code);
+            sendCodeToBackend(response.code);
             ModalController().setLoginFormModalValue(false)
             ModalController().setChoseDashboardValue(true)
-            console.log(response.code)
+            console.log(response)
           }
         },
       })
       .requestCode();
   });
 };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const sendCodeToBackend = async (code: any) => {
-//   try {
-//     const response = await axios.post("https://oauth2.googleapis.com/token", {
-//       code,
-//       client_id: GoogleCredantials().google_client_id,
-//       client_secret: GoogleCredantials().google_client_secret,
-//       redirect_uri: "postmessage",
-//       grant_type: "authorization_code",
-//     });
-//     let userDetails = UserDataControler().dataStore;
-//     const accessToken = response.data.access_token;
-//     console.log(accessToken);
 
-//     // Fetch user details using the access token
-//     const userResponse = await axios.get(
-//       "https://www.googleapis.com/oauth2/v3/userinfo",
-//       {
-//         headers: {
-//           Authorization: `Bearer ${accessToken}`,
-//         },
-//       }
-//     );
+const sendCodeToBackend = async (code: any) => {
+  try {
+    const response = await axios.post("https://oauth2.googleapis.com/token", {
+      code,
+      client_id: GoogleCredantials().google_client_id,
+      client_secret: GoogleCredantials().google_client_secret,
+      redirect_uri: "postmessage",
+      grant_type: "authorization_code",
+    });
+   
+    let userDetails = UserDataControler().dataStore;
+    const accessToken = response.data.access_token;
+    console.log(accessToken);
 
-//     if (userResponse && userResponse.data) {
-//       // Set the userDetails data property to the userResponse object
-//       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//       userDetails = userResponse.data;
-//     } else {
-//       // Handle the case where userResponse or userResponse.data is undefined
-//       console.error("Failed to fetch user details.");
-//     }
-//   } catch (error) {
-//    console.log("Failed to fetch")
-//   }
-// };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // Fetch user details using the access token
+    const userResponse = await axios.get(
+      "https://www.googleapis.com/oauth2/v3/userinfo",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
 
-
-// 2. također, ovdje importaj kontrolere koji će spremati user data - ime, prezime, fotku profila itd. u UserData.ts store.
-
-// 3. ako nisi (a nisi), moraš kreirati te kontrolere u zasebnom folderu koji možeš nazvati user-controllers pod controllers folderom.
-
-// 4. client ID i secret se nalaze u .env datoteci, njima možeš pristupiti tako da samo importaš taj file u servis i napišeš env.vrijednost koja ti treba. ja sam ih sad interno spremio na Github kao secret, pitanje je hoće li ovako raditi, možda ti neće. moramo isprobati.
-// morati ćemo naći drugačiji način da sakrijemo client id i client secret jer oni nikako ne bi smjeli biti na frontendu i ne bi se smjeli vidjeti ni na koji način. kada se deploya frontend na neki server, Heroku ili Amazon Web Servise, onda ćemo tamo interno to pohraniti da se ne vide.
-
-// Bonus points:
-
-// - treba warning-banner-component prebaciti u zaseban folder, modal-component, i popraviti importe.
-
+    if (userResponse && userResponse.data) {
+      // Set the userDetails data property to the userResponse object
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      userDetails = userResponse.data;
+      console.log(userResponse)
+    } else {
+      // Handle the case where userResponse or userResponse.data is undefined
+      console.error("Failed to fetch user details.");
+    }
+  } catch (error) {
+   console.log("Failed to fetch")
+  }
+};
