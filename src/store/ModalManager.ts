@@ -6,6 +6,10 @@ export const useModalManager = defineStore('modal-manager', {
             createWorkoutModal: false,
             workoutDetailsModal: false,
             workoutStatusCheck: false,
+            choseDashboardType:false,
+            choseLoginForm:false,
+            choseTrainer:false,
+            chosePrivate:false
         }
     },
     getters: {
@@ -14,6 +18,18 @@ export const useModalManager = defineStore('modal-manager', {
         },
         getWrkourStatusCheck(state){
             return state.workoutStatusCheck
+        },
+        getChoseLoginForm(state){
+            return state.choseLoginForm
+        },
+        getChoseTrainer(state){
+            return state.choseTrainer
+        },
+        getChosePrivate(state){
+            return state.chosePrivate
+        },
+        getChoseDashboardType(state){
+            return state.choseDashboardType
         }
     },
     actions: {
@@ -25,6 +41,19 @@ export const useModalManager = defineStore('modal-manager', {
         },
         openCloseWorkoutStatusCheckBanner(value: boolean) {
             this.workoutStatusCheck = value
+        },
+        openCloseChoseLoginForm(value:boolean){
+            this.choseLoginForm = value
+        },
+        openCloseDashboardType(value:boolean){
+            this.choseDashboardType = value
+        },
+        choseTrainerDashboard(value:boolean){
+            this.choseTrainer=value
+        },
+        chosePrivateDashboard(value:boolean){
+            this.chosePrivate=value
         }
+
     }
 })

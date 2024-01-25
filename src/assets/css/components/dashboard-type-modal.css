@@ -1,0 +1,13 @@
+.dashboard-type-label {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.dashboard-type-wrapper {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(190, 190, 190);
+}

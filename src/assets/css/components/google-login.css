@@ -1,0 +1,32 @@
+.login-wrapper {
+    width: 350px;
+}
+
+.login-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.email,
+.password {
+    height: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    outline: none;
+
+
+}
+
+.login-lable {
+    height: 60px;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    margin-bottom: 15px;
+}

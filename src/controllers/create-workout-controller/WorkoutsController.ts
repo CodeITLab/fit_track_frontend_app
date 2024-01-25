@@ -6,9 +6,8 @@ export const WorkoutsController = () => {
 
   const getSelectedWorkoutData = StoreAccessController().workoutStore.getSelectedWorkout;
   const defaultWorkoutData = StoreAccessController().workoutStore.getDefaultWorkoutData;
-  const workouts = StoreAccessController().workoutStore.getWorkouts;
 
-  const workoutData = workouts.length === 0 ? defaultWorkoutData : getSelectedWorkoutData;
+  const workoutData = getSelectedWorkoutData.workoutName ? getSelectedWorkoutData : defaultWorkoutData;
 
   const increaseNumberOfExercises = (): void => {
     workoutData.exerciseData.push({
@@ -48,21 +47,18 @@ export const WorkoutsController = () => {
   const saveWorkoutData = (): void => {
     StoreAccessController().workoutStore.createWorkout(workoutData);
     ModalController().setCreateWorkoutModalValue(false);
+    console.log(StoreAccessController().workoutStore.getWorkouts)
   };
 
   const updateWorkoutData = (): void => {
-   
-    if(!StoreAccessController().modalStore.getWrkourStatusCheck){
+    if (!StoreAccessController().modalStore.getWrkourStatusCheck) {
       WorkoutStatusHelper();
-    }else{
+    } else {
       StoreAccessController().workoutStore.updateSelectedWorkout(workoutData);
       ModalController().setWorkoutDetailsModalValue(false);
       ModalController().setWorkoutStatusCheckValue(false)
       console.log(StoreAccessController().modalStore.getWrkourStatusCheck);
     }
-    
- 
-  
   };
 
   const deleteWorkoutData = (): void => {

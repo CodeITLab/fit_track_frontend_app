@@ -11,3 +11,4 @@ const app = createApp(App)
 
 app.use(pinia)
 app.use(router).mount('#app')
+

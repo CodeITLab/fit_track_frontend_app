@@ -11,12 +11,16 @@
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
     "@vueuse/core": "^10.7.0",
+    "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "pinia": "^2.1.7",
     "vue": "^3.2.13",
+    "vue-google-oauth2": "^1.5.10",
     "vue-router": "^4.0.3",
+    "vue3-google-login": "^2.0.25",
+    "vue3-google-oauth2": "^1.0.7",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

@@ -1,21 +1,22 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
+import { StoreAccessController } from "../controllers/store-access/StoreAccessController";
 
+import GoogleLoginsModal from "../components/login-component/GoogleLoginsModal.vue";
+import LoginFormModal from "../components/login-component/LoginFormModal.vue";
+import DashboardTypeModal from "../components/chose-dashboard-type-component/DashboardTypeModal.vue";
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
-
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    MainMenuComponent,
-  },
-});
+const setValueToTrue = (): void => {
+  ModalController().setLoginFormModalValue(true);
+};
 </script>
 
 <template>
   <div class="home d-flex flex-column">
     <MainMenuComponent />
     <div
-         class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5">
+      class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5"
+    >
       <h1 class="text-white display-5">
         Get fit,<br />
         Get strong,<br />
@@ -27,13 +28,29 @@ export default defineComponent({
         with many 3D exercises for free to help you achieve your body goals.
       </p>
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <button class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
-                type="button">
-          Join Us!
+        <div v-if="StoreAccessController().modalStore.choseTrainer === true">
+          <GoogleLoginsModal />
+        </div>
+        <div
+          v-if="StoreAccessController().modalStore.choseDashboardType === true"
+        >
+          <DashboardTypeModal />
+        </div>
+        <button
+          class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
+          type="button"
+          @click="setValueToTrue()"
+        >
+          Log in
         </button>
-        <button class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
-                type="button">
-          Start Now!
+        <div v-if="StoreAccessController().modalStore.choseLoginForm === true">
+          <LoginFormModal />
+        </div>
+        <button
+          class="btn text-white rounded-pill border border-dark-3 btn-block col-sm-4"
+          type="button"
+        >
+          Sign up
         </button>
       </div>
     </div>
