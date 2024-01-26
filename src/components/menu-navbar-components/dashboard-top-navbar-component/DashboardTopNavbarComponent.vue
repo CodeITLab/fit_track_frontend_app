@@ -5,7 +5,7 @@ import { reactive } from "vue";
 import { login } from "@/services/GoogleLogins";
 
 const getWorkoutData = reactive(
-  StoreAccessController().userStore.user
+  StoreAccessController().userStore.getUserInfo
 );
 </script>
 <template>
