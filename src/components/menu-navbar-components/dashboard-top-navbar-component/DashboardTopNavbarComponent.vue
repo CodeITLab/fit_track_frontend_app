@@ -16,7 +16,7 @@ const getWorkoutData = reactive(
             <h6 class="text-white" >
                 {{getWorkoutData.name}}
                 <img class="ms-1"
-                     src="../../../assets/img/logos/avatar.png"
+                     :src= getWorkoutData.picture
                      height="40"
                      alt="" />
             </h6>
