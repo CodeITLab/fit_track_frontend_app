@@ -2,7 +2,7 @@ export interface IUser {
     name: string,
     lastName: string,
     email: string,
-    accImage:string,
+    picture:string,
     isAuth: boolean,
     userType:string
 }
