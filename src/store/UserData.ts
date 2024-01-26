@@ -15,16 +15,12 @@ export const useUserDataStore = defineStore('user', {
 
 
             user: {} as IUser,
-            users:  []as IUser[]
         }
     },
     getters: {
         getUserInfo(state){
             return state.user;
         },
-        getUsersInfo(state){
-            return state.users
-        }
     },
     actions: {
        updateUserInfo(userData: IUser){
