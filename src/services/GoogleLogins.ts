@@ -40,7 +40,7 @@ const sendCodeToBackend = async (code: any) => {
       grant_type: "authorization_code",
     });
    
-    let userDetails = UserDataControler().dataUsers;
+   
     const accessToken = response.data.access_token;
     console.log(accessToken);
 
@@ -58,7 +58,7 @@ const sendCodeToBackend = async (code: any) => {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       StoreAccessController().userStore.updateUserInfo(userResponse.data)
-      console.log(userDetails[0].name)
+      console.log(StoreAccessController().userStore.user.picture)
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");
