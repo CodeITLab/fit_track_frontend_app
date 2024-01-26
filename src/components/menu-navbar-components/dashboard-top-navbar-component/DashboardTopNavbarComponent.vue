@@ -15,9 +15,9 @@ const getWorkoutData = reactive(
             <h5 class="text-white">Dashboard</h5>
             <h6 class="text-white" >
                 {{getWorkoutData.name}}
-                <img class="ms-1"
+                <img class="border border-2 border-dark rounded-circle ms-1"
                      :src= getWorkoutData.picture
-                     height="40"
+                     height="45"
                      alt="" />
             </h6>
         </div>
