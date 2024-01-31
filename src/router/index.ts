@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import { UserAuthController } from '@/controllers/auth-controllers/UserAuthController';
+import { login } from '@/services/GoogleLogins';
 import { useUserDataStore } from '@/store/UserData';
 
 const routes: Array<RouteRecordRaw> = [
@@ -16,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: { roles: ['admin'] },
         beforeEnter: (to, from, next) => {
        
-        UserAuthController();
+        login();
         const userData = useUserDataStore();
         
           if(from.path === '/' && userData.user.isAuth) {

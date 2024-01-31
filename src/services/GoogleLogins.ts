@@ -41,7 +41,6 @@ const sendCodeToBackend = async (code: any) => {
    
    
     const accessToken = response.data.access_token;
-    console.log(accessToken);
 
     // Fetch user details using the access token
     const userResponse = await axios.get(
@@ -57,7 +56,7 @@ const sendCodeToBackend = async (code: any) => {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       StoreAccessController().userStore.updateUserInfo(userResponse.data)
-      useUserDataStore().initData(true)
+      StoreAccessController().userStore.initData(true)
       console.log(useUserDataStore().user.isAuth)
       
      
