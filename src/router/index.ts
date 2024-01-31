@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: { roles: ['admin'] },
         beforeEnter: (to, from, next) => {
        
-        login();
+          UserAuthController();
         const userData = useUserDataStore();
         
           if(from.path === '/' && userData.user.isAuth) {
