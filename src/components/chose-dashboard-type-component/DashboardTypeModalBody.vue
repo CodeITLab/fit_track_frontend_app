@@ -4,6 +4,7 @@ import { ModalController } from "../../controllers/modal-controllers/ModalContro
 
 const setDashboardTypeValue = () => {
   ModalController().setChoseDashboardValue(false);
+  ModalController().setChosePrivateValue(true);
 };
 </script>
 

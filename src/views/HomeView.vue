@@ -14,10 +14,11 @@ const setValueToTrue = (): void => {
 <template>
   <div class="home d-flex flex-column">
     <MainMenuComponent />
-    <div
+    <div 
       class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5"
     >
-      <h1 class="text-white display-5">
+    <div v-if="StoreAccessController().modalStore.chosePrivate === false ">
+      <h1  class="text-white display-5">
         Get fit,<br />
         Get strong,<br />
         Get healthy!
@@ -31,11 +32,7 @@ const setValueToTrue = (): void => {
         <div v-if="StoreAccessController().modalStore.choseTrainer === true">
           <GoogleLoginsModal />
         </div>
-        <div
-          v-if="StoreAccessController().modalStore.choseDashboardType === true"
-        >
-          <DashboardTypeModal />
-        </div>
+        
         <button
           class="btn text-white rounded-pill border border-dark-3 mb-3 btn-block col-sm-4"
           type="button"
@@ -52,7 +49,13 @@ const setValueToTrue = (): void => {
         >
           Sign up
         </button>
-      </div>
+      </div> 
+    </div>
+    <div
+          v-if="StoreAccessController().modalStore.choseDashboardType === true"
+        >
+          <DashboardTypeModal />
+        </div>
     </div>
   </div>
 </template>
