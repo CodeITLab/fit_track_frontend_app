@@ -15,6 +15,14 @@ body {
   height: 100%;
 }
 
+.homelogedin {
+  background-image: url(../../img/backgrounds/Background3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .info-card {
     padding: 0 5% 0 5%;

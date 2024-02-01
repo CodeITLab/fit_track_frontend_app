@@ -12,7 +12,7 @@ const setValueToTrue = (): void => {
 </script>
 
 <template>
-  <div class="home d-flex flex-column">
+  <div class="home d-flex flex-column" v-bind:class="{homelogedin: StoreAccessController().modalStore.chosePrivate }">
     <MainMenuComponent />
     <div 
       class="info-card d-flex flex-column justify-content-center align-self-center text-center mt-5"
