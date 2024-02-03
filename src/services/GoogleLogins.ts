@@ -57,7 +57,7 @@ const sendCodeToBackend = async (code: any) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       StoreAccessController().userStore.updateUserInfo(userResponse.data)
       StoreAccessController().userStore.initData(true)
-      console.log(useUserDataStore().user.isAuth)
+      console.log(userResponse.data)
       
      
     } else {

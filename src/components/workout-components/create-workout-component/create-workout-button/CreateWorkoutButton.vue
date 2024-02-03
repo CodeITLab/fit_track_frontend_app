@@ -13,18 +13,14 @@ const setModalValue = (modalValue: boolean) => {
     <div v-if="workoutData.length === 0">
       <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     </div>
-    <button
-      @click="setModalValue(true)"
-      type="button"
-      class="btn plus-btn"
-      data-toggle="modal"
-      data-target="#exampleModal"
-    >
-      <img
-        src="../../../../assets/img/logos/add-icon.png"
-        height="40"
-        alt="add-button"
-      />
+    <button @click="setModalValue(true)"
+            type="button"
+            class="plus-btn"
+            data-toggle="modal"
+            data-target="#exampleModal">
+      <img src="../../../../assets/img/logos/add-icon.png"
+           height="40"
+           alt="add-button" />
     </button>
   </div>
 </template>
