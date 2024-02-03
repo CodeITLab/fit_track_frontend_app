@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
 </script>
 
 <template>
@@ -19,9 +20,21 @@
       </button>
       <div class="collapse navbar-collapse w-100 justify-content-between"
            id="main-menu">
-        <div class="logo ms-3">
-          <img v-bind:src="require('../../../assets/img/logos/logo-proto.png')"
+        <div v-if="StoreAccessController().modalStore.chosePrivate === false"
+             class="logo ms-3">
+          <img :src="require('../../../assets/img/logos/logo-proto.png')"
                alt="" />
+        </div>
+        <div v-if="StoreAccessController().modalStore.chosePrivate === true"
+             class=" ms-3">
+          <h6 class="text-white">
+            <img class="border border-2 border-dark rounded-circle ms-1"
+                 height="45"
+                 :src=StoreAccessController().userStore.user.picture
+                 alt="" />
+            {{ StoreAccessController().userStore.user.name }}
+          </h6>
+
         </div>
         <div>
           <ul class="navbar-nav me-3 mb-2 mb-lg-0">
@@ -44,6 +57,4 @@
   </nav>
 </template>
 
-<style lang="scss" scoped>
-@import "../../../assets/css/components/main-menu.css";
-</style>
+<style lang="scss" scoped>@import "../../../assets/css/components/main-menu.css";</style>

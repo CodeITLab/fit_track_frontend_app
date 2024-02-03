@@ -1,7 +1,7 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
 import { ModalController } from "@/controllers/modal-controllers/ModalController";
-import {UserDataControler} from "../controllers/user-controllers/UserControler";
+import { useUserDataStore } from "@/store/UserData";
 import {GoogleCredantials} from "../env"
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import axios from "axios";
@@ -21,7 +21,6 @@ export const login = (): void => {
             sendCodeToBackend(response.code);
             ModalController().setLoginFormModalValue(false)
             ModalController().setChoseDashboardValue(true)
-
           }
         },
       })
@@ -42,7 +41,6 @@ const sendCodeToBackend = async (code: any) => {
    
    
     const accessToken = response.data.access_token;
-    console.log(accessToken);
 
     // Fetch user details using the access token
     const userResponse = await axios.get(
@@ -58,7 +56,10 @@ const sendCodeToBackend = async (code: any) => {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       StoreAccessController().userStore.updateUserInfo(userResponse.data)
-      console.log(StoreAccessController().userStore.user.picture)
+      StoreAccessController().userStore.initData(true)
+      console.log(userResponse.data)
+      
+     
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");

@@ -8,3 +8,9 @@
     border: none;
     box-shadow: none;
 }
+
+.plus-btn:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
