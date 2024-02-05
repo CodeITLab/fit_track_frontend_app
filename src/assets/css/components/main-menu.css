@@ -30,6 +30,10 @@
   border-bottom-left-radius: 10px
 }
 
+.logout {
+  border-radius: 10px;
+}
+
 /* Navbar Toggler */
 
 .main-menu-toggler span {

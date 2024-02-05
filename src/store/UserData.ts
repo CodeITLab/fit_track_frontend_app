@@ -1,5 +1,6 @@
 import { IUser } from "@/models/IUser";
 import { defineStore } from "pinia";
+import {watch} from "vue"
 
 export const useUserDataStore = defineStore('user', {
     state: () => {
@@ -16,6 +17,7 @@ export const useUserDataStore = defineStore('user', {
 
             user: {} as IUser,
         }
+        
     },
     getters: {
         getUserInfo(state){

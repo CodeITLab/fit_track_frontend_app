@@ -39,11 +39,7 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
         <div>
 
           <ul class="navbar-nav me-3 mb-2 mb-lg-0">
-            <li v-if="StoreAccessController().modalStore.chosePrivate === true"
-                class="nav-item">
-              <router-link class="nav-link links first p-1 text-decoration-none active"
-                           to="/">Log Out</router-link>
-            </li>
+
             <li class="nav-item">
               <router-link class="nav-link links first p-1 text-decoration-none active"
                            to="/">Home</router-link>
@@ -55,6 +51,11 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
             <li class="nav-item">
               <router-link class="nav-link links last p-1 text-decoration-none"
                            to="/">Contact Us</router-link>
+            </li>
+            <li v-if="StoreAccessController().modalStore.chosePrivate === true"
+                class="nav-item ms-5">
+              <router-link class="nav-link links logout p-1 text-decoration-none active"
+                           to="/">Log Out</router-link>
             </li>
           </ul>
         </div>
