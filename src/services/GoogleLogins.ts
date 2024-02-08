@@ -7,9 +7,7 @@ import { StoreAccessController } from "@/controllers/store-access/StoreAccessCon
 import axios from "axios";
 import { storeToRefs } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-
  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
 export const login = (): void => {
   googleSdkLoaded((google) => {
     google.accounts.oauth2
@@ -20,6 +18,7 @@ export const login = (): void => {
         callback: (response) => {
           if (response.code) {
             sendCodeToBackend(response.code);
+            
             ModalController().setLoginFormModalValue(false)
             ModalController().setChoseDashboardValue(true)
             console.log(localStorage[0])
