@@ -6,6 +6,7 @@ import {GoogleCredantials} from "../env"
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import axios from "axios";
 import { storeToRefs } from "pinia";
+import { useLocalStorage } from "@vueuse/core";
 
  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -21,6 +22,7 @@ export const login = (): void => {
             sendCodeToBackend(response.code);
             ModalController().setLoginFormModalValue(false)
             ModalController().setChoseDashboardValue(true)
+            console.log(localStorage[0])
           }
         },
       })

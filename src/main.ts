@@ -9,10 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 const pinia = createPinia();
 const app = createApp(App)
 
-watch(pinia.state, (state)=>{
-    localStorage.setItem("state", JSON.stringify(state))
-},
-{deep: true})
+
 app.use(pinia)
 app.use(router).mount('#app')
 

@@ -25,14 +25,14 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
           <img :src="require('../../../assets/img/logos/logo-proto.png')"
                alt="" />
         </div>
-        <div v-if="StoreAccessController().modalStore.chosePrivate === true"
+        <div v-if="StoreAccessController().modalStore.chosePrivate === true && StoreAccessController().userStore.getUserInfo.isAuth === true"
              class=" ms-3">
           <h6 class="text-white">
             <img class="border border-2 border-dark rounded-circle ms-1"
                  height="45"
-                 :src=StoreAccessController().userStore.user.picture
+                 :src=StoreAccessController().userStore.getUserInfo.picture
                  alt="" />
-            {{ StoreAccessController().userStore.user.name }}
+            {{ StoreAccessController().userStore.getUserInfo.name }}
           </h6>
 
         </div>

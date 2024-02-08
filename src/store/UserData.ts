@@ -1,6 +1,6 @@
 import { IUser } from "@/models/IUser";
 import { defineStore } from "pinia";
-import {watch} from "vue"
+import {useLocalStorage} from "@vueuse/core"
 
 export const useUserDataStore = defineStore('user', {
     state: () => {
@@ -15,7 +15,7 @@ export const useUserDataStore = defineStore('user', {
             },
 
 
-            user: {} as IUser,
+            user: useLocalStorage("vueUseUser",{} as IUser),
         }
         
     },
