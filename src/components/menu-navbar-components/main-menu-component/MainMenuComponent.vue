@@ -30,7 +30,7 @@ const getWorkoutData = reactive(
           <img :src="require('../../../assets/img/logos/logo-proto.png')"
                alt="" />
         </div>
-        <div v-if="StoreAccessController().modalStore.chosePrivate === true"
+        <div v-if="StoreAccessController().modalStore.chosePrivate === true &&"
              class=" ms-3">
           <h6 class="text-white">
             <img class="border border-2 border-dark rounded-circle ms-1"
