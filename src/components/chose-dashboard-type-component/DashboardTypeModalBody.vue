@@ -6,6 +6,15 @@ const setDashboardTypeValue = () => {
   ModalController().setChoseDashboardValue(false);
   ModalController().setChosePrivateValue(true);
 };
+
+// zasebnu metodu koja će na klik spremati tip korisnika
+// metoda bi koristila updateUserType() iz user store-a
+
+const updateUserType = (type: string): void => {
+  // prosljeđenu vrijednost spremiti u userType preko metode updateUserType
+  // onda spremiti cijelu user objekt u local storage
+}
+
 </script>
 
 <template>
@@ -25,7 +34,7 @@ const setDashboardTypeValue = () => {
             <button
               type="button"
               class="btn btn-primary m-2"
-              @click="setDashboardTypeValue"
+              @click="updateUserType('trainer')"
             >
               <router-link
                 class="nav-link links p-1 text-decoration-none"

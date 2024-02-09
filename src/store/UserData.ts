@@ -11,11 +11,11 @@ export const useUserDataStore = defineStore('user', {
                 email: "",
                 picture:"",
                 isAuth: false,
-                userType:""
+                userType: ""
             },
 
-
-            user: useLocalStorage("vueUseUser",{} as IUser),
+            // moramo i ovo prokomentirati
+            user: useLocalStorage("vueUseUser", {} as IUser),
         }
         
     },
@@ -25,9 +25,12 @@ export const useUserDataStore = defineStore('user', {
         },
     },
     actions: {
+        // kreirati dodatnu metodu za ažuriranje tipa korisnika.
+        // updateUserType(userType: string)
+
+        // preimenovao u createUser
        updateUserInfo(userData: IUser){
             this.user = userData
-            
         },
         initData(isAuthenthicated: boolean) {
             this.user.isAuth = isAuthenthicated

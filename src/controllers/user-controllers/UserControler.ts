@@ -1,11 +1,15 @@
 
-import {useUserDataStore} from "../../store/UserData"
+import { useUserDataStore } from "../../store/UserData"
 
-export const UserDataControler =()=>{
+export const UserDataControler = () => {
+
+    // umjesto .user bi trebala ići get metoda getUserInfo
     const dataStore = useUserDataStore().user;
-    return{
-    dataStore,
-    
+
+    // na tebi je ako hoćeš ovdje napraviti dodatnu metodu za spremanje u local storage ili to hoćeš direktno iz servisa
+
+    return {
+        dataStore,
     }
 }
 

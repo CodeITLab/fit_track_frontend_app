@@ -6,9 +6,14 @@ import GoogleLoginsModal from "../components/login-component/GoogleLoginsModal.v
 import LoginFormModal from "../components/login-component/LoginFormModal.vue";
 import DashboardTypeModal from "../components/chose-dashboard-type-component/DashboardTypeModal.vue";
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
+
 const setValueToTrue = (): void => {
   ModalController().setLoginFormModalValue(true);
 };
+
+// ovdje možemo imati metodu koja vraća boolean
+// ako je localStorage.getItem('user') === null, neka vrati false, else vraća true.
+
 </script>
 
 <template>

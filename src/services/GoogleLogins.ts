@@ -56,11 +56,9 @@ const sendCodeToBackend = async (code: any) => {
     if (userResponse && userResponse.data) {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      StoreAccessController().userStore.updateUserInfo(userResponse.data)
-      StoreAccessController().userStore.initData(true)
-      console.log(userResponse.data)
-      
-     
+      StoreAccessController().userStore.updateUserInfo(userResponse.data);
+      StoreAccessController().userStore.initData(true);
+      console.log(userResponse.data);
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");
