@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
-import {reactive} from 'vue'
+import { reactive } from 'vue'
 
 const getWorkoutData = reactive(
-    StoreAccessController().userStore.getUserInfo
+  StoreAccessController().userStore.getUserInfo
 );
 </script>
 
@@ -30,14 +30,14 @@ const getWorkoutData = reactive(
           <img :src="require('../../../assets/img/logos/logo-proto.png')"
                alt="" />
         </div>
-        <div v-if="StoreAccessController().modalStore.chosePrivate === true &&"
+        <div v-if="StoreAccessController().modalStore.chosePrivate === true"
              class=" ms-3">
           <h6 class="text-white">
             <img class="border border-2 border-dark rounded-circle ms-1"
                  height="45"
                  :src=getWorkoutData.picture
                  alt="" />
-            {{ getWorkoutData.name}}
+            {{ getWorkoutData.name }}
           </h6>
 
         </div>
