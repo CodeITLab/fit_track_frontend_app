@@ -20,12 +20,12 @@ const routes: Array<RouteRecordRaw> = [
           UserAuthController();
         const userData = useUserDataStore();
         
-          if(from.path === '/' && userData.user.isAuth) {
+          if(from.path === '/' && userData.defaultUserData.isAuth) {
             next();
           } else {
             alert("You are not authenticated");
             next('/');
-            console.log(userData.user.isAuth)
+            console.log(userData.defaultUserData.isAuth)
           } 
         },
         // route level code-splitting
