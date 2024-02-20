@@ -14,7 +14,9 @@ export const SaveUserData = () => {
             body: JSON.stringify(StoreAccessController().userStore.getUserInfo),
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then((data) => {
+            console.log(data['token'])
+        })
         .catch(error => console.error("Error: ", error));
     };
     return {

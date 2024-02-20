@@ -5,6 +5,7 @@ import {SaveUserData} from '@/services/SaveUserData'
 const updateUserType = (type: string): void => {
   StoreAccessController().userStore.updateUserType(type);
   SaveUserData().saveUserData();
+  localStorage.setItem("isAuth", "true");
 }
 
 </script>

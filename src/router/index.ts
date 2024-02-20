@@ -17,15 +17,14 @@ const routes: Array<RouteRecordRaw> = [
         meta: { roles: ['admin'] },
         beforeEnter: (to, from, next) => {
        
-          UserAuthController();
-        const userData = useUserDataStore();
+          const authFlag = localStorage.getItem('isAuth');
         
-          if(from.path === '/' && userData.defaultUserData.isAuth) {
+          if(from.path === '/' && authFlag !== null) {
             next();
           } else {
             alert("You are not authenticated");
             next('/');
-            console.log(userData.defaultUserData.isAuth)
+            console.log(authFlag)
           } 
         },
         // route level code-splitting
