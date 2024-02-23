@@ -14,7 +14,7 @@ export const SaveUserData = () => {
         .then(response => response.json())
         .then((data) => {
             StoreAccessController().userStore.setUserId(data);
-            GetUserData().getUserData;
+            GetUserData().getUserData();
         })
         .catch(error => console.error("Error: ", error));
     };
