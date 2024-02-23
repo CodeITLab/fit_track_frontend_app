@@ -4,6 +4,7 @@ import DashboardView from '../views/DashboardView.vue'
 import { UserAuthController } from '@/controllers/auth-controllers/UserAuthController';
 import { login } from '@/services/GoogleLogins';
 import { useUserDataStore } from '@/store/UserData';
+import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
 
 const routes: Array<RouteRecordRaw> = [
     {

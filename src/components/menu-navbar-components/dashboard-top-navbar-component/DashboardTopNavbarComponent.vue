@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-import { UserDataControler } from "../../../controllers/user-controllers/UserControler";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import { reactive } from "vue";
-import { login } from "@/services/GoogleLogins";
 
 const getWorkoutData = reactive(
     StoreAccessController().userStore.getUserInfo
 );
+
 </script>
 <template>
     <div
