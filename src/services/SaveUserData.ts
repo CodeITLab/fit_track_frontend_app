@@ -15,8 +15,7 @@ export const SaveUserData = () => {
         })
         .then(response => response.json())
         .then((data) => {
-            localStorage.setItem('isAuth', "true");
-            console.log(data)
+            console.log(data);
         })
         .catch(error => console.error("Error: ", error));
     };

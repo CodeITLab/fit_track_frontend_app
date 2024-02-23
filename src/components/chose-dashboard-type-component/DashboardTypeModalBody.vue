@@ -1,11 +1,13 @@
 <script lang="ts" setup>
+import router from "@/router";
 import { StoreAccessController } from "../../controllers/store-access/StoreAccessController";
 import {SaveUserData} from '@/services/SaveUserData'
 
 const updateUserType = (type: string): void => {
+  localStorage.setItem("isAuth", "true");
   StoreAccessController().userStore.updateUserType(type);
   SaveUserData().saveUserData();
-  localStorage.setItem("isAuth", "true");
+  router.push('/dashboard');
 }
 
 </script>
@@ -20,13 +22,9 @@ const updateUserType = (type: string): void => {
           </div>
 
           <div class="m-2">
-            <button type="button" class="btn btn-primary m-2" @click="updateUserType('trainer')">
-              <router-link class="nav-link links p-1 text-decoration-none" to="/dashboard">Trainer</router-link>
-            </button>
+            <button type="button" class="btn btn-primary m-2" @click="updateUserType('trainer')">Trainer</button>
             Or
-            <button type="button" class="btn btn-primary m-2" @click="updateUserType('personal')">
-              <router-link class="nav-link links p-1 text-decoration-none" to="/dashboard">Personal</router-link>
-            </button>
+            <button type="button" class="btn btn-primary m-2" @click="updateUserType('personal')">Personal</button>
           </div>
         </div>
       </td>

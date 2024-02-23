@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
           } else {
             alert("You are not authenticated");
             next('/');
-            console.log(authFlag)
+            console.log(authFlag);
           } 
         },
         // route level code-splitting
