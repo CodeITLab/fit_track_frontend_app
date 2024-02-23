@@ -5,7 +5,7 @@ export const SaveUserData = () => {
     console.log("User info: " + JSON.stringify(StoreAccessController().userStore.getUserInfo))
 
     const saveUserData = async () => {
-        await fetch('http://127.0.0.1:5000/save-user-data', {
+        await fetch('http://127.0.0.1:8080/user/save-user-data', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const SaveUserData = () => {
         })
         .then(response => response.json())
         .then((data) => {
-            console.log(data['token'])
+            console.log(data)
         })
         .catch(error => console.error("Error: ", error));
     };
