@@ -13,12 +13,6 @@
                    class="mb-3" />
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                   id="menu">
-                <li class="nav-item">
-                  <router-link class="icons first p-1 text-decoration-none"
-                               to="/"><img src="../../../assets/img/logos/home-icon.png"
-                         height="30"
-                         alt="Home Icon" /></router-link>
-                </li>
                 <li>
                   <a href="#submenu1"
                      data-bs-toggle="collapse"

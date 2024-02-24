@@ -1,11 +1,15 @@
 <script lang="ts" setup>
+import router from "@/router";
 import { StoreAccessController } from "../../controllers/store-access/StoreAccessController";
-import { ModalController } from "../../controllers/modal-controllers/ModalController";
+import {SaveUserData} from '@/services/SaveUserData'
 
-const setDashboardTypeValue = () => {
-  ModalController().setChoseDashboardValue(false);
-  ModalController().setChosePrivateValue(true);
-};
+const updateUserType = (type: string): void => {
+  localStorage.setItem("isAuth", "true");
+  StoreAccessController().userStore.updateUserType(type);
+  SaveUserData().saveUserData();
+  router.push('/dashboard');
+}
+
 </script>
 
 <template>
@@ -14,37 +18,13 @@ const setDashboardTypeValue = () => {
       <td>
         <div class="d-flex flex-column">
           <div class="dashboard-type-wrapper m-2">
-            <label
-              class="dashboard-type-label font-weight-normal"
-              for="dashboard type"
-              >Choose your dashboard type</label
-            >
+            <label class="dashboard-type-label font-weight-normal" for="dashboard type">Choose your dashboard type</label>
           </div>
 
           <div class="m-2">
-            <button
-              type="button"
-              class="btn btn-primary m-2"
-              @click="setDashboardTypeValue"
-            >
-              <router-link
-                class="nav-link links p-1 text-decoration-none"
-                to="/dashboard"
-                >Trainer</router-link
-              >
-            </button>
+            <button type="button" class="btn btn-primary m-2" @click="updateUserType('trainer')">Trainer</button>
             Or
-            <button
-              type="button"
-              class="btn btn-primary m-2"
-              @click="setDashboardTypeValue"
-            >
-              <router-link
-                class="nav-link links p-1 text-decoration-none"
-                to="/dashboard"
-                >Personal</router-link
-              >
-            </button>
+            <button type="button" class="btn btn-primary m-2" @click="updateUserType('personal')">Personal</button>
           </div>
         </div>
       </td>

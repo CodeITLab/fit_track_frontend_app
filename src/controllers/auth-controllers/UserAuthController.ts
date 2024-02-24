@@ -1,12 +1,13 @@
 import { useUserDataStore } from "@/store/UserData";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+
 export const UserAuthController = () => {
 
     // ovdje ćemo raditi pozive prema backendu i raditi login preko googlea
     
     // moramo dohvatiti store vrijednosti da možemo raditi nad user objektom
 
-    if(useUserDataStore().user.isAuth){
+    if(useUserDataStore().defaultUserData.isAuth){
         StoreAccessController().userStore.initData(true);
     }else{
         StoreAccessController().userStore.initData(false);

@@ -4,31 +4,42 @@ import { defineStore } from "pinia";
 export const useUserDataStore = defineStore('user', {
     state: () => {
         return {
-            defaultUserData:{
+            defaultUserData: {
                 name: "",
                 lastName: "",
                 email: "",
                 picture:"",
                 isAuth: false,
-                userType:""
+                userType: ""
             },
-
-
-            user: {} as IUser,
+            userId: 0,
         }
+        
     },
     getters: {
         getUserInfo(state){
-            return state.user;
+            return state.defaultUserData;
         },
+        getUserId(state) {
+            console.log(state.userId);
+            console.log(this.userId);
+            return state.userId;
+        }
     },
     actions: {
-       updateUserInfo(userData: IUser){
-            this.user = userData
-            
+        updateUserType(userType: string) {
+            this.defaultUserData.userType = userType
+        },
+        updateUserInfo(userData: IUser){
+            this.defaultUserData = userData
         },
         initData(isAuthenthicated: boolean) {
-            this.user.isAuth = isAuthenthicated
+            this.defaultUserData.isAuth = isAuthenthicated
+        },
+        setUserId(userId: number) {
+            this.userId = userId;
+            console.log(userId);
+            console.log(this.userId)
         }
     }
 })

@@ -4,6 +4,7 @@ import DashboardView from '../views/DashboardView.vue'
 import { UserAuthController } from '@/controllers/auth-controllers/UserAuthController';
 import { login } from '@/services/GoogleLogins';
 import { useUserDataStore } from '@/store/UserData';
+import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -17,15 +18,14 @@ const routes: Array<RouteRecordRaw> = [
         meta: { roles: ['admin'] },
         beforeEnter: (to, from, next) => {
        
-          UserAuthController();
-        const userData = useUserDataStore();
+          const authFlag = localStorage.getItem('isAuth');
         
-          if(from.path === '/' && userData.user.isAuth) {
+          if(from.path === '/' && authFlag !== null) {
             next();
           } else {
             alert("You are not authenticated");
             next('/');
-            console.log(userData.user.isAuth)
+            console.log(authFlag);
           } 
         },
         // route level code-splitting

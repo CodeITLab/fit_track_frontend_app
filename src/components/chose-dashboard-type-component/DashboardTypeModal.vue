@@ -2,7 +2,6 @@
 import DashboardTypeModalBody from "./DashboardTypeModalBody.vue";
 </script>
 
-
 <template>
   <div class="modal fade show d-flex justify-content-center align-items-center">
     <div class="modal-dialog" role="document">
@@ -12,7 +11,6 @@ import DashboardTypeModalBody from "./DashboardTypeModalBody.vue";
     </div>
   </div>
 </template>
-
 
 <style>
 </style>

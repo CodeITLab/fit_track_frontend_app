@@ -6,7 +6,7 @@ import {GoogleCredantials} from "../env"
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import axios from "axios";
 import { storeToRefs } from "pinia";
-
+import { IUser } from "@/models/IUser";
  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 export const login = (): void => {
@@ -19,6 +19,7 @@ export const login = (): void => {
         callback: (response) => {
           if (response.code) {
             sendCodeToBackend(response.code);
+            
             ModalController().setLoginFormModalValue(false)
             ModalController().setChoseDashboardValue(true)
           }
@@ -39,7 +40,6 @@ const sendCodeToBackend = async (code: any) => {
       grant_type: "authorization_code",
     });
    
-   
     const accessToken = response.data.access_token;
 
     // Fetch user details using the access token
@@ -55,11 +55,16 @@ const sendCodeToBackend = async (code: any) => {
     if (userResponse && userResponse.data) {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      StoreAccessController().userStore.updateUserInfo(userResponse.data)
-      StoreAccessController().userStore.initData(true)
-      console.log(userResponse.data)
+      const userData: IUser = {
+        name: userResponse.data['given_name'],
+        lastName: userResponse.data['family_name'],
+        email: userResponse.data['email'],
+        picture: userResponse.data['picture'],
+        isAuth: true,
+        userType: ''
+      }
       
-     
+      StoreAccessController().userStore.updateUserInfo({...userData});
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");

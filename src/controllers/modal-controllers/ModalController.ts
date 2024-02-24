@@ -34,7 +34,5 @@ export const ModalController = () => {
         setChoseDashboardValue,
         setChoseTrainerValue,
         setChosePrivateValue
-
-
     }
 }

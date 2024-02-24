@@ -3,8 +3,11 @@ import { defineStore } from "pinia";
 export const useModalManager = defineStore('modal-manager', {
     state: () => {
         return {
+            // createWorkoutModal -> isCreateWorkoutModalOpened
             createWorkoutModal: false,
+             // workoutDetailsModal -> isWorkoutDetailsModal
             workoutDetailsModal: false,
+            // preimenovati u isWorkoutFinished
             workoutStatusCheck: false,
             choseDashboardType:false,
             choseLoginForm:false,

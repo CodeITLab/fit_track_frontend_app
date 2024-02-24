@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
+import { reactive } from 'vue'
+
+const getWorkoutData = reactive(
+  StoreAccessController().userStore.getUserInfo
+);
 </script>
 
 <template>
@@ -30,14 +35,16 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
           <h6 class="text-white">
             <img class="border border-2 border-dark rounded-circle ms-1"
                  height="45"
-                 :src=StoreAccessController().userStore.user.picture
+                 :src=getWorkoutData.picture
                  alt="" />
-            {{ StoreAccessController().userStore.user.name }}
+            {{ getWorkoutData.name }}
           </h6>
 
         </div>
         <div>
+
           <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+
             <li class="nav-item">
               <router-link class="nav-link links first p-1 text-decoration-none active"
                            to="/">Home</router-link>
@@ -50,6 +57,11 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
               <router-link class="nav-link links last p-1 text-decoration-none"
                            to="/">Contact Us</router-link>
             </li>
+            <li v-if="StoreAccessController().modalStore.chosePrivate === true"
+                class="nav-item ms-5">
+              <router-link class="nav-link links logout p-1 text-decoration-none active"
+                           to="/">Log Out</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -57,4 +69,6 @@ import { StoreAccessController } from '@/controllers/store-access/StoreAccessCon
   </nav>
 </template>
 
-<style lang="scss" scoped>@import "../../../assets/css/components/main-menu.css";</style>
+<style lang="scss" scoped>
+@import "../../../assets/css/components/main-menu.css";
+</style>
