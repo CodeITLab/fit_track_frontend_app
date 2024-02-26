@@ -13,6 +13,4 @@ import ModalComponentBody from "../modal-component/ModalComponentBody.vue";
     </div>
 </template>
 
-<style lang="scss" scoped>
-@import "../../../assets/css/components/create-workout-component.css";
-</style>
+<style lang="scss" scoped></style>

@@ -5,6 +5,7 @@ import { UserAuthController } from '@/controllers/auth-controllers/UserAuthContr
 import { login } from '@/services/GoogleLogins';
 import { useUserDataStore } from '@/store/UserData';
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
 
 const routes: Array<RouteRecordRaw> = [
     {

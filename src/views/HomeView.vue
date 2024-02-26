@@ -6,7 +6,7 @@ import GoogleLoginsModal from "../components/login-component/GoogleLoginsModal.v
 import LoginFormModal from "../components/login-component/LoginFormModal.vue";
 import DashboardTypeModal from "../components/chose-dashboard-type-component/DashboardTypeModal.vue";
 import MainMenuComponent from "../components/menu-navbar-components/main-menu-component/MainMenuComponent.vue";
-
+import ModalComponent from "../components/modal-component/ModalComponent.vue"
 const setValueToTrue = (): void => {
   ModalController().setLoginFormModalValue(true);
 };
@@ -60,6 +60,9 @@ const setValueToTrue = (): void => {
       </div>
       <div v-if="StoreAccessController().modalStore.choseDashboardType === true">
         <DashboardTypeModal />
+      </div>
+      <div>
+        <ModalComponent />
       </div>
     </div>
   </div>
