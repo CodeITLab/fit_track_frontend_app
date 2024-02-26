@@ -1,4 +1,16 @@
 <script lang="ts" setup>
+import router from "@/router";
+const logOut = (): void => {
+  if (localStorage.getItem('isAuth')) {
+    localStorage.removeItem('isAuth')
+  }
+  if (localStorage.getItem('isAuth') == null) {
+    router.push('/');
+    console.log('log out')
+  }
+
+
+};
 </script>
 <template>
   <nav class="dash-nav">
@@ -47,10 +59,14 @@
                     <li>
                       <a href="#"
                          class="nav-link px-0">
-                        <span class="d-none d-sm-inline"><img
-                               src="../../../assets/img/logos/log-out.png"
-                               height="30"
-                               alt="Logout" /></span>
+                        <button class=" logOutBtn p-0"
+                                @click="logOut">
+                          <span class="d-none d-sm-inline"><img
+                                 src="../../../assets/img/logos/log-out.png"
+                                 height="30"
+                                 alt="Logout" /></span>
+                        </button>
+
                       </a>
                     </li>
                   </ul>
