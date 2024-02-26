@@ -24,9 +24,8 @@ const routes: Array<RouteRecordRaw> = [
           if(from.path === '/' && authFlag !== null) {
             next();
           } else {
-            alert("You are not authenticated");
+            ModalController().setModalComponentModalValue(true)
             next('/');
-            console.log(authFlag);
           } 
         },
         // route level code-splitting

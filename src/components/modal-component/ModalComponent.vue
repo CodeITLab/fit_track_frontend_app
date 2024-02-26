@@ -1,5 +1,5 @@
 <script lang="ts" setup >
-import ModalComponentBody from "../modal-component/ModalComponentBody.vue";
+import ModalComponentBody from "../modal-component/ModalComponentBody.vue"
 </script>
 
 <template>
@@ -13,4 +13,4 @@ import ModalComponentBody from "../modal-component/ModalComponentBody.vue";
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style></style>

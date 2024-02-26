@@ -16,6 +16,9 @@ export const ModalController = () => {
     const setLoginFormModalValue=(modalData:boolean):void =>{
         StoreAccessController().modalStore.openCloseChoseLoginForm(modalData)
     };
+    const setModalComponentModalValue=(modalData:boolean):void =>{
+        StoreAccessController().modalStore.openCloseModalComponentModal(modalData)
+    };
     const setChoseDashboardValue=(modalData: boolean): void =>{
         StoreAccessController().modalStore.openCloseDashboardType(modalData)
     }
@@ -31,6 +34,7 @@ export const ModalController = () => {
         setWorkoutDetailsModalValue,
         setWorkoutStatusCheckValue,
         setLoginFormModalValue,
+        setModalComponentModalValue,
         setChoseDashboardValue,
         setChoseTrainerValue,
         setChosePrivateValue

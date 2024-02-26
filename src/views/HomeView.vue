@@ -61,7 +61,7 @@ const setValueToTrue = (): void => {
       <div v-if="StoreAccessController().modalStore.choseDashboardType === true">
         <DashboardTypeModal />
       </div>
-      <div>
+      <div v-if="StoreAccessController().modalStore.modalComponentModal === true">
         <ModalComponent />
       </div>
     </div>

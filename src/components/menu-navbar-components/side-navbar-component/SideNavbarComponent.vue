@@ -1,19 +1,11 @@
 <script lang="ts" setup>
 import router from "@/router";
 import { ModalController } from "../../../controllers/modal-controllers/ModalController"
-
-const logOut = (): void => {
-  if (localStorage.getItem('isAuth')) {
-    localStorage.removeItem('isAuth')
-    ModalController().setChoseDashboardValue(false);
-  }
-  if (localStorage.getItem('isAuth') == null) {
-    router.push('/');
-    console.log('log out')
-  }
+const closeModal = (): void => {
+  ModalController().setModalComponentModalValue(true)
+}
 
 
-};
 </script>
 <template>
   <nav class="dash-nav">
@@ -63,7 +55,7 @@ const logOut = (): void => {
                       <a href="#"
                          class="nav-link px-0">
                         <button class=" logOutBtn p-0"
-                                @click="logOut">
+                                @click="closeModal">
                           <span class="d-none d-sm-inline"><img
                                  src="../../../assets/img/logos/log-out.png"
                                  height="30"
