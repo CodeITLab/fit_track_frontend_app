@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import router from "@/router";
+import { ModalController } from "../../../controllers/modal-controllers/ModalController"
+
 const logOut = (): void => {
   if (localStorage.getItem('isAuth')) {
     localStorage.removeItem('isAuth')
+    ModalController().setChoseDashboardValue(false);
   }
   if (localStorage.getItem('isAuth') == null) {
     router.push('/');
