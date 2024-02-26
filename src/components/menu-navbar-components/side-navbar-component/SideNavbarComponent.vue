@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+import router from "@/router";
+import { ModalController } from "../../../controllers/modal-controllers/ModalController"
+const closeModal = (): void => {
+  ModalController().setModalComponentModalValue(true)
+}
+
+
 </script>
 <template>
   <nav class="dash-nav">
@@ -47,10 +54,14 @@
                     <li>
                       <a href="#"
                          class="nav-link px-0">
-                        <span class="d-none d-sm-inline"><img
-                               src="../../../assets/img/logos/log-out.png"
-                               height="30"
-                               alt="Logout" /></span>
+                        <button class=" logOutBtn p-0"
+                                @click="closeModal">
+                          <span class="d-none d-sm-inline"><img
+                                 src="../../../assets/img/logos/log-out.png"
+                                 height="30"
+                                 alt="Logout" /></span>
+                        </button>
+
                       </a>
                     </li>
                   </ul>

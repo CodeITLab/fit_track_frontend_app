@@ -5,6 +5,7 @@ import { UserAuthController } from '@/controllers/auth-controllers/UserAuthContr
 import { login } from '@/services/GoogleLogins';
 import { useUserDataStore } from '@/store/UserData';
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
+import { ModalController } from "@/controllers/modal-controllers/ModalController";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -23,9 +24,8 @@ const routes: Array<RouteRecordRaw> = [
           if(from.path === '/' && authFlag !== null) {
             next();
           } else {
-            alert("You are not authenticated");
+            ModalController().setModalComponentModalValue(true)
             next('/');
-            console.log(authFlag);
           } 
         },
         // route level code-splitting

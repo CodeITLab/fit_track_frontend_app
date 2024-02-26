@@ -7,6 +7,7 @@ import DashboardTopNavbarComponent from "../components/menu-navbar-components/da
 import CreateWorkoutButton from "../components/workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
 import WorkoutDetailsModal from "../components/workout-components/workout-details-component/WorkoutDetailsModal.vue";
 import ExerciseCardComponentWrapperVue from "../components/exercise-card-component/ExerciseCardComponentWrapper.vue";
+import ModalComponent from "@/components/modal-component/ModalComponent.vue";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 
 const workoutStore = useWorkoutDataStore();
@@ -22,6 +23,7 @@ const modalStore = useModalManager();
     <main>
       <DashboardTopNavbarComponent />
       <CreateWorkoutButton v-if="workoutStore.getWorkouts.length === 0" />
+      <ModalComponent v-if="StoreAccessController().modalStore.modalComponentModal === true" />
       <CreateWorkoutModal />
       <WorkoutDetailsModal v-if="modalStore.getWorkoutDetailsModalState" />
       <div class="cards d-flex flex-row ms-3 justify-content-left align-items-center">
