@@ -7,6 +7,7 @@ export const useWorkoutDataStore = defineStore('workout', {
         return {
             defaultWorkoutData: {
                 workoutName: "",
+                workoutOwner:0,
                 exerciseData: [
                     {
                         exerciseName: "",
@@ -40,6 +41,7 @@ export const useWorkoutDataStore = defineStore('workout', {
             this.workouts.push(workoutData);
             this.defaultWorkoutData = {
                 workoutName: "",
+                workoutOwner:0,
                 exerciseData: [
                     {
                         exerciseName: "",
@@ -59,10 +61,12 @@ export const useWorkoutDataStore = defineStore('workout', {
         updateSelectedWorkout(updatedWorkoutData: IWorkoutModel) {
             this.workouts[this.workoutIndex] = updatedWorkoutData
         },
+
         deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
             this.defaultWorkoutData = {
                 workoutName: "",
+                workoutOwner:0,
                 exerciseData: [
                     {
                         exerciseName: "",
