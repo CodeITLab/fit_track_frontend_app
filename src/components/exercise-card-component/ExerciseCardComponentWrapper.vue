@@ -3,8 +3,10 @@ import { OpenCloseWorkoutDetails } from "@/controllers/dashboard-controllers/Ope
 import ExerciseCardComponent from './ExerciseCardComponent.vue';
 import CreateWorkoutButton from '../workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue';
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
+import { GetWorkoutData } from "@/services/GetWorkoutData";
 
-console.log(StoreAccessController().workoutStore.getWorkouts)
+console.log(GetWorkoutData().getWorkoutData())
+console.log(StoreAccessController().workoutStore.workouts)
 
 </script>
 
