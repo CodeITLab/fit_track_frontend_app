@@ -14,7 +14,7 @@ export const SaveUserData = () => {
         .then(response => response.json())
         .then((data) => {
             StoreAccessController().userStore.setUserId(data);
-            // StoreAccessController().workoutStore.defaultWorkoutData.workoutOwner = data
+            StoreAccessController().workoutStore.defaultWorkoutData.workoutOwner = data
             GetUserData().getUserData();
         })
         .catch(error => console.error("Error: ", error));
