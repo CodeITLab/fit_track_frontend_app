@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import { reactive } from "vue";
-
+import { GetUserData } from "@/services/GetUserData";
+GetUserData().getUserData();
 const getWorkoutData = reactive(
     StoreAccessController().userStore.getUserInfo
 );

@@ -1,15 +1,17 @@
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { defineStore } from "pinia";
+import {SaveWorkoutData} from '../services/SaveWorkoutData'
 
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
 
         return {
             defaultWorkoutData: {
-                workoutName: "",
-                exerciseData: [
+                name: "",
+                workoutOwner:0,
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false
@@ -38,11 +40,13 @@ export const useWorkoutDataStore = defineStore('workout', {
     actions: {
         createWorkout(workoutData: IWorkoutModel) {
             this.workouts.push(workoutData);
+            SaveWorkoutData().saveWorkoutData()
             this.defaultWorkoutData = {
-                workoutName: "",
-                exerciseData: [
+                name: "",
+                workoutOwner:0,
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false
@@ -59,13 +63,15 @@ export const useWorkoutDataStore = defineStore('workout', {
         updateSelectedWorkout(updatedWorkoutData: IWorkoutModel) {
             this.workouts[this.workoutIndex] = updatedWorkoutData
         },
+
         deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
             this.defaultWorkoutData = {
-                workoutName: "",
-                exerciseData: [
+                name: "",
+                workoutOwner:0,
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false

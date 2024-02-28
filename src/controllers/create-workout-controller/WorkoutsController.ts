@@ -7,11 +7,11 @@ export const WorkoutsController = () => {
   const getSelectedWorkoutData = StoreAccessController().workoutStore.getSelectedWorkout;
   const defaultWorkoutData = StoreAccessController().workoutStore.getDefaultWorkoutData;
 
-  const workoutData = getSelectedWorkoutData.workoutName ? getSelectedWorkoutData : defaultWorkoutData;
+  const workoutData = getSelectedWorkoutData.name ? getSelectedWorkoutData : defaultWorkoutData;
 
   const increaseNumberOfExercises = (): void => {
-    workoutData.exerciseData.push({
-      exerciseName: "",
+    workoutData.exercisesData.push({
+      name: "",
       sets: 0,
       reps: 0,
       isWorkoutFinished: false
@@ -19,28 +19,28 @@ export const WorkoutsController = () => {
   };
 
   const increaseNumberOfReps = (index: number): void => {
-    workoutData.exerciseData[index].reps += 1;
+    workoutData.exercisesData[index].reps += 1;
   };
 
   const decreaseNumberOfReps = (index: number): void => {
-    if (workoutData.exerciseData[index].reps > 0) {
-      workoutData.exerciseData[index].reps -= 1;
+    if (workoutData.exercisesData[index].reps > 0) {
+      workoutData.exercisesData[index].reps -= 1;
     }
   };
 
   const increaseNumberOfSets = (index: number): void => {
-    workoutData.exerciseData[index].sets += 1;
+    workoutData.exercisesData[index].sets += 1;
   };
 
   const decreaseNumberOfSets = (index: number): void => {
-    if (workoutData.exerciseData[index].sets > 0) {
-      workoutData.exerciseData[index].sets -= 1;
+    if (workoutData.exercisesData[index].sets > 0) {
+      workoutData.exercisesData[index].sets -= 1;
     }
   };
 
   const removeExercise = (index: number): void => {
-    if (workoutData.exerciseData.length > 0) {
-      workoutData.exerciseData.splice(index, 1);
+    if (workoutData.exercisesData.length > 0) {
+      workoutData.exercisesData.splice(index, 1);
     }
   };
 

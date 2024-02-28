@@ -9,9 +9,12 @@ import WorkoutDetailsModal from "../components/workout-components/workout-detail
 import ExerciseCardComponentWrapperVue from "../components/exercise-card-component/ExerciseCardComponentWrapper.vue";
 import ModalComponent from "@/components/modal-component/ModalComponent.vue";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+import { GetWorkoutData } from "@/services/GetWorkoutData";
 
 const workoutStore = useWorkoutDataStore();
 const modalStore = useModalManager();
+
+console.log(GetWorkoutData().getWorkoutData())
 
 </script>
 

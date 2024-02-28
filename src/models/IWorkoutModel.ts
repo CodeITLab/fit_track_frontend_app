@@ -1,10 +1,11 @@
 export interface IWorkoutModel {
-    workoutName: string,
-    exerciseData: IExerciseModel[],
+    name: string,
+    workoutOwner: number,
+    exercisesData: IExerciseModel[],
 }
 
 export interface IExerciseModel {
-    exerciseName: string,
+    name: string,
     sets: number,
     reps: number,
     isWorkoutFinished: boolean
