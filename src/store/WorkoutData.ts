@@ -7,11 +7,11 @@ export const useWorkoutDataStore = defineStore('workout', {
 
         return {
             defaultWorkoutData: {
-                workoutName: "",
+                name: "",
                 workoutOwner:0,
-                exerciseData: [
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false
@@ -42,11 +42,11 @@ export const useWorkoutDataStore = defineStore('workout', {
             this.workouts.push(workoutData);
             SaveWorkoutData().saveWorkoutData()
             this.defaultWorkoutData = {
-                workoutName: "",
+                name: "",
                 workoutOwner:0,
-                exerciseData: [
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false
@@ -67,11 +67,11 @@ export const useWorkoutDataStore = defineStore('workout', {
         deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
             this.defaultWorkoutData = {
-                workoutName: "",
+                name: "",
                 workoutOwner:0,
-                exerciseData: [
+                exercisesData: [
                     {
-                        exerciseName: "",
+                        name: "",
                         sets: 0,
                         reps: 0,
                         isWorkoutFinished: false

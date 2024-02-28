@@ -13,10 +13,10 @@ const getWorkoutData = reactive(
 );
 
 const validationRules = {
-  workoutName: { required },
-  exerciseData: [
+  name: { required },
+  exercisesData: [
     {
-      exerciseName: { required },
+      name: { required },
       sets: { required },
       reps: { required },
       isWorkoutFinished: false,
@@ -41,11 +41,11 @@ const onSubmit = async () => {
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Workout Name</label>
       <input
-        v-model="getWorkoutData.workoutName"
+        v-model="getWorkoutData.name"
         :class="{ error: v$.$errors.length }"
         class="m-1"
         type="text"
-        :placeholder="getWorkoutData.workoutName"
+        :placeholder="getWorkoutData.name"
       />
     </div>
     <hr />
@@ -62,18 +62,18 @@ const onSubmit = async () => {
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
             <tr
-              v-if="getWorkoutData.exerciseData.length > 0"
-              v-for="(value, index) in getWorkoutData.exerciseData"
+              v-if="getWorkoutData.exercisesData.length > 0"
+              v-for="(value, index) in getWorkoutData.exercisesData"
               :key="index"
             >
               <td>
                 <input
-                  v-model="value.exerciseName"
+                  v-model="value.name"
                   :key="index"
                   :class="{ error: v$.$errors.length }"
                   class="exercise-name-input"
                   type="text"
-                  :placeholder="getWorkoutData.exerciseData[index].exerciseName"
+                  :placeholder="getWorkoutData.exercisesData[index].name"
                   method="post"
                 />
               </td>
@@ -87,7 +87,7 @@ const onSubmit = async () => {
                     +
                   </button>
                   <p class="counter-value" :key="index">
-                    {{ getWorkoutData.exerciseData[index].reps }}
+                    {{ getWorkoutData.exercisesData[index].reps }}
                   </p>
                   <button
                     type="button"
@@ -108,7 +108,7 @@ const onSubmit = async () => {
                     +
                   </button>
                   <p class="counter-value" :key="index">
-                    {{ getWorkoutData.exerciseData[index].sets }}
+                    {{ getWorkoutData.exercisesData[index].sets }}
                   </p>
                   <button
                     type="button"

@@ -12,10 +12,10 @@ const workoutData = reactive(
 );
 
 const validationRules = {
-  workoutName: { required },
-  exerciseData: [
+  name: { required },
+  exercisesData: [
     {
-      exerciseName: { required },
+      name: { required },
       sets: { required },
       reps: { required },
       isWorkoutFinished: false,
@@ -39,7 +39,7 @@ const onSubmit = async () => {
   <div class="modal-body d-flex flex-column">
     <div class="d-flex flex-column">
       <label for="Name your Exercise">Name your Workout</label>
-      <input v-model="workoutData.workoutName"
+      <input v-model="workoutData.name"
              :class="{ error: v$.$errors.length }"
              type="text"
              placeholder="Push day..."
@@ -60,11 +60,11 @@ const onSubmit = async () => {
           </thead>
           <tbody>
             <!-- eslint-disable vue/no-use-v-if-with-v-for,vue/no-confusing-v-for-v-if -->
-            <tr v-if="workoutData.exerciseData.length > 0"
-                v-for="(value, index) in workoutData.exerciseData"
+            <tr v-if="workoutData.exercisesData.length > 0"
+                v-for="(value, index) in workoutData.exercisesData"
                 :key="index">
               <td>
-                <input v-model="value.exerciseName"
+                <input v-model="value.name"
                        :key="index"
                        :class="{ error: v$.$errors.length }"
                        class="exercise-name-input"
