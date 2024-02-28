@@ -5,7 +5,9 @@ import CreateWorkoutButton from '../workout-components/create-workout-component/
 import { StoreAccessController } from '@/controllers/store-access/StoreAccessController';
 import { GetWorkoutData } from "@/services/GetWorkoutData";
 
-console.log(GetWorkoutData().getWorkoutData())
+const userWorkouts = GetWorkoutData().getWorkoutData();
+
+console.log(userWorkouts);
 console.log(StoreAccessController().workoutStore.workouts)
 
 </script>
