@@ -9,7 +9,7 @@ export const SaveWorkoutData = () => {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*"
             },
-            body: JSON.stringify(StoreAccessController().workoutStore.getWorkouts)
+            body: JSON.stringify(StoreAccessController().workoutStore.getWorkouts[0])
         })
         .then(response => response.json())
         .then((data) => {
