@@ -1,5 +1,6 @@
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { defineStore } from "pinia";
+import {SaveWorkoutData} from '../services/SaveWorkoutData'
 
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
@@ -39,6 +40,7 @@ export const useWorkoutDataStore = defineStore('workout', {
     actions: {
         createWorkout(workoutData: IWorkoutModel) {
             this.workouts.push(workoutData);
+            SaveWorkoutData().saveWorkoutData()
             this.defaultWorkoutData = {
                 workoutName: "",
                 workoutOwner:0,

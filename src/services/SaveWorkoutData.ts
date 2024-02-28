@@ -9,12 +9,11 @@ export const SaveWorkoutData = () => {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*"
             },
-            body: JSON.stringify(StoreAccessController())
+            body: JSON.stringify(StoreAccessController().workoutStore.getWorkouts)
         })
         .then(response => response.json())
         .then((data) => {
-            StoreAccessController().userStore.setUserId(data);
-            GetUserData().getUserData();
+            console.log(data)
         })
         .catch(error => console.error("Error: ", error));
     };
