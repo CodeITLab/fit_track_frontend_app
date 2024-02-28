@@ -3,7 +3,7 @@ import { GetUserData } from "./GetUserData";
 
 export const SaveWorkoutData = () => {
     const saveWorkoutData = async () => {
-        await fetch('http://127.0.0.1:8080/user/save-user-data', {
+        await fetch('http://127.0.0.1:8080/workouts/save-workout-data', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
