@@ -7,7 +7,7 @@ export const GetWorkoutData = () => {
     const getWorkoutData = async () => {
             await fetch('http://127.0.0.1:8080/workouts/get-users-workouts?id=' + userID)
             .then(response => response.json())
-            .then(data => StoreAccessController().workoutStore.createWorkout(data))
+            .then(data => StoreAccessController().workoutStore.setUserWorkouts(data))
             .catch(error => console.error("Error: ", error));
     }
 

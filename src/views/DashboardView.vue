@@ -11,12 +11,12 @@ import ModalComponent from "@/components/modal-component/ModalComponent.vue";
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
 import { GetWorkoutData } from "@/services/GetWorkoutData";
 
+GetWorkoutData().getWorkoutData();
+
 const workoutStore = useWorkoutDataStore();
 const modalStore = useModalManager();
 
-GetWorkoutData().getWorkoutData();
-
-console.log(workoutStore.getWorkouts)
+console.log(StoreAccessController().workoutStore.getUserWorkouts);
 
 </script>
 

@@ -17,6 +17,7 @@ export const useWorkoutDataStore = defineStore('workout', {
                     },
                 ],
             },
+            userWorkouts: [] as Array<any>,
             workouts: [] as IWorkoutModel[],
             selectedWorkouts: {} as IWorkoutModel,
             workoutIndex: 0
@@ -25,6 +26,9 @@ export const useWorkoutDataStore = defineStore('workout', {
     getters: {
         getWorkouts(state) {
             return state.workouts;
+        },
+        getUserWorkouts(state) {
+            return state.userWorkouts;
         },
         getDefaultWorkoutData(state) {
             return state.defaultWorkoutData;
@@ -52,6 +56,9 @@ export const useWorkoutDataStore = defineStore('workout', {
                     },
                 ],
             };
+        },
+        setUserWorkouts(userWorkouts: IWorkoutModel) {
+            this.userWorkouts.push(userWorkouts)
         },
         createSelectedWorkout(selectedWorkoutData: IWorkoutModel) {
             this.selectedWorkouts = selectedWorkoutData
