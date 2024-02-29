@@ -4,7 +4,6 @@ import {SaveWorkoutData} from '../services/SaveWorkoutData'
 
 export const useWorkoutDataStore = defineStore('workout', {
     state: () => {
-
         return {
             defaultWorkoutData: {
                 name: "",
@@ -40,7 +39,7 @@ export const useWorkoutDataStore = defineStore('workout', {
     actions: {
         createWorkout(workoutData: IWorkoutModel) {
             this.workouts.push(workoutData);
-            SaveWorkoutData().saveWorkoutData()
+            SaveWorkoutData().saveWorkoutData();
             this.defaultWorkoutData = {
                 name: "",
                 workoutOwner:0,
@@ -63,7 +62,9 @@ export const useWorkoutDataStore = defineStore('workout', {
         updateSelectedWorkout(updatedWorkoutData: IWorkoutModel) {
             this.workouts[this.workoutIndex] = updatedWorkoutData
         },
-
+        setWorkoutOwner(owner: number) {
+            this.defaultWorkoutData.workoutOwner = owner
+        },
         deleteSelectedWorkout() {
             this.workouts.splice(this.getWorkoutIndex, 1);
             this.defaultWorkoutData = {

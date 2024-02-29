@@ -1,5 +1,4 @@
 import {StoreAccessController} from "../controllers/store-access/StoreAccessController"
-import { GetUserData } from "./GetUserData";
 
 export const SaveWorkoutData = () => {
     const saveWorkoutData = async () => {
@@ -10,12 +9,7 @@ export const SaveWorkoutData = () => {
                 "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(StoreAccessController().workoutStore.getWorkouts[0])
-        })
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-        })
-        .catch(error => console.error("Error: ", error));
+        });
     };
     return {
         saveWorkoutData

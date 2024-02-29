@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
+import { GetWorkoutData } from "@/services/GetWorkoutData";
 
 const props = defineProps(["title"]);
+
+
+GetWorkoutData().getWorkoutData();
 
 const setModalValue = (modalValue: boolean) => {
   StoreAccessController().modalStore.openCloseWorkoutDetail(modalValue);

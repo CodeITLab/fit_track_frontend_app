@@ -30,6 +30,7 @@ const onSubmit = async () => {
   if (!result) {
     console.log(result);
   } else {
+    StoreAccessController().workoutStore.setWorkoutOwner(parseInt(localStorage.getItem("userID")!));
     WorkoutsController().saveWorkoutData();
   }
 };

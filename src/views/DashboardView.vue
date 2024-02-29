@@ -14,7 +14,9 @@ import { GetWorkoutData } from "@/services/GetWorkoutData";
 const workoutStore = useWorkoutDataStore();
 const modalStore = useModalManager();
 
-console.log(GetWorkoutData().getWorkoutData())
+GetWorkoutData().getWorkoutData();
+
+console.log(workoutStore.getWorkouts)
 
 </script>
 

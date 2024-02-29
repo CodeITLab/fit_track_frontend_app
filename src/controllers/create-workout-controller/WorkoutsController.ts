@@ -47,7 +47,6 @@ export const WorkoutsController = () => {
   const saveWorkoutData = (): void => {
     StoreAccessController().workoutStore.createWorkout(workoutData);
     ModalController().setCreateWorkoutModalValue(false);
-    console.log(StoreAccessController().workoutStore.getWorkouts)
   };
 
   const updateWorkoutData = (): void => {

@@ -21,8 +21,6 @@ export const useUserDataStore = defineStore('user', {
             return state.defaultUserData;
         },
         getUserId(state) {
-            console.log(state.userId);
-            console.log(this.userId);
             return state.userId;
         }
     },
@@ -31,15 +29,14 @@ export const useUserDataStore = defineStore('user', {
             this.defaultUserData.userType = userType
         },
         updateUserInfo(userData: IUser){
-            this.defaultUserData = userData
+            this.defaultUserData.name = userData.name
+            this.defaultUserData.picture = userData.picture
         },
         initData(isAuthenthicated: boolean) {
             this.defaultUserData.isAuth = isAuthenthicated
         },
         setUserId(userId: number) {
             this.userId = userId;
-            console.log(userId);
-            console.log(this.userId)
         }
     }
 })
