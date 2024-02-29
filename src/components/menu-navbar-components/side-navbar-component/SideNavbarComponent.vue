@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import router from "@/router";
+
 import { ModalController } from "../../../controllers/modal-controllers/ModalController"
+
 const closeModal = (): void => {
   ModalController().setModalComponentModalValue(true)
 }
-
 
 </script>
 <template>
