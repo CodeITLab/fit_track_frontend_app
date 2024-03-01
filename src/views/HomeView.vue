@@ -6,7 +6,7 @@ import { IUser } from '@/models/IUser';
 
 const userData = ref<IUser | null>();
 const userDataErrors = ref(false);
-const userID = 0;
+const userID = 852;
 
 onBeforeMount(async () => {
   const { data, hasError } = await useFetch<IUser>(
