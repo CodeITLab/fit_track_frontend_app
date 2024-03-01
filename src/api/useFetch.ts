@@ -1,3 +1,4 @@
+import { IUser } from '@/models/IUser';
 import { reactive, toRefs } from 'vue'
 
 interface State<T> {
@@ -7,10 +8,11 @@ interface State<T> {
     data: T | null;
 }
 
-export const useFetch = async <T>(
+export const getData = async <T>(
     url: string,
     options?: Record<string, unknown>
 ) => {
+
     const state = reactive<State<T>>({
         isLoading: true,
         hasError: false,
@@ -40,5 +42,26 @@ export const useFetch = async <T>(
 
     return {
         ...toRefs(state)
+    }
+}
+
+export const saveUserData = (userData: IUser) => {
+    const saveUserData = async () => {
+        await fetch('http://127.0.0.1:8080/user/save-user-data', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(userData),
+        })
+        .then(response => response.json())
+        .then((data) => {
+            localStorage.setItem('userID', data);
+        })
+        .catch(error => console.error("Error: ", error));
+    };
+    return {
+        saveUserData
     }
 }

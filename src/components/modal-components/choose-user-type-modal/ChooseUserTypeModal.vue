@@ -1,20 +1,12 @@
 <script lang="ts" setup>
-import { useFetch } from "@/api/useFetch";
-import { IUser } from "@/models/IUser";
 import router from "@/router";
+import { saveUserData } from '@/api/useFetch';
 import { useUserStore } from "@/store/userStore";
-import { ref } from "vue";
-
-const userID = ref<number | null>();
-
-const saveUserData = async (user: IUser) => {
-
-}
 
 const updateUserType = (type: string): void => {
   localStorage.setItem("isAuth", "true");
   useUserStore().updateUserType(type);
-  
+  saveUserData(useUserStore().getUserData).saveUserData();
   router.push('/dashboard');
 }
 
