@@ -60,6 +60,7 @@ const sendCodeToBackend = async (code: any) => {
       }
 
       useUserStore().saveUserData(userData);
+      useModalStore().setGoogleLoginModalValue(false);
       useModalStore().setUserTypeModalValue(true);
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
