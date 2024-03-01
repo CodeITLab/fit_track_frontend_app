@@ -1,4 +1,8 @@
-<script setup></script>
+<script lang="ts" setup>
+
+import { login } from '@/api/useGoogleLogin'
+
+</script>
 
 <template>
     <div class="modal fade">
@@ -36,7 +40,7 @@
                         <div class="col">
                             <p>Login With Social Media</p>
                             <div class="social-media-login">
-                                <button type="button" class="btn btn-outline-danger">
+                                <button @click="login" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#userTypeLogin">
                                     <a href="#" class="google btn">
                                         <i class="fa fa-google fa-fw"></i> Login with Google
                                     </a>
@@ -46,7 +50,7 @@
                     </div>
                 </div>
                 <div class="modal-footer w-100">
-                    <button type="button w-100" class="btn btn-primary">Login</button>
+                    <button type="button" class="btn btn-primary">Login</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue'
-
+import ChooseUserTypeModal from '@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue';
 
 </script>
 
@@ -24,7 +24,7 @@ import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue
           </p>
         </div>
         <div class="main-content-footer">
-          <button class="btn text-white rounded-pill border border-dark-3" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+          <button class="btn text-white rounded-pill border border-dark-3" data-bs-toggle="modal" data-bs-target="#googleLogin" type="button">
             Log in
           </button>
           <button class="btn text-white rounded-pill border border-dark-3 mt-3" type="button">
@@ -33,7 +33,10 @@ import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue
         </div>
       </div>
       <div class="login-modal">
-        <LoginModal id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" />
+        <LoginModal id="googleLogin" aria-labelledby="googleLoginLabel" aria-hidden="true" />
+      </div>
+      <div class="dashboard-type">
+        <ChooseUserTypeModal />
       </div>
     </div>
   </div>
