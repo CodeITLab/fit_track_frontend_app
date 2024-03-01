@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-import GoogleLoginModal from '@/components/modal-components/google-login-modal/GoogleLoginModal.vue'
+import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue'
 
 
 </script>
@@ -33,7 +33,7 @@ import GoogleLoginModal from '@/components/modal-components/google-login-modal/G
         </div>
       </div>
       <div class="login-modal">
-        <GoogleLoginModal id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" />
+        <LoginModal id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" />
       </div>
     </div>
   </div>

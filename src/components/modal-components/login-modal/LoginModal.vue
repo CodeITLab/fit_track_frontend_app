@@ -53,4 +53,8 @@
     </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+
+@import "/src/assets/css/components/modals-components/login-modal/login.css";
+
+</style>
