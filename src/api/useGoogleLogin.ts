@@ -1,16 +1,17 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
-import {GoogleCredantials} from "../env"
+import { GoogleCredantials } from "../env"
 import axios from "axios";
 import { IUser } from "@/models/IUser";
 import { useUserStore } from "@/store/userStore";
- // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useModalStore } from "@/store/modalStore";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 export const login = (): void => {
   googleSdkLoaded((google) => {
     google.accounts.oauth2
       .initCodeClient({
-        client_id: GoogleCredantials().google_client_id ,
+        client_id: GoogleCredantials().google_client_id,
         scope: "email profile openid",
         redirect_uri: "http://localhost:8080/oauth2/callback/google",
         callback: (response) => {
@@ -33,7 +34,7 @@ const sendCodeToBackend = async (code: any) => {
       redirect_uri: "postmessage",
       grant_type: "authorization_code",
     });
-   
+
     const accessToken = response.data.access_token;
 
     // Fetch user details using the access token
@@ -57,13 +58,14 @@ const sendCodeToBackend = async (code: any) => {
         isAuth: true,
         userType: ''
       }
-      
+
       useUserStore().saveUserData(userData);
+      useModalStore().setUserTypeModalValue(true);
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");
     }
   } catch (error) {
-   console.log("Failed to fetch")
+    console.log("Failed to fetch")
   }
 };

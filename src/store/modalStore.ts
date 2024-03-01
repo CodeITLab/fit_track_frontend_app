@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 
-
 export const useModalStore = defineStore('modals', {
     state: () => {
         return {
@@ -10,12 +9,18 @@ export const useModalStore = defineStore('modals', {
     },
     getters: {
         getGoogleLoginModalValue(state) {
-            return this.isGoogleLoginModalActive;
+            return state.isGoogleLoginModalActive
+        },
+        getUserTypeModalValue(state) {
+            return state.isUserTypeModalActive
         }
     },
     actions: {
         setGoogleLoginModalValue(modalValue: boolean) {
-            this.isGoogleLoginModalActive = modalValue
+            this.isGoogleLoginModalActive = modalValue;
         },
+        setUserTypeModalValue(modalValue: boolean) {
+            this.isUserTypeModalActive = modalValue;
+        }
     },
 })

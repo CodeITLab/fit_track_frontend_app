@@ -6,7 +6,12 @@ import TopNavbarComponent from '@/components/menu-components/top-navbar-menu/Top
 
 <template>
   <div class="dashboard-wrapper">
-    <TopNavbarComponent />
+    <aside>
+
+    </aside>
+    <main>
+      <TopNavbarComponent />
+    </main>
   </div>
 </template>
 

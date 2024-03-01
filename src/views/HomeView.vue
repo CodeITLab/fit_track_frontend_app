@@ -2,6 +2,7 @@
 
 import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue'
 import ChooseUserTypeModal from '@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue';
+import { useModalStore } from '@/store/modalStore';
 
 </script>
 
@@ -24,7 +25,7 @@ import ChooseUserTypeModal from '@/components/modal-components/choose-user-type-
           </p>
         </div>
         <div class="main-content-footer">
-          <button class="btn text-white rounded-pill border border-dark-3" data-bs-toggle="modal" data-bs-target="#googleLogin" type="button">
+          <button class="btn text-white rounded-pill border border-dark-3" type="button" @click="useModalStore().setGoogleLoginModalValue(true)">
             Log in
           </button>
           <button class="btn text-white rounded-pill border border-dark-3 mt-3" type="button">
@@ -32,10 +33,10 @@ import ChooseUserTypeModal from '@/components/modal-components/choose-user-type-
           </button>
         </div>
       </div>
-      <div class="login-modal">
-        <LoginModal id="googleLogin" aria-labelledby="googleLoginLabel" aria-hidden="true" />
+      <div class="login-modal" v-if="useModalStore().getGoogleLoginModalValue">
+        <LoginModal />
       </div>
-      <div class="dashboard-type">
+      <div class="dashboard-type" v-if="useModalStore().getUserTypeModalValue">
         <ChooseUserTypeModal />
       </div>
     </div>

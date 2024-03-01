@@ -4,33 +4,28 @@ import { useUserStore } from "@/store/userStore";
 
 const updateUserType = (type: string): void => {
   localStorage.setItem("isAuth", "true");
+  useUserStore().updateUserType(type);
+  // spremanje u backend.
   router.push('/dashboard');
 }
 
 </script>
 
 <template>
-
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Choose your user type</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="card-wrapper">
+    <div class="card">
+      <div class="card-header">
+        Featured
       </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">Trainer</button>
-        <button type="button" class="btn btn-primary">Personal</button>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <button @click="updateUserType('personal')" type="button" class="btn btn-outline-primary">Personal</button>
+        <button @click="updateUserType('trainer')" type="button" class="btn btn-outline-primary">Trainer</button>
       </div>
     </div>
   </div>
-</div>
-
 </template>
 
 <style>
-@import "../../../assets/css/components/dashboard-type-modal.css";
 </style>

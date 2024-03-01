@@ -21,7 +21,10 @@ export const useUserStore = defineStore('user', {
     },
     actions: {
         saveUserData(userData: IUser) {
-            this.defaultUserData = userData
+            this.defaultUserData = userData;
         },
+        updateUserType(userType: string) {
+            this.defaultUserData.userType = userType;
+        }
     },
 })
