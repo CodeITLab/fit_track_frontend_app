@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 
+import GoogleLoginModal from '@/components/modal-components/google-login-modal/GoogleLoginModal.vue'
+
 
 </script>
 
@@ -22,13 +24,16 @@
           </p>
         </div>
         <div class="main-content-footer">
-          <button class="btn text-white rounded-pill border border-dark-3" type="button">
+          <button class="btn text-white rounded-pill border border-dark-3" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
             Log in
           </button>
           <button class="btn text-white rounded-pill border border-dark-3 mt-3" type="button">
             Sign up
           </button>
         </div>
+      </div>
+      <div class="login-modal">
+        <GoogleLoginModal id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" />
       </div>
     </div>
   </div>
