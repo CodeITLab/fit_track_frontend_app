@@ -22,6 +22,7 @@ export const useFetch = async <T>(
         state.isLoading = true;
         try {
             const response = await fetch(url, options);
+
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
