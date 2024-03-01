@@ -19,10 +19,17 @@
                             <label for="floatingPassword">Password</label>
                         </div>
                     </div>
-                    <div class="additional-login-info">
-                        
+                    <div class="additional-login-info mt-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Remember me
+                            </label>
+                        </div>
                     </div>
-                    <div class="social-media-login"></div>
+                    <div class="social-media-login">
+
+                    </div>
                 </div>
                 <div class="modal-footer w-100">
                     <button type="button w-100" class="btn btn-primary">Login</button>
