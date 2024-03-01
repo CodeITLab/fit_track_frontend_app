@@ -40,7 +40,7 @@ import { login } from '@/api/useGoogleLogin'
                         <div class="col">
                             <p>Login With Social Media</p>
                             <div class="social-media-login">
-                                <button @click="login" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#userTypeLogin">
+                                <button @click="login" type="button" class="btn btn-outline-danger">
                                     <a href="#" class="google btn">
                                         <i class="fa fa-google fa-fw"></i> Login with Google
                                     </a>
