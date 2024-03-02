@@ -4,7 +4,6 @@ import { saveUserData } from '@/api/useFetch';
 import { useUserStore } from "@/store/userStore";
 
 const updateUserType = (type: string): void => {
-  localStorage.setItem("isAuth", "true");
   useUserStore().updateUserType(type);
   saveUserData(useUserStore().getUserData).saveUserData();
   router.push('/dashboard');

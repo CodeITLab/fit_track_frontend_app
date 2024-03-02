@@ -11,7 +11,7 @@ export const useUserStore = defineStore('user', {
                 picture: "",
                 isAuth: false,
                 userType: ""
-            },
+            }
         }
     },
     getters: {

@@ -59,6 +59,7 @@ const sendCodeToBackend = async (code: any) => {
         userType: ''
       }
 
+      localStorage.setItem("isAuth", "true");
       useUserStore().saveUserData(userData);
       useModalStore().setGoogleLoginModalValue(false);
       useModalStore().setUserTypeModalValue(true);

@@ -11,7 +11,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: DashboardView
+    component: DashboardView,
+    beforeEnter: (to, from, next) => {
+       
+      const authFlag = localStorage.getItem('isAuth');
+    
+      if(from.path === '/' && authFlag !== null) {
+        next();
+      } else {
+        next('/');
+      } 
+    },
   }
 ]
 

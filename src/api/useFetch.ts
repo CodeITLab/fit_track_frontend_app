@@ -1,4 +1,5 @@
 import { IUser } from '@/models/IUser';
+import { useUserStore } from '@/store/userStore';
 import { reactive, toRefs } from 'vue'
 
 interface State<T> {
@@ -57,7 +58,7 @@ export const saveUserData = (userData: IUser) => {
         })
         .then(response => response.json())
         .then((data) => {
-            localStorage.setItem('userID', data);
+            localStorage.setItem('userID', JSON.stringify(data));
         })
         .catch(error => console.error("Error: ", error));
     };
