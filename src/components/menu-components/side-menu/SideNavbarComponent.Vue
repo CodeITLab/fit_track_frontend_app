@@ -1,5 +1,11 @@
 <script lang="ts" setup></script>
 
-<template></template>
+<template>
+    <nav class="dash-nav">
+        <div class="container-fluid">
+
+        </div>
+    </nav>
+</template>
 
 <style></style>
