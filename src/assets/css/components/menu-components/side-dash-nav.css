@@ -17,9 +17,19 @@ nav {
     padding: 0;
 }
 
-.side-menu-items li {
+.side-menu-items {
     text-align: center;
-    height: 50px;
-    border-bottom: 2px solid #0f011f;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    border-bottom: 1px solid #0f011f;
+}
+
+.menu-item:hover {
+    cursor: pointer;
 }
 
