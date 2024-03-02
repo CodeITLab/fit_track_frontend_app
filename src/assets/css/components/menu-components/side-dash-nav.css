@@ -1,0 +1,25 @@
+nav {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 75px;
+    border-right: 1px solid #0f011f;
+    box-shadow: 0px 5px 5px;
+}
+
+.side-menu {
+    height: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.side-menu-items {
+    height: 75%;
+    padding: 0;
+}
+
+.side-menu-items li {
+    text-align: center;
+    height: 50px;
+    border-bottom: 2px solid #0f011f;
+}
+

@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 
 import { getData } from '@/api/useFetch';
-import TopNavbarComponent from '@/components/menu-components/top-navbar-menu/TopNavbarComponent.vue'
 import { IUser } from '@/models/IUser';
 import { onBeforeMount, ref } from 'vue';
+
+import TopNavbarComponent from '@/components/menu-components/top-navbar-menu/TopNavbarComponent.vue';
+import SideNavbarComponent from '@/components/menu-components/side-menu/SideNavbarComponent.vue';
 
 const userData = ref<IUser | null>();
 const userDataErrors = ref(false);
@@ -29,7 +31,7 @@ onBeforeMount(async () => {
 <template>
   <div class="dashboard-wrapper">
     <aside>
-
+      <SideNavbarComponent/>
     </aside>
     <main>
       <TopNavbarComponent :name="userData?.name" :picture-url="userData?.picture" />
