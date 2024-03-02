@@ -7,7 +7,7 @@ import { useModalStore } from '@/store/modalStore';
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid home-view">
     <div class="row h-100">
       <div class="col h-100 main-content">
         <div class="main-content-title">

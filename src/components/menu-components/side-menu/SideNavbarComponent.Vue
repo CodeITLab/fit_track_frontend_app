@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useModalStore } from '@/store/modalStore';
+
 
 </script>
 
@@ -16,7 +18,9 @@
                     <img width="25" src="../../../assets/img/logos/analitics.png" alt="">
                 </li>
                 <li class="menu-item logout">
-                    <img width="25" src="../../../assets/img/logos/log-out.png" alt="">
+                    <button @click="useModalStore().setLogoutmodalValue(true)">
+                        <img width="25" src="../../../assets/img/logos/log-out.png" alt="">
+                    </button>
                 </li>
             </ul>
         </div>
@@ -24,5 +28,5 @@
 </template>
 
 <style>
-@import "/src/assets/css/components/menu-components/side-dash-nav.css";
+@import "/src/assets/css/components/menu-components/side-bar-nav.css";
 </style>

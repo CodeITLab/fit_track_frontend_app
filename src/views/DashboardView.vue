@@ -2,6 +2,8 @@
 
 import TopNavbarComponent from '@/components/menu-components/top-navbar-menu/TopNavbarComponent.vue';
 import SideNavbarComponent from '@/components/menu-components/side-menu/SideNavbarComponent.vue';
+import LogoutModal from '@/components/modal-components/logout-modal/LogoutModal.vue';
+import { useModalStore } from '@/store/modalStore';
 
 </script>
 
@@ -12,6 +14,7 @@ import SideNavbarComponent from '@/components/menu-components/side-menu/SideNavb
     </aside>
     <main>
       <TopNavbarComponent />
+      <LogoutModal v-if="useModalStore().getLogoutModalValue"/>
     </main>
   </div>
 </template>
