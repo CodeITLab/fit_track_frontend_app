@@ -1,26 +1,8 @@
 <script lang="ts" setup>
-import { onBeforeMount, onMounted, ref } from 'vue';
-import { getData } from '../../../api/useFetch'
-import { IUser } from '../../../models/IUser';
 
-const userData = ref<IUser | null>();
-const userDataErrors = ref(false);
-let userID: string | null = "";
-
-onBeforeMount( () => {
-  if(localStorage.getItem("userID") !== null) {
-    userID = localStorage.getItem('userID');
-  }
-})
-
-onMounted(async () => {
-
-  const { data, hasError } = await getData<IUser>(
-    'http://127.0.0.1:8080/user/get-user-data?id=' + userID
-  );
-
-  userData.value = data.value;
-  userDataErrors.value = hasError.value;
+const props = defineProps({
+  name: String,
+  pictureUrl: String
 });
 
 </script>
@@ -29,8 +11,8 @@ onMounted(async () => {
     <div class="heading-dashboard d-flex flex-row justify-content-between me-5 ms-5 mt-3">
       <h5 class="text-white">Dashboard</h5>
       <h6 class="text-white">
-        {{ userData?.name }}
-        <img class="border border-2 border-dark rounded-circle ms-1" :src="userData?.picture" height="45" alt="" />
+        {{ props?.name }}
+        <img class="border border-2 border-dark rounded-circle ms-1" :src="props?.pictureUrl" height="45" alt="" />
       </h6>
     </div>
   </div>

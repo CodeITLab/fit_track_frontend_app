@@ -5,7 +5,6 @@ import { useUserStore } from "@/store/userStore";
 
 const updateUserType = (type: string): void => {
   useUserStore().updateUserType(type);
-  saveUserData(useUserStore().getUserData).saveUserData();
   router.push('/dashboard');
 }
 
