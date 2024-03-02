@@ -1,3 +1,4 @@
+import { saveUserData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
 import { defineStore } from 'pinia'
 
