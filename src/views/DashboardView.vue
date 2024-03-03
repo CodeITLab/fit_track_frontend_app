@@ -16,7 +16,7 @@ import CreateWorkoutButton from '@/components/create-workout/CreateWorkoutButton
     <main>
       <TopNavbarComponent />
       <CreateWorkoutButton />
-      <LogoutModal v-if="useModalStore().getLogoutModalValue"/>
+      <LogoutModal />
     </main>
   </div>
 </template>

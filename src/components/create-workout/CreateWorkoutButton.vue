@@ -5,7 +5,7 @@ import { computed } from 'vue';
 
 const hasUserActivedLogout = computed(() => {
     return useModalStore().getLogoutModalValue;
-})
+});
 
 </script>
 
