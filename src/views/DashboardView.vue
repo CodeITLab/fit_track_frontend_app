@@ -13,6 +13,7 @@ import { useModalStore } from '@/store/modalStore';
       <SideNavbarComponent />
     </aside>
     <main>
+      <!-- ova komponenta bi trebala u nav element, ali onda imamo bug s odabirom elemenata u side navbaru, trebalo bi to istražiti -->
       <TopNavbarComponent />
       <LogoutModal v-if="useModalStore().getLogoutModalValue"/>
     </main>
