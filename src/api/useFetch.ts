@@ -57,7 +57,7 @@ export const saveUserData = (userData: IUser) => {
         })
         .then(response => response.json())
         .then((data) => {
-            localStorage.setItem('userID', JSON.stringify(data));
+            
         })
         .catch(error => console.error("Error: ", error));
     };
