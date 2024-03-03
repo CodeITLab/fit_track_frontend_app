@@ -5,7 +5,8 @@ export const useModalStore = defineStore('modals', {
         return {
             isGoogleLoginModalActive: false,
             isUserTypeModalActive: false,
-            isLogoutModalActive: false
+            isLogoutModalActive: false,
+            isCreateWorkoutModalActive: false
         }
     },
     getters: {
@@ -17,6 +18,9 @@ export const useModalStore = defineStore('modals', {
         },
         getLogoutModalValue(state) {
             return state.isLogoutModalActive
+        },
+        getCreateWorkoutModalValue(state) {
+            return state.isCreateWorkoutModalActive
         }
     },
     actions: {
@@ -28,6 +32,9 @@ export const useModalStore = defineStore('modals', {
         },
         setLogoutmodalValue(modalValue: boolean) {
             this.isLogoutModalActive = modalValue;
+        },
+        setCreateWorkoutModalValue(modalValue: boolean) {
+            this.isCreateWorkoutModalActive = modalValue
         }
     },
 })
