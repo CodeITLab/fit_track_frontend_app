@@ -2,10 +2,12 @@
 import router from "@/router";
 import { saveUserData } from '@/api/useFetch';
 import { useUserStore } from "@/store/userStore";
+import { useModalStore } from "@/store/modalStore";
 
 const updateUserType = (type: string): void => {
   useUserStore().updateUserType(type);
   saveUserData(useUserStore().getUserData).saveUserData();
+  useModalStore().setUserTypeModalValue(false);
   router.push('/dashboard');
 }
 
