@@ -34,5 +34,5 @@ onBeforeMount(async () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../../../assets/css/components/dashboard-top-navbar.css";
+@import "../../assets/css/components/dashboard-top-navbar.css";
 </style>
