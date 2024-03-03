@@ -4,6 +4,7 @@ import TopNavbarComponent from '@/components/menu-components/TopNavbarComponent.
 import SideNavbarComponent from '@/components/menu-components/SideNavbarComponent.vue';
 import LogoutModal from '@/components/modal-components/logout-modal/LogoutModal.vue';
 import { useModalStore } from '@/store/modalStore';
+import CreateWorkoutButton from '@/components/create-workout/CreateWorkoutButton.vue';
 
 </script>
 
@@ -13,8 +14,8 @@ import { useModalStore } from '@/store/modalStore';
       <SideNavbarComponent />
     </aside>
     <main>
-      <!-- ova komponenta bi trebala u nav element, ali onda imamo bug s odabirom elemenata u side navbaru, trebalo bi to istražiti -->
       <TopNavbarComponent />
+      <CreateWorkoutButton v-if="useModalStore().getCreateWorkoutModalValue" />
       <LogoutModal v-if="useModalStore().getLogoutModalValue"/>
     </main>
   </div>
