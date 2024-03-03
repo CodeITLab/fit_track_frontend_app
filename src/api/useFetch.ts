@@ -1,5 +1,4 @@
 import { IUser } from '@/models/IUser';
-import { useUserStore } from '@/store/userStore';
 import { reactive, toRefs } from 'vue'
 
 interface State<T> {
