@@ -24,7 +24,7 @@ const closeModal = () => {
             </div>
             <div class="modal-wrapper-footer">
                 <button @click="logout" type="button" class="btn btn-outline-primary">Odjavi se</button>
-                <button @click="closeModal" type="button" class="btn btn-outline-secondary">Secondary</button>
+                <button @click="closeModal" type="button" class="btn btn-outline-secondary">Odustani</button>
             </div>
         </div>
     </div>
