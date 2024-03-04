@@ -4,8 +4,7 @@ import router from "@/router";
 import { useModalStore } from "@/store/modalStore";
 
 const logout = () => {
-    localStorage.removeItem('isAuth');
-    localStorage.removeItem('email');
+    localStorage.clear();
     closeModal();
     router.push('/');
 }
