@@ -1,0 +1,40 @@
+nav {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 75px;
+    border-right: 1px solid #0f011f;
+    box-shadow: 0px 5px 5px;
+}
+
+.side-menu {
+    height: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.side-menu-items {
+    height: 75%;
+    padding: 0;
+}
+
+.side-menu-items {
+    text-align: center;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    border-bottom: 1px solid #0f011f;
+}
+
+.menu-item:hover {
+    cursor: pointer;
+}
+
+.menu-item button {
+    background-color: transparent;
+    border: 0px;
+}
+

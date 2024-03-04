@@ -7,30 +7,53 @@ body {
   height: 100%;
 }
 
-.home {
+.home-view {
   background-image: url(../../img/backgrounds/Background4.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
-.homelogedin {
-  background-image: url(../../img/backgrounds/Background3.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+.main-content {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-content-title {
+  text-align: center;
+}
+
+.main-content-description {
+  padding: 0 10% 0 10%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.main-content-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-footer button {
+  width: 200px;
+}
+
+.login-modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .info-card {
-    padding: 0 5% 0 5%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .info-card {
-    width: 500px;
-  }
+.dashboard-type {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

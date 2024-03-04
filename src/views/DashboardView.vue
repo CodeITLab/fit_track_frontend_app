@@ -1,20 +1,11 @@
 <script lang="ts" setup>
-import { useWorkoutDataStore } from "../store/WorkoutData";
-import { useModalManager } from "../store/ModalManager";
-import SideNavbarComponent from "../components/menu-navbar-components/side-navbar-component/SideNavbarComponent.vue";
-import CreateWorkoutModal from "../components/workout-components/create-workout-component/create-workout-modal/CreateWorkoutModal.vue";
-import DashboardTopNavbarComponent from "../components/menu-navbar-components/dashboard-top-navbar-component/DashboardTopNavbarComponent.vue";
-import CreateWorkoutButton from "../components/workout-components/create-workout-component/create-workout-button/CreateWorkoutButton.vue";
-import WorkoutDetailsModal from "../components/workout-components/workout-details-component/WorkoutDetailsModal.vue";
-import ExerciseCardComponentWrapperVue from "../components/exercise-card-component/ExerciseCardComponentWrapper.vue";
-import ModalComponent from "@/components/modal-component/ModalComponent.vue";
-import { StoreAccessController } from "@/controllers/store-access/StoreAccessController";
-import { GetWorkoutData } from "@/services/GetWorkoutData";
 
-const workoutStore = useWorkoutDataStore();
-const modalStore = useModalManager();
-
-console.log(GetWorkoutData().getWorkoutData())
+import TopNavbarComponent from '@/components/menu-components/TopNavbarComponent.vue';
+import SideNavbarComponent from '@/components/menu-components/SideNavbarComponent.vue';
+import LogoutModal from '@/components/modal-components/logout-modal/LogoutModal.vue';
+import CreateWorkoutButton from '@/components/create-workout/CreateWorkoutButton.vue';
+import CreateWorkoutModal from '@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue';
+import WorkoutCardComponent from '@/components/workout-components/WorkoutCardComponent.vue';
 
 </script>
 
@@ -24,20 +15,16 @@ console.log(GetWorkoutData().getWorkoutData())
       <SideNavbarComponent />
     </aside>
     <main>
-      <DashboardTopNavbarComponent />
-      <CreateWorkoutButton v-if="workoutStore.getWorkouts.length === 0" />
-      <ModalComponent v-if="StoreAccessController().modalStore.modalComponentModal === true" />
+      <TopNavbarComponent />
+      <WorkoutCardComponent />
+      <CreateWorkoutButton />
       <CreateWorkoutModal />
-      <WorkoutDetailsModal v-if="modalStore.getWorkoutDetailsModalState" />
-      <div class="cards d-flex flex-row ms-3 justify-content-left align-items-center">
-        <ExerciseCardComponentWrapperVue />
-      </div>
+      <LogoutModal />
     </main>
   </div>
 </template>
 
+
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>
-
-

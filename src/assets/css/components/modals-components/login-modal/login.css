@@ -1,0 +1,11 @@
+.modal-wrapper {
+    width: 720px;
+    padding: 25px;
+    background-color: white;
+}
+
+.modal-wrapper-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
