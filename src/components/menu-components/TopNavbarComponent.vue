@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { getData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
-import { useUserStore } from '@/store/userStore';
 import { onBeforeMount, ref } from 'vue';
 
 const userData = ref<IUser | null>();
@@ -9,8 +8,7 @@ const userDataErrors = ref(false);
 
 onBeforeMount(async () => {
 
-  localStorage.setItem("mail", JSON.stringify(useUserStore().getUserData.email));
-  let currentUser = JSON.parse(localStorage.getItem('mail') || '{}');
+  let currentUser = localStorage.getItem('email');
 
   const { data, hasError } = await getData<IUser>(
     'http://127.0.0.1:8080/user/get-user-by-email?email=' + currentUser

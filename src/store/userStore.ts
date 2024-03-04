@@ -23,6 +23,7 @@ export const useUserStore = defineStore('user', {
     actions: {
         saveUserData(userData: IUser) {
             this.defaultUserData = userData;
+            localStorage.setItem('email', userData.email);
         },
         updateUserType(userType: string) {
             this.defaultUserData.userType = userType;

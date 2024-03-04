@@ -10,7 +10,7 @@ const workoutDataErrors = ref(false);
 onBeforeMount(async () => {
 
 const { data, hasError } = await getData<IWorkoutModel[]>(
-  'http://127.0.0.1:8080/workouts/get-users-workouts?email=' + useUserStore().getUserData.email
+  'http://127.0.0.1:8080/workouts/get-users-workouts?email=' + localStorage.getItem('email')
 );
 
 workoutData.value = data.value;
