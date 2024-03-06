@@ -1,4 +1,5 @@
 nav {
+    display: block;
     position: fixed;
     left: 0;
     height: 100%;
@@ -37,4 +38,3 @@ nav {
     background-color: transparent;
     border: 0px;
 }
-

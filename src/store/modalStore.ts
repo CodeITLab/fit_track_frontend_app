@@ -6,7 +6,7 @@ export const useModalStore = defineStore('modals', {
             isGoogleLoginModalActive: false,
             isUserTypeModalActive: false,
             isLogoutModalActive: false,
-            isCreateWorkoutModalActive: false
+            isCreateWorkoutModalActive: true,
         }
     },
     getters: {
