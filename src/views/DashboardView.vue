@@ -17,9 +17,7 @@
     </aside>
     <main>
       <TopNavbarComponent />
-
       <WorkoutCardComponent />
-
       <CreateWorkoutButton />
       <CreateWorkoutModal />
       <LogoutModal />

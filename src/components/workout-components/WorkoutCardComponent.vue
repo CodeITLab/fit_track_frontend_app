@@ -16,6 +16,7 @@ onBeforeMount(async () => {
 
   workoutData.value = data.value;
   workoutDataErrors.value = hasError.value;
+
   if (data.value!.length > 1) {
     useModalStore().setIsPlanYourWorkoutModalActive(false)
   }
@@ -23,14 +24,11 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="card-wrapper container-fluid ">
-    <div v-for="item in workoutData" class="cards bg-light shadow " style="--bs-bg-opacity: 0.3">
+  <div class="card-wrapper">
+    <div v-for="item in workoutData" class="cards">
       <h3 class="font text-white">{{ item.name }}</h3>
     </div>
-
   </div>
-
-  <p v-for="item in workoutData">{{ item.name }}</p>
 </template>
 
 <style lang="css" scoped>

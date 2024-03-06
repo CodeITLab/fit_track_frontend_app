@@ -41,7 +41,8 @@ export const useModalStore = defineStore('modals', {
             this.isPlanYourWorkoutModalActive = modalValue
         },
         setCreateYourWorkoutModalValue(modalValue: boolean) {
-            this.isCreateWorkoutModalActive = modalValue 
+            this.isCreateWorkoutModalActive = modalValue;
+            this.isPlanYourWorkoutModalActive = false; 
         }
     },
 })

@@ -14,7 +14,7 @@ const updateUserType = (type: string): void => {
 </script>
 
 <template>
-  <div class="card-wrapper">
+  <div class="container">
     <div class="card">
       <div class="card-header">
         Featured
