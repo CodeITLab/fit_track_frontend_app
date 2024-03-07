@@ -23,9 +23,10 @@ const submit = (values: string) => {
             <FormKit type="list" :value="[{}]" dynamic #default="{ items, node, value }">
                 <FormKit type="group" v-for="(item, index) in items" :key="item" :index="index">
                     <div class="group">
-                        <FormKit type="text" name="name" label="Guest name" placeholder="Guest name" />
+                        <FormKit type="text" name="name" label="Exercise name" placeholder="Exercise name" validation="required" />
 
-                        <FormKit type="number" name="age" label="Guest age" />
+                        <FormKit type="number" name="sets" label="Sets" validation="required" />
+                        <FormKit type="number" name="reps" label="Reps" validation="required" />
 
                         <button type="button" @click="() => node.input(value?.filter((_, i) => i !== index))"
                             class="border border-blue-600 text-blue-600 p-3">
