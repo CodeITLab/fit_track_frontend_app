@@ -7,6 +7,8 @@ const hasUserActivedLogout = computed(() => {
     return useModalStore().getLogoutModalValue;
 })
 
+console.log(useModalStore().getIsPlanYourWorkoutModalActive);
+
 </script>
 
 <template>
