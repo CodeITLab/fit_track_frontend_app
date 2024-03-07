@@ -17,9 +17,7 @@ onBeforeMount(async () => {
   workoutData.value = data.value;
   workoutDataErrors.value = hasError.value;
 
-  console.log(useModalStore().getIsPlanYourWorkoutModalActive);
-
-  if (data.value!.length > 1) {
+  if (data.value) {
     useModalStore().setIsPlanYourWorkoutModalActive(false)
   }
 });
