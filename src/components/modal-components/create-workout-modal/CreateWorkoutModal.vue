@@ -20,6 +20,25 @@ const submit = (values: string) => {
     <div class="container-fluid create-workout-modal" v-if="useModalStore().getCreateWorkoutModalValue">
         <FormKit type="form" submit-label="Create Your Workout" @submit="submit">
             <FormKit name="workoutName" label="Workout Name" validation="required" />
+            <FormKit type="list" :value="[{}]" dynamic #default="{ items, node, value }">
+                <FormKit type="group" v-for="(item, index) in items" :key="item" :index="index">
+                    <div class="group">
+                        <FormKit type="text" name="name" label="Guest name" placeholder="Guest name" />
+
+                        <FormKit type="number" name="age" label="Guest age" />
+
+                        <button type="button" @click="() => node.input(value?.filter((_, i) => i !== index))"
+                            class="border border-blue-600 text-blue-600 p-3">
+                            - Remove
+                        </button>
+                    </div>
+                </FormKit>
+
+                <button type="button" @click="() => node.input(value?.concat({}))"
+                    class="border border-blue-600 text-blue-600 p-3 mb-4">
+                    + Add another
+                </button>
+            </FormKit>
         </FormKit>
         <button @click="closeModal">Close</button>
     </div>
