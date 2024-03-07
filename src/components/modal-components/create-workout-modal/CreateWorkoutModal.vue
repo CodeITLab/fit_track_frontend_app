@@ -5,7 +5,7 @@
         const closeModal = () => {
             useModalStore().setCreateYourWorkoutModalValue(false);
             // zbog linije ispod se otvaral Plan Your Exercise button kad sam stisnul close na Ovo je workout Modal, zakomentiral sam ju samo za svaki slučaj. Ali mislim kolko sad vidim na prvu da nam ne treba tu.
-            useModalStore().setIsPlanYourWorkoutModalActive(true);
+            // useModalStore().setIsPlanYourWorkoutModalActive(true);
         }
 
 </script>
