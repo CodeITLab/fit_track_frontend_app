@@ -5,17 +5,18 @@
 }
 
 .card-wrapper {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: left;
-    height: 100%;
-    left: 80px;
+    align-items: center;
+    flex-direction: row;
+    height: 50%;
+    left: 10%;
 }
 
 .card-wrapper h3 {
     color: black;
     text-align: center;
-
 }
 
 .cards {
@@ -25,6 +26,13 @@
     height: 70px;
     width: 200px;
     border-radius: 10px;
+    margin-right: 20px;
+    background-color: rgba(226, 226, 226, 0.3);
+    margin-top: 0;
+}
 
-
+.plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

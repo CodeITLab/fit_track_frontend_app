@@ -2,12 +2,12 @@
         setup>
         import { getData } from '@/api/useFetch';
         import { IWorkoutModel } from '@/models/IWorkoutModel';
-        import { useUserStore } from '@/store/userStore';
         import { useModalStore } from '@/store/modalStore';
-        import { onBeforeMount, onMounted, ref } from 'vue';
+        import { onBeforeMount, ref } from 'vue';
 
         const workoutData = ref<IWorkoutModel[] | null>([]);
         const workoutDataErrors = ref(false);
+
 
         onBeforeMount(async () => {
 
@@ -17,25 +17,29 @@
 
           workoutData.value = data.value;
           workoutDataErrors.value = hasError.value;
-          if (data.value!.length > 1) {
-            useModalStore().setCreateWorkoutModalValue(false)
+
+          if (data.value) {
+            useModalStore().setIsPlanYourWorkoutModalActive(false)
           }
         });
 </script>
 
 <template>
-  <div class="card-wrapper container-fluid ">
+  <div class="card-wrapper">
     <div v-for="item in workoutData"
-         class="cards bg-light shadow "
-         style="--bs-bg-opacity: 0.3">
+         class="cards">
       <h3 class="font text-white">{{ item.name }}</h3>
     </div>
-
+    <div class="plus">
+      <button @click="useModalStore().setCreateYourWorkoutModalValue(true)"
+              type="button"
+              class="plus-btn">
+        <img src="../../assets/img/logos/add-icon.png"
+             height="40"
+             alt="add-button" />
+      </button>
+    </div>
   </div>
-
-
-
-  <p v-for="item in workoutData">{{ item.name }}</p>
 </template>
 
 <style lang="css"
