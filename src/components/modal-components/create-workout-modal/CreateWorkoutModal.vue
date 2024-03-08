@@ -22,16 +22,18 @@ const submit = (values: string) => {
             <FormKit name="workoutName" label="Workout Name" validation="required" />
             <FormKit type="list" :value="[{}]" dynamic #default="{ items, node, value }">
                 <FormKit type="group" v-for="(item, index) in items" :key="item" :index="index">
-                    <div class="group">
+                    <div class="exercises-group">
                         <FormKit type="text" name="name" label="Exercise name" placeholder="Exercise name" validation="required" />
 
                         <FormKit type="number" name="sets" label="Sets" validation="required" />
                         <FormKit type="number" name="reps" label="Reps" validation="required" />
+                        <FormKit outer-class="is-workout-finished" type="checkbox" name="isWorkoutFinished" label="Done" validation="required"  />
 
+                      <div class="delete-button">
                         <button type="button" @click="() => node.input(value?.filter((_, i) => i !== index))"
-                            class="border border-blue-600 text-blue-600 p-3">
-                            - Remove
-                        </button>
+                                class="button">Remove</button>
+                      </div>
+
                     </div>
                 </FormKit>
 
@@ -46,5 +48,5 @@ const submit = (values: string) => {
 </template>
 
 <style lang="css" scoped>
-@import "/src/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css"
+@import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
 </style>
