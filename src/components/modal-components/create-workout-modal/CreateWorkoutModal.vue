@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useModalStore } from '@/store/modalStore';
-import { ref } from 'vue';
+import { useModalStore } from '@/store/modalStore'; 
 import {IWorkoutModel} from "@/models/IWorkoutModel";
+import { saveWorkoutData } from '@/api/useFetch';
 
 const exerciseDataValues = [{
   name: '',
@@ -27,7 +27,7 @@ const submit = (values: any) => {
     exercisesData: exerciseData
   }
 
-  console.log(workoutData);
+  saveWorkoutData(workoutData).saveWorkoutData();
 }
 
 </script>
