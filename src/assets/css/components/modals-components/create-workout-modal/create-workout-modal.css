@@ -26,10 +26,6 @@
     align-items: flex-end;
 }
 
-.delete-button button {
-    height: 50%;
-}
-
 .exercises-group input[type="number"] {
     width: 80px;
 }

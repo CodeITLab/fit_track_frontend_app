@@ -31,7 +31,7 @@ const submit = (values: string) => {
 
                       <div class="delete-button">
                         <button type="button" @click="() => node.input(value?.filter((_, i) => i !== index))"
-                                class="button">Remove</button>
+                                class="btn btn-outline-danger">Delete</button>
                       </div>
 
                     </div>
