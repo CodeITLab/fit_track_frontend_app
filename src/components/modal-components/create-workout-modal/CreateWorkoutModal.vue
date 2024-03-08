@@ -18,6 +18,9 @@ const submit = (values: string) => {
 
 <template>
     <div class="container-fluid create-workout-modal" v-if="useModalStore().getCreateWorkoutModalValue">
+      <div class="create-workout-modal-title">
+        <h3>Create Your Workout</h3>
+      </div>
         <FormKit type="form" submit-label="Create Your Workout" @submit="submit">
             <FormKit name="workoutName" label="Workout Name" validation="required" />
             <FormKit type="list" :value="[{}]" dynamic #default="{ items, node, value }">
@@ -38,9 +41,7 @@ const submit = (values: string) => {
                 </FormKit>
 
                 <button type="button" @click="() => node.input(value?.concat({}))"
-                    class="border border-blue-600 text-blue-600 p-3 mb-4">
-                    + Add another
-                </button>
+                    class="btn btn-success">Add Exercise</button>
             </FormKit>
         </FormKit>
         <button @click="closeModal">Close</button>
