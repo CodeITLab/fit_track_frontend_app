@@ -1,17 +1,33 @@
 <script lang="ts" setup>
 import { useModalStore } from '@/store/modalStore';
 import { ref } from 'vue';
+import {IWorkoutModel} from "@/models/IWorkoutModel";
 
-const submitted = ref(false)
+const exerciseDataValues = [{
+  name: '',
+  reps: 0,
+  sets: 0,
+  isWorkoutFinished: false
+}];
 
 const closeModal = () => {
     useModalStore().setCreateYourWorkoutModalValue(false);
-    // zbog linije ispod se otvaral Plan Your Exercise button kad sam stisnul close na Ovo je workout Modal, zakomentiral sam ju samo za svaki slučaj. Ali mislim kolko sad vidim na prvu da nam ne treba tu.
-    // useModalStore().setIsPlanYourWorkoutModalActive(true);
 }
 
-const submit = (values: string) => {
-    console.log(values)
+const submit = (values: any) => {
+
+  const userEmail = localStorage.getItem('email') || "";
+  const exerciseData = exerciseDataValues.map((value) => {
+    return { name: value.name, sets: value.sets, reps: value.reps, isWorkoutFinished: value.isWorkoutFinished }
+  })
+
+  const workoutData: IWorkoutModel = {
+    name: values['workoutName'],
+    workoutOwner: userEmail,
+    exercisesData: exerciseData
+  }
+
+  console.log(workoutData);
 }
 
 </script>
@@ -23,7 +39,7 @@ const submit = (values: string) => {
       </div>
         <FormKit type="form" submit-label="Create Your Workout" @submit="submit">
             <FormKit name="workoutName" label="Workout Name" validation="required" />
-            <FormKit type="list" :value="[{}]" dynamic #default="{ items, node, value }">
+            <FormKit v-model="exerciseDataValues" type="list" :value="[{}]" dynamic #default="{ items, node, value }">
                 <FormKit type="group" v-for="(item, index) in items" :key="item" :index="index">
                     <div class="exercises-group">
                         <FormKit type="text" name="name" label="Exercise name" placeholder="Exercise name" validation="required" />
