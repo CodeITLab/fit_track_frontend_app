@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { useModalStore } from "@/store/modalStore";
 import { onBeforeMount, ref } from "vue";
-import workoutController from "@/controllers/WorkoutController";
+import GetWorkoutData from "@/controllers/WorkoutController";
 import { useWorkoutStore } from "@/store/workoutStore";
 
 onBeforeMount(() => {
-  workoutController();
+  GetWorkoutData();
 });
 </script>
 

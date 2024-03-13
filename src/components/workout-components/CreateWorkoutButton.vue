@@ -1,20 +1,13 @@
 <script lang="ts" setup>
 import { useModalStore } from "@/store/modalStore";
-import { computed } from "vue";
-
-const hasUserActivedLogout = computed(() => {
-  return useModalStore().getLogoutModalValue;
-});
-
-console.log(useModalStore().getIsPlanYourWorkoutModalActive);
+import { computed, onBeforeMount } from "vue";
+import { useWorkoutStore } from "@/store/workoutStore";
 </script>
 
 <template>
   <div
     class="d-flex justify-content-center align-items-center workout-modal"
-    v-if="
-      !hasUserActivedLogout && useModalStore().getIsPlanYourWorkoutModalActive
-    "
+    v-if="!useWorkoutStore().getWorkoutData?.length"
   >
     <div>
       <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
