@@ -1,7 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kanit:wght@500&family=Ubuntu:wght@300&display=swap');
+
 .create-workout-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.formkit-label {
+    color: white;
+    font-weight: lighter;
+    font-family: "Kanit", sans-serif;
+    text-transform: uppercase;
+}
+
+.exercises-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.exercises-group input[type="number"] {
+    width: 80px;
+}
+
+.is-workout-finished > .formkit-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.is-workout-finished > .formkit-wrapper > .formkit-inner input {
+    width: 100%;
+    height: 60%;
 }

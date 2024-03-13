@@ -1,5 +1,6 @@
 import { IUser } from '@/models/IUser';
 import { reactive, toRefs } from 'vue'
+import {IWorkoutModel} from "@/models/IWorkoutModel";
 
 interface State<T> {
     isLoading: boolean;
@@ -63,5 +64,26 @@ export const saveUserData = (userData: IUser) => {
     };
     return {
         saveUserData
+    }
+}
+
+export const saveWorkoutData = (workoutData: IWorkoutModel) => {
+    const saveWorkoutData = async () => {
+        await fetch('http://127.0.0.1:8080/workouts/save-workout-data', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(workoutData),
+        })
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(error => console.error("Error: ", error));
+    };
+    return {
+        saveWorkoutData
     }
 }

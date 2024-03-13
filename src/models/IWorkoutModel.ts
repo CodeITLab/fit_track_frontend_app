@@ -1,6 +1,6 @@
 export interface IWorkoutModel {
     name: string,
-    workoutOwner: number,
+    workoutOwner: string,
     exercisesData: IExerciseModel[],
 }
 

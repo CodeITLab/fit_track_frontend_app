@@ -1,24 +1,69 @@
-<script lang="ts"
-        setup>
-        import { useModalStore } from '@/store/modalStore';
+<script lang="ts" setup>
+import { useModalStore } from '@/store/modalStore'; 
+import {IWorkoutModel} from "@/models/IWorkoutModel";
+import { saveWorkoutData } from '@/api/useFetch';
 
-        const closeModal = () => {
-            useModalStore().setCreateYourWorkoutModalValue(false);
-            // zbog linije ispod se otvaral Plan Your Exercise button kad sam stisnul close na Ovo je workout Modal, zakomentiral sam ju samo za svaki slučaj. Ali mislim kolko sad vidim na prvu da nam ne treba tu.
-            // useModalStore().setIsPlanYourWorkoutModalActive(true);
-        }
+const exerciseDataValues = [{
+  name: '',
+  reps: 0,
+  sets: 0,
+  isWorkoutFinished: false
+}];
+
+const closeModal = () => {
+    useModalStore().setCreateYourWorkoutModalValue(false);
+}
+
+const submit = (values: any) => {
+
+  const userEmail = localStorage.getItem('email') || "";
+  const exerciseData = exerciseDataValues.map((value) => {
+    return { name: value.name, sets: value.sets, reps: value.reps, isWorkoutFinished: value.isWorkoutFinished }
+  })
+
+  const workoutData: IWorkoutModel = {
+    name: values['workoutName'],
+    workoutOwner: userEmail,
+    exercisesData: exerciseData
+  }
+
+  saveWorkoutData(workoutData).saveWorkoutData();
+}
 
 </script>
 
 <template>
-    <div class="container-fluid create-workout-modal"
-         v-if="useModalStore().getCreateWorkoutModalValue">
-        <p>Ovo je workout modal.</p>
+    <div class="container-fluid create-workout-modal" v-if="useModalStore().getCreateWorkoutModalValue">
+      <div class="create-workout-modal-title">
+        <h3>Create Your Workout</h3>
+      </div>
+        <FormKit type="form" submit-label="Create Your Workout" @submit="submit">
+            <FormKit name="workoutName" label="Workout Name" validation="required" />
+            <FormKit v-model="exerciseDataValues" type="list" :value="[{}]" dynamic #default="{ items, node, value }">
+                <FormKit type="group" v-for="(item, index) in items" :key="item" :index="index">
+                    <div class="exercises-group">
+                        <FormKit type="text" name="name" label="Exercise name" placeholder="Exercise name" validation="required" />
+
+                        <FormKit type="number" name="sets" label="Sets" validation="required" />
+                        <FormKit type="number" name="reps" label="Reps" validation="required" />
+                        <FormKit outer-class="is-workout-finished" type="checkbox" name="isWorkoutFinished" label="Done" validation="required"  />
+
+                      <div class="delete-button">
+                        <button type="button" @click="() => node.input(value?.filter((_, i) => i !== index))"
+                                class="btn btn-outline-danger">Delete</button>
+                      </div>
+
+                    </div>
+                </FormKit>
+
+                <button type="button" @click="() => node.input(value?.concat({}))"
+                    class="btn btn-success">Add Exercise</button>
+            </FormKit>
+        </FormKit>
         <button @click="closeModal">Close</button>
     </div>
 </template>
 
-<style lang="css"
-       scoped>
-    @import "/src/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css"
+<style lang="css" scoped>
+@import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
 </style>
