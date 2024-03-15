@@ -10,7 +10,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="card-wrapper" v-if="!useWorkoutStore().getWorkoutData">
+  <div class="card-wrapper">
     <div v-for="item in useWorkoutStore().getWorkoutData" class="cards">
       <h3 class="font text-white">{{ item.name }}</h3>
     </div>
