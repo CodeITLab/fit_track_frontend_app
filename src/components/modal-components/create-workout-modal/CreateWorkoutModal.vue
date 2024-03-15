@@ -53,7 +53,7 @@ const submit = (values: any) => {
         </button>
       </div>
       <hr />
-      <FormKit type="form" submit-label="Create Your Workout" @submit="submit">
+      <FormKit type="form" submit-label="Finish" @submit="submit">
         <FormKit
           name="workoutName"
           label="Workout Name"
@@ -113,12 +113,13 @@ const submit = (values: any) => {
                 </button>
               </div>
             </div>
+            <hr />
           </FormKit>
 
           <button
             type="button"
             @click="() => node.input(value?.concat({}))"
-            class="btn btn-success"
+            class="btn btn-outline-info"
           >
             Add Exercise
           </button>
