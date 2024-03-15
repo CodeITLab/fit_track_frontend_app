@@ -8,16 +8,31 @@
     height: 100%;
 }
 
+.create-workout-modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-workout-modal-wrapper {
+    padding: 20px;
+    background: #fff;
+    width: 600px;
+}
+
+.create-workout-modal-header button {
+    background: none;
+    border: 0px;
+}
+
 .formkit-label {
-    color: white;
+    color: black;
     font-weight: lighter;
-    font-family: "Kanit", sans-serif;
-    text-transform: uppercase;
 }
 
 .exercises-group {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .delete-button {
