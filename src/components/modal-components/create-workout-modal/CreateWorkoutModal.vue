@@ -35,6 +35,7 @@ const submit = (values: any) => {
   };
 
   saveWorkoutData(workoutData).saveWorkoutData();
+  closeModal();
 };
 </script>
 
