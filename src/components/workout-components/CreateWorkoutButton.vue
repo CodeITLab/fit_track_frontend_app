@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useModalStore } from "@/store/modalStore";
-import { computed, onBeforeMount } from "vue";
 import { useWorkoutStore } from "@/store/workoutStore";
 </script>
 

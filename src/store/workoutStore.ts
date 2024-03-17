@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
+import GetWorkoutData from "@/controllers/WorkoutController";
 
 export const useWorkoutStore = defineStore("workouts", {
   state: () => {

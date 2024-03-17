@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
-import { onBeforeMount, ref } from "vue";
 import GetWorkoutData from "@/controllers/WorkoutController";
+import { useModalStore } from "@/store/modalStore";
 import { useWorkoutStore } from "@/store/workoutStore";
+import { onBeforeMount } from "vue";
 
 onBeforeMount(() => {
   GetWorkoutData();
 });
+
 </script>
 
 <template>

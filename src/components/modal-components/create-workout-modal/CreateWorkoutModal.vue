@@ -2,6 +2,7 @@
 import { useModalStore } from "@/store/modalStore";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { saveWorkoutData } from "@/api/useFetch";
+import GetWorkoutData from "@/controllers/WorkoutController";
 
 const exerciseDataValues = [
   {
@@ -35,6 +36,7 @@ const submit = (values: any) => {
   };
 
   saveWorkoutData(workoutData).saveWorkoutData();
+  GetWorkoutData();
   closeModal();
 };
 </script>
