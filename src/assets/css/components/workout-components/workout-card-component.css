@@ -21,6 +21,10 @@
     text-align: center;
 }
 
+.card-wrapper:hover {
+    cursor: pointer;
+}
+
 .cards {
     display: flex;
     justify-content: center;

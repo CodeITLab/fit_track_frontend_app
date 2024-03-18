@@ -6,11 +6,15 @@ export const useWorkoutStore = defineStore("workouts", {
   state: () => {
     return {
       workoutData: [] as IWorkoutModel[] | null,
+      selectedWorkout: {} as IWorkoutModel,
     };
   },
   getters: {
     getWorkoutData(state) {
       return state.workoutData;
+    },
+    getSelectedWorkout(state) {
+      return state.selectedWorkout;
     },
   },
   actions: {
