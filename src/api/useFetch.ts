@@ -1,6 +1,7 @@
 import { IUser } from "@/models/IUser";
 import { reactive, toRefs } from "vue";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
+import GetWorkoutData from "@/controllers/WorkoutController";
 
 interface State<T> {
   isLoading: boolean;

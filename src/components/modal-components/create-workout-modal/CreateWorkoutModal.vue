@@ -4,7 +4,7 @@ import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { saveWorkoutData } from "@/api/useFetch";
 import GetWorkoutData from "@/controllers/WorkoutController";
 
-const exerciseDataValues = [
+let exerciseDataValues = [
   {
     name: "",
     reps: 0,
@@ -12,6 +12,17 @@ const exerciseDataValues = [
     isWorkoutFinished: false,
   },
 ];
+
+const resetFormValues = () => {
+  exerciseDataValues = [
+    {
+      name: "",
+      reps: 0,
+      sets: 0,
+      isWorkoutFinished: false,
+    },
+  ];
+};
 
 const closeModal = () => {
   useModalStore().setCreateYourWorkoutModalValue(false);
@@ -36,6 +47,7 @@ const submit = (values: any) => {
   };
 
   saveWorkoutData(workoutData).saveWorkoutData();
+  resetFormValues();
   GetWorkoutData();
   closeModal();
 };

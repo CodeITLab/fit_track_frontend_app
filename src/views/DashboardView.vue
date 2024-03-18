@@ -5,7 +5,17 @@ import LogoutModal from "@/components/modal-components/logout-modal/LogoutModal.
 import CreateWorkoutButton from "@/components/workout-components/CreateWorkoutButton.vue";
 import CreateWorkoutModal from "@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue";
 import WorkoutCardComponent from "@/components/workout-components/WorkoutCardComponent.vue";
+import { onBeforeMount } from "vue";
+import GetWorkoutData from "@/controllers/WorkoutController";
+import { useWorkoutStore } from "@/store/workoutStore";
 
+onBeforeMount(() => {
+  GetWorkoutData();
+});
+
+console.log(GetWorkoutData());
+
+console.log(useWorkoutStore().getWorkoutData);
 </script>
 
 <template>
