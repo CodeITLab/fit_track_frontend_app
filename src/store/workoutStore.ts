@@ -6,7 +6,7 @@ export const useWorkoutStore = defineStore("workouts", {
   state: () => {
     return {
       workoutData: [] as IWorkoutModel[] | null,
-      selectedWorkout: {} as IWorkoutModel,
+      selectedWorkout: {} as IWorkoutModel | null,
     };
   },
   getters: {
@@ -20,6 +20,9 @@ export const useWorkoutStore = defineStore("workouts", {
   actions: {
     saveWorkoutData(data: IWorkoutModel[] | null) {
       this.workoutData = data;
+    },
+    saveSelectedWorkout() {
+      console.log("lala");
     },
   },
 });

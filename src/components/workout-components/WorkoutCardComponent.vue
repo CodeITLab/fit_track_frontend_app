@@ -1,6 +1,16 @@
 <script lang="ts" setup>
 import { useModalStore } from "@/store/modalStore";
 import { useWorkoutStore } from "@/store/workoutStore";
+
+const selectedWorkout = (id: number) => {
+  const filteredWorkout = useWorkoutStore().getWorkoutData?.filter(
+    (item, index) => index === id
+  );
+
+  if (filteredWorkout !== undefined) {
+    console.log(filteredWorkout[0]);
+  }
+};
 </script>
 
 <template>
@@ -9,7 +19,9 @@ import { useWorkoutStore } from "@/store/workoutStore";
       class="cards"
       v-for="(item, index) in useWorkoutStore().getWorkoutData"
     >
-      <h3 class="font text-white">{{ item.name }}</h3>
+      <h3 @click="selectedWorkout(index)" key="index" class="font text-white">
+        {{ item.name }}
+      </h3>
     </div>
     <div class="plus">
       <button
