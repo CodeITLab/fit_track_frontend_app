@@ -5,7 +5,10 @@ import { useWorkoutStore } from "@/store/workoutStore";
 
 <template>
   <div class="card-wrapper" v-if="!!useWorkoutStore().getWorkoutData?.length">
-    <div class="cards" v-for="item in useWorkoutStore().getWorkoutData">
+    <div
+      class="cards"
+      v-for="(item, index) in useWorkoutStore().getWorkoutData"
+    >
       <h3 class="font text-white">{{ item.name }}</h3>
     </div>
     <div class="plus">
