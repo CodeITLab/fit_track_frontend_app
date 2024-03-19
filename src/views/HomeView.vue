@@ -1,9 +1,16 @@
 <script lang="ts" setup>
+import LoginModal from "@/components/modal-components/login-modal/LoginModal.vue";
+import ChooseUserTypeModal from "@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue";
+import { useModalStore } from "@/store/modalStore";
+import ModalManager from "@/controllers/ModalManagerController";
 
-import LoginModal from '@/components/modal-components/login-modal/LoginModal.vue'
-import ChooseUserTypeModal from '@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue';
-import { useModalStore } from '@/store/modalStore';
+const isLoginModalActive = (): boolean => {
+  return ModalManager().GetCurrentModalValue()?.name === "googleLoginModal";
+};
 
+const isUserTypeModalActive = (): boolean => {
+  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal";
+};
 </script>
 
 <template>
@@ -19,24 +26,34 @@ import { useModalStore } from '@/store/modalStore';
         </div>
         <div class="main-content-description">
           <p class="text-white ms-2 me-2">
-            Whether you are trying to lose weight, gain muscle mass or want to have
-            well-defined 6-pack abs – our fitness app offers full body workout plans
-            with many 3D exercises for free to help you achieve your body goals.
+            Whether you are trying to lose weight, gain muscle mass or want to
+            have well-defined 6-pack abs – our fitness app offers full body
+            workout plans with many 3D exercises for free to help you achieve
+            your body goals.
           </p>
         </div>
         <div class="main-content-footer">
-          <button class="btn text-white rounded-pill border border-dark-3" type="button" @click="useModalStore().setGoogleLoginModalValue(true)">
+          <button
+            class="btn text-white rounded-pill border border-dark-3"
+            type="button"
+            @click="
+              ModalManager().UpdateCurrentModalValue('googleLoginModal', true)
+            "
+          >
             Log in
           </button>
-          <button class="btn text-white rounded-pill border border-dark-3 mt-3" type="button">
+          <button
+            class="btn text-white rounded-pill border border-dark-3 mt-3"
+            type="button"
+          >
             Sign up
           </button>
         </div>
       </div>
-      <div class="login-modal" v-if="useModalStore().getGoogleLoginModalValue">
+      <div class="login-modal" v-if="isLoginModalActive()">
         <LoginModal />
       </div>
-      <div class="dashboard-type" v-if="useModalStore().getUserTypeModalValue">
+      <div class="dashboard-type" v-if="isUserTypeModalActive()">
         <ChooseUserTypeModal />
       </div>
     </div>

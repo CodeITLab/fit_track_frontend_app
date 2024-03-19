@@ -3,7 +3,6 @@ import { useModalStore } from "@/store/modalStore";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { saveWorkoutData } from "@/api/useFetch";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
-import ModalManager from "@/controllers/ModalManagerController";
 
 let exerciseDataValues = [
   {
@@ -26,11 +25,8 @@ const resetFormValues = () => {
 };
 
 const closeModal = () => {
-  ModalManager().UpdateCurrentModalValue("createWorkoutModal", false);
-};
-
-const isModalActive = () => {
-  return ModalManager().GetCurrentModalValue()?.name === "createWorkoutModal";
+  useModalStore().setCreateYourWorkoutModalValue(false);
+  useModalStore().setIsPlanYourWorkoutModalActive(true);
 };
 
 const submit = (values: any) => {
@@ -40,7 +36,7 @@ const submit = (values: any) => {
       name: value.name,
       sets: value.sets,
       reps: value.reps,
-      isWorkoutFinished: false,
+      isWorkoutFinished: value.isWorkoutFinished,
     };
   });
 
@@ -58,7 +54,10 @@ const submit = (values: any) => {
 </script>
 
 <template>
-  <div class="container-fluid create-workout-modal" v-if="isModalActive()">
+  <div
+    class="container-fluid create-workout-modal"
+    v-if="useModalStore().getCreateWorkoutModalValue"
+  >
     <div class="create-workout-modal-wrapper">
       <div class="create-workout-modal-header">
         <div class="create-workout-modal-title">
@@ -69,7 +68,7 @@ const submit = (values: any) => {
         </button>
       </div>
       <hr />
-      <FormKit type="form" submit-label="Finish" @submit="submit">
+      <FormKit type="form" submit-label="Update" @submit="submit">
         <FormKit
           name="workoutName"
           label="Workout Name"
@@ -107,6 +106,13 @@ const submit = (values: any) => {
                 type="number"
                 name="reps"
                 label="Reps"
+                validation="required"
+              />
+              <FormKit
+                outer-class="is-workout-finished"
+                type="checkbox"
+                name="isWorkoutFinished"
+                label="Done"
                 validation="required"
               />
 

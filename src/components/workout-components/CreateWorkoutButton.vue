@@ -12,7 +12,7 @@ import { useWorkoutStore } from "@/store/workoutStore";
       <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     </div>
     <button
-      @click="useModalStore().setCreateYourWorkoutModalValue(true)"
+      @click="useModalStore().setModalValue('createWorkoutModal', true)"
       type="button"
       class="plus-btn"
     >

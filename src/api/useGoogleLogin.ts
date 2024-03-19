@@ -1,10 +1,11 @@
 // 1. ovdje ubaci sve pozive prema Google-u, znači fetch ili axios pozive
 import { googleSdkLoaded } from "vue3-google-login";
-import { GoogleCredantials } from "../env"
+import { GoogleCredantials } from "../env";
 import axios from "axios";
 import { IUser } from "@/models/IUser";
 import { useUserStore } from "@/store/userStore";
 import { useModalStore } from "@/store/modalStore";
+import ModalManager from "@/controllers/ModalManagerController";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 export const login = (): void => {
@@ -51,23 +52,22 @@ const sendCodeToBackend = async (code: any) => {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const userData: IUser = {
-        name: userResponse.data['given_name'],
-        lastName: userResponse.data['family_name'],
-        email: userResponse.data['email'],
-        picture: userResponse.data['picture'],
+        name: userResponse.data["given_name"],
+        lastName: userResponse.data["family_name"],
+        email: userResponse.data["email"],
+        picture: userResponse.data["picture"],
         isAuth: true,
-        userType: ''
-      }
+        userType: "",
+      };
 
       localStorage.setItem("isAuth", "true");
       useUserStore().saveUserData(userData);
-      useModalStore().setGoogleLoginModalValue(false);
-      useModalStore().setUserTypeModalValue(true);
+      ModalManager().UpdateCurrentModalValue("userTypeModal", true);
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");
     }
   } catch (error) {
-    console.log("Failed to fetch")
+    console.log("Failed to fetch");
   }
 };

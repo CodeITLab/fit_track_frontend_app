@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { login } from "@/api/useGoogleLogin";
 import { useModalStore } from "@/store/modalStore";
+import ModalManager from "@/controllers/ModalManagerController";
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import { useModalStore } from "@/store/modalStore";
       <button
         type="button"
         class="btn-close"
-        @click="useModalStore().setGoogleLoginModalValue(false)"
+        @click="
+          ModalManager().UpdateCurrentModalValue('googleLoginModal', false)
+        "
       ></button>
     </div>
     <div class="modal-body w-100">
