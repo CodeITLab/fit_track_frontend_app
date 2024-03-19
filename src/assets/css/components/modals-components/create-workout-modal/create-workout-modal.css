@@ -48,7 +48,7 @@
 
 .form-check .form-check-input {
     float: none;
-    margin-left: 0;
+    margin-left: 0 !important;
 }
 
 .form-check input {
@@ -63,4 +63,15 @@
 
 .create-workout-modal-footer button {
     width: 150px;
+}
+
+.delete-exercise {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.delete-exercise img {
+    margin-top: 15px;
 }

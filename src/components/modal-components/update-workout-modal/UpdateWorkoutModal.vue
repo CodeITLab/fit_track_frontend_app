@@ -80,27 +80,29 @@ const submit = (values: any) => {
       <hr />
       <div class="workout-form">
         <form @submit.prevent="submit">
-          <label>
-            Workout name:
-            <input type="text" v-model="formValues.name" :placeholder="useWorkoutStore().getSelectedWorkout?.name" />
-          </label>
+          <label>Workout name: </label>
+          <input type="text" v-model="formValues.name" :placeholder="useWorkoutStore().getSelectedWorkout?.name" />
           <hr/>
           <div class="exercises" v-for="exercise in useWorkoutStore().getSelectedWorkout?.exercisesData">
             <div class="input-group">
               <label for="exerciseName" class="form-label">Exercise Name</label>
-              <input type="text" class="form-control" id="exerciseName" :value="exercise.name">
+              <input type="text" class="form-control" id="exerciseName" :placeholder="exercise.name" required>
             </div>
             <div class="input-group">
               <label for="sets" class="form-label">Sets</label>
-              <input type="text" class="form-control" id="sets" :value="exercise.sets">
+              <input type="text" class="form-control" id="sets" :placeholder="exercise.sets" required>
             </div>
             <div class="input-group">
               <label for="reps" class="form-label">Reps</label>
-              <input type="text" class="form-control" id="reps" :value="exercise.reps">
+              <input type="text" class="form-control" id="reps" :placeholder="exercise.reps" required>
             </div>
             <div class="form-check">
               <label class="form-check-label" for="isWorkoutFinished">Finished</label>
-              <input class="form-check-input" type="checkbox" value="" id="isWorkoutFinished" :value="exercise.isWorkoutFinished">
+              <input class="form-check-input" type="checkbox" value="" id="isWorkoutFinished" :value="exercise.isWorkoutFinished" required>
+            </div>
+            <div class="delete-exercise">
+              <label class="form-check-label">Delete</label>
+              <img width="20" src="@/assets/img/icons/delete.png" alt=""/>
             </div>
           </div>
           <hr/>
