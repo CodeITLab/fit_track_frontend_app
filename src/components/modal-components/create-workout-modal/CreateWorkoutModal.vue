@@ -2,7 +2,7 @@
 import { useModalStore } from "@/store/modalStore";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { saveWorkoutData } from "@/api/useFetch";
-import GetWorkoutData from "@/controllers/WorkoutController";
+import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 
 let exerciseDataValues = [
   {
@@ -146,4 +146,4 @@ const submit = (values: any) => {
 
 <style lang="css" scoped>
 @import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
-</style>
+</style>@/controllers/GetWorkoutDataController

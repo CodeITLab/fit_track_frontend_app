@@ -6,16 +6,12 @@ import CreateWorkoutButton from "@/components/workout-components/CreateWorkoutBu
 import CreateWorkoutModal from "@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue";
 import WorkoutCardComponent from "@/components/workout-components/WorkoutCardComponent.vue";
 import { onBeforeMount } from "vue";
-import GetWorkoutData from "@/controllers/WorkoutController";
-import { useWorkoutStore } from "@/store/workoutStore";
+import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 
 onBeforeMount(() => {
   GetWorkoutData();
 });
 
-console.log(GetWorkoutData());
-
-console.log(useWorkoutStore().getWorkoutData);
 </script>
 
 <template>
@@ -36,3 +32,4 @@ console.log(useWorkoutStore().getWorkoutData);
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>
+@/controllers/GetWorkoutDataController

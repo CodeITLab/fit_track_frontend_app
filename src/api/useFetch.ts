@@ -1,7 +1,7 @@
 import { IUser } from "@/models/IUser";
 import { reactive, toRefs } from "vue";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import GetWorkoutData from "@/controllers/WorkoutController";
+import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 
 interface State<T> {
   isLoading: boolean;
@@ -77,6 +77,7 @@ export const saveWorkoutData = (workoutData: IWorkoutModel) => {
     })
       .then((response) => response.json())
       .then((data) => {})
+      .finally(() => { GetWorkoutData() })
       .catch((error) => console.error("Error: ", error));
   };
   return {
