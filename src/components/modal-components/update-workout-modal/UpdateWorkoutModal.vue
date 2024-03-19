@@ -73,7 +73,7 @@ const submit = (values: any) => {
         <div class="create-workout-modal-title">
           <h3>Your Workout</h3>
         </div>
-        <button @click="closeModal">
+        <button class="close-workout" @click="closeModal">
           <img width="25" src="@/assets/img/icons/x-circle-fill.svg" alt="" />
         </button>
       </div>
@@ -82,17 +82,33 @@ const submit = (values: any) => {
         <form @submit.prevent="submit">
           <label>
             Workout name:
-            <input
-              type="text"
-              v-model="formValues.name"
-              :placeholder="useWorkoutStore().getSelectedWorkout?.name"
-            />
+            <input type="text" v-model="formValues.name" :placeholder="useWorkoutStore().getSelectedWorkout?.name" />
           </label>
-          <div
-            class="exercises"
-            v-for="exercise in useWorkoutStore().getSelectedWorkout
-              ?.exercisesData"
-          ></div>
+          <hr/>
+          <div class="exercises" v-for="exercise in useWorkoutStore().getSelectedWorkout?.exercisesData">
+            <div class="input-group">
+              <label for="exerciseName" class="form-label">Exercise Name</label>
+              <input type="text" class="form-control" id="exerciseName" :value="exercise.name">
+            </div>
+            <div class="input-group">
+              <label for="sets" class="form-label">Sets</label>
+              <input type="text" class="form-control" id="sets" :value="exercise.sets">
+            </div>
+            <div class="input-group">
+              <label for="reps" class="form-label">Reps</label>
+              <input type="text" class="form-control" id="reps" :value="exercise.reps">
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="isWorkoutFinished">Finished</label>
+              <input class="form-check-input" type="checkbox" value="" id="isWorkoutFinished" :value="exercise.isWorkoutFinished">
+            </div>
+          </div>
+          <hr/>
+          <div class="create-workout-modal-footer">
+            <button type="button" class="btn btn-outline-primary">Add Exercise</button>
+            <button type="button" class="btn btn-outline-danger">Delete Workout</button>
+            <button type="button" class="btn btn-outline-success">Update</button>
+          </div>
         </form>
       </div>
     </div>

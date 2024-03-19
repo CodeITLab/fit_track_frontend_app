@@ -20,56 +20,47 @@
     width: 600px;
 }
 
-.create-workout-modal-header button {
-    background: none;
+.close-workout {
+    background: transparent;
     border: 0px;
 }
 
-.formkit-label {
-    color: black;
-    font-weight: lighter;
+.exercises {
+    display: flex;
+    justify-content: space-between;
 }
 
-.exercises-group {
+.input-group {
+    flex-direction: column;
+    width: auto !important;
+}
+
+.input-group input {
+    width: 120px !important;
+}
+
+.form-check {
+    display: flex !important;
+    flex-direction: column;
+    align-content: center !important;
+    align-items: center !important;
+}
+
+.form-check .form-check-input {
+    float: none;
+    margin-left: 0;
+}
+
+.form-check input {
+    margin-top: 15px;
+}
+
+.create-workout-modal-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.delete-button {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.exercises-group input[type="number"] {
-    width: 80px;
-}
-
-.is-workout-finished > .formkit-wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    height: 100%;
-    justify-content: space-evenly;
-}
-
-.is-workout-finished > .formkit-wrapper > .formkit-inner input {
-    width: 100%;
-    height: 60%;
-}
-
-.formkit-actions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: end;
-}
-
-.formkit-actions>.formkit-outer>.formkit-wrapper button {
-    height: 35px;
-    width: 75px;
-    border: 1px solid mediumseagreen;
-    border-radius: 5px;
-    background: none;
+.create-workout-modal-footer button {
+    width: 150px;
 }
