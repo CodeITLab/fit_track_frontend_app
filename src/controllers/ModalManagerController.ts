@@ -8,8 +8,6 @@ const ModalManager = () => {
   };
 
   const UpdateCurrentModalValue = (name: string, value: boolean) => {
-    console.log(useModalStore().getCurrentModalValue);
-
     let updatedModalValues = useModalStore().getCurrentModalValue.map(
       (item, index) => {
         if (item.name === name) {

@@ -6,6 +6,7 @@ import ModalManager from "@/controllers/ModalManagerController";
 
 const selectedWorkout = (id: number) => {
   SetSelectedWorkout(id);
+  ModalManager().UpdateCurrentModalValue("updateWorkoutModal", true);
 };
 </script>
 
@@ -19,7 +20,7 @@ const selectedWorkout = (id: number) => {
         {{ item.name }}
       </h3>
     </div>
-    <div class="plus">
+    <div class="plus mt-3">
       <button
         @click="
           ModalManager().UpdateCurrentModalValue('createWorkoutModal', true)

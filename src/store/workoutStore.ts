@@ -22,7 +22,6 @@ export const useWorkoutStore = defineStore("workouts", {
       this.workoutData = data;
     },
     saveSelectedWorkout(workout: IWorkoutModel) {
-      console.log("lala");
       this.selectedWorkout = workout;
     },
   },

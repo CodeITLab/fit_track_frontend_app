@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import router from "@/router";
 import { useModalStore } from "@/store/modalStore";
+import ModalManager from "@/controllers/ModalManagerController";
 
 const logout = () => {
   localStorage.clear();
@@ -9,15 +10,16 @@ const logout = () => {
 };
 
 const closeModal = () => {
-  useModalStore().setLogoutmodalValue(false);
+  ModalManager().UpdateCurrentModalValue("logoutModal", false);
+};
+
+const isModalActive = () => {
+  return ModalManager().GetCurrentModalValue()?.name === "logoutModal";
 };
 </script>
 
 <template>
-  <div
-    class="container-fluid logout-modal"
-    v-if="useModalStore().getLogoutModalValue"
-  >
+  <div class="container-fluid logout-modal" v-if="isModalActive()">
     <div class="modal-wrapper">
       <div class="modal-wrapper-header">
         <h4>Želite li se odjaviti iz aplikacije?</h4>

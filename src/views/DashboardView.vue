@@ -7,11 +7,11 @@ import CreateWorkoutModal from "@/components/modal-components/create-workout-mod
 import WorkoutCardComponent from "@/components/workout-components/WorkoutCardComponent.vue";
 import { onBeforeMount } from "vue";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
+import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
 
 onBeforeMount(() => {
   GetWorkoutData();
 });
-
 </script>
 
 <template>
@@ -24,6 +24,7 @@ onBeforeMount(() => {
       <WorkoutCardComponent />
       <CreateWorkoutButton />
       <CreateWorkoutModal />
+      <UpdateWorkoutModal />
       <LogoutModal />
     </main>
   </div>

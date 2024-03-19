@@ -25,6 +25,10 @@ export const useModalStore = defineStore("modals", {
           name: "createWorkoutModal",
           isActive: false,
         },
+        {
+          name: "updateWorkoutModal",
+          isActive: false,
+        },
       ],
     };
   },
