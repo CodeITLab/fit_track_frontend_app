@@ -24,5 +24,6 @@ export const useWorkoutStore = defineStore("workouts", {
     saveSelectedWorkout(workout: IWorkoutModel) {
       this.selectedWorkout = workout;
     },
+    /* kreirati metodu za setanje workoutOwnera */
   },
 });

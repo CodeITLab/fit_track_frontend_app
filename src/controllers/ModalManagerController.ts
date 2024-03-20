@@ -23,9 +23,19 @@ const ModalManager = () => {
     useModalStore().setModalValue(updatedModalValues);
   };
 
+  const CloseModal = (name: string) => {
+    ModalManager().UpdateCurrentModalValue(name, false);
+  };
+
+  const IsModalActive = (name: string): boolean => {
+    return GetCurrentModalValue()?.name === name;
+  };
+
   return {
     GetCurrentModalValue,
     UpdateCurrentModalValue,
+    CloseModal,
+    IsModalActive,
   };
 };
 

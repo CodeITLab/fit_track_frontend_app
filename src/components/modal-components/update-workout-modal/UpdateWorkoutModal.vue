@@ -5,75 +5,43 @@ import { saveWorkoutData } from "@/api/useFetch";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
+import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 
-let formValues = {
-  name: "",
-  workoutOwner: "",
-  exercisesData: [
-    {
-      name: "",
-      reps: 0,
-      sets: 0,
-      isWorkoutFinished: false,
-    },
-  ],
-};
-
-const resetFormValues = () => {
-  formValues = {
-    name: "",
-    workoutOwner: "",
-    exercisesData: [
-      {
-        name: "",
-        reps: 0,
-        sets: 0,
-        isWorkoutFinished: false,
-      },
-    ],
-  };
-};
-
-const closeModal = () => {
-  ModalManager().UpdateCurrentModalValue("updateWorkoutModal", false);
-};
-
-const isModalActive = (): boolean => {
-  return ModalManager().GetCurrentModalValue()?.name === "updateWorkoutModal";
-};
-
-const submit = (values: any) => {
+const submit = () => {
   const userEmail = localStorage.getItem("email") || "";
-  const exerciseData = formValues.exercisesData.map((value) => {
-    return {
-      name: value.name,
-      sets: value.sets,
-      reps: value.reps,
-      isWorkoutFinished: value.isWorkoutFinished,
-    };
-  });
 
   const workoutData: IWorkoutModel = {
-    name: values["workoutName"],
+    name: useWorkoutStore().getSelectedWorkout?.name,
     workoutOwner: userEmail,
-    exercisesData: exerciseData,
+    exercisesData: useWorkoutStore().getSelectedWorkout?.exercisesData?.map(
+      (item) => {
+        return item;
+      }
+    ),
   };
 
-  saveWorkoutData(workoutData).saveWorkoutData();
-  resetFormValues();
-  GetWorkoutData();
-  closeModal();
+  if (workoutData) {
+    saveWorkoutData(workoutData).saveWorkoutData();
+    GetWorkoutData();
+    ModalManager().CloseModal("updateWorkoutModal");
+  }
 };
 </script>
 
 <template>
-  <div class="container-fluid create-workout-modal" v-if="isModalActive()">
+  <div
+    class="container-fluid create-workout-modal"
+    v-if="ModalManager().IsModalActive('updateWorkoutModal')"
+  >
     <div class="create-workout-modal-wrapper">
       <div class="create-workout-modal-header">
         <div class="create-workout-modal-title">
           <h3>Your Workout</h3>
         </div>
-        <button class="close-workout" @click="closeModal">
+        <button
+          class="close-workout"
+          @click="ModalManager().CloseModal('updateWorkoutModal')"
+        >
           <img width="25" src="@/assets/img/icons/x-circle-fill.svg" alt="" />
         </button>
       </div>
@@ -81,35 +49,84 @@ const submit = (values: any) => {
       <div class="workout-form">
         <form @submit.prevent="submit">
           <label>Workout name: </label>
-          <input type="text" v-model="formValues.name" :placeholder="useWorkoutStore().getSelectedWorkout?.name" />
-          <hr/>
-          <div class="exercises" v-for="exercise in useWorkoutStore().getSelectedWorkout?.exercisesData">
+          <input
+            type="text"
+            :placeholder="useWorkoutStore().getSelectedWorkout?.name"
+          />
+          <hr />
+          <div
+            class="exercises"
+            v-for="(exercise, index) in useWorkoutStore().getSelectedWorkout
+              ?.exercisesData"
+          >
             <div class="input-group">
               <label for="exerciseName" class="form-label">Exercise Name</label>
-              <input type="text" class="form-control" id="exerciseName" :placeholder="exercise.name" required>
+              <input
+                type="text"
+                class="form-control"
+                id="exerciseName"
+                :placeholder="exercise.name"
+                required
+              />
             </div>
             <div class="input-group">
               <label for="sets" class="form-label">Sets</label>
-              <input type="text" class="form-control" id="sets" :placeholder="exercise.sets" required>
+              <input
+                type="text"
+                class="form-control"
+                id="sets"
+                :placeholder="exercise.sets"
+                required
+              />
             </div>
             <div class="input-group">
               <label for="reps" class="form-label">Reps</label>
-              <input type="text" class="form-control" id="reps" :placeholder="exercise.reps" required>
+              <input
+                type="text"
+                class="form-control"
+                id="reps"
+                :placeholder="exercise.reps"
+                required
+              />
             </div>
             <div class="form-check">
-              <label class="form-check-label" for="isWorkoutFinished">Finished</label>
-              <input class="form-check-input" type="checkbox" value="" id="isWorkoutFinished" :value="exercise.isWorkoutFinished" required>
+              <label class="form-check-label" for="isWorkoutFinished"
+                >Finished</label
+              >
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="isWorkoutFinished"
+                :value="exercise.isWorkoutFinished"
+                required
+              />
             </div>
             <div class="delete-exercise">
               <label class="form-check-label">Delete</label>
-              <img width="20" src="@/assets/img/icons/delete.png" alt=""/>
+              <img
+                @click="UpdateWorkoutDataController().removeExercise(index)"
+                width="20"
+                src="@/assets/img/icons/delete.png"
+                alt=""
+              />
             </div>
           </div>
-          <hr/>
+          <hr />
           <div class="create-workout-modal-footer">
-            <button type="button" class="btn btn-outline-primary">Add Exercise</button>
-            <button type="button" class="btn btn-outline-danger">Delete Workout</button>
-            <button type="button" class="btn btn-outline-success">Update</button>
+            <button
+              @click="UpdateWorkoutDataController().addExercise()"
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              Add Exercise
+            </button>
+            <button type="button" class="btn btn-outline-danger">
+              Delete Workout
+            </button>
+            <button type="button" class="btn btn-outline-success">
+              Update
+            </button>
           </div>
         </form>
       </div>
