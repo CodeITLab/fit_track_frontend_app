@@ -75,3 +75,7 @@
 .delete-exercise img {
     margin-top: 15px;
 }
+
+.delete-exercise img:hover {
+    cursor: pointer;
+}

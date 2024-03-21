@@ -6,7 +6,7 @@ export const useWorkoutStore = defineStore("workouts", {
   state: () => {
     return {
       workoutData: [] as IWorkoutModel[] | null,
-      selectedWorkout: {} as IWorkoutModel | null,
+      selectedWorkout: {} as IWorkoutModel,
     };
   },
   getters: {

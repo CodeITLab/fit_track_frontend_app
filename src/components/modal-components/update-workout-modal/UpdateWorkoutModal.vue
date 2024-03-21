@@ -1,16 +1,19 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { saveWorkoutData } from "@/api/useFetch";
+import { saveWorkoutData, updateCurrentWorkout } from "@/api/useFetch";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 
 const submit = () => {
+  console.log(useWorkoutStore().getSelectedWorkout);
+
   const userEmail = localStorage.getItem("email") || "";
 
+  /*
   const workoutData: IWorkoutModel = {
+    id: useWorkoutStore().getSelectedWorkout?.id,
     name: useWorkoutStore().getSelectedWorkout?.name,
     workoutOwner: userEmail,
     exercisesData: useWorkoutStore().getSelectedWorkout?.exercisesData?.map(
@@ -24,7 +27,7 @@ const submit = () => {
     saveWorkoutData(workoutData).saveWorkoutData();
     GetWorkoutData();
     ModalManager().CloseModal("updateWorkoutModal");
-  }
+  }*/
 };
 </script>
 
@@ -51,6 +54,8 @@ const submit = () => {
           <label>Workout name: </label>
           <input
             type="text"
+            name="workoutName"
+            v-model="useWorkoutStore().getSelectedWorkout.name"
             :placeholder="useWorkoutStore().getSelectedWorkout?.name"
           />
           <hr />
@@ -65,6 +70,7 @@ const submit = () => {
                 type="text"
                 class="form-control"
                 id="exerciseName"
+                v-model="exercise.name"
                 :placeholder="exercise.name"
                 required
               />
@@ -75,6 +81,7 @@ const submit = () => {
                 type="text"
                 class="form-control"
                 id="sets"
+                v-model="exercise.sets"
                 :placeholder="exercise.sets"
                 required
               />
@@ -85,6 +92,7 @@ const submit = () => {
                 type="text"
                 class="form-control"
                 id="reps"
+                v-model="exercise.reps"
                 :placeholder="exercise.reps"
                 required
               />
@@ -96,8 +104,8 @@ const submit = () => {
               <input
                 class="form-check-input"
                 type="checkbox"
-                value=""
                 id="isWorkoutFinished"
+                v-model="exercise.isWorkoutFinished"
                 :value="exercise.isWorkoutFinished"
                 required
               />
@@ -124,7 +132,11 @@ const submit = () => {
             <button type="button" class="btn btn-outline-danger">
               Delete Workout
             </button>
-            <button type="button" class="btn btn-outline-success">
+            <button
+              @click="submit"
+              type="button"
+              class="btn btn-outline-success"
+            >
               Update
             </button>
           </div>

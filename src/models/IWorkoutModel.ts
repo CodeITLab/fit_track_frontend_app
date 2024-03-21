@@ -1,4 +1,5 @@
 export interface IWorkoutModel {
+  id: number | undefined;
   name: string | undefined;
   workoutOwner: string | undefined;
   exercisesData: IExerciseModel[] | undefined;

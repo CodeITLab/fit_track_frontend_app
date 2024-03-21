@@ -2,6 +2,7 @@ import { IUser } from "@/models/IUser";
 import { reactive, toRefs } from "vue";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
+import { useWorkoutStore } from "@/store/workoutStore";
 
 interface State<T> {
   isLoading: boolean;
@@ -77,10 +78,14 @@ export const saveWorkoutData = (workoutData: IWorkoutModel) => {
     })
       .then((response) => response.json())
       .then((data) => {})
-      .finally(() => { GetWorkoutData() })
+      .finally(() => {
+        GetWorkoutData();
+      })
       .catch((error) => console.error("Error: ", error));
   };
   return {
     saveWorkoutData,
   };
 };
+
+export const updateCurrentWorkout = () => {};
