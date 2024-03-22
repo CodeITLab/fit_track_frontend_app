@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useModalStore } from "@/store/modalStore";
 import { useWorkoutStore } from "@/store/workoutStore";
+import ModalManager from "@/controllers/ModalManagerController";
 </script>
 
 <template>
@@ -12,7 +13,9 @@ import { useWorkoutStore } from "@/store/workoutStore";
       <h5 class="text-white ps-2 pe-1">Plan Your Exercise</h5>
     </div>
     <button
-      @click="useModalStore().setModalValue('createWorkoutModal', true)"
+      @click="
+        ModalManager().UpdateCurrentModalValue('createWorkoutModal', true)
+      "
       type="button"
       class="plus-btn"
     >

@@ -11,9 +11,7 @@ const submit = () => {
 
   const userEmail = localStorage.getItem("email") || "";
 
-  /*
   const workoutData: IWorkoutModel = {
-    id: useWorkoutStore().getSelectedWorkout?.id,
     name: useWorkoutStore().getSelectedWorkout?.name,
     workoutOwner: userEmail,
     exercisesData: useWorkoutStore().getSelectedWorkout?.exercisesData?.map(
@@ -23,11 +21,12 @@ const submit = () => {
     ),
   };
 
+  console.log(workoutData);
+
   if (workoutData) {
-    saveWorkoutData(workoutData).saveWorkoutData();
-    GetWorkoutData();
+    updateCurrentWorkout(workoutData).updateWorkoutData();
     ModalManager().CloseModal("updateWorkoutModal");
-  }*/
+  }
 };
 </script>
 
