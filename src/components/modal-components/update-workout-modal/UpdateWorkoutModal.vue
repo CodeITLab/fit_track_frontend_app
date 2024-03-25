@@ -1,10 +1,21 @@
 <script lang="ts" setup>
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { saveWorkoutData, updateCurrentWorkout } from "@/api/useFetch";
+import {
+  deleteCurrentWorkout,
+  saveWorkoutData,
+  updateCurrentWorkout,
+} from "@/api/useFetch";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
+
+const deleteWorkout = () => {
+  deleteCurrentWorkout(
+    useWorkoutStore().getSelectedWorkout
+  ).deleteWorkoutData();
+  ModalManager().CloseModal("updateWorkoutModal");
+};
 
 const submit = () => {
   console.log(useWorkoutStore().getSelectedWorkout);
@@ -20,8 +31,6 @@ const submit = () => {
       }
     ),
   };
-
-  console.log(workoutData);
 
   if (workoutData) {
     updateCurrentWorkout(workoutData).updateWorkoutData();
@@ -128,7 +137,11 @@ const submit = () => {
             >
               Add Exercise
             </button>
-            <button type="button" class="btn btn-outline-danger">
+            <button
+              @click="deleteWorkout()"
+              type="button"
+              class="btn btn-outline-danger"
+            >
               Delete Workout
             </button>
             <button

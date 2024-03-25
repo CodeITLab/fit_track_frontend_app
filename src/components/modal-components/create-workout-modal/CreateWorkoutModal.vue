@@ -5,10 +5,13 @@ import { useWorkoutStore } from "@/store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
 import { ref } from "vue";
+import { saveWorkoutData } from "@/api/useFetch";
+
+const userEmail = localStorage.getItem("email") || "";
 
 const formValues = ref({
   name: "",
-  workoutOwner: "",
+  workoutOwner: userEmail,
   exercisesData: [
     {
       name: "",
@@ -34,8 +37,30 @@ const addExercise = () => {
   });
 };
 
+const resetFormValues = () => {
+  formValues.value = {
+    name: "",
+    workoutOwner: "",
+    exercisesData: [
+      {
+        name: "",
+        sets: 0,
+        reps: 0,
+        isWorkoutFinished: false,
+        weight: 0,
+      },
+    ],
+  };
+};
+
+const closeModal = () => {
+  ModalManager().UpdateCurrentModalValue("createWorkoutModal", false);
+};
+
 const submit = () => {
-  console.log("Submittano.");
+  saveWorkoutData(formValues.value).saveWorkoutData();
+  resetFormValues();
+  closeModal();
 };
 </script>
 
@@ -147,7 +172,7 @@ const submit = () => {
               type="button"
               class="btn btn-outline-success"
             >
-              Update
+              Save
             </button>
           </div>
         </form>
