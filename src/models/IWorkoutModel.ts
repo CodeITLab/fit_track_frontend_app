@@ -1,12 +1,13 @@
 export interface IWorkoutModel {
-    name: string,
-    workoutOwner: string,
-    exercisesData: IExerciseModel[],
+  id?: number | undefined;
+  name: string | undefined;
+  workoutOwner: string | undefined;
+  exercisesData: IExerciseModel[] | undefined;
 }
 
 export interface IExerciseModel {
-    name: string,
-    sets: number,
-    reps: number,
-    isWorkoutFinished: boolean
+  name: string | undefined;
+  sets: number | undefined;
+  reps: number | undefined;
+  isWorkoutFinished: boolean | undefined;
 }

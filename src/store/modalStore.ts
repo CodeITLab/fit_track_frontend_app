@@ -1,48 +1,45 @@
 import { defineStore } from "pinia";
+import { IModals } from "@/models/IModals";
 
-export const useModalStore = defineStore('modals', {
-    state: () => {
-        return {
-            isGoogleLoginModalActive: false,
-            isUserTypeModalActive: false,
-            isLogoutModalActive: false,
-            isPlanYourWorkoutModalActive: true,
-            isCreateWorkoutModalActive: false
-        }
+export const useModalStore = defineStore("modals", {
+  state: () => {
+    return {
+      modals: [
+        {
+          name: "googleLoginModal",
+          isActive: false,
+        },
+        {
+          name: "userTypeModal",
+          isActive: false,
+        },
+        {
+          name: "logoutModal",
+          isActive: false,
+        },
+        {
+          name: "planYourWorkoutModal",
+          isActive: true,
+        },
+        {
+          name: "createWorkoutModal",
+          isActive: false,
+        },
+        {
+          name: "updateWorkoutModal",
+          isActive: false,
+        },
+      ],
+    };
+  },
+  getters: {
+    getCurrentModalValue(state) {
+      return state.modals;
     },
-    getters: {
-        getGoogleLoginModalValue(state) {
-            return state.isGoogleLoginModalActive
-        },
-        getUserTypeModalValue(state) {
-            return state.isUserTypeModalActive
-        },
-        getLogoutModalValue(state) {
-            return state.isLogoutModalActive
-        },
-        getIsPlanYourWorkoutModalActive(state) {
-            return state.isPlanYourWorkoutModalActive
-        },
-        getCreateWorkoutModalValue(state) {
-            return state.isCreateWorkoutModalActive
-        }
+  },
+  actions: {
+    setModalValue(updatedModal: IModals[]) {
+      this.modals = updatedModal;
     },
-    actions: {
-        setGoogleLoginModalValue(modalValue: boolean) {
-            this.isGoogleLoginModalActive = modalValue;
-        },
-        setUserTypeModalValue(modalValue: boolean) {
-            this.isUserTypeModalActive = modalValue;
-        },
-        setLogoutmodalValue(modalValue: boolean) {
-            this.isLogoutModalActive = modalValue;
-        },
-        setIsPlanYourWorkoutModalActive(modalValue: boolean) {
-            this.isPlanYourWorkoutModalActive = modalValue
-        },
-        setCreateYourWorkoutModalValue(modalValue: boolean) {
-            this.isCreateWorkoutModalActive = modalValue;
-            this.isPlanYourWorkoutModalActive = false; 
-        }
-    },
-})
+  },
+});
