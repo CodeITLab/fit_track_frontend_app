@@ -148,8 +148,8 @@ const submit = () => {
                 required
               />
             </div>
-            <div class="delete-exercise">
-              <label class="form-check-label">{{ GeneralText.DELETE }}</label>
+            <div class="form-check">
+              <label class="form-label">{{ GeneralText.DELETE }}</label>
               <img
                 @click="removeExercise(index)"
                 width="20"

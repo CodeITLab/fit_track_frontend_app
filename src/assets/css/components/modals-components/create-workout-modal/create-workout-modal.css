@@ -30,6 +30,10 @@
     justify-content: space-between;
 }
 
+.form-check {
+    text-align: center;
+}
+
 .input-group {
     flex-direction: column;
     width: auto !important;
