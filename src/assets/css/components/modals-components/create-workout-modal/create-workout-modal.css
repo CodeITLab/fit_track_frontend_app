@@ -39,22 +39,6 @@
     width: 120px !important;
 }
 
-.form-check {
-    display: flex !important;
-    flex-direction: column;
-    align-content: center !important;
-    align-items: center !important;
-}
-
-.form-check .form-check-input {
-    float: none;
-    margin-left: 0 !important;
-}
-
-.form-check input {
-    margin-top: 15px;
-}
-
 .create-workout-modal-footer {
     display: flex;
     flex-direction: row;

@@ -6,6 +6,7 @@ const UpdateWorkoutDataController = () => {
       name: "",
       sets: 0,
       reps: 0,
+      weight: 0,
       isWorkoutFinished: false,
     });
   };
