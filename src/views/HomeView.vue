@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import LoginModal from "@/components/modal-components/login-modal/LoginModal.vue";
 import ChooseUserTypeModal from "@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue";
-import { useModalStore } from "@/store/modalStore";
+import { HomePageLoginText } from "@/helpers/TextEnums";
 import ModalManager from "@/controllers/ModalManagerController";
 
 const isLoginModalActive = (): boolean => {
@@ -40,13 +40,13 @@ const isUserTypeModalActive = (): boolean => {
               ModalManager().UpdateCurrentModalValue('googleLoginModal', true)
             "
           >
-            Log in
+            {{ HomePageLoginText.LOGIN }}
           </button>
           <button
             class="btn text-white rounded-pill border border-dark-3 mt-3"
             type="button"
           >
-            Sign up
+            {{ HomePageLoginText.SIGN_UP }}
           </button>
         </div>
       </div>
