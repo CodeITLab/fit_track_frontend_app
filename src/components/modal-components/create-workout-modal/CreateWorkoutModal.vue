@@ -72,7 +72,7 @@ const submit = () => {
     <div class="create-workout-modal-wrapper">
       <div class="create-workout-modal-header">
         <div class="create-workout-modal-title">
-          <h3>Your Workout</h3>
+          <h3>Tvoja rutina</h3>
         </div>
         <button
           class="close-workout"
@@ -84,7 +84,7 @@ const submit = () => {
       <hr />
       <div class="workout-form">
         <form @submit.prevent="submit">
-          <label>{{ WorkoutModalText.WORKOUT_NAME }}: </label>
+          <label class="me-2">{{ WorkoutModalText.WORKOUT_NAME }}: </label>
           <input
             type="text"
             name="workoutName"
