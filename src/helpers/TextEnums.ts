@@ -18,4 +18,5 @@ export enum WorkoutModalText {
 export enum GeneralText {
   ADD_EXERCISE = "Dodaj vježbu",
   DELETE = "Izbriši",
+  UPDATE = "Ažuriraj",
 }

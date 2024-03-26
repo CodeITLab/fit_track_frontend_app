@@ -116,6 +116,7 @@ const submit = () => {
               }}</label>
               <input
                 type="number"
+                min="0"
                 class="form-control"
                 id="sets"
                 v-model="exercise.sets"
@@ -129,6 +130,7 @@ const submit = () => {
               }}</label>
               <input
                 type="number"
+                min="0"
                 class="form-control"
                 id="reps"
                 v-model="exercise.reps"
@@ -143,6 +145,7 @@ const submit = () => {
               <input
                 class="form-control"
                 type="number"
+                min="0"
                 id="weight"
                 v-model="exercise.weight"
                 required

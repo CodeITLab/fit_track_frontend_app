@@ -1,14 +1,10 @@
 <script lang="ts" setup>
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import {
-  deleteCurrentWorkout,
-  saveWorkoutData,
-  updateCurrentWorkout,
-} from "@/api/useFetch";
-import GetWorkoutData from "@/controllers/GetWorkoutDataController";
+import { deleteCurrentWorkout, updateCurrentWorkout } from "@/api/useFetch";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
+import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
 
 const deleteWorkout = () => {
   deleteCurrentWorkout(
@@ -47,7 +43,7 @@ const submit = () => {
     <div class="create-workout-modal-wrapper">
       <div class="create-workout-modal-header">
         <div class="create-workout-modal-title">
-          <h3>Your Workout</h3>
+          <h3>{{ WorkoutModalText.WORKOUT }}</h3>
         </div>
         <button
           class="close-workout"
@@ -59,7 +55,7 @@ const submit = () => {
       <hr />
       <div class="workout-form">
         <form @submit.prevent="submit">
-          <label>Workout name: </label>
+          <label class="me-2">{{ WorkoutModalText.WORKOUT_NAME }}: </label>
           <input
             type="text"
             name="workoutName"
@@ -72,8 +68,10 @@ const submit = () => {
             v-for="(exercise, index) in useWorkoutStore().getSelectedWorkout
               ?.exercisesData"
           >
-            <div class="input-group">
-              <label for="exerciseName" class="form-label">Exercise Name</label>
+            <div class="form-check">
+              <label for="exerciseName" class="form-label">{{
+                WorkoutModalText.EXERCISE_NAME
+              }}</label>
               <input
                 type="text"
                 class="form-control"
@@ -83,10 +81,13 @@ const submit = () => {
                 required
               />
             </div>
-            <div class="input-group">
-              <label for="sets" class="form-label">Sets</label>
+            <div class="form-check">
+              <label for="sets" class="form-label">{{
+                WorkoutModalText.SETS
+              }}</label>
               <input
-                type="text"
+                type="number"
+                min="0"
                 class="form-control"
                 id="sets"
                 v-model="exercise.sets"
@@ -94,10 +95,13 @@ const submit = () => {
                 required
               />
             </div>
-            <div class="input-group">
-              <label for="reps" class="form-label">Reps</label>
+            <div class="form-check">
+              <label for="reps" class="form-label">{{
+                WorkoutModalText.REPS
+              }}</label>
               <input
-                type="text"
+                type="number"
+                min="0"
                 class="form-control"
                 id="reps"
                 v-model="exercise.reps"
@@ -105,10 +109,10 @@ const submit = () => {
                 required
               />
             </div>
-            <div class="form-check">
-              <label class="form-check-label" for="isWorkoutFinished"
-                >Finished</label
-              >
+            <div class="form-check finished-workout">
+              <label class="form-label" for="isWorkoutFinished">{{
+                WorkoutModalText.FINISHED
+              }}</label>
               <input
                 class="form-check-input"
                 type="checkbox"
@@ -118,8 +122,8 @@ const submit = () => {
                 required
               />
             </div>
-            <div class="delete-exercise">
-              <label class="form-check-label">Delete</label>
+            <div class="form-check">
+              <label class="form-label">{{ GeneralText.DELETE }}</label>
               <img
                 @click="UpdateWorkoutDataController().removeExercise(index)"
                 width="20"
@@ -135,21 +139,21 @@ const submit = () => {
               type="button"
               class="btn btn-outline-primary"
             >
-              Add Exercise
+              {{ GeneralText.ADD_EXERCISE }}
             </button>
             <button
               @click="deleteWorkout()"
               type="button"
               class="btn btn-outline-danger"
             >
-              Delete Workout
+              {{ GeneralText.DELETE }}
             </button>
             <button
               @click="submit"
               type="button"
               class="btn btn-outline-success"
             >
-              Update
+              {{ GeneralText.UPDATE }}
             </button>
           </div>
         </form>
