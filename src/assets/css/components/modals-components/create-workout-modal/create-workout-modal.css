@@ -30,6 +30,10 @@
     justify-content: space-between;
 }
 
+.form-check {
+    text-align: center;
+}
+
 .input-group {
     flex-direction: column;
     width: auto !important;
@@ -37,22 +41,6 @@
 
 .input-group input {
     width: 120px !important;
-}
-
-.form-check {
-    display: flex !important;
-    flex-direction: column;
-    align-content: center !important;
-    align-items: center !important;
-}
-
-.form-check .form-check-input {
-    float: none;
-    margin-left: 0 !important;
-}
-
-.form-check input {
-    margin-top: 15px;
 }
 
 .create-workout-modal-footer {

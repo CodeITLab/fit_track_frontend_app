@@ -16,25 +16,33 @@ const updateUserType = (type: string): void => {
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">Featured</div>
+      <div class="card-header">Vrste korištenja aplikacije</div>
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
+        <h5 class="card-title">
+          Odaberite kako bi htjeli koristiti aplikaciju
+        </h5>
         <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
+          "Osnovni stil" znači da ćete za sebe moći kreirati programe, pratiti
+          analitiku i ostale metrike unutar aplikacije.
+        </p>
+        <p>
+          "Trener stil" omogućuje sve što nudi i osnovni stil, plus mogućnost
+          kreiranja treninga za grupe ljudi uz detaljniju analitiku i praćenje
+          progresa.
         </p>
         <button
           @click="updateUserType('personal')"
           type="button"
-          class="btn btn-outline-primary"
+          class="btn btn-outline-primary me-4"
         >
-          Personal
+          Osnovni stil
         </button>
         <button
           @click="updateUserType('trainer')"
           type="button"
           class="btn btn-outline-primary"
         >
-          Trainer
+          Trener stil
         </button>
       </div>
     </div>

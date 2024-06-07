@@ -1,139 +1,185 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { saveWorkoutData } from "@/api/useFetch";
-import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import ModalManager from "@/controllers/ModalManagerController";
+import { useWorkoutStore } from "@/store/workoutStore";
+import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
+import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
+import { ref } from "vue";
+import { saveWorkoutData } from "@/api/useFetch";
 
-let exerciseDataValues = [
-  {
-    name: "",
-    reps: 0,
-    sets: 0,
-    isWorkoutFinished: false,
-  },
-];
+const userEmail = localStorage.getItem("email") || "";
 
-const resetFormValues = () => {
-  exerciseDataValues = [
+const formValues = ref({
+  name: "",
+  workoutOwner: userEmail,
+  exercisesData: [
     {
       name: "",
-      reps: 0,
       sets: 0,
+      reps: 0,
       isWorkoutFinished: false,
+      weight: 0,
     },
-  ];
+  ],
+});
+
+const removeExercise = (index: number) => {
+  formValues.value.exercisesData.splice(index, 1);
+};
+
+const addExercise = () => {
+  formValues.value.exercisesData?.push({
+    name: "",
+    sets: 0,
+    reps: 0,
+    isWorkoutFinished: false,
+    weight: 0,
+  });
+};
+
+const resetFormValues = () => {
+  formValues.value = {
+    name: "",
+    workoutOwner: "",
+    exercisesData: [
+      {
+        name: "",
+        sets: 0,
+        reps: 0,
+        isWorkoutFinished: false,
+        weight: 0,
+      },
+    ],
+  };
 };
 
 const closeModal = () => {
   ModalManager().UpdateCurrentModalValue("createWorkoutModal", false);
 };
 
-const isModalActive = () => {
-  return ModalManager().GetCurrentModalValue()?.name === "createWorkoutModal";
-};
-
-const submit = (values: any) => {
-  const userEmail = localStorage.getItem("email") || "";
-  const exerciseData = exerciseDataValues.map((value) => {
-    return {
-      name: value.name,
-      sets: value.sets,
-      reps: value.reps,
-      isWorkoutFinished: false,
-    };
-  });
-
-  const workoutData: IWorkoutModel = {
-    name: values["workoutName"],
-    workoutOwner: userEmail,
-    exercisesData: exerciseData,
-  };
-
-  saveWorkoutData(workoutData).saveWorkoutData();
+const submit = () => {
+  saveWorkoutData(formValues.value).saveWorkoutData();
   resetFormValues();
-  GetWorkoutData();
   closeModal();
 };
 </script>
 
 <template>
-  <div class="container-fluid create-workout-modal" v-if="isModalActive()">
+  <div
+    class="container-fluid create-workout-modal"
+    v-if="ModalManager().IsModalActive('createWorkoutModal')"
+  >
     <div class="create-workout-modal-wrapper">
       <div class="create-workout-modal-header">
         <div class="create-workout-modal-title">
-          <h3>Create Your Workout</h3>
+          <h3>Tvoja rutina</h3>
         </div>
-        <button @click="closeModal">
+        <button
+          class="close-workout"
+          @click="ModalManager().CloseModal('updateWorkoutModal')"
+        >
           <img width="25" src="@/assets/img/icons/x-circle-fill.svg" alt="" />
         </button>
       </div>
       <hr />
-      <FormKit type="form" submit-label="Finish" @submit="submit">
-        <FormKit
-          name="workoutName"
-          label="Workout Name"
-          validation="required"
-        />
-        <FormKit
-          v-model="exerciseDataValues"
-          type="list"
-          :value="[{}]"
-          dynamic
-          #default="{ items, node, value }"
-        >
-          <FormKit
-            type="group"
-            v-for="(item, index) in items"
-            :key="item"
-            :index="index"
+      <div class="workout-form">
+        <form @submit.prevent="submit">
+          <label class="me-2">{{ WorkoutModalText.WORKOUT_NAME }}: </label>
+          <input
+            type="text"
+            name="workoutName"
+            v-model="formValues.name"
+            :placeholder="useWorkoutStore().getSelectedWorkout?.name"
+          />
+          <hr />
+          <div
+            class="exercises"
+            v-for="(exercise, index) in formValues.exercisesData"
+            v-bind:key="index"
           >
-            <div class="exercises-group">
-              <FormKit
+            <div class="form-check">
+              <label for="exerciseName" class="form-label">{{
+                WorkoutModalText.EXERCISE_NAME
+              }}</label>
+              <input
                 type="text"
-                name="name"
-                label="Exercise name"
-                placeholder="Exercise name"
-                validation="required"
+                class="form-control"
+                id="exerciseName"
+                v-model="exercise.name"
+                :placeholder="exercise.name"
+                required
               />
-
-              <FormKit
-                type="number"
-                name="sets"
-                label="Sets"
-                validation="required"
-              />
-              <FormKit
-                type="number"
-                name="reps"
-                label="Reps"
-                validation="required"
-              />
-
-              <div class="delete-button">
-                <button
-                  type="button"
-                  @click="
-                    () => node.input(value?.filter((_, i) => i !== index))
-                  "
-                  class="btn btn-outline-danger"
-                >
-                  Delete
-                </button>
-              </div>
             </div>
-            <hr />
-          </FormKit>
-
-          <button
-            type="button"
-            @click="() => node.input(value?.concat({}))"
-            class="btn btn-outline-info"
-          >
-            Add Exercise
-          </button>
-        </FormKit>
-      </FormKit>
+            <div class="form-check">
+              <label for="sets" class="form-label">{{
+                WorkoutModalText.SETS
+              }}</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                id="sets"
+                v-model="exercise.sets"
+                :placeholder="exercise.sets"
+                required
+              />
+            </div>
+            <div class="form-check">
+              <label for="reps" class="form-label">{{
+                WorkoutModalText.REPS
+              }}</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                id="reps"
+                v-model="exercise.reps"
+                :placeholder="exercise.reps"
+                required
+              />
+            </div>
+            <div class="form-check">
+              <label class="form-label" for="isWorkoutFinished">{{
+                WorkoutModalText.WEIGHT
+              }}</label>
+              <input
+                class="form-control"
+                type="number"
+                min="0"
+                id="weight"
+                v-model="exercise.weight"
+                required
+              />
+            </div>
+            <div class="form-check">
+              <label class="form-label">{{ GeneralText.DELETE }}</label>
+              <img
+                @click="removeExercise(index)"
+                width="20"
+                src="@/assets/img/icons/delete.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <hr />
+          <div class="create-workout-modal-footer">
+            <button
+              @click="addExercise()"
+              type="button"
+              class="btn btn-outline-primary"
+            >
+              Add Exercise
+            </button>
+            <button
+              @click="submit"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>

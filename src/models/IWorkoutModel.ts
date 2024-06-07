@@ -9,5 +9,6 @@ export interface IExerciseModel {
   name: string | undefined;
   sets: number | undefined;
   reps: number | undefined;
+  weight: number | undefined;
   isWorkoutFinished: boolean | undefined;
 }

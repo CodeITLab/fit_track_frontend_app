@@ -114,3 +114,30 @@ export const updateCurrentWorkout = (workoutData: IWorkoutModel) => {
     updateWorkoutData,
   };
 };
+
+export const deleteCurrentWorkout = (workoutData: IWorkoutModel) => {
+  const deleteWorkoutData = async (): Promise<void> => {
+    await fetch(
+      "http://127.0.0.1:8080/workouts/delete-user-workout?id=" +
+        useWorkoutStore().getSelectedWorkout["id"],
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(workoutData),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .finally(() => {
+        GetWorkoutData();
+      })
+      .catch((error) => console.error("Error: ", error));
+  };
+
+  return {
+    deleteWorkoutData,
+  };
+};
