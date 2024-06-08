@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import { login } from "@/api/useGoogleLogin";
-import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
+import {LoginModalText} from "@/helpers/TextEnums";
+
 </script>
 
 <template>
   <div class="modal-wrapper">
     <div class="modal-wrapper-header">
-      <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+      <h5 class="modal-title" id="exampleModalLabel">{{ LoginModalText.LOGIN }}</h5>
       <button
         type="button"
         class="btn-close"
@@ -16,10 +17,11 @@ import ModalManager from "@/controllers/ModalManagerController";
         "
       ></button>
     </div>
+    <hr class="line"/>
     <div class="modal-body w-100">
       <div class="row">
         <div class="col">
-          <p>Enter Your Credentials</p>
+          <p>{{ LoginModalText.LOGIN_CREDENTIALS }}</p>
           <div class="login-form">
             <div class="form-floating mb-3">
               <input
@@ -49,13 +51,13 @@ import ModalManager from "@/controllers/ModalManagerController";
                 id="flexCheckDefault"
               />
               <label class="form-check-label" for="flexCheckDefault">
-                Remember me
+                {{ LoginModalText.ZAPAMTI_ME }}
               </label>
             </div>
           </div>
         </div>
         <div class="col">
-          <p>Login With Social Media</p>
+          <p>{{ LoginModalText.DRUŠTVENE_MREZE_PRIJAVA }}</p>
           <div class="social-media-login">
             <button @click="login" type="button" class="btn btn-outline-danger">
               <a href="#" class="google btn">
@@ -67,7 +69,7 @@ import ModalManager from "@/controllers/ModalManagerController";
       </div>
     </div>
     <div class="modal-footer w-100">
-      <button type="button" class="btn btn-primary">Login</button>
+      <button type="button" class="btn btn-primary">{{ LoginModalText.LOGIN }}</button>
     </div>
   </div>
 </template>
