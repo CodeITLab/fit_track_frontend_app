@@ -5,9 +5,11 @@ import { onBeforeMount, ref } from 'vue';
 
 const userData = ref<IUser | null>();
 const userDataErrors = ref(false);
+const isMobile = ref(false);
 
 onBeforeMount(async () => {
 
+  screen.width < 760 ? isMobile.value = true : isMobile.value = false;
   let currentUser = localStorage.getItem('email');
 
   const { data, hasError } = await getData<IUser>(
@@ -22,7 +24,12 @@ onBeforeMount(async () => {
 <template>
   <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
     <div class="heading-dashboard">
-      <h5 class="text-white">Dashboard</h5>
+      <div v-if="isMobile" class="hamburger-menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+      </div>
+      <h5 v-if="!isMobile" class="text-white">Dashboard</h5>
       <div class="user-info">
         <h5 class="text-white">
           {{ userData?.name }}

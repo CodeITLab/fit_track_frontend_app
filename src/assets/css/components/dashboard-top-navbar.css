@@ -13,6 +13,36 @@
     align-items: center;
 }
 
+/* HAMBURGER MENU */
+
+.line {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+}
+
+.line:hover {
+    cursor: pointer;
+}
+
+.hamburger-menu:hover {
+    cursor: pointer;
+}
+
+.hamburger-menu span:nth-child(1) {
+    margin-top: -8px;
+}
+
+.hamburger-menu span:nth-child(2) {
+    margin-top: 8px;
+}
+
+/* HAMBURGER MENU END */
+
 @media (min-width: 768px) {
     .heading-dashboard {
         margin-left: 3rem;
