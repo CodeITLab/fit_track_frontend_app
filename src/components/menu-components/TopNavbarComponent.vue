@@ -21,7 +21,7 @@ onBeforeMount(async () => {
 </script>
 <template>
   <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
-    <div class="heading-dashboard ms-5 mt-3">
+    <div class="heading-dashboard">
       <h5 class="text-white">Dashboard</h5>
       <div class="user-info">
         <h5 class="text-white">

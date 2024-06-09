@@ -1,7 +1,6 @@
 nav {
     display: block;
     position: fixed;
-    left: 0;
     height: 100%;
     width: 75px;
     border-right: 1px solid #0f011f;
@@ -37,4 +36,16 @@ nav {
 .menu-item button {
     background-color: transparent;
     border: 0px;
+}
+
+@media (min-width: 768px) {
+    nav {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        left: -100px;
+    }
 }
