@@ -21,12 +21,14 @@ onBeforeMount(async () => {
 </script>
 <template>
   <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
-    <div class="heading-dashboard d-flex flex-row justify-content-between ms-5 mt-3">
+    <div class="heading-dashboard ms-5 mt-3">
       <h5 class="text-white">Dashboard</h5>
-      <h6 class="text-white">
-        {{ userData?.name }}
-        <img class="border border-2 border-dark rounded-circle ms-1" :src="userData?.picture" height="45" alt="" />
-      </h6>
+      <div class="user-info">
+        <h5 class="text-white">
+          {{ userData?.name }}
+        </h5>
+        <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="45" alt="" />
+      </div>
     </div>
   </div>
 </template>

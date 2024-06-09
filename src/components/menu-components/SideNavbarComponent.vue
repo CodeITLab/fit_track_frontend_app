@@ -37,5 +37,5 @@ import ModalManager from "@/controllers/ModalManagerController";
 </template>
 
 <style>
-@import "/src/assets/css/components/menu-components/side-bar-nav.css";
+@import "../../assets/css/components/menu-components/side-bar-nav.css";
 </style>
