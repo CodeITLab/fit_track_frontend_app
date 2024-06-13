@@ -6,7 +6,14 @@ import {onBeforeMount, ref} from "vue";
 
 const isMobile = ref(false);
 
+const checkMobileMenuValue = () => {
+  if(useMenuStore().getMobileMenuValue) {
+    useMenuStore().updateMobileMenuState(false);
+  }
+}
+
 onBeforeMount(() => {
+checkMobileMenuValue();
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
 });
 

@@ -38,6 +38,27 @@ button {
     border: 0px;
 }
 
+/* HAMBURGER MENU */
+
+.line {
+    display: block;
+    background-color: #ebebeb;
+    height: 4px;
+    width: 30px;
+    border-radius: 2px;
+}
+
+.line:hover {
+    cursor: pointer;
+}
+
+.hamburger-menu:hover {
+    cursor: pointer;
+}
+
+/* HAMBURGER MENU END */
+
+
 @media (min-width: 768px) {
     nav {
         left: 0;
@@ -62,6 +83,16 @@ button {
         background-color: #554664;
         left: 0;
         transition: 1s;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        height: 25px;
+        width: 50px;
+        justify-content: space-evenly;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     .close-modal {
