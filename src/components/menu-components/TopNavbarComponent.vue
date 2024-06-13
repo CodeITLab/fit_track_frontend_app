@@ -2,6 +2,7 @@
 import { getData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
 import { onBeforeMount, ref } from 'vue';
+import { useMenuStore } from "@/store/menuStore";
 
 const userData = ref<IUser | null>();
 const userDataErrors = ref(false);
@@ -24,7 +25,7 @@ onBeforeMount(async () => {
 <template>
   <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
     <div class="heading-dashboard">
-      <div v-if="isMobile" class="hamburger-menu">
+      <div @click="useMenuStore().updateMobileMenuState(true)" v-if="isMobile" class="hamburger-menu">
           <span class="line"></span>
           <span class="line"></span>
           <span class="line"></span>
