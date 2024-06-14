@@ -20,7 +20,7 @@ const isModalActive = () => {
 
 <template>
   <div class="container-fluid logout-modal" v-if="isModalActive()">
-    <div class="modal-wrapper">
+    <div class="logout-modal-wrapper">
       <div class="modal-wrapper-header">
         <h4>Želite li se odjaviti iz aplikacije?</h4>
       </div>
