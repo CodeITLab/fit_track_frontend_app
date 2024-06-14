@@ -67,10 +67,6 @@ button {
 
 @media (max-width: 768px) {
 
-    li:last-of-type {
-        margin-top: auto;
-    }
-
     nav {
         left: -100px;
         transition: 1s;

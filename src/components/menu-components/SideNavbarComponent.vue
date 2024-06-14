@@ -46,7 +46,7 @@ checkMobileMenuValue();
               <img width="25" src="../../assets/img/logos/log-out.png" alt="" />
             </button>
           </li>
-          <li class="menu-item">
+          <li class="menu-item" v-if="useMenuStore().getMobileMenuValue">
             <button @click="useMenuStore().updateMobileMenuState(false)">
               <img width="25" src="../../assets/img/icons/left-arrow.png"
                    alt="close-modal-arrow">
