@@ -187,4 +187,3 @@ const submit = () => {
 <style lang="css" scoped>
 @import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
 </style>
-@/controllers/GetWorkoutDataController
