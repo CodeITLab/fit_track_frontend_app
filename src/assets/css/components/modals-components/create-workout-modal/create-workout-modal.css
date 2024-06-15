@@ -67,3 +67,14 @@
 .delete-exercise img:hover {
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .create-workout-modal-wrapper {
+        width: 100%;
+    }
+
+    .exercises {
+        flex-direction: column;
+    }
+
+}
