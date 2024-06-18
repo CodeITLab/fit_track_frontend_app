@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useMenuStore } from "@/store/menuStore";
 import {onBeforeMount, ref} from "vue";
