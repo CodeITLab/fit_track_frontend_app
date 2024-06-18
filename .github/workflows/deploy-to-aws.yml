@@ -27,6 +27,9 @@ jobs:
 
       - name: Setup node.js environment
         uses: actions/setup-node@v4
+        with:
+          node-version: '21.6.2'
+          check-latest: true
 
       - name: Npm install & npm build
         run: |
