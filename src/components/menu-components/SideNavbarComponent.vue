@@ -1,10 +1,25 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
+import { useMenuStore } from "@/store/menuStore";
+import {onBeforeMount, ref} from "vue";
+
+const isMobile = ref(false);
+
+const checkMobileMenuValue = () => {
+  if(useMenuStore().getMobileMenuValue) {
+    useMenuStore().updateMobileMenuState(false);
+  }
+}
+
+onBeforeMount(() => {
+checkMobileMenuValue();
+  screen.width < 760 ? isMobile.value = true : isMobile.value = false;
+});
+
 </script>
 
 <template>
-  <nav>
+  <nav :class="{ 'mobile-menu': useMenuStore().getMobileMenuValue }">
     <div class="container-fluid">
       <div class="side-menu">
         <ul class="side-menu-items">
@@ -30,6 +45,12 @@ import ModalManager from "@/controllers/ModalManagerController";
               <img width="25" src="../../assets/img/logos/log-out.png" alt="" />
             </button>
           </li>
+          <li class="menu-item" v-if="useMenuStore().getMobileMenuValue">
+            <button @click="useMenuStore().updateMobileMenuState(false)">
+              <img width="25" src="../../assets/img/icons/left-arrow.png"
+                   alt="close-modal-arrow">
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -37,5 +58,5 @@ import ModalManager from "@/controllers/ModalManagerController";
 </template>
 
 <style>
-@import "/src/assets/css/components/menu-components/side-bar-nav.css";
+@import "../../assets/css/components/menu-components/side-bar-nav.css";
 </style>

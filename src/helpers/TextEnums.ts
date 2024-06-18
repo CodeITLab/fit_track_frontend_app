@@ -5,6 +5,13 @@ export enum HomePageLoginText {
   SIGN_UP = "REGISTRIRAJTE SE",
 }
 
+export enum LoginModalText {
+  LOGIN = "Prijava",
+  LOGIN_CREDENTIALS = "Unesite svoje podatke za prijavu",
+  ZAPAMTI_ME = "Zapamti me",
+  DRUŠTVENE_MREZE_PRIJAVA = "Prijava preko društvenih mreža"
+}
+
 export enum WorkoutModalText {
   WORKOUT = "Rutina",
   WORKOUT_NAME = "Ime rutine",
