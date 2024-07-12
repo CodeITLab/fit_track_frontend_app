@@ -23,14 +23,14 @@ onBeforeMount(async () => {
 
 </script>
 <template>
-  <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
+  <div class="position-fixed top">
     <div class="heading-dashboard">
       <div @click="useMenuStore().updateMobileMenuState(true)" v-if="isMobile" class="hamburger-menu">
           <span class="line"></span>
           <span class="line"></span>
           <span class="line"></span>
       </div>
-      <h5 v-if="!isMobile" class="text-white">Dashboard</h5>
+      <h5 v-if="!isMobile" class="text-white">Nadzorna Ploča</h5>
       <div class="user-info">
         <h5 class="text-white">
           {{ userData?.name }}

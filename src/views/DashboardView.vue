@@ -20,8 +20,19 @@ onBeforeMount(() => {
       <SideNavbarComponent />
     </aside>
     <main>
-      <TopNavbarComponent />
-      <WorkoutCardComponent />
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <TopNavbarComponent />
+          </div>
+          <div class="col">
+            <h2>Moje rutine</h2>
+          </div>
+          <div class="col">
+            <WorkoutCardComponent />
+          </div>
+        </div>
+      </div>
       <CreateWorkoutButton />
       <CreateWorkoutModal />
       <UpdateWorkoutModal />
