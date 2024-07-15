@@ -49,4 +49,6 @@ const updateUserType = (type: string): void => {
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@import "@/assets/css/components/modals-components/user-type/user-type.css";
+</style>

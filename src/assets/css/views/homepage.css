@@ -67,18 +67,8 @@ body {
   border: 2px solid black !important;
 }
 
-.login-modal {
-  position: absolute;
+.side-image {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-.dashboard-type {
-  position: absolute;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
 }

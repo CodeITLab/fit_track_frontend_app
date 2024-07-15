@@ -16,7 +16,7 @@ const isUserTypeModalActive = (): boolean => {
 <template>
   <div class="container-fluid home-view">
     <div class="row">
-      <div class="col h-100 main-content">
+      <div class="col main-content">
         <div class="main-content-title">
           <h1 class="text-white">
             Fitness <span class="highlighted">And</span> Tracking
@@ -52,7 +52,7 @@ const isUserTypeModalActive = (): boolean => {
           </button>
         </div>
       </div>
-      <div class="col h-100 d-flex align-items-center justify-content-center">
+      <div class="col side-image">
         <img width="460" src="../assets/img/backgrounds/fitness-homepage.jpg"
              alt="">
       </div>

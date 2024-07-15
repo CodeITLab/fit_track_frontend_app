@@ -17,7 +17,7 @@ import {LoginModalText} from "@/helpers/TextEnums";
         "
       ></button>
     </div>
-    <hr class="line"/>
+    <hr class="login-separator"/>
     <div class="modal-body w-100">
       <div class="row">
         <div class="col">
@@ -43,9 +43,9 @@ import {LoginModalText} from "@/helpers/TextEnums";
             </div>
           </div>
           <div class="additional-login-info mt-4">
-            <div class="form-check">
+            <div>
               <input
-                class="form-check-input"
+                class="form-check-input me-2"
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
