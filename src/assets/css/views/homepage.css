@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 html,
 body {
   height: 100%;
@@ -8,12 +10,14 @@ body {
 }
 
 .home-view {
-  background-image: url(../../img/backgrounds/Background4.png);
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #000
+}
+
+.home-view .row {
+  height: 100% !important;
 }
 
 .main-content {
@@ -27,10 +31,18 @@ body {
   text-align: center;
 }
 
+.main-content-title h1 {
+  font-family: "Anton SC", sans-serif;
+}
+
 .main-content-description {
   padding: 0 10% 0 10%;
   margin-top: 20px;
   text-align: center;
+}
+
+.main-content-description p {
+  font-family: "Montserrat", sans-serif;
 }
 
 .main-content-footer {

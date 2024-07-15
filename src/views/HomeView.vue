@@ -15,17 +15,15 @@ const isUserTypeModalActive = (): boolean => {
 
 <template>
   <div class="container-fluid home-view">
-    <div class="row h-100">
+    <div class="row">
       <div class="col h-100 main-content">
         <div class="main-content-title">
-          <h1 class="text-white display-5">
-            Get fit,<br />
-            Get strong,<br />
-            Get healthy!
+          <h1 class="text-white">
+            Fitness And Tracking
           </h1>
         </div>
         <div class="main-content-description">
-          <p class="text-white ms-2 me-2">
+          <p class="text-white">
             Whether you are trying to lose weight, gain muscle mass or want to
             have well-defined 6-pack abs – our fitness app offers full body
             workout plans with many 3D exercises for free to help you achieve
@@ -49,6 +47,10 @@ const isUserTypeModalActive = (): boolean => {
             {{ HomePageLoginText.SIGN_UP }}
           </button>
         </div>
+      </div>
+      <div class="col h-100 d-flex align-items-center justify-content-center">
+        <img width="420" src="../assets/img/backgrounds/fitness-homepage.jpg"
+             alt="">
       </div>
       <div class="login-modal" v-if="isLoginModalActive()">
         <LoginModal />
