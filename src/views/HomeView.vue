@@ -24,10 +24,14 @@ const isUserTypeModalActive = (): boolean => {
         </div>
         <div class="main-content-description">
           <p class="text-white">
-            Whether you are trying to lose weight, gain muscle mass or want to
-            have well-defined 6-pack abs – our fitness app offers full body
-            workout plans with many 3D exercises for free to help you achieve
-            your body goals.
+            Mi vjerujemo da svatko ima potencijal za transformaciju.
+          </p>
+          <p class="text-white">
+            Bez obzira jeste li tek početnik ili iskusni sportaš,
+            naša aplikacija je dizajnirana kako bi vam pomogla da postignete svoje ciljeve i osjetite snagu unutar sebe.
+          </p>
+          <p class="text-white">
+            Počnite danas i osjetite razliku! Zajedno, pretvaramo izazove u pobjede.
           </p>
         </div>
         <div class="main-content-footer mt-4">
