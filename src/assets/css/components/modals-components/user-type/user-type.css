@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .dashboard-type {
     position: absolute;
     display: flex;
@@ -5,3 +7,50 @@
     align-items: center;
     height: 100%;
 }
+
+.card-header {
+    background-color: #ee6b1c !important;
+}
+
+.card-header p {
+    font-family: "Anton SC", sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 0;
+    color: white;
+}
+
+.card-body p{
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.card-body button {
+    font-family: "Anton SC", sans-serif;
+    border: transparent;
+    border-radius: 10px;
+    background-color: #ee6b1c;
+    color: white;
+    letter-spacing: 2px;
+    width: 260px;
+    height: 50px;
+}
+
+.card-body button:hover {
+    transition: all ease-in .3s;
+    border-radius: 0px;
+    background-color: #ee6b1c;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .user-type {
+        width: 620px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .user-type {
+        width: 620px !important;
+    }
+}
+

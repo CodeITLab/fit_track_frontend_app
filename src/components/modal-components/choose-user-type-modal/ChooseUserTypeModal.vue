@@ -14,19 +14,18 @@ const updateUserType = (type: string): void => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container user-type">
     <div class="card">
-      <div class="card-header">Vrste korištenja aplikacije</div>
+      <div class="card-header">
+        <p>Vrste korištenja aplikacije</p>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">
-          Odaberite kako bi htjeli koristiti aplikaciju:
-        </h5>
-        <p class="card-text">
-          "Osobno" znači da ćete za sebe moći kreirati programe, pratiti
+        <p>
+          "<span class="highlighted fw-bold">Osobno</span>" znači da ćete za sebe moći kreirati programe, pratiti
           analitiku i ostale metrike unutar aplikacije.
         </p>
         <p>
-          "Kao trener" omogućuje sve što nudi i "osoban" stil, plus mogućnost
+          "<span class="highlighted fw-bold">Kao trener</span>" omogućuje sve što nudi i "osoban" stil, plus mogućnost
           kreiranja treninga za grupe ljudi uz detaljniju analitiku i praćenje
           progresa.
         </p>
