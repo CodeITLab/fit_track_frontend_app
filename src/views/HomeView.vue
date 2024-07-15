@@ -19,7 +19,7 @@ const isUserTypeModalActive = (): boolean => {
       <div class="col h-100 main-content">
         <div class="main-content-title">
           <h1 class="text-white">
-            Fitness And Tracking
+            Fitness <span class="highlighted">And</span> Tracking
           </h1>
         </div>
         <div class="main-content-description">
@@ -30,9 +30,9 @@ const isUserTypeModalActive = (): boolean => {
             your body goals.
           </p>
         </div>
-        <div class="main-content-footer">
+        <div class="main-content-footer mt-4">
           <button
-            class="btn text-white rounded-pill border border-dark-3"
+            class="btn text-white border border-dark-3"
             type="button"
             @click="
               ModalManager().UpdateCurrentModalValue('googleLoginModal', true)
@@ -41,7 +41,7 @@ const isUserTypeModalActive = (): boolean => {
             {{ HomePageLoginText.LOGIN }}
           </button>
           <button
-            class="btn text-white rounded-pill border border-dark-3 mt-3"
+            class="btn text-white border border-dark-3 mt-3"
             type="button"
           >
             {{ HomePageLoginText.SIGN_UP }}
@@ -49,7 +49,7 @@ const isUserTypeModalActive = (): boolean => {
         </div>
       </div>
       <div class="col h-100 d-flex align-items-center justify-content-center">
-        <img width="420" src="../assets/img/backgrounds/fitness-homepage.jpg"
+        <img width="460" src="../assets/img/backgrounds/fitness-homepage.jpg"
              alt="">
       </div>
       <div class="login-modal" v-if="isLoginModalActive()">

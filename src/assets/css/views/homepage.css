@@ -9,6 +9,10 @@ body {
   height: 100%;
 }
 
+.highlighted {
+  color: #ee6b1c;
+}
+
 .home-view {
   display: flex;
   flex-direction: column;
@@ -51,7 +55,15 @@ body {
 }
 
 .main-content-footer button {
-  width: 200px;
+  font-family: "Anton SC", sans-serif;
+  letter-spacing: 2px;
+  width: 260px;
+  height: 50px;
+}
+
+.main-content-footer button:hover {
+  background-color: #ee6b1c;
+  border: 2px solid black !important;
 }
 
 .login-modal {
