@@ -1,7 +1,6 @@
 .dashboard-wrapper {
     display: flex;
     flex-direction: row;
-    background-image: url(../../img/backgrounds/Background3.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

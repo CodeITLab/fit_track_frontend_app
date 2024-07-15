@@ -56,3 +56,9 @@ label, input, p {
     background-color: #ee6b1c;
     color: white;
 }
+
+.social-media-login button {
+    width: 100%;
+    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+}
+

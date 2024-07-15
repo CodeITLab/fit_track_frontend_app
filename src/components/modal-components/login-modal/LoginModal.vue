@@ -59,11 +59,7 @@ import {LoginModalText} from "@/helpers/TextEnums";
         <div class="col">
           <p>{{ LoginModalText.DRUŠTVENE_MREZE_PRIJAVA }}</p>
           <div class="social-media-login">
-            <button @click="login" type="button" class="btn btn-outline-danger">
-              <a href="#" class="google btn">
-                <i class="fa fa-google fa-fw"></i> Login with Google
-              </a>
-            </button>
+            <button @click="login" type="button" class="btn btn-outline-danger">Login with Google</button>
           </div>
         </div>
       </div>
