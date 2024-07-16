@@ -2,8 +2,13 @@
 import ModalManager from "@/controllers/ModalManagerController";
 import { useMenuStore } from "@/store/menuStore";
 import {onBeforeMount, ref} from "vue";
+import {useDashboardStore} from "@/store/dashboardStore";
 
 const isMobile = ref(false);
+
+const updateCurrentDashboardView = (dashboardView: string) => {
+  useDashboardStore().setCurrentDashboardView(dashboardView);
+}
 
 const checkMobileMenuValue = () => {
   if(useMenuStore().getMobileMenuValue) {
@@ -26,7 +31,7 @@ checkMobileMenuValue();
           <li class="menu-item logo">
             <p>Fitness <span class="highlighted">And</span> Tracking</p>
           </li>
-          <li class="menu-item home active">
+          <li class="menu-item home active" @click="updateCurrentDashboardView('workouts')">
             <img
                 width="25"
                 src="../../assets/img/icons/dashboard/report.png"
@@ -34,7 +39,7 @@ checkMobileMenuValue();
             />
             Vježbe
           </li>
-          <li class="menu-item analytics">
+          <li class="menu-item analytics" @click="updateCurrentDashboardView('analytics')">
             <img width="25" src="../../assets/img/icons/dashboard/analytics.png" alt="" />
             Analiza
           </li>
@@ -69,6 +74,6 @@ checkMobileMenuValue();
   </nav>
 </template>
 
-<style>
+<style lang="css" scoped>
 @import "../../assets/css/components/menu-components/side-bar-nav.css";
 </style>
