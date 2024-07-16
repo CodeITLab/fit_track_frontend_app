@@ -66,7 +66,7 @@ const submit = () => {
 
 <template>
   <div
-    class="container-fluid create-workout-modal"
+    class="create-workout-modal"
     v-if="ModalManager().IsModalActive('createWorkoutModal')"
   >
     <div class="create-workout-modal-wrapper">

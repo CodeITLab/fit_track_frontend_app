@@ -7,6 +7,7 @@
     position: absolute;
     align-items: center;
     height: 100%;
+    width: 75%;
 }
 
 .create-workout-modal-header {

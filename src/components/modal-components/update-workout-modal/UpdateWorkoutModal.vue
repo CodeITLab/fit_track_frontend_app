@@ -37,7 +37,7 @@ const submit = () => {
 
 <template>
   <div
-    class="container-fluid create-workout-modal"
+    class="create-workout-modal"
     v-if="ModalManager().IsModalActive('updateWorkoutModal')"
   >
     <div class="create-workout-modal-wrapper">
@@ -165,4 +165,3 @@ const submit = () => {
 <style lang="css" scoped>
 @import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
 </style>
-@/controllers/GetWorkoutDataController
