@@ -20,6 +20,12 @@
     height: 100%;
 }
 
+.dashboard-title {
+    font-family: "Anton SC", sans-serif;
+    color: #efefef;
+    font-size: 22px;
+}
+
 .navbar-items {
     width: 60px;
 }

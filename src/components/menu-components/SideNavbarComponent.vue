@@ -26,7 +26,7 @@ checkMobileMenuValue();
           <li class="menu-item logo">
             <p>Fitness <span class="highlighted">And</span> Tracking</p>
           </li>
-          <li class="menu-item home">
+          <li class="menu-item home active">
             <img
                 width="25"
                 src="../../assets/img/icons/dashboard/report.png"

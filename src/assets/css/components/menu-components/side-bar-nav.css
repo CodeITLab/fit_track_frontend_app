@@ -44,6 +44,7 @@ nav .container-fluid {
 }
 
 .menu-item:hover {
+    background-color: #fc6c19;
     cursor: pointer;
 }
 
@@ -65,6 +66,9 @@ button {
     border: 0px;
 }
 
+.active {
+    background-color: #ee6b1c;
+}
 
 /* HAMBURGER MENU */
 

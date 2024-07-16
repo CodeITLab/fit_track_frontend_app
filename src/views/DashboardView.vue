@@ -26,7 +26,7 @@ onBeforeMount(() => {
             <TopNavbarComponent />
           </div>
           <div class="col">
-            <h2>Moje rutine</h2>
+            <h2 class="dashboard-title">Moje rutine</h2>
           </div>
           <div class="col">
             <WorkoutCardComponent />
