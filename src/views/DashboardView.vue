@@ -22,7 +22,7 @@ onBeforeMount(() => {
     <main>
       <div class="container-fluid">
         <div class="row">
-          <div class="col">
+          <div class="col heading">
             <TopNavbarComponent />
           </div>
           <div class="col">

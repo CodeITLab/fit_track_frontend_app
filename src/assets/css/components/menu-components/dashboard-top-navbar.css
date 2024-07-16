@@ -5,16 +5,18 @@
     align-items: center;
     padding: 20px;
     margin-top: 1rem;
+    border-bottom: 1px solid #0f011f;
 }
 
 .heading-logo {
     font-family: "Anton SC", sans-serif;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .heading-user-name {
     font-family: "Montserrat", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 0 !important;
 }
 
 .user-info {

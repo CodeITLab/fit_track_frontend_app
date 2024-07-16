@@ -8,10 +8,6 @@
     background-color: #0f0f0f;
 }
 
-.dashboard-wrapper .container-fluid {
-
-}
-
 .dashboard-wrapper .container-fluid .row {
     display: flex;
     flex-direction: column;
@@ -40,10 +36,9 @@ main {
     width: 100%;
 }
 
-.add-day {
-    border-radius: 20px;
-    width: 250px;
-    height: 100px;
+.heading {
+    border-bottom: 1px solid #0f011f;
+    box-shadow: 0px 1px 1px;
 }
 
 .content-card {
