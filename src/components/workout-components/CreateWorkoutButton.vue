@@ -29,5 +29,5 @@ import ModalManager from "@/controllers/ModalManagerController";
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/css/components/create-workout-button.css";
+@import "../../assets/css/components/workout-components/create-workout-button.css";
 </style>

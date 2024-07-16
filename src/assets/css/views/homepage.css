@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 html,
 body {
   height: 100%;
@@ -7,13 +9,19 @@ body {
   height: 100%;
 }
 
+.highlighted {
+  color: #ee6b1c;
+}
+
 .home-view {
-  background-image: url(../../img/backgrounds/Background4.png);
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #000
+}
+
+.home-view .row {
+  height: 100% !important;
 }
 
 .main-content {
@@ -27,10 +35,19 @@ body {
   text-align: center;
 }
 
+.main-content-title h1 {
+  font-family: "Anton SC", sans-serif;
+}
+
 .main-content-description {
   padding: 0 10% 0 10%;
   margin-top: 20px;
   text-align: center;
+}
+
+.main-content-description p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
 .main-content-footer {
@@ -39,21 +56,19 @@ body {
 }
 
 .main-content-footer button {
-  width: 200px;
+  font-family: "Anton SC", sans-serif;
+  letter-spacing: 2px;
+  width: 260px;
+  height: 50px;
 }
 
-.login-modal {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.main-content-footer button:hover {
+  background-color: #ee6b1c;
+  border: 2px solid black !important;
 }
 
-.dashboard-type {
-  position: absolute;
+.side-image {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
+  justify-content: center;
 }

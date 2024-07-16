@@ -14,19 +14,18 @@ const updateUserType = (type: string): void => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container user-type">
     <div class="card">
-      <div class="card-header">Vrste korištenja aplikacije</div>
+      <div class="card-header">
+        <p>Vrste korištenja aplikacije</p>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">
-          Odaberite kako bi htjeli koristiti aplikaciju
-        </h5>
-        <p class="card-text">
-          "Osnovni stil" znači da ćete za sebe moći kreirati programe, pratiti
+        <p>
+          "<span class="highlighted fw-bold">Osobno</span>" znači da ćete za sebe moći kreirati programe, pratiti
           analitiku i ostale metrike unutar aplikacije.
         </p>
         <p>
-          "Trener stil" omogućuje sve što nudi i osnovni stil, plus mogućnost
+          "<span class="highlighted fw-bold">Kao trener</span>" omogućuje sve što nudi i "osoban" stil, plus mogućnost
           kreiranja treninga za grupe ljudi uz detaljniju analitiku i praćenje
           progresa.
         </p>
@@ -35,18 +34,20 @@ const updateUserType = (type: string): void => {
           type="button"
           class="btn btn-outline-primary me-4"
         >
-          Osnovni stil
+          Osobno
         </button>
         <button
           @click="updateUserType('trainer')"
           type="button"
           class="btn btn-outline-primary"
         >
-          Trener stil
+          Kao trener
         </button>
       </div>
     </div>
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@import "@/assets/css/components/modals-components/user-type/user-type.css";
+</style>

@@ -7,3 +7,7 @@
 3. User Data Store
     3.1. Preimenovati updateUserInfo u createUser
     3.2. Dodati metodu za ažuriranje tipa korisnika
+
+### 07.06.2024
+
+1. Test responsive design and fix all the responsive bugs on mobile and higher.

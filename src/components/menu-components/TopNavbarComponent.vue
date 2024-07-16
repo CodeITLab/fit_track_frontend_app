@@ -2,12 +2,15 @@
 import { getData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
 import { onBeforeMount, ref } from 'vue';
+import { useMenuStore } from "@/store/menuStore";
 
 const userData = ref<IUser | null>();
 const userDataErrors = ref(false);
+const isMobile = ref(false);
 
 onBeforeMount(async () => {
 
+  screen.width < 760 ? isMobile.value = true : isMobile.value = false;
   let currentUser = localStorage.getItem('email');
 
   const { data, hasError } = await getData<IUser>(
@@ -20,17 +23,22 @@ onBeforeMount(async () => {
 
 </script>
 <template>
-  <div class="content-card bg-transparent d-flex flex-column justify-content-between position-fixed top">
-    <div class="heading-dashboard d-flex flex-row justify-content-between ms-5 mt-3">
-      <h5 class="text-white">Dashboard</h5>
-      <h6 class="text-white">
-        {{ userData?.name }}
-        <img class="border border-2 border-dark rounded-circle ms-1" :src="userData?.picture" height="45" alt="" />
-      </h6>
+    <div class="heading-dashboard">
+      <div @click="useMenuStore().updateMobileMenuState(true)" v-if="isMobile" class="hamburger-menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+      </div>
+      <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna <span class="highlighted">Ploča</span></h5>
+      <div class="user-info">
+        <h5 class="text-white heading-user-name">
+          {{ userData?.name }} {{ userData?.lastName }}
+        </h5>
+        <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="40" alt="" />
+      </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/css/components/dashboard-top-navbar.css";
+@import "../../assets/css/components/menu-components/dashboard-top-navbar.css";
 </style>

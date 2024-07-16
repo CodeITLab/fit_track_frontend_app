@@ -8,6 +8,7 @@ import WorkoutCardComponent from "@/components/workout-components/WorkoutCardCom
 import { onBeforeMount } from "vue";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
+import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
 
 onBeforeMount(() => {
   GetWorkoutData();
@@ -20,8 +21,16 @@ onBeforeMount(() => {
       <SideNavbarComponent />
     </aside>
     <main>
-      <TopNavbarComponent />
-      <WorkoutCardComponent />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col heading">
+            <TopNavbarComponent />
+          </div>
+          <div class="col">
+            <DashboardContentWrapper/>
+          </div>
+        </div>
+      </div>
       <CreateWorkoutButton />
       <CreateWorkoutModal />
       <UpdateWorkoutModal />
@@ -33,4 +42,3 @@ onBeforeMount(() => {
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>
-@/controllers/GetWorkoutDataController
