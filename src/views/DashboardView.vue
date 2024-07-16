@@ -20,7 +20,7 @@ onBeforeMount(() => {
       <SideNavbarComponent />
     </aside>
     <main>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col">
             <TopNavbarComponent />
@@ -44,4 +44,3 @@ onBeforeMount(() => {
 <style lang="scss" scoped>
 @import "../assets/css/views/dashboard.css";
 </style>
-@/controllers/GetWorkoutDataController
