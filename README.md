@@ -1,3 +1,4 @@
+
 # Fitness Aplikacija
 
 Dobrodošli u fitness aplikaciju razvijenu u Vue 3 tehnologiji.
@@ -8,6 +9,7 @@ Dobrodošli u fitness aplikaciju razvijenu u Vue 3 tehnologiji.
 - [Instaliranje Node modula](#instaliranje-node-modula)
 - [Pokretanje projekta](#pokretanje-projekta)
 - [Rad s Git Flow-om](#rad-s-git-flow-om)
+- [Arhitektura aplikacije](#arhitektura-aplikacije)
 - [Dodatni resursi](#dodatni-resursi)
 
 ## Kloniranje projekta
@@ -101,6 +103,19 @@ git push origin feature/naziv-featurea
 ```
 
 Opet, zamijenite `naziv-featurea` s nazivom vašeg feature-a.
+
+## Arhitektura aplikacije
+
+Aplikacija se sastoji od sljedećih foldera:
+
+- **api**: Sadrži REST API pozive prema backendu.
+- **assets**: Sadrži CSS datoteke i fotografije koje aplikacija koristi.
+- **components**: Sadrži osnovne Vue komponente za menu, vježbe i modale (pop-up-e) u aplikaciji.
+- **controllers**: Sadrži metode koje sadrže logiku za rad nad podacima.
+- **helpers**: Sadrži pomoćne metode koje podržavaju funkcionalnosti aplikacije.
+- **models**: Sadrži modele podataka s kojima aplikacija radi.
+- **router**: Vue 3 router koji upravlja navigacijom unutar aplikacije.
+- **store**: Pinia store menadžment koji upravlja akcijama nad podacima aplikacije.
 
 ## Dodatni resursi
 
