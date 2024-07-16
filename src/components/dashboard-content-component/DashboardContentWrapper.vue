@@ -9,7 +9,7 @@ let currentDashboardView = computed(() => { return useDashboardStore().getCurren
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid dashboard-content-wrapper">
     <div v-if="currentDashboardView === 'workouts'" class="row">
       <div class="col">
         <h2 class="dashboard-title">Moje rutine</h2>
@@ -28,4 +28,6 @@ let currentDashboardView = computed(() => { return useDashboardStore().getCurren
   </div>
 </template>
 
-<style></style>
+<style lang="css" scoped>
+@import "../../assets/css/components/dashboard-content-component/dashboard-content-wrapper.css";
+</style>
