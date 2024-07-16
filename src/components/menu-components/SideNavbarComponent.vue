@@ -56,12 +56,13 @@ checkMobileMenuValue();
                  alt="">
             Postavke
           </li>
-          <li class="menu-item logout">
+          <li class="menu-item logout" @click="
+                ModalManager().UpdateCurrentModalValue('logoutModal', true)
+              ">
             <img width="25" src="../../assets/img/icons/dashboard/logout.png"
                  alt="">
             Odjava
           </li>
-          <li class="menu-item logout"></li>
         </ul>
       </div>
     </div>

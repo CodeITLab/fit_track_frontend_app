@@ -29,7 +29,7 @@ onBeforeMount(async () => {
           <span class="line"></span>
           <span class="line"></span>
       </div>
-      <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna Ploča</h5>
+      <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna <span class="highlighted">Ploča</span></h5>
       <div class="user-info">
         <h5 class="text-white heading-user-name">
           {{ userData?.name }} {{ userData?.lastName }}
