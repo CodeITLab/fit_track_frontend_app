@@ -43,11 +43,6 @@ nav .container-fluid {
     margin-right: 15px;
 }
 
-.menu-item:hover {
-    background-color: #fc6c19;
-    cursor: pointer;
-}
-
 .menu-item.logo {
     margin: 20px 0 20px 0;
     height: 85px;
@@ -59,6 +54,15 @@ nav .container-fluid {
 .menu-item.settings,
 .menu-item.logout {
     height: 60px;
+}
+
+.menu-item.home:hover,
+.menu-item.analytics:hover,
+.menu-item.help:hover,
+.menu-item.settings:hover,
+.menu-item.logout:hover {
+    background-color: #fc6c19;
+    cursor: pointer;
 }
 
 button {
