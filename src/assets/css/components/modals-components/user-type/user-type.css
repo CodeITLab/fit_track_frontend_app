@@ -9,7 +9,7 @@
 }
 
 .card-header {
-    background-color: #ee6b1c !important;
+    border-bottom: 2px solid #ee6b1c !important;
 }
 
 .card-header p {
@@ -17,7 +17,7 @@
     font-size: 18px;
     letter-spacing: 2px;
     margin: 0;
-    color: white;
+    color: black;
 }
 
 .card-body p{
