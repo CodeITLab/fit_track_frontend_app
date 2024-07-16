@@ -17,7 +17,7 @@ import {LoginModalText} from "@/helpers/TextEnums";
         "
       ></button>
     </div>
-    <hr class="line"/>
+    <hr class="login-separator"/>
     <div class="modal-body w-100">
       <div class="row">
         <div class="col">
@@ -43,9 +43,9 @@ import {LoginModalText} from "@/helpers/TextEnums";
             </div>
           </div>
           <div class="additional-login-info mt-4">
-            <div class="form-check">
+            <div>
               <input
-                class="form-check-input"
+                class="form-check-input me-2"
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
@@ -59,11 +59,7 @@ import {LoginModalText} from "@/helpers/TextEnums";
         <div class="col">
           <p>{{ LoginModalText.DRUŠTVENE_MREZE_PRIJAVA }}</p>
           <div class="social-media-login">
-            <button @click="login" type="button" class="btn btn-outline-danger">
-              <a href="#" class="google btn">
-                <i class="fa fa-google fa-fw"></i> Login with Google
-              </a>
-            </button>
+            <button @click="login" type="button" class="btn btn-outline-danger">Login with Google</button>
           </div>
         </div>
       </div>

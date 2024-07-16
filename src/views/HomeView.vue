@@ -15,26 +15,28 @@ const isUserTypeModalActive = (): boolean => {
 
 <template>
   <div class="container-fluid home-view">
-    <div class="row h-100">
-      <div class="col h-100 main-content">
+    <div class="row">
+      <div class="col main-content">
         <div class="main-content-title">
-          <h1 class="text-white display-5">
-            Get fit,<br />
-            Get strong,<br />
-            Get healthy!
+          <h1 class="text-white">
+            Fitness <span class="highlighted">And</span> Tracking
           </h1>
         </div>
         <div class="main-content-description">
-          <p class="text-white ms-2 me-2">
-            Whether you are trying to lose weight, gain muscle mass or want to
-            have well-defined 6-pack abs – our fitness app offers full body
-            workout plans with many 3D exercises for free to help you achieve
-            your body goals.
+          <p class="text-white">
+            Mi vjerujemo da svatko ima potencijal za transformaciju.
+          </p>
+          <p class="text-white">
+            Bez obzira jeste li tek početnik ili iskusni sportaš,
+            naša aplikacija je dizajnirana kako bi vam pomogla da postignete svoje ciljeve i osjetite snagu unutar sebe.
+          </p>
+          <p class="text-white">
+            Počnite danas i osjetite razliku! Zajedno, pretvaramo izazove u pobjede.
           </p>
         </div>
-        <div class="main-content-footer">
+        <div class="main-content-footer mt-4">
           <button
-            class="btn text-white rounded-pill border border-dark-3"
+            class="btn text-white border border-dark-3"
             type="button"
             @click="
               ModalManager().UpdateCurrentModalValue('googleLoginModal', true)
@@ -43,12 +45,16 @@ const isUserTypeModalActive = (): boolean => {
             {{ HomePageLoginText.LOGIN }}
           </button>
           <button
-            class="btn text-white rounded-pill border border-dark-3 mt-3"
+            class="btn text-white border border-dark-3 mt-3"
             type="button"
           >
             {{ HomePageLoginText.SIGN_UP }}
           </button>
         </div>
+      </div>
+      <div class="col side-image">
+        <img width="460" src="../assets/img/backgrounds/fitness-homepage.jpg"
+             alt="">
       </div>
       <div class="login-modal" v-if="isLoginModalActive()">
         <LoginModal />

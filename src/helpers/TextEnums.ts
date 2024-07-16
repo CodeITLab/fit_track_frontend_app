@@ -6,7 +6,7 @@ export enum HomePageLoginText {
 }
 
 export enum LoginModalText {
-  LOGIN = "Prijava",
+  LOGIN = "Prijavi se",
   LOGIN_CREDENTIALS = "Unesite svoje podatke za prijavu",
   ZAPAMTI_ME = "Zapamti me",
   DRUŠTVENE_MREZE_PRIJAVA = "Prijava preko društvenih mreža"
