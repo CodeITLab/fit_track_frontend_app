@@ -4,7 +4,6 @@ import SideNavbarComponent from "@/components/menu-components/SideNavbarComponen
 import LogoutModal from "@/components/modal-components/logout-modal/LogoutModal.vue";
 import CreateWorkoutButton from "@/components/workout-components/CreateWorkoutButton.vue";
 import CreateWorkoutModal from "@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue";
-import WorkoutCardComponent from "@/components/workout-components/WorkoutCardComponent.vue";
 import { onBeforeMount } from "vue";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";

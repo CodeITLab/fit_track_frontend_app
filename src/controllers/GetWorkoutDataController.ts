@@ -1,15 +1,17 @@
-import { getData } from "@/api/useFetch";
 import { IWorkoutModel } from "@/models/IWorkoutModel";
 import { useWorkoutStore } from "@/store/workoutStore";
+import apiService from "@/api/apiService";
 
 const GetWorkoutData = async (): Promise<void> => {
+
   const email = localStorage.getItem("email") || "";
 
-  const { data, hasError } = await getData<IWorkoutModel[]>(
-    "http://127.0.0.1:8080/workouts/get-users-workouts?email=" + email
-  );
-
-  useWorkoutStore().saveWorkoutData(data.value);
+  try {
+    const data = await apiService.get<IWorkoutModel[]>("workouts/get-users-workouts?email=" + email);
+    useWorkoutStore().saveWorkoutData(data);
+  } catch (error) {
+    console.error(error)
+  }
 };
 
 export default GetWorkoutData;
