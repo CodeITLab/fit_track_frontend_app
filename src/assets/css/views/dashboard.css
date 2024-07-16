@@ -8,6 +8,14 @@
     background-color: black;
 }
 
+.dashboard-wrapper .container-fluid {
+
+}
+
+.dashboard-wrapper .container-fluid .row {
+    display: flex;
+    flex-direction: column;
+}
 
 .dashboard {
     background: transparent;

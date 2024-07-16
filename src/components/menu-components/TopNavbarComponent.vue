@@ -23,7 +23,6 @@ onBeforeMount(async () => {
 
 </script>
 <template>
-  <div class="position-fixed top">
     <div class="heading-dashboard">
       <div @click="useMenuStore().updateMobileMenuState(true)" v-if="isMobile" class="hamburger-menu">
           <span class="line"></span>
@@ -38,7 +37,6 @@ onBeforeMount(async () => {
         <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="45" alt="" />
       </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
