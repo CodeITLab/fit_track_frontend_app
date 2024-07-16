@@ -29,9 +29,9 @@ onBeforeMount(async () => {
           <span class="line"></span>
           <span class="line"></span>
       </div>
-      <h5 v-if="!isMobile" class="text-white">Nadzorna Ploča</h5>
+      <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna Ploča</h5>
       <div class="user-info">
-        <h5 class="text-white">
+        <h5 class="text-white heading-user-name">
           {{ userData?.name }}
         </h5>
         <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="45" alt="" />

@@ -1,22 +1,26 @@
 nav {
     display: block;
     height: 100%;
-    width: 75px;
+    width: 180px;
     border-right: 1px solid #0f011f;
+    background-color: #0f0f0f;
     box-shadow: 0px 5px 5px;
 }
 
+nav .container-fluid {
+    height: 100%;
+}
+
 .side-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     padding: 10px 0 10px 0;
 }
 
 .side-menu-items {
-    height: 75%;
     padding: 0;
-}
-
-.side-menu-items {
     text-align: center;
 }
 
@@ -24,18 +28,43 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75px;
-    border-bottom: 1px solid #0f011f;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.menu-item p {
+    font-family: "Anton SC", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item img {
+    margin-right: 15px;
 }
 
 .menu-item:hover {
     cursor: pointer;
 }
 
+.menu-item.logo {
+    margin: 20px 0 20px 0;
+    height: 85px;
+}
+
+.menu-item.home,
+.menu-item.analytics,
+.menu-item.help,
+.menu-item.settings,
+.menu-item.logou {
+    height: 60px;
+}
+
 button {
     background-color: transparent;
     border: 0px;
 }
+
 
 /* HAMBURGER MENU */
 

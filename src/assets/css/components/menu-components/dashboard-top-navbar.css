@@ -3,8 +3,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5% 0 5%;
+    padding: 20px;
     margin-top: 1rem;
+    background-color: #1e1e1e;
+}
+
+.heading-logo {
+    font-family: "Anton SC", sans-serif;
+    font-size: 22px;
+}
+
+.heading-user-name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
 }
 
 .user-info {
@@ -16,7 +27,7 @@
 
 @media (min-width: 768px) {
     .heading-dashboard {
-        margin-left: 3rem;
+        height: 100%;
     }
 }
 
