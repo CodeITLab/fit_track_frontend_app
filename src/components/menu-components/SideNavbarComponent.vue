@@ -41,7 +41,7 @@ checkMobileMenuValue();
           </li>
           <li class="menu-item analytics" @click="updateCurrentDashboardView('analytics')">
             <img width="25" src="../../assets/img/icons/dashboard/analytics.png" alt="" />
-            Analiza
+            Analitika
           </li>
           <li class="menu-item help">
             <img width="25" src="../../assets/img/icons/dashboard/help.png"
