@@ -58,6 +58,7 @@ const sendCodeToBackend = async (code: any) => {
         picture: userResponse.data["picture"],
         isAuth: true,
         userType: "",
+        password: ""
       };
 
       localStorage.setItem("isAuth", "true");

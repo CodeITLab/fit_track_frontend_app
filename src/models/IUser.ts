@@ -5,4 +5,5 @@ export interface IUser {
     picture:string,
     isAuth: boolean,
     userType:string
+    password: string
 }

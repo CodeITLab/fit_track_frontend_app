@@ -24,10 +24,18 @@ onBeforeMount(async () => {
       </div>
       <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna <span class="highlighted">Ploča</span></h5>
       <div class="user-info">
-        <h5 class="text-white heading-user-name">
-          {{ userData?.name }} {{ userData?.lastName }}
-        </h5>
-        <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="40" alt="" />
+        <div class="notification-icon">
+          <a href="#">
+            <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
+            <span class="badge badge-light">1</span>
+          </a>
+        </div>
+        <div class="personal-info">
+          <h5 class="text-white heading-user-name">
+            {{ userData?.name }} {{ userData?.lastName }}
+          </h5>
+          <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="40" alt="" />
+        </div>
       </div>
     </div>
 </template>
