@@ -8,9 +8,11 @@ import { onBeforeMount } from "vue";
 import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
 import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
+import WorkoutController from "@/controllers/WorkoutController";
 
 onBeforeMount(() => {
-  GetWorkoutData();
+  const email = localStorage.getItem("email") || "";
+  WorkoutController.fetchData(email);
 });
 </script>
 

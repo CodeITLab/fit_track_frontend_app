@@ -1,5 +1,6 @@
 // src/services/apiService.ts
 import axios, { AxiosInstance, AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
+import {IWorkoutModel} from "@/models/IWorkoutModel";
 
 class ApiService {
     private api: AxiosInstance;
@@ -62,7 +63,7 @@ class ApiService {
     }
 
     // GET request
-    public async get<T>(url: string, email?: string): Promise<T> {
+    public async get<T>(url: string, email?: { email: string } | {}): Promise<T> {
         try {
             const response: AxiosResponse<T> = await this.api.get(url, {
                 params: {email}
@@ -74,10 +75,9 @@ class ApiService {
     }
 
     // POST request
-    public async post<T>(url: string, data: T): Promise<T> {
+    public async post<T>(url: string, data: IWorkoutModel): Promise<void> {
         try {
-            const response: AxiosResponse<T> = await this.api.post(url, data);
-            return response.data;
+            await this.api.post(url, data);
         } catch (error) {
             this.handleError(error as AxiosError);
         }
