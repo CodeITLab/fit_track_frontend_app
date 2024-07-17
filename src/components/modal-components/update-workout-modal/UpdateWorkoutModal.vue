@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { deleteCurrentWorkout, updateCurrentWorkout } from "@/api/useFetch";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
@@ -29,7 +28,6 @@ const submit = () => {
 
   if (workoutData) {
     WorkoutController.updateData(workoutData);
-    //updateCurrentWorkout(workoutData).updateWorkoutData();
     ModalManager().CloseModal("updateWorkoutModal");
   }
 };
@@ -59,6 +57,7 @@ const submit = () => {
           <input
             type="text"
             name="workoutName"
+            maxlength="20"
             v-model="useWorkoutStore().getSelectedWorkout.name"
             :placeholder="useWorkoutStore().getSelectedWorkout?.name"
           />
@@ -76,6 +75,7 @@ const submit = () => {
                 type="text"
                 class="form-control"
                 id="exerciseName"
+                maxlength="16"
                 v-model="exercise.name"
                 :placeholder="exercise.name"
                 required
