@@ -8,6 +8,14 @@ import { onBeforeMount } from "vue";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
 import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
 import WorkoutController from "@/controllers/WorkoutController";
+import {useUserStore} from "@/store/userStore";
+
+onBeforeMount(async () => {
+  if(useUserStore().getUserData.email === "") {
+    const email = localStorage.getItem("email") || "";
+    await WorkoutController.fetchUserByEmail(email);
+  }
+})
 
 </script>
 

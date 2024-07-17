@@ -17,7 +17,7 @@ const checkMobileMenuValue = () => {
 }
 
 onBeforeMount(() => {
-checkMobileMenuValue();
+  checkMobileMenuValue();
   screen.width <= 768 ? isMobile.value = true : isMobile.value = false;
 });
 

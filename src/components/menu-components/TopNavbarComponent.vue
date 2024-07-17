@@ -5,13 +5,12 @@ import { useMenuStore } from "@/store/menuStore";
 import WorkoutController from "@/controllers/WorkoutController";
 import {useUserStore} from "@/store/userStore";
 
-const userData = computed(() => { return useUserStore().getUserData })
+const userData = computed(() => { return useUserStore().getUserData });
+const hasUserAnyNotifications = userData.value.notificationsData.length > 0;
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
-
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
-
 });
 
 </script>
@@ -27,7 +26,7 @@ onBeforeMount(async () => {
         <div class="notification-icon">
           <a href="#">
             <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
-            <span class="badge badge-light">1</span>
+            <span v-if="hasUserAnyNotifications" class="badge badge-light">{{userData.notificationsData.length}}</span>
           </a>
         </div>
         <div class="personal-info">
