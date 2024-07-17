@@ -1,4 +1,3 @@
-// src/services/apiService.ts
 import axios, { AxiosInstance, AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
 import {IWorkoutModel} from "@/models/IWorkoutModel";
 

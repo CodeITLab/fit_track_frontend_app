@@ -61,7 +61,6 @@ const closeModal = () => {
 
 const submit = () => {
   WorkoutController.createData(formValues.value);
-  //saveWorkoutData(formValues.value).saveWorkoutData();
   resetFormValues();
   closeModal();
 };
