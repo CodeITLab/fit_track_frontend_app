@@ -7,6 +7,9 @@ import { useUserStore } from "@/store/userStore";
 import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
 import {INotifications} from "@/models/INotifications";
+import {NotificationMessages} from "@/helpers/TextEnums";
+import WorkoutController from "@/controllers/WorkoutController";
+import router from "@/router";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 export const login = (): void => {
@@ -52,20 +55,33 @@ const sendCodeToBackend = async (code: any) => {
     if (userResponse && userResponse.data) {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const userData: IUser = {
-        name: userResponse.data["given_name"],
-        lastName: userResponse.data["family_name"],
-        email: userResponse.data["email"],
-        picture: userResponse.data["picture"],
-        isAuth: true,
-        userType: "",
-        password: "",
-        notificationsData: [{title: "aaa", flag: "jsdjs", body: "uiiuii"}]
-      };
+      const checkIfUserExists = await WorkoutController.fetchUserByEmail(userResponse.data["email"]);
 
-      localStorage.setItem("isAuth", "true");
-      useUserStore().saveUserData(userData);
-      ModalManager().UpdateCurrentModalValue("userTypeModal", true);
+      if(checkIfUserExists === null) {
+        const userData: IUser = {
+          name: userResponse.data["given_name"],
+          lastName: userResponse.data["family_name"],
+          email: userResponse.data["email"],
+          picture: userResponse.data["picture"],
+          isAuth: true,
+          userType: "",
+          password: "",
+          notificationsData: [{
+            title: NotificationMessages.TITLE,
+            flag: NotificationMessages.TAG,
+            body: NotificationMessages.BODY
+          }]
+        };
+
+        localStorage.setItem("isAuth", "true");
+        useUserStore().saveUserData(userData);
+        ModalManager().UpdateCurrentModalValue("userTypeModal", true);
+      } else {
+        localStorage.setItem("isAuth", "true");
+        ModalManager().CloseModal("googleLoginModal");
+        router.push("/dashboard");
+      }
+
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");

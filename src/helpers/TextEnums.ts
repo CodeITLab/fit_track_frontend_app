@@ -27,3 +27,9 @@ export enum GeneralText {
   DELETE = "Izbriši",
   UPDATE = "Ažuriraj",
 }
+
+export enum NotificationMessages {
+  TITLE = "Definirajte svoju lozinku",
+  BODY = "Trenutno ste prijavljeni preko Google opcije. Ako želite dovršiti registraciju svojeg računa, zamolili bi vas da definirate svoju lozinku. Definiranjem lozinke imate mogućnost da se slijedeći put prijavite svojim emailom i trenutno definiranom lozinkom bez korištenja Google servisa.",
+  TAG = "Password Action"
+}

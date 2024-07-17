@@ -2,6 +2,7 @@ import ApiService from '@/api/apiService';
 import {useWorkoutStore} from "@/store/workoutStore";
 import {IWorkoutModel} from "@/models/IWorkoutModel";
 import {IUser} from "@/models/IUser";
+import {useUserStore} from "@/store/userStore";
 
 class WorkoutController {
     public async fetchData(): Promise<void> {
@@ -15,11 +16,10 @@ class WorkoutController {
         }
     }
 
-    public async fetchUserByEmail<IUser>(): Promise<IUser | undefined> {
+    public async fetchUserByEmail(email: string): Promise<void> {
         try {
-            const email = localStorage.getItem("email") || "";
             const response = await ApiService.get<IUser>("user/get-user-by-email?email=" + email);
-            return response;
+            useUserStore().saveUserData(response);
         } catch (error) {
             console.error('Error creating data', error);
             throw error;
@@ -30,7 +30,7 @@ class WorkoutController {
         try {
             await ApiService.post("/user/save-user-data", data);
             await this.fetchData();
-            await this.fetchUserByEmail();
+            await this.fetchUserByEmail(data.email);
         } catch (error) {
             console.error('Error creating data', error);
             throw error;
