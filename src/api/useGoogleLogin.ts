@@ -6,6 +6,7 @@ import { IUser } from "@/models/IUser";
 import { useUserStore } from "@/store/userStore";
 import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
+import {INotifications} from "@/models/INotifications";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 export const login = (): void => {
@@ -58,7 +59,8 @@ const sendCodeToBackend = async (code: any) => {
         picture: userResponse.data["picture"],
         isAuth: true,
         userType: "",
-        password: ""
+        password: "",
+        notifications: [] as INotifications[]
       };
 
       localStorage.setItem("isAuth", "true");
