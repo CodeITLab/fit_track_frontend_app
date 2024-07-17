@@ -35,9 +35,11 @@ class WorkoutController {
         }
     }
 
-    public async deleteData(id: number): Promise<any> {
+    public async deleteData(): Promise<void> {
         try {
-            await ApiService.delete(`/data/${id}`);
+            const id = useWorkoutStore().getSelectedWorkout["id"];
+            await ApiService.delete(`/workouts/delete-user-workout?id=${id}`);
+            await this.fetchData();
         } catch (error) {
             console.error('Error deleting data', error);
             throw error;

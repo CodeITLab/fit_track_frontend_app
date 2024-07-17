@@ -8,9 +8,7 @@ import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
 import WorkoutController from "@/controllers/WorkoutController";
 
 const deleteWorkout = () => {
-  deleteCurrentWorkout(
-    useWorkoutStore().getSelectedWorkout
-  ).deleteWorkoutData();
+  WorkoutController.deleteData();
   ModalManager().CloseModal("updateWorkoutModal");
 };
 

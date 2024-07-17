@@ -93,10 +93,9 @@ class ApiService {
     }
 
     // DELETE request
-    public async delete<T>(url: string): Promise<T> {
+    public async delete(url: string): Promise<void> {
         try {
-            const response: AxiosResponse<T> = await this.api.delete(url);
-            return response.data;
+            await this.api.delete(url);
         } catch (error) {
             this.handleError(error as AxiosError);
         }
