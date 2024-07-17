@@ -62,9 +62,9 @@ class ApiService {
     }
 
     // GET request
-    public async get(url: string, email?: { email: string } | {}): Promise<IWorkoutModel[]> {
+    public async get<T>(url: string, email?: { email: string } | {}): Promise<T> {
         try {
-            const response: AxiosResponse<IWorkoutModel[]> = await this.api.get(url, {
+            const response: AxiosResponse<T> = await this.api.get(url, {
                 params: {email}
             });
             return response.data;
@@ -74,7 +74,7 @@ class ApiService {
     }
 
     // POST request
-    public async post<IWorkoutModel>(url: string, data: IWorkoutModel): Promise<void> {
+    public async post<T>(url: string, data: T): Promise<void> {
         try {
             await this.api.post(url, data);
         } catch (error) {

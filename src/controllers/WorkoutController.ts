@@ -1,15 +1,36 @@
 import ApiService from '@/api/apiService';
 import {useWorkoutStore} from "@/store/workoutStore";
 import {IWorkoutModel} from "@/models/IWorkoutModel";
+import {IUser} from "@/models/IUser";
 
 class WorkoutController {
     public async fetchData(): Promise<void> {
         try {
             const email = localStorage.getItem("email") || "";
-            const response = await ApiService.get("workouts/get-users-workouts?email=" + email);
+            const response = await ApiService.get<IWorkoutModel[]>("workouts/get-users-workouts?email=" + email);
             useWorkoutStore().saveWorkoutData(response);
         } catch (error) {
             console.error('Error fetching data', error);
+            throw error;
+        }
+    }
+
+    public async fetchUserByEmail<IUser>(): Promise<IUser | undefined> {
+        try {
+            const email = localStorage.getItem("email") || "";
+            const response = await ApiService.get<IUser>("user/get-user-by-email?email=" + email);
+            return response;
+        } catch (error) {
+            console.error('Error creating data', error);
+            throw error;
+        }
+    }
+
+    public async saveUserInfo(data: IUser): Promise<void> {
+        try {
+            await ApiService.post("/user/save-user-data", data);
+        } catch (error) {
+            console.error('Error creating data', error);
             throw error;
         }
     }

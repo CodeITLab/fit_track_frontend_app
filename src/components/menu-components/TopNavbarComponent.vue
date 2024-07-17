@@ -1,24 +1,17 @@
 <script lang="ts" setup>
-import { getData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
 import { onBeforeMount, ref } from 'vue';
 import { useMenuStore } from "@/store/menuStore";
+import WorkoutController from "@/controllers/WorkoutController";
 
-const userData = ref<IUser | null>();
-const userDataErrors = ref(false);
+const userData = ref<IUser | undefined>(undefined);
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
 
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
-  let currentUser = localStorage.getItem('email');
+  userData.value = await WorkoutController.fetchUserByEmail();
 
-  const { data, hasError } = await getData<IUser>(
-    'http://127.0.0.1:8080/user/get-user-by-email?email=' + currentUser
-  );
-
-  userData.value = data.value;
-  userDataErrors.value = hasError.value;
 });
 
 </script>

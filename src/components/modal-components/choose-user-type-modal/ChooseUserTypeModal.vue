@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import router from "@/router";
-import { saveUserData } from "@/api/useFetch";
 import { useUserStore } from "@/store/userStore";
-import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
+import WorkoutController from "@/controllers/WorkoutController";
 
 const updateUserType = (type: string): void => {
   useUserStore().updateUserType(type);
-  saveUserData(useUserStore().getUserData).saveUserData();
+  WorkoutController.saveUserInfo(useUserStore().getUserData);
   ModalManager().UpdateCurrentModalValue("userTypeModal", false);
   router.push("/dashboard");
 };
