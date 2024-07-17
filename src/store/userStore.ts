@@ -13,7 +13,7 @@ export const useUserStore = defineStore("user", {
         isAuth: false,
         userType: "",
         password: "",
-        notifications: [] as INotifications[] | undefined
+        notifications: [] as INotifications[]
       },
     };
   },
@@ -24,9 +24,6 @@ export const useUserStore = defineStore("user", {
   },
   actions: {
     saveUserData(userData: IUser) {
-      if(userData.password) {
-        this.defaultUserData.notifications?.push({title: "lalala", body: "okoakoka", flag: "jhahshaha"})
-      }
       this.defaultUserData = userData;
       localStorage.setItem("email", userData.email);
     },

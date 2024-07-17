@@ -60,7 +60,7 @@ const sendCodeToBackend = async (code: any) => {
         isAuth: true,
         userType: "",
         password: "",
-        notifications: [] as INotifications[]
+        notifications: [{title: "aaa", flag: "jsdjs", body: "uiiuii"}]
       };
 
       localStorage.setItem("isAuth", "true");
@@ -74,3 +74,4 @@ const sendCodeToBackend = async (code: any) => {
     console.log("Failed to fetch");
   }
 };
+
