@@ -27,7 +27,7 @@ class WorkoutController {
     public async updateData(data: IWorkoutModel): Promise<void> {
         try {
             const id = useWorkoutStore().getSelectedWorkout["id"];
-            await ApiService.put(`/data/${id}`, data);
+            await ApiService.put(`workouts/update-user-workout?id=${id}`, data);
             await this.fetchData();
         } catch (error) {
             console.error('Error updating data', error);
