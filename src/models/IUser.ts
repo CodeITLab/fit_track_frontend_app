@@ -1,3 +1,5 @@
+import {INotifications} from "@/models/INotifications";
+
 export interface IUser {
     name: string,
     lastName: string,
@@ -6,4 +8,5 @@ export interface IUser {
     isAuth: boolean,
     userType:string
     password: string
+    notifications: INotifications[] | undefined
 }
