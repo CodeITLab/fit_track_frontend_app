@@ -60,7 +60,7 @@ const sendCodeToBackend = async (code: any) => {
         isAuth: true,
         userType: "",
         password: "",
-        notifications: [{title: "aaa", flag: "jsdjs", body: "uiiuii"}]
+        notificationsData: [{title: "aaa", flag: "jsdjs", body: "uiiuii"}]
       };
 
       localStorage.setItem("isAuth", "true");

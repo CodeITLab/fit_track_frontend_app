@@ -9,9 +9,6 @@ import UpdateWorkoutModal from "@/components/modal-components/update-workout-mod
 import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
 import WorkoutController from "@/controllers/WorkoutController";
 
-onBeforeMount(() => {
-  WorkoutController.fetchData();
-});
 </script>
 
 <template>

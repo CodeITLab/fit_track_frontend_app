@@ -29,6 +29,8 @@ class WorkoutController {
     public async saveUserInfo(data: IUser): Promise<void> {
         try {
             await ApiService.post("/user/save-user-data", data);
+            await this.fetchData();
+            await this.fetchUserByEmail();
         } catch (error) {
             console.error('Error creating data', error);
             throw error;

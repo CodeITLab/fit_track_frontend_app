@@ -8,5 +8,5 @@ export interface IUser {
     isAuth: boolean,
     userType:string
     password: string
-    notifications: INotifications[]
+    notificationsData: INotifications[]
 }

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import { IUser } from '@/models/IUser';
-import { onBeforeMount, ref } from 'vue';
+import {computed, onBeforeMount, ref} from 'vue';
 import { useMenuStore } from "@/store/menuStore";
 import WorkoutController from "@/controllers/WorkoutController";
+import {useUserStore} from "@/store/userStore";
 
-const userData = ref<IUser | undefined>(undefined);
+const userData = computed(() => { return useUserStore().getUserData })
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
 
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
-  userData.value = await WorkoutController.fetchUserByEmail();
 
 });
 

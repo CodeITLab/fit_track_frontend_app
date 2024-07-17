@@ -13,7 +13,7 @@ export const useUserStore = defineStore("user", {
         isAuth: false,
         userType: "",
         password: "",
-        notifications: [] as INotifications[]
+        notificationsData: [] as INotifications[]
       },
     };
   },
