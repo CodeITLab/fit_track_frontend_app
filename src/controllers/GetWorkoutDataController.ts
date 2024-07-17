@@ -7,7 +7,7 @@ const GetWorkoutData = async (): Promise<void> => {
   const email = localStorage.getItem("email") || "";
 
   try {
-    const data = await apiService.get<IWorkoutModel[]>("workouts/get-users-workouts?email=" + email);
+    const data = await apiService.get("workouts/get-users-workouts?email=" + email);
     useWorkoutStore().saveWorkoutData(data);
   } catch (error) {
     console.error(error)

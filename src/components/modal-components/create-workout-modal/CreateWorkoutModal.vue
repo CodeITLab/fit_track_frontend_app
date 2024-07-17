@@ -6,6 +6,8 @@ import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataControll
 import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
 import { ref } from "vue";
 import { saveWorkoutData } from "@/api/useFetch";
+import WorkoutController from "@/controllers/WorkoutController";
+import {formatDate} from "@vueuse/core";
 
 const userEmail = localStorage.getItem("email") || "";
 
@@ -58,7 +60,8 @@ const closeModal = () => {
 };
 
 const submit = () => {
-  saveWorkoutData(formValues.value).saveWorkoutData();
+  WorkoutController.createData(formValues.value);
+  //saveWorkoutData(formValues.value).saveWorkoutData();
   resetFormValues();
   closeModal();
 };

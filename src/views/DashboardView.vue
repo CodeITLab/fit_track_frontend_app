@@ -5,14 +5,12 @@ import LogoutModal from "@/components/modal-components/logout-modal/LogoutModal.
 import CreateWorkoutButton from "@/components/workout-components/CreateWorkoutButton.vue";
 import CreateWorkoutModal from "@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue";
 import { onBeforeMount } from "vue";
-import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
 import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
 import WorkoutController from "@/controllers/WorkoutController";
 
 onBeforeMount(() => {
-  const email = localStorage.getItem("email") || "";
-  WorkoutController.fetchData(email);
+  WorkoutController.fetchData();
 });
 </script>
 
