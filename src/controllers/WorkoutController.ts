@@ -1,4 +1,3 @@
-// src/controllers/ExampleController.ts
 import ApiService from '@/api/apiService';
 import {useWorkoutStore} from "@/store/workoutStore";
 import {IWorkoutModel} from "@/models/IWorkoutModel";
@@ -25,9 +24,11 @@ class WorkoutController {
         }
     }
 
-    public async updateData(id: number, data: IWorkoutModel): Promise<void> {
+    public async updateData(data: IWorkoutModel): Promise<void> {
         try {
-            const response = await ApiService.put(`/data/${id}`, data);
+            const id = useWorkoutStore().getSelectedWorkout["id"];
+            await ApiService.put(`/data/${id}`, data);
+            await this.fetchData();
         } catch (error) {
             console.error('Error updating data', error);
             throw error;

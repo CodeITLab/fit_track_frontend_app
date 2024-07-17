@@ -84,10 +84,9 @@ class ApiService {
     }
 
     // PUT request
-    public async put<T>(url: string, data: T): Promise<T> {
+    public async put<IWorkoutModel>(url: string, data: IWorkoutModel): Promise<void> {
         try {
-            const response: AxiosResponse<T> = await this.api.put(url, data);
-            return response.data;
+            await this.api.put(url, data);
         } catch (error) {
             this.handleError(error as AxiosError);
         }

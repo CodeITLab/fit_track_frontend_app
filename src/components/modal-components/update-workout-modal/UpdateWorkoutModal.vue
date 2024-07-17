@@ -5,6 +5,7 @@ import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
+import WorkoutController from "@/controllers/WorkoutController";
 
 const deleteWorkout = () => {
   deleteCurrentWorkout(
@@ -29,7 +30,8 @@ const submit = () => {
   };
 
   if (workoutData) {
-    updateCurrentWorkout(workoutData).updateWorkoutData();
+    WorkoutController.updateData(workoutData);
+    //updateCurrentWorkout(workoutData).updateWorkoutData();
     ModalManager().CloseModal("updateWorkoutModal");
   }
 };
