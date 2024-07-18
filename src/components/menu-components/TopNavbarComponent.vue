@@ -4,6 +4,7 @@ import {computed, onBeforeMount, ref} from 'vue';
 import { useMenuStore } from "@/store/menuStore";
 import WorkoutController from "@/controllers/WorkoutController";
 import {useUserStore} from "@/store/userStore";
+import ModalManager from "@/controllers/ModalManagerController";
 
 const userData = computed(() => { return useUserStore().getUserData });
 const numberOfNotifications = userData.value.notificationsData.length;
@@ -25,7 +26,7 @@ onBeforeMount(async () => {
       <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna <span class="highlighted">Ploča</span></h5>
       <div class="user-info">
         <div class="notification-icon">
-          <a href="#">
+          <a @click="ModalManager().UpdateCurrentModalValue('inboxModal', true)">
             <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
             <span v-if="hasUserAnyNotifications" class="badge badge-light">{{ numberOfNotifications }}</span>
           </a>

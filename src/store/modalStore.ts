@@ -6,6 +6,10 @@ export const useModalStore = defineStore("modals", {
     return {
       modals: [
         {
+          name: "inboxModal",
+          isActive: false
+        },
+        {
           name: "googleLoginModal",
           isActive: false,
         },

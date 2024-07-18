@@ -11,13 +11,17 @@ import WorkoutController from "@/controllers/WorkoutController";
 import {useUserStore} from "@/store/userStore";
 import ModalManager from "@/controllers/ModalManagerController";
 import ChooseUserTypeModal from "@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue";
+import InboxModalList from "@/components/modal-components/inbox-modal/inbox-modal-list.vue";
 
 onBeforeMount(async () => {
+  console.log(useUserStore().getUserData);
   if(useUserStore().getUserData.email === "") {
+    console.log("We in.")
     const email = localStorage.getItem("email") || "";
     await WorkoutController.fetchUserByEmail(email);
   }
   if(useUserStore().getUserData.userType === "") {
+    console.log("User Type check")
     ModalManager().UpdateCurrentModalValue("userTypeModal", true);
   }
 })
@@ -44,6 +48,7 @@ onBeforeMount(async () => {
       <CreateWorkoutModal />
       <UpdateWorkoutModal />
       <ChooseUserTypeModal />
+      <InboxModalList/>
       <LogoutModal />
     </main>
   </div>
