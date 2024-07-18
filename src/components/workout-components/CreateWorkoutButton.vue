@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useModalStore } from "@/store/modalStore";
 import { useWorkoutStore } from "@/store/workoutStore";
 import ModalManager from "@/controllers/ModalManagerController";
+
 </script>
 
 <template>

@@ -18,6 +18,7 @@ const checkMobileMenuValue = () => {
 
 onBeforeMount(() => {
   checkMobileMenuValue();
+  console.log("Side Menu Navbar")
   screen.width <= 768 ? isMobile.value = true : isMobile.value = false;
 });
 

@@ -8,7 +8,7 @@ import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
 import {INotifications} from "@/models/INotifications";
 import {NotificationMessages} from "@/helpers/TextEnums";
-import WorkoutController from "@/controllers/WorkoutController";
+import WorkoutController from "@/controllers/ApiController";
 import router from "@/router";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 

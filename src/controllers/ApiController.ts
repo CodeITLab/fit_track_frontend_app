@@ -4,7 +4,7 @@ import {IWorkoutModel} from "@/models/IWorkoutModel";
 import {IUser} from "@/models/IUser";
 import {useUserStore} from "@/store/userStore";
 
-class WorkoutController {
+class ApiController {
     public async fetchData(): Promise<void> {
         try {
             const email = localStorage.getItem("email") || "";
@@ -70,4 +70,4 @@ class WorkoutController {
     }
 }
 
-export default new WorkoutController();
+export default new ApiController();

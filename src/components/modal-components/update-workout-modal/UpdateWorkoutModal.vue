@@ -4,7 +4,7 @@ import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
-import WorkoutController from "@/controllers/WorkoutController";
+import WorkoutController from "@/controllers/ApiController";
 
 const deleteWorkout = () => {
   WorkoutController.deleteData();

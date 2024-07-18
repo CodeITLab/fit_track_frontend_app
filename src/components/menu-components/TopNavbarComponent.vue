@@ -2,17 +2,18 @@
 import { IUser } from '@/models/IUser';
 import {computed, onBeforeMount, ref} from 'vue';
 import { useMenuStore } from "@/store/menuStore";
-import WorkoutController from "@/controllers/WorkoutController";
+import WorkoutController from "@/controllers/ApiController";
 import {useUserStore} from "@/store/userStore";
 import ModalManager from "@/controllers/ModalManagerController";
 
 const userData = computed(() => { return useUserStore().getUserData });
-console.log(userData.value)
 const numberOfNotifications = userData.value.notificationsData.length;
 const hasUserAnyNotifications = userData.value.notificationsData.length > 0;
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
+  const email = localStorage.getItem("email") || "";
+  await WorkoutController.fetchUserByEmail(email);
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
 });
 

@@ -2,8 +2,10 @@
 import router from "@/router";
 import { useUserStore } from "@/store/userStore";
 import ModalManager from "@/controllers/ModalManagerController";
-import WorkoutController from "@/controllers/WorkoutController";
+import WorkoutController from "@/controllers/ApiController";
 import {onBeforeMount} from "vue";
+
+console.log("User Type Modal: ");
 
 const updateUserType = async (type: string): Promise<void> => {
   useUserStore().updateUserType(type);
