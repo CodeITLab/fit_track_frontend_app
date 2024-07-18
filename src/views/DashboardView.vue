@@ -10,7 +10,7 @@ import DashboardContentWrapper from "@/components/dashboard-content-component/Da
 import WorkoutController from "@/controllers/WorkoutController";
 import ModalManager from "@/controllers/ModalManagerController";
 import ChooseUserTypeModal from "@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue";
-import InboxModalList from "@/components/modal-components/inbox-modal/inbox-modal-list.vue";
+import InboxModalList from "@/components/modal-components/inbox-modal/InboxModal.vue";
 import {useUserStore} from "@/store/userStore";
 
 onBeforeMount(async () => {
@@ -45,6 +45,7 @@ onBeforeMount(async () => {
       <CreateWorkoutModal />
       <UpdateWorkoutModal />
       <ChooseUserTypeModal />
+      <InboxModalList/>
       <LogoutModal />
     </main>
   </div>
