@@ -12,8 +12,6 @@ const hasUserAnyNotifications = userData.value.notificationsData.length > 0;
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
-  const email = localStorage.getItem("email") || "";
-  await WorkoutController.fetchUserByEmail(email);
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
 });
 
