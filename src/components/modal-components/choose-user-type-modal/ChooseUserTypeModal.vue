@@ -5,10 +5,8 @@ import ModalManager from "@/controllers/ModalManagerController";
 import WorkoutController from "@/controllers/WorkoutController";
 import {onBeforeMount} from "vue";
 
-
-
 onBeforeMount(() => {
-
+  console.log(useUserStore().getUserData)
 });
 
 const updateUserType = async (type: string): Promise<void> => {
@@ -18,7 +16,7 @@ const updateUserType = async (type: string): Promise<void> => {
 };
 
 const isUserTypeModalActive = (): boolean => {
-  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal" && useUserStore().getUserData.userType === "";
+  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal";
 };
 
 </script>
