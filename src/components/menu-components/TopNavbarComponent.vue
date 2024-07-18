@@ -6,6 +6,7 @@ import WorkoutController from "@/controllers/WorkoutController";
 import {useUserStore} from "@/store/userStore";
 
 const userData = computed(() => { return useUserStore().getUserData });
+const numberOfNotifications = userData.value.notificationsData.length;
 const hasUserAnyNotifications = userData.value.notificationsData.length > 0;
 const isMobile = ref(false);
 
@@ -26,7 +27,7 @@ onBeforeMount(async () => {
         <div class="notification-icon">
           <a href="#">
             <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
-            <span v-if="hasUserAnyNotifications" class="badge badge-light">{{ userData.notificationsData.length }}</span>
+            <span v-if="hasUserAnyNotifications" class="badge badge-light">{{ numberOfNotifications }}</span>
           </a>
         </div>
         <div class="personal-info">
