@@ -31,7 +31,6 @@ class WorkoutController {
         try {
             await ApiService.post("/user/save-user-data", data);
             await this.fetchData();
-            await this.fetchUserByEmail(data.email);
         } catch (error) {
             console.error('Error creating data', error);
             throw error;
