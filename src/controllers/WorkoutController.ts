@@ -19,6 +19,7 @@ class WorkoutController {
     public async fetchUserByEmail(email: string): Promise<void> {
         try {
             const response = await ApiService.get<IUser>("user/get-user-by-email?email=" + email);
+            console.log("Pozvao se user po mailu")
             useUserStore().saveUserData(response);
         } catch (error) {
             console.error('Error creating data', error);

@@ -16,6 +16,7 @@ onBeforeMount(async () => {
   ModalManager().UpdateCurrentModalValue("userTypeModal", true);
   if(useUserStore().getUserData.email === "") {
     const email = localStorage.getItem("email") || "";
+    console.log("Dohvačen je email iz local storagea")
     await WorkoutController.fetchUserByEmail(email);
   }
 })
