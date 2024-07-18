@@ -26,7 +26,7 @@ onBeforeMount(async () => {
         <div class="notification-icon">
           <a href="#">
             <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
-            <span v-if="hasUserAnyNotifications" class="badge badge-light">{{userData.notificationsData.length}}</span>
+            <span v-if="hasUserAnyNotifications" class="badge badge-light">1</span>
           </a>
         </div>
         <div class="personal-info">

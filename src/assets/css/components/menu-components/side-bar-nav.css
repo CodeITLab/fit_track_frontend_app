@@ -1,5 +1,6 @@
 nav {
     display: block;
+    position: absolute;
     height: 100%;
     width: 180px;
     border-right: 1px solid #0f011f;

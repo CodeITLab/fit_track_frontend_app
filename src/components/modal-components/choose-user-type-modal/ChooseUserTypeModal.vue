@@ -4,16 +4,20 @@ import { useUserStore } from "@/store/userStore";
 import ModalManager from "@/controllers/ModalManagerController";
 import WorkoutController from "@/controllers/WorkoutController";
 
-const updateUserType = (type: string): void => {
+const updateUserType = async (type: string): Promise<void> => {
   useUserStore().updateUserType(type);
-  WorkoutController.saveUserInfo(useUserStore().getUserData);
-  ModalManager().UpdateCurrentModalValue("userTypeModal", false);
-  router.push("/dashboard");
+  await WorkoutController.saveUserInfo(useUserStore().getUserData);
+  ModalManager().CloseModal("userTypeModal");
 };
+
+const isUserTypeModalActive = (): boolean => {
+  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal";
+};
+
 </script>
 
 <template>
-  <div class="container user-type">
+  <div v-if="isUserTypeModalActive()" class="user-type">
     <div class="card">
       <div class="card-header">
         <p>Vrste korištenja aplikacije</p>

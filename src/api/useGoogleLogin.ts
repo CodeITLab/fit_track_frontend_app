@@ -55,9 +55,7 @@ const sendCodeToBackend = async (code: any) => {
     if (userResponse && userResponse.data) {
       // Set the userDetails data property to the userResponse object
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const checkIfUserExists = await WorkoutController.fetchUserByEmail(userResponse.data["email"]);
 
-      if(checkIfUserExists === null) {
         const userData: IUser = {
           name: userResponse.data["given_name"],
           lastName: userResponse.data["family_name"],
@@ -75,13 +73,8 @@ const sendCodeToBackend = async (code: any) => {
 
         localStorage.setItem("isAuth", "true");
         useUserStore().saveUserData(userData);
-        ModalManager().UpdateCurrentModalValue("userTypeModal", true);
-      } else {
-        localStorage.setItem("isAuth", "true");
         ModalManager().CloseModal("googleLoginModal");
         router.push("/dashboard");
-      }
-
     } else {
       // Handle the case where userResponse or userResponse.data is undefined
       console.error("Failed to fetch user details.");

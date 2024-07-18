@@ -8,9 +8,6 @@ const isLoginModalActive = (): boolean => {
   return ModalManager().GetCurrentModalValue()?.name === "googleLoginModal";
 };
 
-const isUserTypeModalActive = (): boolean => {
-  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal";
-};
 </script>
 
 <template>
@@ -58,9 +55,6 @@ const isUserTypeModalActive = (): boolean => {
       </div>
       <div class="login-modal" v-if="isLoginModalActive()">
         <LoginModal />
-      </div>
-      <div class="dashboard-type" v-if="isUserTypeModalActive()">
-        <ChooseUserTypeModal />
       </div>
     </div>
   </div>
