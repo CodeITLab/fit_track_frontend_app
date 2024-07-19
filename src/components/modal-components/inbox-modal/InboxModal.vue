@@ -13,15 +13,13 @@ const isInboxModalActive = (): boolean => {
     <div class="container">
       <div class="row">
         <div class="col">
-          <p>Lalalal</p>
+          <p class="text-white">Lalalal</p>
         </div>
         <div class="col">
           <button
               type="button"
-              class="btn-close"
-              @click="
-          ModalManager().UpdateCurrentModalValue('googleLoginModal', false)
-        "
+              class="btn-close text-white"
+              @click="ModalManager().CloseModal('inboxModal')"
           ></button>
         </div>
       </div>
