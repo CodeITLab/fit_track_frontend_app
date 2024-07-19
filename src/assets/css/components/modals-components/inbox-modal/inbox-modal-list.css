@@ -1,0 +1,18 @@
+.inbox-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 75%;
+    padding: 15%;
+}
+
+.inbox-modal-header, .inbox-modal-body, .inbox-modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+}

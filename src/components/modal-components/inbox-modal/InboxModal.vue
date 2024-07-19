@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 
 import ModalManager from "@/controllers/ModalManagerController";
+import {computed, onBeforeMount} from "vue";
+import {useUserStore} from "@/store/userStore";
+
+const userData = computed(() => { return useUserStore().getUserData });
 
 const isInboxModalActive = (): boolean => {
   return ModalManager().GetCurrentModalValue()?.name === "inboxModal";
@@ -9,21 +13,21 @@ const isInboxModalActive = (): boolean => {
 </script>
 
 <template>
-  <div v-if="isInboxModalActive()" class="modal-component inbox-modal">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <p class="text-white">Lalalal</p>
-        </div>
-        <div class="col">
+  <div v-if="isInboxModalActive()" class="inbox-modal">
+    <div class="inbox-modal-header">
+          <p class="text-white">Inbox</p>
           <button
               type="button"
-              class="btn-close text-white"
+              class="btn-close btn-close-white"
               @click="ModalManager().CloseModal('inboxModal')"
           ></button>
-        </div>
+    </div>
+    <div class="inbox-modal-body">
+      <div class="inbox-messages" v-for="data in userData.notificationsData">
+
       </div>
     </div>
+    <div class="inbox-modal-footer"></div>
   </div>
 </template>
 
