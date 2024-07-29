@@ -39,6 +39,10 @@
     width: 30px;
 }
 
+.notification-icon:hover {
+    cursor: pointer;
+}
+
 .notification-icon span {
     position: absolute;
     bottom: 10px;
