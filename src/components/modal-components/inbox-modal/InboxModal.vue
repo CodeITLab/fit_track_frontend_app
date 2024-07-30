@@ -14,20 +14,19 @@ const isInboxModalActive = (): boolean => {
 
 <template>
   <div v-if="isInboxModalActive()" class="inbox-modal">
-    <div class="inbox-modal-header">
-          <p class="text-white">Inbox</p>
-          <button
-              type="button"
-              class="btn-close btn-close-white"
-              @click="ModalManager().CloseModal('inboxModal')"
-          ></button>
-    </div>
-    <div class="inbox-modal-body">
-      <div class="inbox-messages" v-for="data in userData.notificationsData">
-
+    <div class="inbox-modal-container">
+      <div class="inbox-modal-header">
+        <p class="text-white">Inbox</p>
+        <button type="button" class="btn-close btn-close-white" @click="ModalManager().CloseModal('inboxModal')"
+        ></button>
       </div>
+      <div class="inbox-modal-body">
+        <div class="inbox-messages" v-for="data in userData.notificationsData">
+
+        </div>
+      </div>
+      <div class="inbox-modal-footer"></div>
     </div>
-    <div class="inbox-modal-footer"></div>
   </div>
 </template>
 

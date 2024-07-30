@@ -6,7 +6,7 @@
     align-items: center;
     height: 100%;
     width: 75%;
-    padding: 15%;
+    padding: 10%;
 }
 
 .inbox-modal-header, .inbox-modal-body, .inbox-modal-footer {
@@ -15,4 +15,11 @@
     justify-content: space-between;
     width: 100%;
     height: fit-content;
+}
+
+.inbox-modal-container {
+    height: 1080px;
+    width: 820px;
+    padding: 25px;
+    background-color: rgba(87, 87, 87, 0.77);
 }
