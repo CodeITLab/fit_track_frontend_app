@@ -20,6 +20,7 @@ const isInboxModalActive = (): boolean => {
         <button type="button" class="btn-close btn-close-white" @click="ModalManager().CloseModal('inboxModal')"
         ></button>
       </div>
+      <hr/>
       <div class="inbox-modal-body">
         <div class="inbox-messages" v-for="data in userData.notificationsData">
 

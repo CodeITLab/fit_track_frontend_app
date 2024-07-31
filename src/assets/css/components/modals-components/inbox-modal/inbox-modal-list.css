@@ -21,5 +21,6 @@
     height: 1080px;
     width: 820px;
     padding: 25px;
-    background-color: rgba(87, 87, 87, 0.77);
+    background-color: #0f0f0f;
+    border: 1px solid rgba(239, 239, 239, 0.5);
 }
