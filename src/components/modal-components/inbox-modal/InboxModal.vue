@@ -23,7 +23,15 @@ const isInboxModalActive = (): boolean => {
       <hr/>
       <div class="inbox-modal-body">
         <div class="inbox-messages" v-for="data in userData.notificationsData">
-
+          <div class="message">
+            <div class="message-info">
+              <p class="message-title text-white">{{ data.title }}</p>
+              <p class="message-body text-white">{{ data.body }}</p>
+            </div>
+            <div class="message-date">
+              <p class="text-white">02.03.2025.</p></div>
+          </div>
+          <hr/>
         </div>
       </div>
       <div class="inbox-modal-footer"></div>
