@@ -57,6 +57,7 @@ const isLoginModalActive = (): boolean => {
         <LoginModal />
       </div>
     </div>
+    <hr/>
     <div class="row p-4">
       <div class="col side-image">
         <img width="720" src="../assets/img/backgrounds/app-dashboard.jpg" alt="App Dashboard">

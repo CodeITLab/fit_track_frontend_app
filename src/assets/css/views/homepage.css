@@ -21,7 +21,7 @@ body {
   height: 100% !important;
 }
 
-.home-view .row .col {
+.home-view>.row>.col {
   display: flex;
   justify-content: center;
   align-items: center;
