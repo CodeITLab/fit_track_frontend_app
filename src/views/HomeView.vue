@@ -64,22 +64,19 @@ const isLoginModalActive = (): boolean => {
       </div>
       <div class="col">
         <div class="main-content-title">
-          <h3 class="text-white">Što je Fitness And Tracking?</h3>
+          <h3 class="text-white">Što je Fitness <span class="highlighted">And</span> Tracking?</h3>
         </div>
         <hr/>
         <div class="main-content-description">
           <p class="text-white">
-            Naša fitness aplikacija pruža sve što vam je potrebno za postizanje vaših fitness ciljeva,
-            bilo da ste potpuni početnik ili iskusni vježbač.
+            Fitness platforma lagana za korištenje, bez obzira jeste li potpuni početnik ili iskusni vježbač.
           </p> <br/>
           <p class="text-white">
-            Kreirajte svoje vlastite rutine, unosite vježbe, pratite analitiku napretka i učite o različitim vrstama vježbi i njihovoj pravilnoj izvedbi.
-            Aplikacija nudi personalizirane preporuke za najbolje rutine prilagođene vašim potrebama.
+            Kreirajte vlastite rutine, unosite vježbe, pratite analitiku napretka i učite o različitim vrstama vježbi i njihovoj pravilnoj izvedbi.
           </p><br/>
           <p class="text-white">
-            Također, aplikacija je idealna za trenere koji mogu kreirati grupne treninge,
+            Aplikacija je namijenjena i za trenere koji mogu kreirati grupne treninge,
             pratiti napredak svojih klijenata i upravljati njihovim programima treninga na jednom mjestu.
-            Bez obzira na vaš nivo iskustva, naša aplikacija će vam pomoći da ostanete motivirani i postignete najbolje rezultate.
           </p>
         </div>
       </div>

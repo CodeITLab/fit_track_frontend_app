@@ -1,5 +1,5 @@
 export interface INotifications {
-    title: string | undefined,
-    body: string | undefined,
-    flag: string | undefined
+    notificationsTitle: string | undefined,
+    notificationsBody: string | undefined,
+    notificationsCategory: string | undefined
 }

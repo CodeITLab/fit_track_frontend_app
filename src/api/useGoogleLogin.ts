@@ -65,9 +65,9 @@ const sendCodeToBackend = async (code: any) => {
           userType: "",
           password: "",
           notificationsData: [{
-            title: NotificationMessages.TITLE,
-            flag: NotificationMessages.TAG,
-            body: NotificationMessages.BODY
+            notificationsTitle: NotificationMessages.TITLE,
+            notificationsCategory: NotificationMessages.TAG,
+            notificationsBody: NotificationMessages.BODY
           }]
         };
 
