@@ -1,3 +1,7 @@
+html, body, #app {
+    height: 100%;
+}
+
 .dashboard-wrapper {
     display: flex;
     flex-direction: row;
