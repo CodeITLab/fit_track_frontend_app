@@ -1,15 +1,13 @@
 <script lang="ts" setup>
 import { IWorkoutModel } from "@/models/IWorkoutModel";
-import { deleteCurrentWorkout, updateCurrentWorkout } from "@/api/useFetch";
 import ModalManager from "@/controllers/ModalManagerController";
 import { useWorkoutStore } from "../../../store/workoutStore";
 import UpdateWorkoutDataController from "@/controllers/UpdateWorkoutDataController";
 import { WorkoutModalText, GeneralText } from "@/helpers/TextEnums";
+import WorkoutController from "@/controllers/ApiController";
 
 const deleteWorkout = () => {
-  deleteCurrentWorkout(
-    useWorkoutStore().getSelectedWorkout
-  ).deleteWorkoutData();
+  WorkoutController.deleteData();
   ModalManager().CloseModal("updateWorkoutModal");
 };
 
@@ -29,7 +27,7 @@ const submit = () => {
   };
 
   if (workoutData) {
-    updateCurrentWorkout(workoutData).updateWorkoutData();
+    WorkoutController.updateData(workoutData);
     ModalManager().CloseModal("updateWorkoutModal");
   }
 };
@@ -37,7 +35,7 @@ const submit = () => {
 
 <template>
   <div
-    class="container-fluid create-workout-modal"
+    class="create-workout-modal"
     v-if="ModalManager().IsModalActive('updateWorkoutModal')"
   >
     <div class="create-workout-modal-wrapper">
@@ -59,6 +57,7 @@ const submit = () => {
           <input
             type="text"
             name="workoutName"
+            maxlength="20"
             v-model="useWorkoutStore().getSelectedWorkout.name"
             :placeholder="useWorkoutStore().getSelectedWorkout?.name"
           />
@@ -76,6 +75,7 @@ const submit = () => {
                 type="text"
                 class="form-control"
                 id="exerciseName"
+                maxlength="16"
                 v-model="exercise.name"
                 :placeholder="exercise.name"
                 required
@@ -165,4 +165,3 @@ const submit = () => {
 <style lang="css" scoped>
 @import "@/assets/css/components/modals-components/create-workout-modal/create-workout-modal.css";
 </style>
-@/controllers/GetWorkoutDataController

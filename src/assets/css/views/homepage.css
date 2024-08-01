@@ -3,10 +3,7 @@
 html,
 body {
   height: 100%;
-}
-
-#app {
-  height: 100%;
+  background-color: #000;
 }
 
 .highlighted {
@@ -24,24 +21,30 @@ body {
   height: 100% !important;
 }
 
-.main-content {
+.home-view .row .col {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.main-content-title {
+.home-view .row .col hr {
+  border: 2px solid #ee6b1c;
+  opacity: 1;
+  width: 120px;
+}
+
+.home-view .row .col.main-content-title {
   text-align: center;
 }
 
-.main-content-title h1 {
+.home-view .row .col .main-content-title h1,
+.home-view .row .col h3{
   font-family: "Anton SC", sans-serif;
 }
 
 .main-content-description {
-  padding: 0 10% 0 10%;
-  margin-top: 20px;
+  padding: 0 5% 0 5%;
   text-align: center;
 }
 

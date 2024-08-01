@@ -23,12 +23,42 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
 }
 
+.personal-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.notification-icon {
+    position: relative;
+    width: 30px;
+}
+
+.notification-icon:hover {
+    cursor: pointer;
+}
+
+.notification-icon span {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    display: block;
+    background-color: #ee6b1c;
+    border-radius: 50%;
+    font-size: 12px;
+}
 
 @media (min-width: 768px) {
     .heading-dashboard {
         height: 100%;
+    }
+    .user-info {
+        width: 280px;
     }
 }
 

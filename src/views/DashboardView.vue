@@ -2,17 +2,12 @@
 import TopNavbarComponent from "@/components/menu-components/TopNavbarComponent.vue";
 import SideNavbarComponent from "@/components/menu-components/SideNavbarComponent.vue";
 import LogoutModal from "@/components/modal-components/logout-modal/LogoutModal.vue";
-import CreateWorkoutButton from "@/components/workout-components/CreateWorkoutButton.vue";
 import CreateWorkoutModal from "@/components/modal-components/create-workout-modal/CreateWorkoutModal.vue";
-import WorkoutCardComponent from "@/components/workout-components/WorkoutCardComponent.vue";
-import { onBeforeMount } from "vue";
-import GetWorkoutData from "@/controllers/GetWorkoutDataController";
 import UpdateWorkoutModal from "@/components/modal-components/update-workout-modal/UpdateWorkoutModal.vue";
 import DashboardContentWrapper from "@/components/dashboard-content-component/DashboardContentWrapper.vue";
+import ChooseUserTypeModal from "@/components/modal-components/choose-user-type-modal/ChooseUserTypeModal.vue";
+import InboxModalList from "@/components/modal-components/inbox-modal/InboxModal.vue";
 
-onBeforeMount(() => {
-  GetWorkoutData();
-});
 </script>
 
 <template>
@@ -31,9 +26,10 @@ onBeforeMount(() => {
           </div>
         </div>
       </div>
-      <CreateWorkoutButton />
       <CreateWorkoutModal />
       <UpdateWorkoutModal />
+      <ChooseUserTypeModal />
+      <InboxModalList/>
       <LogoutModal />
     </main>
   </div>

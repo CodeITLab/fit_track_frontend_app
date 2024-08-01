@@ -1,20 +1,26 @@
 <script lang="ts" setup>
 import router from "@/router";
-import { saveUserData } from "@/api/useFetch";
 import { useUserStore } from "@/store/userStore";
-import { useModalStore } from "@/store/modalStore";
 import ModalManager from "@/controllers/ModalManagerController";
+import WorkoutController from "@/controllers/ApiController";
+import {onBeforeMount} from "vue";
 
-const updateUserType = (type: string): void => {
+console.log("User Type Modal: ");
+
+const updateUserType = async (type: string): Promise<void> => {
   useUserStore().updateUserType(type);
-  saveUserData(useUserStore().getUserData).saveUserData();
-  ModalManager().UpdateCurrentModalValue("userTypeModal", false);
-  router.push("/dashboard");
+  await WorkoutController.saveUserInfo(useUserStore().getUserData);
+  ModalManager().CloseModal("userTypeModal");
 };
+
+const isUserTypeModalActive = (): boolean => {
+  return ModalManager().GetCurrentModalValue()?.name === "userTypeModal";
+};
+
 </script>
 
 <template>
-  <div class="container user-type">
+  <div v-if="isUserTypeModalActive()" class="user-type">
     <div class="card">
       <div class="card-header">
         <p>Vrste korištenja aplikacije</p>

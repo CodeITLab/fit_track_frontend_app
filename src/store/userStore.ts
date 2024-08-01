@@ -1,5 +1,6 @@
 import { IUser } from "@/models/IUser";
 import { defineStore } from "pinia";
+import {INotifications} from "@/models/INotifications";
 
 export const useUserStore = defineStore("user", {
   state: () => {
@@ -11,6 +12,8 @@ export const useUserStore = defineStore("user", {
         picture: "",
         isAuth: false,
         userType: "",
+        password: "",
+        notificationsData: [] as INotifications[]
       },
     };
   },

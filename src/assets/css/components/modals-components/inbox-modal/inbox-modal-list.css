@@ -1,0 +1,73 @@
+.inbox-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 75%;
+    padding: 10%;
+}
+
+.inbox-modal-header, .inbox-modal-body, .inbox-modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+}
+
+.inbox-modal-container {
+    height: 1080px;
+    width: 820px;
+    padding: 25px;
+    background-color: #0f0f0f;
+    border: 1px solid rgba(239, 239, 239, 0.5);
+    overflow: auto;
+}
+
+.inbox-modal-header hr {
+    opacity: 1 !important;
+}
+
+.message, .inbox-messages {
+    width: 100%;
+}
+
+.message {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+}
+
+.message:hover {
+    cursor: pointer;
+    background-color: rgba(238, 107, 28, 0.2);
+}
+
+.message p {
+    padding: 0;
+    margin: 0;
+}
+
+.message-title {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.message-date p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.message-body {
+    font-size: 14px;
+    width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.8;
+}

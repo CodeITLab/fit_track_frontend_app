@@ -1,24 +1,18 @@
 <script lang="ts" setup>
-import { getData } from '@/api/useFetch';
 import { IUser } from '@/models/IUser';
-import { onBeforeMount, ref } from 'vue';
+import {computed, onBeforeMount, ref} from 'vue';
 import { useMenuStore } from "@/store/menuStore";
+import WorkoutController from "@/controllers/ApiController";
+import {useUserStore} from "@/store/userStore";
+import ModalManager from "@/controllers/ModalManagerController";
 
-const userData = ref<IUser | null>();
-const userDataErrors = ref(false);
+const userData = computed(() => { return useUserStore().getUserData });
+const numberOfNotifications = userData.value.notificationsData.length;
+const hasUserAnyNotifications = userData.value.notificationsData.length > 0;
 const isMobile = ref(false);
 
 onBeforeMount(async () => {
-
   screen.width < 760 ? isMobile.value = true : isMobile.value = false;
-  let currentUser = localStorage.getItem('email');
-
-  const { data, hasError } = await getData<IUser>(
-    'http://127.0.0.1:8080/user/get-user-by-email?email=' + currentUser
-  );
-
-  userData.value = data.value;
-  userDataErrors.value = hasError.value;
 });
 
 </script>
@@ -31,10 +25,18 @@ onBeforeMount(async () => {
       </div>
       <h5 v-if="!isMobile" class="text-white heading-logo">Nadzorna <span class="highlighted">Ploča</span></h5>
       <div class="user-info">
-        <h5 class="text-white heading-user-name">
-          {{ userData?.name }} {{ userData?.lastName }}
-        </h5>
-        <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="40" alt="" />
+        <div class="notification-icon">
+          <a @click="ModalManager().UpdateCurrentModalValue('inboxModal', true)">
+            <img width="20" src="@/assets/img/icons/dashboard/notification.png" alt="">
+            <span v-if="hasUserAnyNotifications" class="badge badge-light">{{ numberOfNotifications }}</span>
+          </a>
+        </div>
+        <div class="personal-info">
+          <h5 class="text-white heading-user-name">
+            {{ userData?.name }} {{ userData?.lastName }}
+          </h5>
+          <img class="border border-2 border-dark rounded-circle ms-2" :src="userData?.picture" height="40" alt="" />
+        </div>
       </div>
     </div>
 </template>

@@ -15,8 +15,9 @@ const selectedWorkout = (id: number) => {
     <div
       class="cards"
       v-for="(item, index) in useWorkoutStore().getWorkoutData"
+      @click="selectedWorkout(index)"
     >
-      <h3 @click="selectedWorkout(index)" key="index" class="font text-white">
+      <h3 key="index" class="text-white">
         {{ item.name }}
       </h3>
     </div>

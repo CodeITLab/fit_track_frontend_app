@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-.dashboard-type {
+.user-type {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -43,13 +43,16 @@
 }
 
 @media (max-width: 768px) {
-    .user-type {
+    .card {
         width: 620px !important;
     }
 }
 
 @media (min-width: 768px) {
     .user-type {
+        width: 75%;
+    }
+    .card {
         width: 620px !important;
     }
 }
