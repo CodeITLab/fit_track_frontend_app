@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 html,
 body {
@@ -14,14 +14,14 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #000
+  background-color: #000;
 }
 
 .home-view .row {
   height: 100% !important;
 }
 
-.home-view>.row>.col {
+.home-view > .row > .col {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@ body {
 }
 
 .home-view .row .col .main-content-title h1,
-.home-view .row .col h3{
+.home-view .row .col h3 {
   font-family: "Anton SC", sans-serif;
 }
 

@@ -43,16 +43,11 @@ const isLoginModalActive = (): boolean => {
           >
             {{ HomePageLoginText.LOGIN }}
           </button>
-          <button
-            class="btn text-white border border-dark-3 mt-3"
-            type="button"
-          >
-            {{ HomePageLoginText.SIGN_UP }}
-          </button>
+
           <ButtonComponent
             backgroundColor="backgroundColor"
             borderColor="borderColor"
-            btnText="Nastavi"
+            btnText="REGISTRACIJA"
           >
           </ButtonComponent>
         </div>
