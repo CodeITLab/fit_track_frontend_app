@@ -1,7 +1,10 @@
 .backgroundColor {
-  background-color: red;
+  font-family: "Anton SC", sans-serif;
+  letter-spacing: 2px;
+  width: 260px;
+  height: 50px;
 }
-
 .borderColor {
-  border: 3px solid purple;
+  background-color: #ee6b1c;
+  border: 2px solid black !important;
 }
